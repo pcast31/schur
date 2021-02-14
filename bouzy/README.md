@@ -18,6 +18,7 @@
 - Éviter les copies dans RWS.
 
 ## À faire dans un second temps
-- Faire une interface en ligne de commande
+- Faire une interface en ligne de commande.
+- Permettre d'enregister les partitions obtenues dans un fichier.
 - Implémenter l'algorithme abstractSimulation.
 - Éventuellement tester une autre implémentation de Board.
