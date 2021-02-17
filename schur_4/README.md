@@ -1,0 +1,5 @@
+- Trouve toutes les partitions pour Schur(4) (=44).
+- Plus tard : écrit les partitions dans des fichiers + meilleur readme.
+- Pour build et run en mode release : cargo run --release
+- Pour build en mode release : cargo build --release
+- l'executable est dans ./target/release/
