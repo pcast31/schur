@@ -1,5 +1,7 @@
 use std::{
     fmt::Debug,
+    fs::File,
+    io::{self, Write},
     ops::{Index, IndexMut},
     sync::mpsc,
     thread,
@@ -7,7 +9,7 @@ use std::{
 };
 
 const SCHUR_NUMBER: u8 = 44;
-const STACK_SIZE: usize = SCHUR_NUMBER as usize - 2;
+const STACK_SIZE: usize = SCHUR_NUMBER as usize + 1;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum Color {
@@ -20,8 +22,17 @@ enum Color {
 use Color::*;
 
 impl Color {
+    fn all() -> <Vec<Self> as IntoIterator>::IntoIter {
+        let mut all_colors = vec![One];
+
+        while let Some(color) = all_colors.last().unwrap().next() {
+            all_colors.push(color);
+        }
+        all_colors.into_iter()
+    }
+
     #[inline(always)]
-    fn next(self) -> Option<Color> {
+    fn next(self) -> Option<Self> {
         match self {
             One => Some(Two),
             Two => Some(Three),
@@ -33,13 +44,23 @@ impl Color {
 
 trait SumFreeSubset
 where
-    Self: Copy + Debug + Eq,
+    Self: Copy + Debug + Eq + Ord,
 {
     fn can_add(self, n: u8) -> bool;
 
     unsafe fn add(self, n: u8) -> Self;
 
     fn try_add(self, n: u8) -> Option<Self>;
+
+    fn to_vec(self) -> Vec<usize>;
+
+    fn to_string(self) -> String {
+        self.to_vec()
+            .iter()
+            .map(|n| n.to_string())
+            .collect::<Vec<String>>()
+            .join(" ")
+    }
 }
 
 impl SumFreeSubset for u64 {
@@ -61,18 +82,32 @@ impl SumFreeSubset for u64 {
             None
         }
     }
+
+    fn to_vec(mut self) -> Vec<usize> {
+        let mut partition = Vec::new();
+        let mut n = 0;
+
+        while self > 0 {
+            if self & 1 == 1 {
+                partition.push(n);
+            }
+            self >>= 1;
+            n += 1;
+        }
+        partition
+    }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-struct Partition<T>(u8, T, T, T, T)
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+struct Partition<S>(u8, S, S, S, S)
 where
-    T: SumFreeSubset;
+    S: SumFreeSubset;
 
-impl<T> Index<Color> for Partition<T>
+impl<S> Index<Color> for Partition<S>
 where
-    T: SumFreeSubset,
+    S: SumFreeSubset,
 {
-    type Output = T;
+    type Output = S;
 
     #[inline(always)]
     fn index(&self, color: Color) -> &Self::Output {
@@ -85,9 +120,9 @@ where
     }
 }
 
-impl<T> IndexMut<Color> for Partition<T>
+impl<S> IndexMut<Color> for Partition<S>
 where
-    T: SumFreeSubset,
+    S: SumFreeSubset,
 {
     #[inline(always)]
     fn index_mut(&mut self, color: Color) -> &mut Self::Output {
@@ -100,9 +135,24 @@ where
     }
 }
 
-impl<T> Partition<T>
+impl<S> IntoIterator for Partition<S>
 where
-    T: SumFreeSubset,
+    S: SumFreeSubset,
+{
+    type Item = S;
+    type IntoIter = <Vec<Self::Item> as IntoIterator>::IntoIter;
+
+    fn into_iter(self) -> Self::IntoIter {
+        Color::all()
+            .map(|color| self[color])
+            .collect::<Vec<Self::Item>>()
+            .into_iter()
+    }
+}
+
+impl<S> Partition<S>
+where
+    S: SumFreeSubset,
 {
     #[inline(always)]
     fn try_add(mut self, color: Color) -> Option<Self> {
@@ -111,25 +161,32 @@ where
         self.0 += 1;
         Some(self)
     }
+
+    fn to_string(self) -> String {
+        self.into_iter()
+            .map(|subset| subset.to_string())
+            .collect::<Vec<String>>()
+            .join("\n")
+    }
 }
 
-type Node<T> = (Color, Partition<T>);
+type Node<S> = (Color, Partition<S>);
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-struct Stack<T>(usize, [Node<T>; STACK_SIZE])
+struct Stack<S>(usize, [Node<S>; STACK_SIZE])
 where
-    T: SumFreeSubset;
+    S: SumFreeSubset;
 
-impl<T> Stack<T>
+impl<S> Stack<S>
 where
-    T: SumFreeSubset,
+    S: SumFreeSubset,
 {
-    fn new(partition: Partition<T>) -> Self {
+    fn new(partition: Partition<S>) -> Self {
         Stack(1, [(One, partition); STACK_SIZE])
     }
 
     #[inline(always)]
-    fn pop(&mut self) -> Option<Node<T>> {
+    fn pop(&mut self) -> Option<Node<S>> {
         if self.0 == 0 {
             None
         } else {
@@ -139,7 +196,7 @@ where
     }
 
     #[inline(always)]
-    fn push(&mut self, node: Node<T>) {
+    fn push(&mut self, node: Node<S>) {
         unsafe {
             *self.1.get_unchecked_mut(self.0) = node;
         }
@@ -147,26 +204,29 @@ where
     }
 }
 
-fn dfs<T>(partition: Partition<T>) -> Vec<Partition<T>> where T: SumFreeSubset {
+fn dfs<S>(partition: Partition<S>) -> Vec<Partition<S>>
+where
+    S: SumFreeSubset,
+{
     let mut solutions = Vec::new();
     let mut stack = Stack::new(partition);
 
     while let Some((color, partition)) = stack.pop() {
+        if partition.0 == SCHUR_NUMBER + 1{
+            solutions.push(partition);
+            continue;
+        }
         if let Some(next_color) = color.next() {
             stack.push((next_color, partition));
         }
         if let Some(extended) = partition.try_add(color) {
-            if partition.0 == SCHUR_NUMBER {
-                solutions.push(partition);
-            } else {
-                stack.push((One, extended));
-            }
+            stack.push((One, extended));
         }
     }
     solutions
 }
 
-fn main() {
+fn find_solutions() -> Vec<Partition<u64>> {
     const PARTITIONS: [Partition<u64>; 6] = [
         Partition(5, 0b1010, 0b100, 0b10000, 0),
         Partition(6, 0b10010, 0b1100, 0b100000, 0),
@@ -176,9 +236,6 @@ fn main() {
         Partition(5, 0b10, 0b100, 0b1000, 0b10000),
     ];
 
-    println!("Looking for solutions.");
-
-    let start = Instant::now();
     let (tx, rx) = mpsc::channel();
 
     for &partition in PARTITIONS.iter() {
@@ -196,12 +253,42 @@ fn main() {
         solutions.extend(new_solutions);
     }
 
+    solutions
+}
+
+fn write_solutions<S>(mut partitions: Vec<Partition<S>>) -> io::Result<()>
+where
+    S: SumFreeSubset,
+{
+    partitions.sort_unstable();
+    let name_width = partitions.len().to_string().len();
+
+    for (num, partition) in partitions.iter().enumerate() {
+        let mut file = File::create(format!(
+            "partitions/{:0width$}.txt",
+            num + 1,
+            width = name_width
+        ))?;
+        let content = partition.to_string().into_bytes();
+        file.write(&content)?;
+    }
+    Ok(())
+}
+
+fn main() {
+    println!("Looking for solutions.");
+
+    let start = Instant::now();
+
+    let solutions = find_solutions();
+
     let duration = start.elapsed();
 
     println!("{} partitions found in {:?}.", solutions.len(), duration);
     println!("Writting solutions.");
 
-    // TODO : write solutions
-
-    println!("Done.");
+    match write_solutions(solutions) {
+        Ok(()) => println!("Done."),
+        Err(err) => println!("Failed to write solutions.\n{}", err),
+    }
 }
