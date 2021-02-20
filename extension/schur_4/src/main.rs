@@ -265,7 +265,7 @@ where
 
     for (num, partition) in partitions.iter().enumerate() {
         let mut file = File::create(format!(
-            "partitions/{:0width$}.txt",
+            "../partitions/{:0width$}.txt",
             num + 1,
             width = name_width
         ))?;
