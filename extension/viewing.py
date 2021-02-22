@@ -104,7 +104,6 @@ class Viewing:
             self.squares.append(square)
 
     def find_lines(self, line):
-        yield line
         if line == 0 or line == 45:
             return
 
