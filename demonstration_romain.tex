@@ -1,0 +1,88 @@
+\documentclass{article}
+\title{New theoretical lower bounds of weak Schur numbers using regular Schur numbers}
+\author{Romain Ageron, Paul Casteras, Thibaut Pellerin, Yann Portella}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage[top=1cm]{geometry}
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+
+\begin{document}
+\maketitle
+\section{Introduction, context and notations}
+We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers.
+\begin{definition}
+A subset $A$ of $\mathbb{N}$ is said to be sum-free when :
+\[ \forall (a,b) \in A^2 \text{, } a+b \notin A
+\]
+\end{definition}
+\begin{definition}
+A subset $B$ of $\mathbb{N}$ is said to be weakly sum-free when :
+\[ \forall (a,b) \in B^2 \text{, } a \neq b \Longrightarrow a+b \notin B
+\]
+\end{definition}
+Let us notice that a sum-free subset is also weakly sum-free, hence justifying the name of \textit{weakly} sum-free subsets. Given $m$ and $n$ two integers, we are interested in partitioning the set of integers from 1 to $m$ in $n$ weakly sum-free subsets.
+\begin{notation}
+We denote by $[\![1,n]\!]$ the set of integers $\{1, 2, ..., n\}$
+\end{notation}
+Schur proved in [1] that given a number of subsets $n$, there exists a value of $m$ such that there exists no partition of $[\![1,p]\!]$ for any $p \geqslant m$. This observation leads to the following definition.
+\begin{definition}
+Let $n \in \mathbb{N}^*$, there exists an integer that we note S(n) (\textit{respectively WS(n)}) such that $[\![1,S(n) + 1]\!]$ (respectively $[\![1,WS(n) + 1]\!]$) can not be partitioned in $n$ sum-free subsets (respectively in $n$ weakly sum-free subsets) while $[\![1,S(n)]\!]$ (respectively $[\![1,WS(n)]\!]$) can be. S(n) is called the n\textsuperscript{th} Schur number and WS(n) the n\textsuperscript{th} weak Schur number.
+\end{definition}
+The values of both Schur and weak Schur numbers are known only for small values of $n$, and our goal is to improve the lower bounds on weak Schur numbers for $n \geqslant 5$. At the time being, the best lower bounds for weak Schur numbers are established by Rowley in [2]. He greatly improved the former best values with a purely theoretical and constructive approach. More precisely, he managed to build interesting weakly sum-free partitions with sum-free partitions. With this, he found the following lower bounds :
+\[ WS(n+1) \geqslant 4S(n) + 2
+\]
+\[
+WS(n+2) \geqslant 13S(n) + 8
+\]
+Actually, Rowley's construction can be generalised to find a lower bound for $WS(n+m)$ for all $(n,m) \in (\mathbb{N}^*)^2$. This result and its demonstration are detailled in the next part.
+\section{A new theoretical lower bound for WS(n+m)}
+The following theorem, inspired by Rowley's work, was found and proved by Romain Ageron.
+\begin{theorem}
+Let $(n,p), (r,s) \in (\mathbb{N}^*)^2$. If there exists a partition of $r$ weakly sum-free subsets of $[\![1,n]\!]$ and a partition of $s$ sum-free subsets of $[\![1,p]\!]$ then there exists a partition of $r+s$ weakly sum-free subsets of $[\![1,p(n+\left \lfloor \frac{n}{2} \right \rfloor + 1)+n]\!]$
+\end{theorem}
+In particular, if we choose $n = WS(r)$ and $p = WS(s)$ in the last theorem, the next corollary follows.
+\begin{corollary}
+$ \forall (n,m) \in (\mathbb{N}^*)^2 \text{, } WS(n+m) \geqslant S(m) \left (WS(n) + \left \lfloor \frac{WS(n)}{2} \right \rfloor +1 \right) + WS(n)$
+\end{corollary}
+\textsc{Proof :} Let $(n,p), (r,s) \in (\mathbb{N}^*)^2$,  $N = p(n+\left \lfloor \frac{n}{2} \right \rfloor + 1)+n$, $\alpha = \left \lfloor \frac{n}{2} \right \rfloor > 0$ and $\beta = n + \alpha + 1$. We denote by $f$ the projection of the equivalence relation induced by the partition of $[\![1,n]\!]$ and $g$ the one induced by the partition of $[\![1,p]\!]$. Each equivalence class is represented by a single integer, therefore :
+\[ f : [\![1,n]\!] \longrightarrow [\![1,r]\!] \text{ and } \forall (x,y) \in [\![1,n]\!]^2, \left\{
+    \begin{array}{ll}
+        x \neq y \\
+        f(x) = f(y)
+    \end{array}
+\right.
+\Longrightarrow f(x+y) \neq f(x)
+\]
+\[g : [\![1,p]\!] \longrightarrow [\![1,s]\!] \text{ and } \forall (x,y) \in [\![1,n]\!]^2 \text{, } f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)
+\]
+Let us start by parting the integers of $[\![1,N]\!]$ in two subsets $\mathcal{A}$ and $\mathcal{B}$ where $\mathcal{A} = [\![1,\alpha]\!] \cup \{a\beta + u \mid (a,u) \in [\![0,p]\!] \times [\![\alpha + 1,n]\!]\}$ and $\mathcal{B} = \{a\beta + u \mid (a,u) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]\}$.\\
+\\
+First, \underline{$\mathcal{A} \cap \mathcal{B} = \varnothing$} : \\
+Suppose there exists $x \in \mathcal{A} \cap \mathcal{B} = \varnothing$. Then there are $(a,u) \in [\![0,p]\!] \times [\![\alpha + 1,n]\!]$ and $(b,v) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]$ such that $x = a\beta + u = b\beta +v$. By definition of $\alpha$ and  $\beta$ we have $u \in [\![\alpha + 1,n]\!] \subset [\![0,\beta - 1]\!]$. From there, we distinguish two cases :
+\begin{itemize}
+\item If $v \in [\![0,\alpha]\!]$ then $v \in [\![0,\beta - 1]\!]$ and $v \neq u$ because $v < \alpha + 1 \leqslant u$
+\item If $v \in [\![-\alpha,-1]\!]$, we note $\tilde{v} = \beta + v$ and thus have $x = (b-1)\beta + \tilde{v}$ with $\tilde{v} \in [\![\beta - \alpha,\beta - 1]\!] \subset [\![0,\beta - 1]\!]$ and $\tilde{v} \neq u$ because $u < n+1 = \beta - \alpha \leqslant \tilde{v}$.
+\end{itemize}
+In either cases, we run into a contradiction because of the remainder's uniqueness in the euclidean division of $x$ by $\beta$.\\
+\\
+Then, we have \underline{$\mathcal{A} \cup \mathcal{B} = [\![1,N]\!]$}:
+\begin{itemize}
+\item On one hand : $1 = \text{min($\mathcal{A}$)} \leqslant \text{max($\mathcal{A}$)} = p\beta + n = N$ and $1 \leqslant \beta - \alpha = \text{min($\mathcal{B}$)} \leqslant \text{max($\mathcal{B}$)} = p\beta + \alpha \leqslant N$, which gives $\mathcal{A} \cup \mathcal{B} \subset [\![1,N]\!]$.
+\item On the other hand, let $x \in  [\![1,N]\!]$. If $x \leqslant \alpha$, we directly have $x \in \mathcal{A}$, let us then suppose that $x > \alpha$ and write $x = a\beta + u$ the euclidean division of $x$ by $\beta$. We have $x \leqslant N$, thus $a \leqslant p$. We distinguish three cases : \\
+- If $u \in [\![0,\alpha]\!]$ then we necessarily have $a \geqslant 1$ because $x > \alpha$, and so $x \in \mathcal{B}$.\\
+- If $u \in [\![\alpha + 1,n]\!]$, then $x \in \mathcal{A}$. \\
+- If $u \in [\![n + 1,\beta - 1]\!]$ then $x = (a+1)\beta - (\beta - u)$ with $-\alpha \leqslant \beta - u \leqslant 0$ and so $x \in \mathcal{B}$ \\
+In any case, $x \in \mathcal{A} \cup \mathcal{B}$ and we can thus conclude that $[\![1,N]\!] \subset \mathcal{A} \cup \mathcal{B}$.
+\end{itemize}
+\end{document}
