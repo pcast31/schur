@@ -39,9 +39,7 @@ def neighbours(partition):
     subsets, word, mins = from_int(partition)
     for i, subset in enumerate(subsets):
         choices = set(range(1, 161))
-        choices.difference_update(subset)
-        choices.difference_update(compute_sums(subset))
-        choices.difference_update(compute_difs(subset))
+        choices.difference_update(compute_forbidden(subset))
 
         for n in choices:
             j = word[n]
@@ -75,36 +73,30 @@ def reorder(word, n, i):
     return acc
 
 
-def compute_difs(subset):
-    difs = set()
-    for a in subset:
-        for b in subset:
-            if a < b:
-                difs.add(b - a)
-    return difs
-
-
-def compute_sums(subset):
-    sums = set()
-    for a in subset:
-        for b in subset:
-            if a > b:
-                continue
-            tot = a + b
-            if tot <= 160:
-                sums.add(tot)
-    return sums
+def compute_forbidden(subset):
+    forbidden = set(subset)
+    for i, a in enumerate(subset):
+        if a % 2 == 0:
+            forbidden.add(a // 2)
+        for j in range(i):
+            forbidden.add(a - subset[j])
+        for j in range(i, len(subset)):
+            tot = a + subset[j]
+            if tot > 160:
+                break
+            forbidden.add(tot)
+    return forbidden
 
 
 def from_int(partition):
-    subsets = [set() for _ in range(5)]
+    subsets = [[] for _ in range(5)]
     word = [None] * 161
     mins = [[] for _ in range(5)]
 
     for n in range(1, 161):
         partition //= 5
         i = partition % 5
-        subsets[i].add(n)
+        subsets[i].append(n)
         word[n] = i
         mini = mins[i]
         if len(mini) < 2:
