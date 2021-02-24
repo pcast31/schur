@@ -83,6 +83,12 @@ class Viewing:
             for n in subset:
                 self.canvas.itemconfig(self.squares[n], fill=color)
 
+        for line in range(1, 45):
+            for text_id in self.canvas.find_withtag(f"L{line}"):
+                self.canvas.itemconfig(text_id, fill='black')
+                self.canvas.itemconfig(text_id, font=self.font)
+        self.on_enter()
+
     def draw_square(self, n):
         side = self.side + self.width
         mid = side // 2 - self.width // 2
@@ -123,8 +129,11 @@ class Viewing:
                     yield a
                     yield b
 
-    def find_text_ids(self, event):
-        square_id = event.widget.find_withtag('current')[0]
+    def find_text_ids(self):
+        try:
+            square_id = self.canvas.find_withtag('current')[0]
+        except:
+            return
         n = self.squares.index(square_id)
         line = (n + 1) // 4
 
@@ -144,23 +153,23 @@ class Viewing:
         self.root.grid_columnconfigure(2, weight=1)
         self.root.grid_columnconfigure(3, weight=2)
 
-    def next(self, _):
+    def next(self, *args):
         self.i += 1
         self.display()
 
-    def on_enter(self, event):
+    def on_enter(self, *args):
         font = (self.font[0], self.font[1], 'bold')
 
-        for text_id in self.find_text_ids(event):
+        for text_id in self.find_text_ids():
             self.canvas.itemconfig(text_id, fill='yellow')
             self.canvas.itemconfig(text_id, font=font)
 
-    def on_leave(self, event):
-        for text_id in self.find_text_ids(event):
+    def on_leave(self, *args):
+        for text_id in self.find_text_ids():
             self.canvas.itemconfig(text_id, fill='black')
             self.canvas.itemconfig(text_id, font=self.font)
 
-    def previous(self, _):
+    def previous(self, *args):
         self.i -= 1
         self.display()
 
