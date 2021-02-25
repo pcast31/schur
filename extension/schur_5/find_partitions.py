@@ -37,13 +37,15 @@ def save_partitions(partitions):
 
 def neighbours(partition):
     subsets, word, mins = from_int(partition)
+
     for i, subset in enumerate(subsets):
         choices = set(range(1, 161))
         choices.difference_update(compute_forbidden(subset))
 
         for n in choices:
             j = word[n]
-            if j != 4 and n == mins[j][0] and (i > j or mins[j][1] > mins[j + 1][0]):
+            if j != 4 and ((i > j and n <= mins[i - 1][0]) or
+                    (n == mins[j][0] and mins[j][1] > mins[j + 1][0])):
                 yield reorder(word, n, i)
             else:
                 yield partition + (i - j) * (5 ** n)
@@ -158,5 +160,5 @@ if __name__ == "__main__":
     args = argparse.ArgumentParser(description="test setup")
     args.add_argument('--stop', type=int)
     args = args.parse_args()
-
+    
     main(PARTITIONS, args.stop)
