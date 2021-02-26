@@ -1,1 +1,4 @@
-partitions
+__pycache__
+
+partitions/*
+!partitions/.gitkeep
