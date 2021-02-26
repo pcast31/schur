@@ -57,4 +57,9 @@ def select_partitions(necessary_condition=None, fitness_function=None,
                 break
             heapq.heappushpop(heap, item)
 
-    return heap
+    partition = [None] * len(heap)
+    i = 1
+    while heap:
+        partitions[-i] = heapq.heappop(heap)
+        i += 1
+    return partitions

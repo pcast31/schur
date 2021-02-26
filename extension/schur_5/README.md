@@ -20,12 +20,20 @@
  # Valeurs par defaut
 
  def necessary_condition(partition):
+     """
+     Condition nécessaire pour prendre en compte une partition.
+     Doit retourner un booléen.
+     """
      return True
 
  def fitness_function(partition):
+     """
+     Donne un score à une partition.
+     Select renvoie les partitions avec le score le plus élevé.
+     """
      return 0
 
- max_size = 10_000
+ max_size = 10_000 # Nombre maximal de partitions
 
  partitions = select(necessary_condition, fitness_function, max_size)
 ```
