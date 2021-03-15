@@ -1,0 +1,11 @@
+[package]
+name = "weak_schur_4"
+version = "0.1.0"
+authors = ["Romain Ageron <romain.ageron@student-cs.fr>"]
+edition = "2018"
+
+[profile.release]
+opt-level = 3
+panic = "abort"
+
+[dependencies]
