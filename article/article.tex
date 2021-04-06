@@ -1,0 +1,166 @@
+\documentclass{article}
+\title{New lower bounds for Schur and weak Schur numbers}
+\author{Romain Ageron, Paul Casteras, Thibaut Pellerin, Yann Portella}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[english]{babel}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{computational theorem}{Computational Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+
+
+
+\begin{document}
+\maketitle
+
+\section{Abstract}
+
+
+
+\section{Introduction, context and notations}
+
+We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers.
+
+\begin{definition}
+A subset \(A\) of \(\mathbb{N}\) is said to be \textit{sum-free} when :
+\[ \forall (a,b) \in A^2 \text{, } a+b \notin A\]
+\end{definition}
+
+\begin{definition}
+A subset \(B\) of \(\mathbb{N}\) is said to be \textit{weakly sum-free} when:
+\[ \forall (a,b) \in B^2 \text{, } a \neq b \Longrightarrow a+b \notin B\]
+\end{definition}
+
+Let us notice that a sum-free subset is also weakly sum-free, hence justifying the name of \textit{weakly} sum-free
+subsets. Given \(m\) and \(n\) two integers, we are interested in partitioning the set of integers from 1 to \(m\) into
+\(n\) weakly sum-free subsets.
+
+\begin{notation}
+We denote by \([\![1,n]\!]\) the set of integers \(\{1, 2, ..., n\}\).
+\end{notation}
+
+Schur proved in \hyperlink{label1}{\textbf{[1]}} that given a number of subsets \(n\), there exists a value of \(m\)
+such that there exists no partition of \([\![1,p]\!]\) into \(n\) sum-free subsets for any \(p \geqslant m\). A similar
+property holds for weakly sum-free subsets (reference necessaire). These observations lead to the following definitions.
+
+\begin{definition}
+Let \(n \in \mathbb{N}^*\). There exists a greatest integer that we note \(S(n)\) (\textit{resp. \(WS(n)\)}) such that
+\([\![1,S(n)]\!]\) (resp. \([\![1,WS(n)]\!]\)) can be partitioned into \(n\) sum-free subsets (resp. weakly sum-free
+subsets). \(S(n)\) is called the \textit{\(n\)\textsuperscript{th} Schur number} and \textit{\(WS(n)\) the \(n\)\textsuperscript{th} weak
+Schur number}.
+\end{definition}
+
+\begin{notation}
+For a partition of \([\![1, n]\!]\) in \(k\) subsets, we generally note these subsets \(A_1, ..., A_k\). We also note \(m_i = \text{min}(A_i)\). 
+By ordering the subsets, we mean assuming that \(m_1 < ... < m_k\). However, if not specified we do not make this hypothesis since we 
+do not always consider partitions in which every subset plays a symmetric role.
+\end{notation}
+
+
+
+\section{Schur numbers}
+
+
+
+\section{Weak Schur numbers}
+
+
+
+\section{About the construction of lower bounds for weak Schur numbers using a computer}
+
+In this section, we first reframe the question of the existence of (weakly) sum-free partitions as a boolean
+satisfiability (SAT) problem. We then provide evidence which indicates that the main assumption made by papers which
+found the previous best known lower bounds for weak Schur numbers may not be correct. Finally, we obtain stronger
+results than those previously known for \(WS(5)\) while gaining several orders of magnitude in computation time by 
+giving additional information to the SAT solver without losing in generality. In this section, we assume that the subsets are ordered.
+
+
+\subsection{Reformulation as a SAT problem}
+
+We encode the existence of (weakly) sum-free partitions as propositional formulae like in \hyperlink{label3}{\textbf{[3]}} and then use 
+SAT solvers to determine whether these formulae are satisfiable.
+
+\begin{definition}
+A \textit{literal} is either a variable \(v\) (a positive literal) or the negation \(\bar{v}\) of a variable \(v\) (a negative literal) where \(v\) 
+takes a truth value: \(true\) or \(false\). A \textit{clause} is a disjunction of literals and a \textit{formula} is a conjunction of clauses: it 
+is a propositional formula in \textit{conjonctive normal form} (CNF).
+\end{definition}
+
+\begin{definition}
+An \textit{assignment} is a function from a set of variables to the truth values \(true\) (1) and \(false\) (0). A literal \(l\) is 
+\textit{satisfied} (\textit{falsified}) by an assignment \(\alpha\) if l is positive and \(\alpha(var (l)) = 1\) 
+(resp. \(\alpha(var (l)) = 0\)) or if it is negative and \(\alpha(var (l)) = 0\) (resp. \(\alpha(var (l)) = 1\)). A clause is \textit{satisfied} 
+by an assignment \(\alpha\) if it contains a literal that is satisfied by \(\alpha\). Finally, a formula is \textit{satisfied} by an assignment 
+\(\alpha\) if all its clauses are satisfied by \(\alpha\). A formula is \textit{satisfiable} if there exists an assignment that satisfies it; 
+otherwise it is \textit{unsatisfiable}.
+\end{definition}
+
+
+\subsection{Search space previously used in computer search for lower bound may not contain the optimal partitions}
+
+Rowley's new lower bound for \(WS(6)\) (642)  \hyperlink{label2}{\textbf{[2]}} was a quite significant improvement upon the former 
+best known lower bound (582). This previous lower bound was found using a computer with Monte-Carlo methods and by making the 
+assumption that a good partition for \(WS(n+1)\) starts with a good partition for \(WS(n)\) which is true for small values of \(n\).
+Therefore, one may wonder whether the limiting factor is the assumption or the methods used to search for partitions. It appears that 
+the latter is correct.
+
+\begin{computational theorem}
+There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
+\begin{itemize}
+\item \(m_5 \ge 66\)
+\item \(m_6 \ge 186\)
+\item \([\![210,349]\!] \subset A_6\)
+\end{itemize}  
+\end{computational theorem}
+
+This result was obtained in 8 hours with the SAT solver plingeling \hyperlink{label5}{\textbf{[5]}} on a 2.60 GHz Intel i7 processor PC.
+However, simply encoding the existence of such a partition as explained in the previous subsection would not result in a reasonable 
+computation time. In order to help the SAT solver, we add additional information in the propositional formula. We did not quantify the 
+speedup, but it most likely allows us to gain several order of magnitude in computation time as we explain in the next subsection.
+
+\par
+Every weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets starts with the following sequence 1121222133. Then 11 is always 
+either in subset 1 or 3, 12 is always in subset 3 and so. For every integer in \([\![1,65]\!]\), we computed in which subset it can appear. 
+By using this constraints, we could then compute for every integer in \([\![1,185]\!]\), in which subset it can appear in a weakly sum-free 
+partition of  \([\![1,185]\!]\) which starts with a  weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets. Adding these constraints to the 
+formula corresponding to the above theorem gives additional information to the SAT solver without losing in generality. 
+
+
+\subsection{Weak Schur number five}
+
+
+
+\section{Conclusions and future work}
+
+
+
+\section{Acknowledgments}
+
+
+
+\section{References}
+
+\hypertarget{label1}{\textbf{[1]}} Schur, I. 1917. Uber die Kongruenz \(x^m + y^m = z^m~(\text{mod}~p)\). Jahresbericht der 
+Deutschen Mathematikervereinigung 25:114–117.: 114-116. \url{http://eudml.org/doc/145475}
+
+\hypertarget{label2}{\textbf{[2]}} Rowley, F. 2020. New Lower Bounds for Weak Schur Partitions. arXiv 2011.11292, 
+\url{https://arxiv.org/pdf/2011.11292.pdf}
+
+\hypertarget{label3}{\textbf{[3]}} Heule, M.J.H. 2017. Schur Number Five. arXiv 1711.08076, \url{https://arxiv.org/pdf/1711.08076.pdf}
+
+\hypertarget{label4}{\textbf{[4]}} S. Eliahou, J.M. Marín, M.P. Revuelta and M.I. Sanz 2012. Weak Schur numbers and the search for G.W. 
+Walker’s lost partitions. Computers \& Mathematics with Applications Vol. 63, \url{https://www.sciencedirect.com/science/article/pii/S0898122111009722}
+
+\hypertarget{label5}{\textbf{[5]}} Bierem, A. 2017. CaDiCaL, Lingeling, Plingeling, Treengeling, YalSAT Entering the SAT Competition 2017. 
+Proceedinfs of SAT Competition 2017 -- Solver and Benchmark Descriptions \url{http://fmv.jku.at/papers/Biere-SAT-Competition-2017-solvers.pdf}
+
+\end{document}
