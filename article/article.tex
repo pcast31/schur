@@ -31,7 +31,7 @@
 We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers.
 
 \begin{definition}
-A subset \(A\) of \(\mathbb{N}\) is said to be \textit{sum-free} when :
+A subset \(A\) of \(\mathbb{N}\) is said to be \textit{sum-free} when:
 \[ \forall (a,b) \in A^2 \text{, } a+b \notin A\]
 \end{definition}
 
@@ -69,12 +69,16 @@ do not always consider partitions in which every subset plays a symmetric role.
 
 \section{Schur numbers}
 
-\qquad In this section, we use Rowley's constructions [7] in a Schur context. To improve lower bounds for Ramsay's numbers, Rowley introduces partitions verifying some properties which can be extended using method which generalizes Abbott-Hanson's [8] construction. Rolwey named these partitions "templates", and we will keep this name in the entire article. Finding suitable templates and applying his method to these will allow us to find new lower bounds for Schur methods.
+\qquad In this section, we use Rowley's constructions [7] in a Schur context. To improve lower bounds for Ramsay's numbers, Rowley 
+introduces partitions verifying some properties which can be extended using method which generalizes Abbott-Hanson's [8] construction. 
+Rolwey named these partitions "templates", and we will keep this name in the entire article. Finding suitable templates and applying his 
+method to these will allow us to find new lower bounds for Schur methods.
 
 \subsection{Definition of SE\(_+\)}
 
 \begin{definition}
-Let \( n \in \mathbb{N}^*\), there exists a greatest integer that we note \(SE_+(n)\) (resp. \(SE_-(n)\)) such that \( [\![1, SE_+(n)]\!]\) (resp. \( [\![1, SE_-(n)]\!]\)) can be partitionned (resp. can not be partionned) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
+Let \( n \in \mathbb{N}^*\), there exists a greatest integer that we note \(SE_+(n)\) (resp. \(SE_-(n)\)) such that \( [\![1, SE_+(n)]\!]\) 
+(resp. \( [\![1, SE_-(n)]\!]\)) can be partitionned (resp. can not be partionned) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
 \[
 \forall k \in [\![1, n-1]\!], \forall (x,y) \in A_k^2, x+y > SE_+(n)
 \Longrightarrow x+y-SE_+(n) \notin A_k
@@ -97,13 +101,15 @@ Let \(n \in [\![2, +\infty]\!]\), we have :
 
 \section{Weak Schur numbers}
 
-In this section, we generalize Rowley's constructions in [2]. We then introduce, by analogy with the third section, the integer \(WE_+(n)\) to build suitable templates.
+In this section, we generalize Rowley's constructions in [2]. We then introduce, by analogy with the third section, the integer \(WE_+(n)\) 
+to build suitable templates.
 
 \subsection{Lower bound for Weak Schur numbers using Schur and Weak Schur numbers}
 
 The following theorem, inspired by Rowley's work, was found and proved by Romain Ageron.
 \begin{theorem}
-Let $(n,p), (r,s) \in (\mathbb{N}^*)^2$. If there exists a partition of $r$ weakly sum-free subsets of $[\![1,n]\!]$ and a partition of $s$ sum-free subsets of $[\![1,p]\!]$ then there exists a partition of $r+s$ weakly sum-free subsets of $[\![1,p(n+\left \lceil \frac{n}{2} \right \rceil + 1)+n]\!]$
+Let $(n,p), (r,s) \in (\mathbb{N}^*)^2$. If there exists a partition of $r$ weakly sum-free subsets of $[\![1,n]\!]$ and a partition of $s$ sum-free 
+subsets of $[\![1,p]\!]$ then there exists a partition of $r+s$ weakly sum-free subsets of $[\![1,p(n+\left \lceil \frac{n}{2} \right \rceil + 1)+n]\!]$
 \end{theorem}
 In particular, if we choose $n = WS(r)$ and $p = WS(s)$ in the last theorem, the next corollary follows.
 \begin{corollary}
@@ -215,14 +221,14 @@ The corresponding clauses are:
 \end{itemize} 
 
 In the above formula, every color plays a symmetric role. Hence the search space can reduced by \(k!\) by ordering the subsets, that is by 
-enforcing that \(m_1 < ... < m_k\). The correspond clauses are: \linebreak
+enforcing that \(m_1 < ... < m_k\). The corresponding clauses are: \linebreak
 \textbf{symmetry breaking:}  \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1,WS(c - 1)+1]\!], x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
 
 
-\subsection{The search space previously used in computer search for lower bound may not contain the optimal partitions}
+\subsection{The search space previously used in computer search for lower bounds may not contain the optimal partitions}
 
 Rowley's new lower bound for \(WS(6)\) (642)  \hyperlink{label2}{\textbf{[2]}} was a quite significant improvement upon the former 
-best known lower bound (582). This previous lower bound was found using a computer with Monte-Carlo methods and by making the 
+best known lower bound (582). This previous lower bound was found using a computer (often with Monte-Carlo) methods and by making the 
 assumption that a good partition for \(WS(n+1)\) starts with a good partition for \(WS(n)\) which is true for small values of \(n\).
 Therefore, one may wonder whether the limiting factor is the assumption or the methods used to search for partitions. It appears that 
 the latter is correct.
@@ -243,13 +249,23 @@ speedup, but it most likely allows us to gain several order of magnitude in comp
 
 \par
 Every weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets starts with the following sequence 1121222133. Then 11 is always 
-either in subset 1 or 3, 12 is always in subset 3 and so. For every integer in \([\![1,65]\!]\), we computed in which subset it can appear. 
+either in subset 1 or 3, 12 is always in subset 3 and so on. For every integer in \([\![1,65]\!]\), we computed in which subset it can appear. 
 By using this constraints, we could then compute for every integer in \([\![1,185]\!]\), in which subset it can appear in a weakly sum-free 
 partition of  \([\![1,185]\!]\) which starts with a  weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets. Adding these constraints to the 
-formula corresponding to the above theorem gives additional information to the SAT solver without losing in generality. 
+formula corresponding to the above theorem gives additional information to the SAT solver without losing in generality.
+
+\par
+The above theorem shows that the previous lower bound for \(WS(6)\) is optimal in the search space considered by the papers which found it. 
+Therefore, finding a partition of \([\![1,n]\!]\) in 6 weakly sum-free subsets for some \(n \geq 590\) which does not have a template-like structure 
+would be extremely interesting since it could give indications on a new search space for improving lower bounds with a computer. More generally, 
+it questions the search space previously used for finding lower bounds for \(WS(n)\) with a computer. In particular, to our knowledge every paper 
+that found the lower bound \(WS(5) \geq 196\) used this assumption [reference necessaire]. Therefore one may wonder if this actually a good lower 
+bound. In the next subsection, we give properties that a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets has to verify.
 
 
 \subsection{Weak Schur number five}
+As explained in the previous subsection, the search space used for showing that  \(WS(5) \geq 196\) may not contain optimal solution. In this subsection, 
+we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same method as the previous subsection.
 
 
 
