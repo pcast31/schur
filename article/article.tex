@@ -104,8 +104,23 @@ by an assignment \(\alpha\) if it contains a literal that is satisfied by \(\alp
 otherwise it is \textit{unsatisfiable}.
 \end{definition}
 
+We then encode the existence of a partition of \([\![1,n]\!]\) in \(k\)  weakly sum-free subsets as follows: for every integer 
+\(i \in [\![1,n]\!]\), take \(k\) variables \(x^{(i)}_{1}, ..., x^{(i)}_{k}\) and for every \(\forall c \in [\![1,k]\!], x^{(i)}_c = 1 \iff i \in A_c\). 
+The corresponding clauses are:
 
-\subsection{Search space previously used in computer search for lower bound may not contain the optimal partitions}
+\begin{itemize}
+\item \textbf{sumfree:} \(\forall c \in  [\![1,k]\!], \forall (i, j) \in [\![1,n]\!]^2, (i \neq j ~ \text{and} ~ i + j \leq n) \implies \lnot x^{(i)}_c 
+\lor  \lnot x^{(i)}_c \lor \lnot x^{(i+j)}_c\)
+\item \textbf{union:} \(\forall i \in [\![1,n]\!], x^{(i)}_1 \lor ... \lor x^{(i)}_k\)
+\item \textbf{disjoint:} \(\forall i \in [\![1,n]\!],\forall (c_1, c_2) \in  [\![1,k]\!]^2, c_1 \neq c_2 \implies \neg x^{(i)}_{c_1} \lor \neg x^{(i)}_{c_2}\)
+\end{itemize} 
+
+In the above formula, every color plays a symmetric role. Hence the search space can reduced by \(k!\) by ordering the subsets, that is by 
+enforcing that \(m_1 < ... < m_k\). The correspond clauses are: \linebreak
+\textbf{symmetry breaking:}  \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1,WS(c - 1)+1]\!], x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
+
+
+\subsection{The search space previously used in computer search for lower bound may not contain the optimal partitions}
 
 Rowley's new lower bound for \(WS(6)\) (642)  \hyperlink{label2}{\textbf{[2]}} was a quite significant improvement upon the former 
 best known lower bound (582). This previous lower bound was found using a computer with Monte-Carlo methods and by making the 
