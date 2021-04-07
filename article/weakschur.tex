@@ -76,3 +76,65 @@ If $u + v \in [\![-\alpha,\alpha]\!]$, then $x+y \in \mathcal{B}$ and $h(x+y) = 
 which is absurd. We can therefore conclude that $x+y \in \mathcal{A}$ and by definition of $h$, $h(x+y) \neq h(x)$, proving that the classes of equivalence $h(x)$ for $x \in \mathcal{B}$ are weakly sum-free.\\
 \\
 Finally, we have showed that every classe of equivalence induced by $h$ is weakly sum-free, which ends the proof.
+
+\begin{remark}
+This formula includes the results of Rowley \hyperlink{label2}{\textbf{[2]}} as a special case. For \(n>2\), this formula does not give new lower bounds but in the same way as we introduced \(SE_+\)\hyperref[SE]{(Definition 3.1)}, we will define \(WE_+\) and find inequalities between \(WE_+\),\(WS\) and \(S\)
+\end{remark}
+
+\subsection{Definition of \(WE_+\)}
+
+\begin{definition}
+Let \( n \in \mathbb{N}^*\), let\( b \in \mathbb{N}^*\) there exists a greatest integer that we note \(WE_b^+(n)\) such that \( [\![1, b+WE_b^+(n)]\!]\) can be partitionned into \(n\) weakly-sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
+\\\\
+\underline{\(\forall i \in [\![1, n]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free}
+\\\\
+\underline{For \(A_n\) (the special subset):} \quad \(\forall (x,y) \in A_n^2,\)
+\\
+\[if \quad x+y>b+2WE_b^+(n),\quad x+y-2WE_b^+(n)\notin A_n\]
+\\
+\underline{For the others subsets:}\quad \(\forall (x,y) \in A_k^2\)
+\\
+\[
+(Id+WE_b^+(n)\mathbf{1}_{ [\![0,b]\!]})(x+y[WE_b^+(n)]) \notin A_k
+\]
+
+\end{definition}
+
+\begin{Theorem}
+Let \( n \in \mathbb{N}^*\), let\( (a,b) \in (\mathbb{N}^*)^2\) such as \(a>b\). If there exist a partition of  
+\end{Theorem}
+
+\subsection{New lower bounds for Weak Schur numbers}
+Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The first two inequalities are due to Rowley, they are detailed in [2]. The best lower bound for each integer is highlighted.\\
+\\
+\begin{center}
+\begin{tabular}{|*{5}{c|}}
+    \hline
+	 & 8 & 9 & 10 & 11 \\
+	\hline
+	\(4S(n-1) + 2 \) & 6722 & 21146 & \cellcolor{yellow} 71214 & \cellcolor{yellow} 243794\\
+	\hline
+	\(13S(n-2) + 8 \) & \cellcolor{yellow} 6976 & 21848 & 68726 & 231447\\
+	\hline
+	\(42S(n-3) + 24 \) & 6744 & \cellcolor{yellow} 22536 & 70584 & 222036 \\
+	\hline
+	\(127S(n-4) + 68 \) & 5656 & 20388 & 68140 & 213428\\
+	\hline
+	\hline
+	& 12 & 13 & 14 & 15 \\
+	\hline
+	\(4S(n-1) + 2 \) & \cellcolor{yellow} 815314 & 2554194 & 8045162 & \cellcolor{yellow} 27061154\\
+	\hline
+	\(13S(n-2) + 8 \) & 792332 & \cellcolor{yellow}2649772 & 8301132 & 26146778 \\
+	\hline
+	\(42S(n-3) + 24 \) & 747750 & 2559840 & \cellcolor{yellow} 8560800 &  25886224 \\
+	\hline
+	\(127S(n-4) + 68 \) & 671390 & 2261049 & 7740464 & 25886224 \\
+	\hline
+\end{tabular}
+\end{center}
+With \( S(9) \geqslant 17803 \), we found a new lower bound for
+\(WS(10)\) using Rowley's inequality. Moreover, the third inequality
+gives new lower bounds for \(WS(9)\) and \(WS(14)\). However, the last
+inequality doesn't give any better lower bound, even beyond \( n = 15 \)
+: the best bounds are always provided by the first three.
