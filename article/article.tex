@@ -274,6 +274,10 @@ As explained in the previous subsection, the search space used for showing that 
 we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same type of methods as in the
  previous subsection.
 
+\begin{notation}
+Let \(P\) be a predicate. We denote
+\end{notation}
+
 \par
 \hyperlink{label4}{\textbf{[4]}} verified with a SAT solver that there are no partition in 5 weakly sum-free subsets of \([\![1,197]\!]\) with  
 \(A_5 = \{67, 68\} \cup [\![70,134]\!] \cup \{136\}\) in 17 hours and could not provide a similar result when only assuming \(m_5 = 67\) even after several 
@@ -282,13 +286,14 @@ on a 2.60 GHz Intel i7 processor PC (we used the non-parallel version here but i
 The additional information we gave to the SAT solver is that every partition of \([\![1,66]\!]\) in 4 weakly sum-free subsets starts with a partition of 
 \([\![1,23]\!]\) in 3 weakly sum-free subsets (this can be checked in a few dozens of minutes with a SAT solver). Among the 3 partitions of \([\![1,23]\!]\) in 
 3 weakly sum-free subsets, every number always appears in the same subset except for 16 and 17 which can appear in two different subsets. We hardcoded 
-this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation time.
+this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation time. We also give the stronger 
+following result.
 
 \begin{computational theorem}
 If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). 
 \end{computational theorem}
 
-More precisely, we verified the following results.
+More precisely, we verified the following results (\(max~m_5\) is the greatest value of \(m_5\) for which we have not verified that \(WS(5 | m_5) \leq 196\)).
 
 \begin{tabular}{| c | *{21}{ p{2mm} |}}
 	\hline
