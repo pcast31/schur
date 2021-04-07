@@ -76,3 +76,30 @@ If $u + v \in [\![-\alpha,\alpha]\!]$, then $x+y \in \mathcal{B}$ and $h(x+y) = 
 which is absurd. We can therefore conclude that $x+y \in \mathcal{A}$ and by definition of $h$, $h(x+y) \neq h(x)$, proving that the classes of equivalence $h(x)$ for $x \in \mathcal{B}$ are weakly sum-free.\\
 \\
 Finally, we have showed that every classe of equivalence induced by $h$ is weakly sum-free, which ends the proof.
+
+\begin{remark}
+This formula includes the results of Rowley \hyperlink{label2}{\textbf{[2]}} as a special case. For \(n>2\), this formula does not give new lower bounds but in the same way as we introduced \(SE_+\)\hyperref[SE]{(Definition 3.1)}, we will define \(WE_+\) and find inequalities between \(WE_+\),\(WS\) and \(S\)
+\end{remark}
+
+\subsection{Definition of \(WE_+\)}
+
+\begin{definition}
+Let \( n \in \mathbb{N}^*\), let\( b \in \mathbb{N}^*\) there exists a greatest integer that we note \(WE_b^+(n)\) such that \( [\![1, b+WE_b^+(n)]\!]\) can be partitionned into \(n\) weakly-sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
+\\\\
+\underline{\(\forall i \in [\![1, n]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free}
+\\\\
+\underline{For \(A_n\) (the special subset):} \quad \(\forall (x,y) \in A_n^2,\)
+\\
+\[if \quad x+y>b+2WE_b^+(n),\quad x+y-2WE_b^+(n)\notin A_n\]
+\\
+\underline{For the others subsets:}\quad \(\forall (x,y) \in A_k^2\)
+\\
+\[
+(Id+WE_b^+(n)\mathbf{1}_{ [\![0,b]\!]})(x+y[WE_b^+(n)]) \notin A_k
+\]
+
+\end{definition}
+
+\begin{Theorem}
+Let \( n \in \mathbb{N}^*\), let\( (a,b) \in (\mathbb{N}^*)^2\) such as \(a>b\). If there exist a partition of  
+\end{Theorem}
