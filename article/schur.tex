@@ -8,14 +8,13 @@ method to these will allow us to find new lower bounds for Schur methods.
 \subsection{Definition of SE\(_+\)}
 
 \begin{definition}
-	Let \( n \in \mathbb{N}^*\), there exists a greatest integer that we note \(SE_+(n)\) (resp. \(SE_-(n)\)) such that \( [\![1, SE_+(n)]\!]\) 
-	(resp. \( [\![1, SE_-(n)]\!]\)) can be partitionned (resp. can not be partionned) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
+	We call SF-template of \(k\) colors and lenght \(n\) a partition of \( [\![1,n]\!]\) into \(k\) sum-free subsets \(A_1, A_2, ..., A_k\) which verify :
 	\[
-	\forall k \in [\![1, n-1]\!], \forall (x,y) \in A_k^2, x+y > SE_+(n)
-	\Longrightarrow x+y-SE_+(n) \notin A_k
+	\forall i \in [\![1, k-1]\!], \forall (x,y) \in A_i^2, x+y > n
+	\Longrightarrow x+y-n \notin A_i
 	\]
+	We note \(SE_+(k)\) the maximal lenght for a SF-template of \(k\) colors. 
 \end{definition}
-We notice that in general, unlike regular Schur numbers, we don't have \(SE_+(n) + 1 \neq SE_-(n)\)
 
 \begin{theorem}
 	Let \(n \in [\![2, +\infty]\!]\), we have :
@@ -58,7 +57,7 @@ Here are the best inequalities on Schur numbers so far :
 \[ S(n+6) \geqslant 1140S(n) + 528 \]
 
 The first inequality comes from the original Schur's paper \hyperlink{label1}{\textbf{[1]}}. The second and third ones were found by Rowley (reference nécessaire), 
-and the other ones are new. \\
+while the other ones are new. \\
 
 We also have a similar theorem where only \(SE_+\) is involved. 
 
