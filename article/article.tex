@@ -190,6 +190,7 @@ giving additional information to the SAT solver without losing in generality. In
 
 
 \subsection{Reformulation as a SAT problem}
+\label{SAT}
 
 We encode the existence of (weakly) sum-free partitions as propositional formulae like in \hyperlink{label3}{\textbf{[3]}} and then use 
 SAT solvers to determine whether these formulae are satisfiable.
@@ -225,7 +226,8 @@ enforcing that \(m_1 < ... < m_k\). The corresponding clauses are: \linebreak
 \textbf{symmetry breaking:}  \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1,WS(c - 1)+1]\!], x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
 
 \begin{remark}
-The performance of
+For a given problem, it can be interesting to try out different SAT solvers because the relative performance can vary significantly according to the problem. 
+For instance, we used two different SAT solvers in the next two next subsections.
 \end{remark}
 
 
@@ -273,13 +275,20 @@ we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) i
  previous subsection.
 
 \par
-First
+\hyperlink{label4}{\textbf{[4]}} verified with a SAT solver that there are no partition in 5 weakly sum-free subsets of \([\![1,197]\!]\) with  
+\(A_5 = \{67, 68\} \cup [\![70,134]\!] \cup \{136\}\) in 17 hours and could not provide a similar result when only assuming \(m_5 = 67\) even after several 
+weeks of runtime. By using the same method as above, we were able to verify that \(WS(5 | m_5 = 67) = 196\) in 0.5 seconds with the SAT solver glucose 
+on a 2.60 GHz Intel i7 processor PC (we used the non-parallel version here but in the rest of this subsection, we used the parallel version of glucose). 
+The additional information we gave to the SAT solver is that every partition of \([\![1,66]\!]\) in 4 weakly sum-free subsets starts with a partition of 
+\([\![1,23]\!]\) in 3 weakly sum-free subsets (this can be checked in a few dozens of minutes with a SAT solver). Among the 3 partitions of \([\![1,23]\!]\) in 
+3 weakly sum-free subsets, every number always appears in the same subset except for 16 and 17 which can appear in two different subsets. We hardcoded 
+this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation time.
 
 \begin{computational theorem}
 If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). 
 \end{computational theorem}
 
-More precisely, we verified the following results using the glucose SAT solver [reference].
+More precisely, we verified the following results.
 
 \begin{tabular}{| c | *{21}{ p{2mm} |}}
 	\hline
