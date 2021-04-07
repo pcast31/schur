@@ -34,21 +34,46 @@ We notice that in general, unlike regular Schur numbers, we don't have \(SE_+(n)
 The main result on \(SE_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(SE_+\).
 
 \begin{theorem}
-	Let \(n, k \in \mathbb{N}^*\), we have \\
-	\[ S(n+k) \geqslant SE_+(k+1)S(n) \]
+	Let $(n,k), (r,s) \in (\mathbb{N}^*)^2$. If there exists a \(SF\)-template of $k+1$ colors and lenght \(r\),
+	and a partition of $n$ sum-free subsets of $[\![1,s]\!]$ then there exists a partition of $n+k$ sum-free subsets of $[\![1,rs]\!]$
 \end{theorem}
 
-Using a SAT solvers, we are able to exhibit adequate Schur partitions, i.e satisfying \(SE_+\) constraint, 
-hence providing lower bound on \(SE_+\). We refer to such partition as \textit{templates}. Moreover, when using 
-a template in the above formula, it is possible to get an additive constant. We seek templates providing "affine"
+Setting $r = SE_+(k+1)$ and $s = S(n)$ yields the following corollary. 
+
+\begin{corollary}
+	Let \(n, k \in \mathbb{N}^*\), we have \\
+	\[ S(n+k) \geqslant SE_+(k+1)S(n) \]
+\end{corollary}
+
+Using a SAT solvers, we are able to exhibit SF-template,
+hence providing lower bound on \(SE_+\). Moreover, when using 
+a SF-template in the above formula, it is possible to get an additive constant. We seek templates providing "affine"
 inequalities : \(aS(n+k) + b \) where \(a\) is a lower bound for \(SE_+(k+1)\). Further details can be found in the \hyperref[SAT]{SAT section}.
 Here are the best inequalities on Schur numbers so far :
-\[ S(n+1) \geq 3S(n) + 1 \\
- S(n+2) \geq 9S(n) + 4 \\
- S(n+3) \geq 33S(n) + 6 \\
- S(n+4) \geq 111S(n) + 43 \\
- S(n+5) \geq 380S(n) + 148 \\
- S(n+6) \geq 1140S(n) + 528 \]
+\[ S(n+1) \geqslant 3S(n) + 1 \]
+\[ S(n+2) \geqslant 9S(n) + 4 \]
+\[ S(n+3) \geqslant 33S(n) + 6 \]
+\[ S(n+4) \geqslant 111S(n) + 43 \]
+\[ S(n+5) \geqslant 380S(n) + 148 \]
+\[ S(n+6) \geqslant 1140S(n) + 528 \]
+
+The first inequality comes from the original Schur's paper \hyperlink{label1}{\textbf{[1]}}. The second and third ones were found by Rowley (reference nécessaire), 
+and the other ones are new. \\
+
+We also have a similar theorem where only \(SE_+\) is involved. 
+
+\begin{theorem}
+	Let $(n,k), (r,s) \in (\mathbb{N}^*)^2$. If there exists a \(SF\)-template of $k+1$ colors and lenght \(r\),
+	and \(SF\)-template of \(n\) color and lenght \(s\), then there exists \(SF\)-template of \((n+k)\) and lenght \(rs\).
+\end{theorem}
+
+And the associated inequality :
+
+\begin{corollary}
+	Let \(n, k \in \mathbb{N}^*\), we have \\
+	\[ SE_+(n+k) \geqslant SE_+(k+1)SE_+(n) \]
+\end{corollary}
+
 
 \subsection{New lower bounds for Schur numbers}
 
