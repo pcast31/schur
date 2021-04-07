@@ -13,9 +13,9 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{notation}[definition]{Notation}
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{computational theorem}{Computational Theorem}[section]
+\newtheorem{computational theorem}{Computational Theorem}[theorem]
 \newtheorem{corollary}{Corollary}[theorem]
-
+\newtheorem{remark}{Remark}[section]
 
 
 
@@ -234,6 +234,10 @@ In the above formula, every color plays a symmetric role. Hence the search space
 enforcing that \(m_1 < ... < m_k\). The corresponding clauses are: \linebreak
 \textbf{symmetry breaking:}  \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1,WS(c - 1)+1]\!], x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
 
+\begin{remark}
+The performance of
+\end{remark}
+
 
 \subsection{The search space previously used in computer search for lower bounds may not contain the optimal partitions}
 
@@ -246,9 +250,9 @@ the latter is correct.
 \begin{computational theorem}
 There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
 \begin{itemize}
-\item \(m_5 \ge 66\)
-\item \(m_6 \ge 186\)
-\item \([\![210,349]\!] \subset A_6\)
+	\item \(m_5 \ge 66\)
+	\item \(m_6 \ge 186\)
+	\item \([\![210,349]\!] \subset A_6\)
 \end{itemize}  
 \end{computational theorem}
 
@@ -275,7 +279,27 @@ bound. In the next subsection, we give properties that a partition of \([\![1,19
 
 \subsection{Weak Schur number five}
 As explained in the previous subsection, the search space used for showing that  \(WS(5) \geq 196\) may not contain optimal solution. In this subsection, 
-we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same method as the previous subsection.
+we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same type of methods as in the
+ previous subsection.
+
+\par
+First
+
+\begin{computational theorem}
+If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). 
+\end{computational theorem}
+
+More precisely, we verified the following results using the glucose SAT solver [reference].
+
+\begin{tabular}{| c | *{21}{ p{2mm} |}}
+	\hline
+	\(m_4\)                   &   4   &   5   &   6  &   7   &   8   &   9   &  10  &  11  &  12  &  13  &  14  &  15  &  16  &  17  &  18  &  19  &  20  &  21  &  22  &  23  &  24  \\ 
+	\hline
+	\(WS(4 | m_4) + 1\) &  55  &  59  &  60  &  59  &  59  &  60  &  60  &  60  &  60  &  64  &  63  &  64  &  61  &  64  &  63  &  65  &  65  &  65  &  65  &  66  &  67  \\
+	\hline
+	\(max~m_5\)           &        &       &        &        &       &        &       &        &        &       &        &       &        &       &        &        &       &        &       &        &  53  \\
+	\hline
+\end{tabular}
 
 
 
