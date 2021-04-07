@@ -1,0 +1,79 @@
+\section{Schur numbers}
+
+\qquad In this section, we use Rowley's constructions [7] in a Schur context. To improve lower bounds for Ramsay's numbers, Rowley 
+introduces partitions verifying some properties which can be extended using method which generalizes Abbott-Hanson's [8] construction. 
+Rolwey named these partitions "templates", and we will keep this name in the entire article. Finding suitable templates and applying his 
+method to these will allow us to find new lower bounds for Schur methods.
+
+\subsection{Definition of SE\(_+\)}
+
+\begin{definition}
+	Let \( n \in \mathbb{N}^*\), there exists a greatest integer that we note \(SE_+(n)\) (resp. \(SE_-(n)\)) such that \( [\![1, SE_+(n)]\!]\) 
+	(resp. \( [\![1, SE_-(n)]\!]\)) can be partitionned (resp. can not be partionned) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
+	\[
+	\forall k \in [\![1, n-1]\!], \forall (x,y) \in A_k^2, x+y > SE_+(n)
+	\Longrightarrow x+y-SE_+(n) \notin A_k
+	\]
+\end{definition}
+We notice that in general, unlike regular Schur numbers, we don't have \(SE_+(n) + 1 \neq SE_-(n)\)
+
+\begin{theorem}
+	Let \(n \in [\![2, +\infty]\!]\), we have :
+	\[
+	2S(n-1)+1 \leqslant SE_+(n) \leqslant S(n)
+	\]
+\end{theorem}
+
+\begin{remark}
+	\(SE_+\) and \(S\) have the same asymptotic growth rate.
+\end{remark}
+
+
+\subsection{Inequaties on SE_+} 
+
+The main result on \(SE_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(SE_+\).
+
+\begin{theorem}
+	Let \(n, k \in \mathbb{N}^*\), we have \\
+	\[ S(n+k) \geq SE_+(k+1)S(n) \]
+\end{theorem}
+
+Using a SAT solvers, we are able to exhibit adequate Schur partitions, i.e satisfying \(SE_+\) constraint, 
+hence providing lower bound on \(SE_+\). We refer to such partition as \textit{templates}. Moreover, when using 
+a template in the above formula, it is possible to get an additive constant. We seek templates providing "affine"
+inequalities : \(aS(n+k) + b \) where \(a\) is a lower bound for \(SE_+(k+1)\). Further details can be found in the \hyperref[SAT]{SAT section}.
+
+\subsection{New lower bounds for Schur numbers}
+
+The previous inequalities gives new lower bounds for \(S(n)\) for
+\( n \in [\![9,+\infty]\!] \backslash \{13\} \). We compute the lower
+bounds values for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the values for \( n = 8\) and \(n = 13\) were already obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.\\
+\\
+\begin{center}
+\begin{tabular}{|*{5}{c|}}
+    \hline
+	 & 8 & 9 & 10 & 11 \\
+	\hline
+	\(33S(n-3) + 6 \) & \cellcolor{yellow} 5286 & 17694 & 55446 & 174444\\
+	\hline
+	\(111S(n-4) + 43 \) & 4927 & \cellcolor{yellow} 17803 & 59539 & 186523\\
+	\hline
+	\(380S(n-5) + 148 \) & 5088 & 16868 & \cellcolor{yellow} 60948 & \cellcolor{yellow} 203828 \\
+	\hline
+	\(1140S(n-6) + 528 \) & 5088 & 15348 & 50688 & 182928\\
+	\hline
+	\hline
+	& 12 & 13 & 14 & 15 \\
+	\hline
+	\(33S(n-3) + 6 \) & 587505 & \cellcolor{yellow} 2011290 & 6726330 & 21072090\\
+	\hline
+	\(111S(n-4) + 43 \) & 586789 & 1976176 & 6765271 & 22624951 \\
+	\hline
+	\(380S(n-5) + 148 \) & \cellcolor{yellow} 638548 & 2008828 & \cellcolor{yellow} 6765288 & \cellcolor{yellow} 23160388 \\
+	\hline
+	\(1140S(n-6) + 528 \) & 611568 & 1915728 & 6026568 & 20295948 \\
+	\hline
+\end{tabular}
+\end{center}
+
+Except for 8, 9 and 13, the best lower bounds are obtained thanks to the third inequality \( 380S(n-5) + 148 \leqslant S(n) \). The table doesn't go any further, but the same inequality allows to improve the lower bounds for every \( n \in [\![15,+\infty]\!] \).
