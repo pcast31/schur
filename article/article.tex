@@ -98,14 +98,19 @@ Let \(n \in [\![2, +\infty]\!]\), we have :
 \end{remark}
 
 
-\subsection{Inequaties on \(SE_+\)} 
+\subsection{Inequaties on SE_+} 
 
 The main result on \(SE_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(SE_+\).
 
 \begin{theorem}
-\( \forall (n,k) in \mathbb{N*}^{2} \), we have \\
+Let \(n, k \in \mathbb{N}^*\), we have \\
 \[ S(n+k) \geq SE_+(k+1)S(n) \]
+\end{theorem}
 
+Using a SAT solvers, we are able to exhibit adequate Schur partitions, i.e satisfying \(SE_+\) constraint, 
+hence providing lower bound on \(SE_+\). We refer to such partition as \textit{templates}. Moreover, when using 
+a template in the above formula, it is possible to get an additive constant. We seek templates providing "affine"
+inequalities : \(aS(n+k) + b \) where \(a\) is a lower bound for \(SE_+(k+1)\). Further details can be found in the \hyperref[SAT]{SAT section}.
 \subsection{}
 
 
