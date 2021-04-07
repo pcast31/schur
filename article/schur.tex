@@ -29,13 +29,13 @@ We notice that in general, unlike regular Schur numbers, we don't have \(SE_+(n)
 \end{remark}
 
 
-\subsection{Inequaties on SE_+} 
+\subsection{Inequaties on \(SE_+\)} 
 
 The main result on \(SE_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(SE_+\).
 
 \begin{theorem}
 	Let \(n, k \in \mathbb{N}^*\), we have \\
-	\[ S(n+k) \geq SE_+(k+1)S(n) \]
+	\[ S(n+k) \geqslant SE_+(k+1)S(n) \]
 \end{theorem}
 
 Using a SAT solvers, we are able to exhibit adequate Schur partitions, i.e satisfying \(SE_+\) constraint, 
@@ -82,5 +82,4 @@ bounds values for \( n \in [\![8,15]\!] \) using the four different inequalities
 	\hline
 \end{tabular}
 \end{center}
-
 Except for 8, 9 and 13, the best lower bounds are obtained thanks to the third inequality \( 380S(n-5) + 148 \leqslant S(n) \). The table doesn't go any further, but the same inequality allows to improve the lower bounds for every \( n \in [\![15,+\infty]\!] \).
