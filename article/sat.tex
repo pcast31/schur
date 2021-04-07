@@ -48,14 +48,19 @@ For a given problem, it can be interesting to try out different SAT solvers beca
 For instance, we used two different SAT solvers in the next two next subsections.
 \end{remark}
 
+\begin{remark}
+Using a parallel SAT solver usually reduces the computation time, especially when trying to show that a formula is unsatisfiable. However, most of the 
+parallel SAT solver do not have a deterministic behaviour and it can results in a strong variation of running times.
+\end{remark}
+
 
 \subsection{The search space previously used in computer search for lower bounds may not contain the optimal partitions}
 
 Rowley's new lower bound for \(WS(6)\) (642)  \hyperlink{label2}{\textbf{[2]}} was a quite significant improvement upon the former
-best known lower bound (582). This previous lower bound was found using a computer (often with Monte-Carlo) methods and by making the
+best known lower bound (582) \hyperlink{label7}{\textbf{[7]}}. This previous lower bound was found using a computer (often with Monte-Carlo methods) and by making the
 assumption that a good partition for \(WS(n+1)\) starts with a good partition for \(WS(n)\) which is true for small values of \(n\).
-Therefore, one may wonder whether the limiting factor is the assumption or the methods used to search for partitions. It appears that
-the latter is correct.
+Therefore, one may wonder whether the limiting factor are the assumptions or the methods used to search for partitions. It appears that the search space
+induced by these assumptions does not contain the optimal partitions.
 
 \begin{computational theorem}
 There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
@@ -69,7 +74,7 @@ There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
 This result was obtained in 8 hours with the SAT solver plingeling \hyperlink{label5}{\textbf{[5]}} on a 2.60 GHz Intel i7 processor PC.
 However, simply encoding the existence of such a partition as explained in the previous subsection would not result in a reasonable
 computation time. In order to help the SAT solver, we add additional information in the propositional formula. We did not quantify the
-speedup, but it most likely allows us to gain several order of magnitude in computation time as we explain in the next subsection.
+speedup, but it most likely allowed us to gain several order of magnitude in computation time as we explain in the next subsection.
 
 \par
 Every weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets starts with the following sequence 1121222133. Then 11 is always
@@ -89,18 +94,19 @@ bound. In the next subsection, we give properties that a partition of \([\![1,19
 
 \subsection{Weak Schur number five}
 As explained in the previous subsection, the search space used for showing that  \(WS(5) \geq 196\) may not contain optimal solution. In this subsection,
-we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same type of methods as in the
- previous subsection.
+we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same type of methods as in the 
+previous subsection.
 
 \begin{notation}
-Let \(P\) be a predicate. We denote
+Let \(P\) be a predicate over weakly sum-free partitions. We denote by \(WS(n | P)\) the greatest number \(N\) such that there exists a partition of  
+\([\![1,N]\!]\) in n weakly sum-free subsets which verifies P.
 \end{notation}
 
 \par
 \hyperlink{label4}{\textbf{[4]}} verified with a SAT solver that there are no partition in 5 weakly sum-free subsets of \([\![1,197]\!]\) with
 \(A_5 = \{67, 68\} \cup [\![70,134]\!] \cup \{136\}\) in 17 hours and could not provide a similar result when only assuming \(m_5 = 67\) even after several
-weeks of runtime. By using the same method as above, we were able to verify that \(WS(5 | m_5 = 67) = 196\) in 0.5 seconds with the SAT solver glucose
-on a 2.60 GHz Intel i7 processor PC (we used the non-parallel version here but in the rest of this subsection, we used the parallel version of glucose).
+weeks of runtime. By using the same method as above, we were able to verify that \(WS(5 | m_5 = 67) = 196\) in 0.5 seconds with the SAT solver glucose  \hyperlink{label6}{\textbf{[6]}}
+on a 2.60 GHz Intel i7 processor PC (we used the non-parallel version here for the sake of comparison but in the rest of this subsection, we used the parallel version of glucose).
 The additional information we gave to the SAT solver is that every partition of \([\![1,66]\!]\) in 4 weakly sum-free subsets starts with a partition of
 \([\![1,23]\!]\) in 3 weakly sum-free subsets (this can be checked in a few dozens of minutes with a SAT solver). Among the 3 partitions of \([\![1,23]\!]\) in
 3 weakly sum-free subsets, every number always appears in the same subset except for 16 and 17 which can appear in two different subsets. We hardcoded
@@ -108,7 +114,8 @@ this external knowledge in the propositional formula which allowed us to gain se
 following result.
 
 \begin{computational theorem}
-If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\).
+If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). \\
+NB : on doit finir d'obtenir les valeurs.
 \end{computational theorem}
 
 More precisely, we verified the following results (\(max~m_5\) is the greatest value of \(m_5\) for which we have not verified that \(WS(5 | m_5) \leq 196\)).
@@ -122,3 +129,6 @@ More precisely, we verified the following results (\(max~m_5\) is the greatest v
 	\(max~m_5\)           &        &       &        &        &       &        &       &        &        &       &        &       &        &       &        &        &       &        &       &        &  53  \\
 	\hline
 \end{tabular}
+
+To obtain these results, we once again provided additionnal information to the SAT solver. We also gave other types of information to the SAT solver.
+(pas encore fini)
