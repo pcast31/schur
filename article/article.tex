@@ -10,301 +10,27 @@
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 
+\usepackage[table]{xcolor}
+
 \newtheorem{definition}{Definition}[section]
 \newtheorem{notation}[definition]{Notation}
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{computational theorem}{Computational Theorem}[theorem]
+\newtheorem{computational theorem}{Computational Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{remark}{Remark}[section]
+
 
 
 
 \begin{document}
 \maketitle
 
-\section{Abstract}
+\include{intro.tex}
 
+\include{schur.tex}
 
+\include{weakschur.tex}
 
-\section{Introduction, context and notations}
-
-We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers.
-
-\begin{definition}
-A subset \(A\) of \(\mathbb{N}\) is said to be \textit{sum-free} when:
-\[ \forall (a,b) \in A^2 \text{, } a+b \notin A\]
-\end{definition}
-
-\begin{definition}
-A subset \(B\) of \(\mathbb{N}\) is said to be \textit{weakly sum-free} when:
-\[ \forall (a,b) \in B^2 \text{, } a \neq b \Longrightarrow a+b \notin B\]
-\end{definition}
-
-Let us notice that a sum-free subset is also weakly sum-free, hence justifying the name of \textit{weakly} sum-free
-subsets. Given \(m\) and \(n\) two integers, we are interested in partitioning the set of integers from 1 to \(m\) into
-\(n\) weakly sum-free subsets.
-
-\begin{notation}
-We denote by \([\![1,n]\!]\) the set of integers \(\{1, 2, ..., n\}\).
-\end{notation}
-
-Schur proved in \hyperlink{label1}{\textbf{[1]}} that given a number of subsets \(n\), there exists a value of \(m\)
-such that there exists no partition of \([\![1,p]\!]\) into \(n\) sum-free subsets for any \(p \geqslant m\). A similar
-property holds for weakly sum-free subsets (reference necessaire). These observations lead to the following definitions.
-
-\begin{definition}
-Let \(n \in \mathbb{N}^*\). There exists a greatest integer that we note \(S(n)\) (\textit{resp. \(WS(n)\)}) such that
-\([\![1,S(n)]\!]\) (resp. \([\![1,WS(n)]\!]\)) can be partitioned into \(n\) sum-free subsets (resp. weakly sum-free
-subsets). \(S(n)\) is called the \textit{\(n\)\textsuperscript{th} Schur number} and \textit{\(WS(n)\) the \(n\)\textsuperscript{th} weak
-Schur number}.
-\end{definition}
-
-\begin{notation}
-For a partition of \([\![1, n]\!]\) in \(k\) subsets, we generally note these subsets \(A_1, ..., A_k\). We also note \(m_i = \text{min}(A_i)\). 
-By ordering the subsets, we mean assuming that \(m_1 < ... < m_k\). However, if not specified we do not make this hypothesis since we 
-do not always consider partitions in which every subset plays a symmetric role.
-\end{notation}
-
-
-
-\section{Schur numbers}
-
-\qquad In this section, we use Rowley's constructions [7] in a Schur context. To improve lower bounds for Ramsay's numbers, Rowley 
-introduces partitions verifying some properties which can be extended using method which generalizes Abbott-Hanson's [8] construction. 
-Rolwey named these partitions "templates", and we will keep this name in the entire article. Finding suitable templates and applying his 
-method to these will allow us to find new lower bounds for Schur methods.
-
-\subsection{Definition of SE\(_+\)}
-
-\begin{definition}
-Let \( n \in \mathbb{N}^*\), there exists a greatest integer that we note \(SE_+(n)\) (resp. \(SE_-(n)\)) such that \( [\![1, SE_+(n)]\!]\) 
-(resp. \( [\![1, SE_-(n)]\!]\)) can be partitionned (resp. can not be partionned) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
-\[
-\forall k \in [\![1, n-1]\!], \forall (x,y) \in A_k^2, x+y > SE_+(n)
-\Longrightarrow x+y-SE_+(n) \notin A_k
-\]
-\end{definition}
-We notice that in general, unlike regular Schur numbers, we don't have \(SE_+(n) + 1 \neq SE_-(n)\)
-
-\begin{theorem}
-Let \(n \in [\![2, +\infty]\!]\), we have :
-\[
-2S(n-1)+1 \leqslant SE_+(n) \leqslant S(n)
-\]
-\end{theorem}
-
-
-\subsection{}
-
-\subsection{}
-
-
-\section{Weak Schur numbers}
-
-In this section, we generalize Rowley's constructions in [2]. We then introduce, by analogy with the third section, the integer \(WE_+(n)\) 
-to build suitable templates.
-
-\subsection{Lower bound for Weak Schur numbers using Schur and Weak Schur numbers}
-
-The following theorem, inspired by Rowley's work, was found and proved by Romain Ageron.
-\begin{theorem}
-Let $(n,p), (r,s) \in (\mathbb{N}^*)^2$. If there exists a partition of $r$ weakly sum-free subsets of $[\![1,n]\!]$ and a partition of $s$ sum-free 
-subsets of $[\![1,p]\!]$ then there exists a partition of $r+s$ weakly sum-free subsets of $[\![1,p(n+\left \lceil \frac{n}{2} \right \rceil + 1)+n]\!]$
-\end{theorem}
-In particular, if we choose $n = WS(r)$ and $p = WS(s)$ in the last theorem, the next corollary follows.
-\begin{corollary}
-$ \forall (n,m) \in (\mathbb{N}^*)^2 \text{, } WS(n+m) \geqslant S(m) \left (WS(n) + \left \lceil \frac{WS(n)}{2} \right \rceil +1 \right) + WS(n)$
-\end{corollary}
-\textsc{Proof :} Let $(n,p), (r,s) \in (\mathbb{N}^*)^2$,  $N = p(n+\left \lceil \frac{n}{2} \right \rceil + 1)+n$, $\alpha = \left \lceil \frac{n}{2} \right \rceil > 0$ and $\beta = n + \alpha + 1$. We denote by $f$ the projection of the equivalence relation induced by the partition of $[\![1,n]\!]$ and $g$ the one induced by the partition of $[\![1,p]\!]$. Each equivalence class is represented by a single integer, therefore :
-\[ f : [\![1,n]\!] \longrightarrow [\![1,r]\!] \text{ and } \forall (x,y) \in [\![1,n]\!]^2, \left\{
-    \begin{array}{ll}
-        x \neq y \\
-        f(x) = f(y)
-    \end{array}
-\right.
-\Longrightarrow f(x+y) \neq f(x)
-\]
-\[g : [\![1,p]\!] \longrightarrow [\![1,s]\!] \text{ and } \forall (x,y) \in [\![1,n]\!]^2 \text{, } f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)
-\]
-Let us start by parting the integers of $[\![1,N]\!]$ in two subsets $\mathcal{A}$ and $\mathcal{B}$ where $\mathcal{A} = [\![1,\alpha]\!] \cup \{a\beta + u \mid (a,u) \in [\![0,p]\!] \times [\![\alpha + 1,n]\!]\}$ and $\mathcal{B} = \{a\beta + u \mid (a,u) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]\}$.\\
-\\
-First, \underline{$\mathcal{A} \cap \mathcal{B} = \varnothing$} : \\
-Suppose there exists $x \in \mathcal{A} \cap \mathcal{B} = \varnothing$. Then there are $(a,u) \in [\![0,p]\!] \times [\![\alpha + 1,n]\!]$ and $(b,v) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]$ such that $x = a\beta + u = b\beta +v$. By definition of $\alpha$ and  $\beta$ we have $u \in [\![\alpha + 1,n]\!] \subset [\![0,\beta - 1]\!]$. From there, we distinguish two cases :
-\begin{itemize}
-\item If $v \in [\![0,\alpha]\!]$ then $v \in [\![0,\beta - 1]\!]$ and $v \neq u$ because $v < \alpha + 1 \leqslant u$
-\item If $v \in [\![-\alpha,-1]\!]$, we note $\tilde{v} = \beta + v$ and thus have $x = (b-1)\beta + \tilde{v}$ with $\tilde{v} \in [\![\beta - \alpha,\beta - 1]\!] \subset [\![0,\beta - 1]\!]$ and $\tilde{v} \neq u$ because $u < n+1 = \beta - \alpha \leqslant \tilde{v}$.
-\end{itemize}
-In either cases, we run into a contradiction because of the remainder's uniqueness in the euclidean division of $x$ by $\beta$.\\
-\\
-Then, we have \underline{$\mathcal{A} \cup \mathcal{B} = [\![1,N]\!]$}:
-\begin{itemize}
-\item On one hand : $1 = \text{min($\mathcal{A}$)} \leqslant \text{max($\mathcal{A}$)} = p\beta + n = N$ and $1 \leqslant \beta - \alpha = \text{min($\mathcal{B}$)} \leqslant \text{max($\mathcal{B}$)} = p\beta + \alpha \leqslant N$, which gives $\mathcal{A} \cup \mathcal{B} \subset [\![1,N]\!]$.
-\item On the other hand, let $x \in  [\![1,N]\!]$. If $x \leqslant \alpha$, we directly have $x \in \mathcal{A}$, let us then suppose that $x > \alpha$ and write $x = a\beta + u$ the euclidean division of $x$ by $\beta$. We have $x \leqslant N$, thus $a \leqslant p$. We distinguish three cases : \\
-- If $u \in [\![0,\alpha]\!]$ then we necessarily have $a \geqslant 1$ because $x > \alpha$, and so $x \in \mathcal{B}$.\\
-- If $u \in [\![\alpha + 1,n]\!]$, then $x \in \mathcal{A}$. \\
-- If $u \in [\![n + 1,\beta - 1]\!]$ then $x = (a+1)\beta - (\beta - u)$ with $-\alpha \leqslant \beta - u \leqslant 0$. Furthermore, $a \leqslant p - 1$, else we would have $x > N$, and so $x \in \mathcal{B}$ \\
-In any case, $x \in \mathcal{A} \cup \mathcal{B}$ and we can thus conclude that $[\![1,N]\!] \subset \mathcal{A} \cup \mathcal{B}$.
-\end{itemize}
-This first partition of $[\![1,N]\!]$ will help us to define our final partition by the projection of its equivalence relation. We thereby define $h : [\![1,N]\!] \longrightarrow [\![1,r+s]\!]$ as such :\\
-- If $x \in \mathcal{A}$ then $h(x) = f(x \text{ mod } \beta)$ (well defined because $x \text{ mod } \beta \in [\![1,N]\!]$)\\
-- If $x \in \mathcal{B}$ then $x = a\beta + u$ with a unique $(a,u) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]$ and we define $h(x) = r + g(a)$\\
-The fact that $(\mathcal{A}, \mathcal{B})$ is a partition of $[\![1,N]\!]$ ensures that this definition of $h$ is valid. We then have to verify that $h$ induces weakly sum-free subsets.\\
-\\
-\underline{The classes of equivalence $h(x)$ for $x \in \mathcal{A}$ are weakly sum-free :}
-\\
-\\
-Let $(x,y) \in \mathcal{A}^2$ such that $h(x) = h(y)$, $x \neq y$ and $x + y \leqslant N$
-\begin{itemize}
-\item If $(x,y) \in [\![1,\alpha]\!]^2$ :\\
-We have $x + y \leqslant 2\alpha \leqslant n$ and $x + y = 0\beta + x + y$, therefore $x + y \in \mathcal{A}$. Then, by definition : $h(x) = f(x)$, $h(y) = f(y)$ and $h(x+y) = f(x+y)$, which gives us, thanks to the property verified by $f$, that $h(x+y) \neq h(x)$.
-\item If $(x,y) \in [\![1,\alpha]\!] \times ( \mathcal{A} \text{ \textbackslash} \text{ } [\![1,\alpha]\!] )$ :\\
-We write $y = a\beta + u$ with $(a,u) \in [\![0,p]\!] \times [\![\alpha + 1,n]\!]$. Then $x+y = a\beta + x + u = (a+1)\beta + x + u - \beta$, and if $x + u > n$ it follows that $a \leqslant p-1$ since $x+y \leqslant N$, and $-\alpha \leqslant x + u - \beta \leqslant -1$. Therefore $x+y \in \mathcal{B}$ and $h(x+y) \neq h(x) = f(x)$ by definition of h. On the contrary, if $x - u \leqslant n$, then $x+y \in \mathcal{A}$ and $h(x+y) = f(x+u)$ because $x+u$ is actually the remainder of the euclidean division of $x+y$ by $\beta$. Moreover, $h(x) = f(x)$, $x < u$ and, with our initial hypothesis, $h(x) = h(y) = f(u)$. The property verified by $f$ gives us $f(x+u) \neq f(x)$ which can be rewritten as $h(x+y) \neq h(x)$.
-\item If $(x,y) \in ( \mathcal{A} \text{ \textbackslash} \text{ } [\![1,\alpha]\!] ) \times [\![1,\alpha]\!]$ : \\
-This case is handled exactly like the previous one by swaping the roles of $x$ and $y$.
-\item If $(x,y) \in ( \mathcal{A} \text{ \textbackslash} \text{ } [\![1,\alpha]\!] )^2$ : \\
-We write $x = a\beta + u$ and $y = b\beta + v$ with $(a,u)$ and $(b,v)$ in $[\![0,p]\!] \times [\![\alpha + 1,n]\!]$. Then $x+y = (a+b)\beta + u+v = (a+b+1)\beta + u + v - \beta$ with $a+b \leqslant p-1$ (else we would have $x+y > N$ because $u+v > n$) and $-\alpha \leqslant u + v - \beta \leqslant \alpha$, therefore $x+y \in \mathcal{B}$ and by definition $h(x+y) \neq h(x)$.
-\end{itemize}
-In any case, $h(x+y) \neq h(x)$ and the classes of equivalence $h(x)$ for $x \in \mathcal{A}$ are weakly sum-free.\\
-\\
-\underline{The classes of equivalence $h(x)$ for $x \in \mathcal{B}$ are weakly sum-free :}
-\\
-\\
-Let $(x,y) \in \mathcal{B}^2$ such that $h(x) = h(y)$, $x \neq y$ and $x + y \leqslant N$.\\
-We write $x = a\beta + u$ and $y = b\beta + v$ with $(a,u)$ and $(b,v)$ in $[\![1,p]\!] \times [\![-\alpha,\alpha]\!]$. We have $h(x) = r + g(a)$ and $h(y) = r + g(b)$, therefore $g(a) = g(b)$. We also have $x+y = (a+b)\beta + u +v$.\\
-If $u + v \in [\![-\alpha,\alpha]\!]$, then $x+y \in \mathcal{B}$ and $h(x+y) = g(a+b)$, hence we can deduce that $h(x+y) \neq h(x)$ because of the property verified by $g$. On the contrary, if $u+v \notin [\![-\alpha,\alpha]\!]$, then necessarily $x+y \in \mathcal{A}$. Suppose $x+y \in \mathcal{B}$, then $x+y = c\beta + w$ with $(c,w) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]$. Thus, $c\beta + w = (a+b)\beta + u + v$ and $(a+b-c)\beta = w-u-v$. Furthermore $a+b-c \neq 0$, else we would have $u+v = w \in [\![-\alpha,\alpha]\!]$. This finally leads to the following inequality :
-\[\beta \leqslant |a+b-c|\beta = |w-u-v| \leqslant |w| + |u| + |v| \leqslant 3\alpha \leqslant n + \alpha < \beta
-\]
-which is absurd. We can therefore conclude that $x+y \in \mathcal{A}$ and by definition of $h$, $h(x+y) \neq h(x)$, proving that the classes of equivalence $h(x)$ for $x \in \mathcal{B}$ are weakly sum-free.\\
-\\
-Finally, we have showed that every classe of equivalence induced by $h$ is weakly sum-free, which ends the proof.
-
-
-
-\section{About the construction of lower bounds for weak Schur numbers using a computer}
-
-In this section, we first reframe the question of the existence of (weakly) sum-free partitions as a boolean
-satisfiability (SAT) problem. We then provide evidence which indicates that the main assumption made by papers which
-found the previous best known lower bounds for weak Schur numbers may not be correct. Finally, we obtain stronger
-results than those previously known for \(WS(5)\) while gaining several orders of magnitude in computation time by 
-giving additional information to the SAT solver without losing in generality. In this section, we assume that the subsets are ordered.
-
-
-\subsection{Reformulation as a SAT problem}
-\label{SAT}
-
-We encode the existence of (weakly) sum-free partitions as propositional formulae like in \hyperlink{label3}{\textbf{[3]}} and then use 
-SAT solvers to determine whether these formulae are satisfiable.
-
-\begin{definition}
-A \textit{literal} is either a variable \(v\) (a positive literal) or the negation \(\bar{v}\) of a variable \(v\) (a negative literal) where \(v\) 
-takes a truth value: \(true\) or \(false\). A \textit{clause} is a disjunction of literals and a \textit{formula} is a conjunction of clauses: it 
-is a propositional formula in \textit{conjonctive normal form} (CNF).
-\end{definition}
-
-\begin{definition}
-An \textit{assignment} is a function from a set of variables to the truth values \(true\) (1) and \(false\) (0). A literal \(l\) is 
-\textit{satisfied} (\textit{falsified}) by an assignment \(\alpha\) if l is positive and \(\alpha(var (l)) = 1\) 
-(resp. \(\alpha(var (l)) = 0\)) or if it is negative and \(\alpha(var (l)) = 0\) (resp. \(\alpha(var (l)) = 1\)). A clause is \textit{satisfied} 
-by an assignment \(\alpha\) if it contains a literal that is satisfied by \(\alpha\). Finally, a formula is \textit{satisfied} by an assignment 
-\(\alpha\) if all its clauses are satisfied by \(\alpha\). A formula is \textit{satisfiable} if there exists an assignment that satisfies it; 
-otherwise it is \textit{unsatisfiable}.
-\end{definition}
-
-We then encode the existence of a partition of \([\![1,n]\!]\) in \(k\)  weakly sum-free subsets as follows: for every integer 
-\(i \in [\![1,n]\!]\), take \(k\) variables \(x^{(i)}_{1}, ..., x^{(i)}_{k}\) and for every \(\forall c \in [\![1,k]\!], x^{(i)}_c = 1 \iff i \in A_c\). 
-The corresponding clauses are:
-
-\begin{itemize}
-\item \textbf{sumfree:} \(\forall c \in  [\![1,k]\!], \forall (i, j) \in [\![1,n]\!]^2, (i \neq j ~ \text{and} ~ i + j \leq n) \implies \lnot x^{(i)}_c 
-\lor  \lnot x^{(i)}_c \lor \lnot x^{(i+j)}_c\)
-\item \textbf{union:} \(\forall i \in [\![1,n]\!], x^{(i)}_1 \lor ... \lor x^{(i)}_k\)
-\item \textbf{disjoint:} \(\forall i \in [\![1,n]\!],\forall (c_1, c_2) \in  [\![1,k]\!]^2, c_1 \neq c_2 \implies \neg x^{(i)}_{c_1} \lor \neg x^{(i)}_{c_2}\)
-\end{itemize} 
-
-In the above formula, every color plays a symmetric role. Hence the search space can reduced by \(k!\) by ordering the subsets, that is by 
-enforcing that \(m_1 < ... < m_k\). The corresponding clauses are: \linebreak
-\textbf{symmetry breaking:}  \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1,WS(c - 1)+1]\!], x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
-
-\begin{remark}
-For a given problem, it can be interesting to try out different SAT solvers because the relative performance can vary significantly according to the problem. 
-For instance, we used two different SAT solvers in the next two next subsections.
-\end{remark}
-
-
-\subsection{The search space previously used in computer search for lower bounds may not contain the optimal partitions}
-
-Rowley's new lower bound for \(WS(6)\) (642)  \hyperlink{label2}{\textbf{[2]}} was a quite significant improvement upon the former 
-best known lower bound (582). This previous lower bound was found using a computer (often with Monte-Carlo) methods and by making the 
-assumption that a good partition for \(WS(n+1)\) starts with a good partition for \(WS(n)\) which is true for small values of \(n\).
-Therefore, one may wonder whether the limiting factor is the assumption or the methods used to search for partitions. It appears that 
-the latter is correct.
-
-\begin{computational theorem}
-There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
-\begin{itemize}
-	\item \(m_5 \ge 66\)
-	\item \(m_6 \ge 186\)
-	\item \([\![210,349]\!] \subset A_6\)
-\end{itemize}  
-\end{computational theorem}
-
-This result was obtained in 8 hours with the SAT solver plingeling \hyperlink{label5}{\textbf{[5]}} on a 2.60 GHz Intel i7 processor PC.
-However, simply encoding the existence of such a partition as explained in the previous subsection would not result in a reasonable 
-computation time. In order to help the SAT solver, we add additional information in the propositional formula. We did not quantify the 
-speedup, but it most likely allows us to gain several order of magnitude in computation time as we explain in the next subsection.
-
-\par
-Every weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets starts with the following sequence 1121222133. Then 11 is always 
-either in subset 1 or 3, 12 is always in subset 3 and so on. For every integer in \([\![1,65]\!]\), we computed in which subset it can appear. 
-By using this constraints, we could then compute for every integer in \([\![1,185]\!]\), in which subset it can appear in a weakly sum-free 
-partition of  \([\![1,185]\!]\) which starts with a  weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets. Adding these constraints to the 
-formula corresponding to the above theorem gives additional information to the SAT solver without losing in generality.
-
-\par
-The above theorem shows that the previous lower bound for \(WS(6)\) is optimal in the search space considered by the papers which found it. 
-Therefore, finding a partition of \([\![1,n]\!]\) in 6 weakly sum-free subsets for some \(n \geq 590\) which does not have a template-like structure 
-would be extremely interesting since it could give indications on a new search space for improving lower bounds with a computer. More generally, 
-it questions the search space previously used for finding lower bounds for \(WS(n)\) with a computer. In particular, to our knowledge every paper 
-that found the lower bound \(WS(5) \geq 196\) used this assumption [reference necessaire]. Therefore one may wonder if this actually a good lower 
-bound. In the next subsection, we give properties that a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets has to verify.
-
-
-\subsection{Weak Schur number five}
-As explained in the previous subsection, the search space used for showing that  \(WS(5) \geq 196\) may not contain optimal solution. In this subsection, 
-we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same type of methods as in the
- previous subsection.
-
-\begin{notation}
-Let \(P\) be a predicate. We denote
-\end{notation}
-
-\par
-\hyperlink{label4}{\textbf{[4]}} verified with a SAT solver that there are no partition in 5 weakly sum-free subsets of \([\![1,197]\!]\) with  
-\(A_5 = \{67, 68\} \cup [\![70,134]\!] \cup \{136\}\) in 17 hours and could not provide a similar result when only assuming \(m_5 = 67\) even after several 
-weeks of runtime. By using the same method as above, we were able to verify that \(WS(5 | m_5 = 67) = 196\) in 0.5 seconds with the SAT solver glucose 
-on a 2.60 GHz Intel i7 processor PC (we used the non-parallel version here but in the rest of this subsection, we used the parallel version of glucose). 
-The additional information we gave to the SAT solver is that every partition of \([\![1,66]\!]\) in 4 weakly sum-free subsets starts with a partition of 
-\([\![1,23]\!]\) in 3 weakly sum-free subsets (this can be checked in a few dozens of minutes with a SAT solver). Among the 3 partitions of \([\![1,23]\!]\) in 
-3 weakly sum-free subsets, every number always appears in the same subset except for 16 and 17 which can appear in two different subsets. We hardcoded 
-this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation time. We also give the stronger 
-following result.
-
-\begin{computational theorem}
-If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). 
-\end{computational theorem}
-
-More precisely, we verified the following results (\(max~m_5\) is the greatest value of \(m_5\) for which we have not verified that \(WS(5 | m_5) \leq 196\)).
-
-\begin{tabular}{| c | *{21}{ p{2mm} |}}
-	\hline
-	\(m_4\)                   &   4   &   5   &   6  &   7   &   8   &   9   &  10  &  11  &  12  &  13  &  14  &  15  &  16  &  17  &  18  &  19  &  20  &  21  &  22  &  23  &  24  \\ 
-	\hline
-	\(WS(4 | m_4) + 1\) &  55  &  59  &  60  &  59  &  59  &  60  &  60  &  60  &  60  &  64  &  63  &  64  &  61  &  64  &  63  &  65  &  65  &  65  &  65  &  66  &  67  \\
-	\hline
-	\(max~m_5\)           &        &       &        &        &       &        &       &        &        &       &        &       &        &       &        &        &       &        &       &        &  53  \\
-	\hline
-\end{tabular}
-
+\include{sat.tex}
 
 
 \section{Conclusions and future work}
@@ -317,18 +43,18 @@ More precisely, we verified the following results (\(max~m_5\) is the greatest v
 
 \section{References}
 
-\hypertarget{label1}{\textbf{[1]}} Schur, I. 1917. Uber die Kongruenz \(x^m + y^m = z^m~(\text{mod}~p)\). Jahresbericht der 
+\hypertarget{label1}{\textbf{[1]}} Schur, I. 1917. Uber die Kongruenz \(x^m + y^m = z^m~(\text{mod}~p)\). Jahresbericht der
 Deutschen Mathematikervereinigung 25:114–117.: 114-116. \url{http://eudml.org/doc/145475}
 
-\hypertarget{label2}{\textbf{[2]}} Rowley, F. 2020. New Lower Bounds for Weak Schur Partitions. arXiv 2011.11292, 
+\hypertarget{label2}{\textbf{[2]}} Rowley, F. 2020. New Lower Bounds for Weak Schur Partitions. arXiv 2011.11292,
 \url{https://arxiv.org/pdf/2011.11292.pdf}
 
 \hypertarget{label3}{\textbf{[3]}} Heule, M.J.H. 2017. Schur Number Five. arXiv 1711.08076, \url{https://arxiv.org/pdf/1711.08076.pdf}
 
-\hypertarget{label4}{\textbf{[4]}} S. Eliahou, J.M. Marín, M.P. Revuelta and M.I. Sanz 2012. Weak Schur numbers and the search for G.W. 
+\hypertarget{label4}{\textbf{[4]}} S. Eliahou, J.M. Marín, M.P. Revuelta and M.I. Sanz 2012. Weak Schur numbers and the search for G.W.
 Walker’s lost partitions. Computers \& Mathematics with Applications Vol. 63, \url{https://www.sciencedirect.com/science/article/pii/S0898122111009722}
 
-\hypertarget{label5}{\textbf{[5]}} Bierem, A. 2017. CaDiCaL, Lingeling, Plingeling, Treengeling, YalSAT Entering the SAT Competition 2017. 
+\hypertarget{label5}{\textbf{[5]}} Bierem, A. 2017. CaDiCaL, Lingeling, Plingeling, Treengeling, YalSAT Entering the SAT Competition 2017.
 Proceedinfs of SAT Competition 2017 -- Solver and Benchmark Descriptions \url{http://fmv.jku.at/papers/Biere-SAT-Competition-2017-solvers.pdf}
 
 \end{document}

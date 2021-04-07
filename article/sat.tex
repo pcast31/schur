@@ -1,0 +1,110 @@
+\section{About the construction of lower bounds for weak Schur numbers using a computer}
+
+In this section, we first reframe the question of the existence of (weakly) sum-free partitions as a boolean
+satisfiability (SAT) problem. We then provide evidence which indicates that the main assumption made by papers which
+found the previous best known lower bounds for weak Schur numbers may not be correct. Finally, we obtain stronger
+results than those previously known for \(WS(5)\) while gaining several orders of magnitude in computation time by 
+giving additional information to the SAT solver without losing in generality. In this section, we assume that the subsets are ordered.
+
+
+\subsection{Reformulation as a SAT problem}
+
+We encode the existence of (weakly) sum-free partitions as propositional formulae like in \hyperlink{label3}{\textbf{[3]}} and then use 
+SAT solvers to determine whether these formulae are satisfiable.
+
+\begin{definition}
+	A \textit{literal} is either a variable \(v\) (a positive literal) or the negation \(\bar{v}\) of a variable \(v\) (a negative literal) where \(v\) 
+	takes a truth value: \(true\) or \(false\). A \textit{clause} is a disjunction of literals and a \textit{formula} is a conjunction of clauses: it 
+	is a propositional formula in \textit{conjonctive normal form} (CNF).
+\end{definition}
+
+\begin{definition}
+	An \textit{assignment} is a function from a set of variables to the truth values \(true\) (1) and \(false\) (0). A literal \(l\) is 
+	\textit{satisfied} (\textit{falsified}) by an assignment \(\alpha\) if l is positive and \(\alpha(var (l)) = 1\) 
+	(resp. \(\alpha(var (l)) = 0\)) or if it is negative and \(\alpha(var (l)) = 0\) (resp. \(\alpha(var (l)) = 1\)). A clause is \textit{satisfied} 
+	by an assignment \(\alpha\) if it contains a literal that is satisfied by \(\alpha\). Finally, a formula is \textit{satisfied} by an assignment 
+	\(\alpha\) if all its clauses are satisfied by \(\alpha\). A formula is \textit{satisfiable} if there exists an assignment that satisfies it; 
+	otherwise it is \textit{unsatisfiable}.
+\end{definition}
+
+We then encode the existence of a partition of \([\![1,n]\!]\) in \(k\)  weakly sum-free subsets as follows: for every integer 
+\(i \in [\![1,n]\!]\), take \(k\) variables \(x^{(i)}_{1}, ..., x^{(i)}_{k}\) and for every \(\forall c \in [\![1,k]\!], x^{(i)}_c = 1 \iff i \in A_c\). 
+The corresponding clauses are:
+
+\begin{itemize}
+	\item \textbf{sumfree:} \(\forall c \in  [\![1,k]\!], \forall (i, j) \in [\![1,n]\!]^2, (i \neq j ~ \text{and} ~ i + j \leq n) \implies \lnot x^{(i)}_c 
+	\lor  \lnot x^{(i)}_c \lor \lnot x^{(i+j)}_c\)
+	\item \textbf{union:} \(\forall i \in [\![1,n]\!], x^{(i)}_1 \lor ... \lor x^{(i)}_k\)
+	\item \textbf{disjoint:} \(\forall i \in [\![1,n]\!],\forall (c_1, c_2) \in  [\![1,k]\!]^2, c_1 \neq c_2 \implies \neg x^{(i)}_{c_1} \lor \neg x^{(i)}_{c_2}\)
+\end{itemize} 
+
+In the above formula, every color plays a symmetric role. Hence the search space can reduced by \(k!\) by ordering the subsets, that is by 
+enforcing that \(m_1 < ... < m_k\). The corresponding clauses are: \linebreak
+\textbf{symmetry breaking:}  \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1,WS(c - 1)+1]\!], x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
+
+\begin{remark}
+	The performance of
+\end{remark}
+
+
+\subsection{The search space previously used in computer search for lower bounds may not contain the optimal partitions}
+
+Rowley's new lower bound for \(WS(6)\) (642)  \hyperlink{label2}{\textbf{[2]}} was a quite significant improvement upon the former 
+best known lower bound (582). This previous lower bound was found using a computer (often with Monte-Carlo) methods and by making the 
+assumption that a good partition for \(WS(n+1)\) starts with a good partition for \(WS(n)\) which is true for small values of \(n\).
+Therefore, one may wonder whether the limiting factor is the assumption or the methods used to search for partitions. It appears that 
+the latter is correct.
+
+\begin{computational theorem}
+	There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
+	\begin{itemize}
+		\item \(m_5 \ge 66\)
+		\item \(m_6 \ge 186\)
+		\item \([\![210,349]\!] \subset A_6\)
+	\end{itemize}  
+\end{computational theorem}
+
+This result was obtained in 8 hours with the SAT solver plingeling \hyperlink{label5}{\textbf{[5]}} on a 2.60 GHz Intel i7 processor PC.
+However, simply encoding the existence of such a partition as explained in the previous subsection would not result in a reasonable 
+computation time. In order to help the SAT solver, we add additional information in the propositional formula. We did not quantify the 
+speedup, but it most likely allows us to gain several order of magnitude in computation time as we explain in the next subsection.
+
+\par
+Every weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets starts with the following sequence 1121222133. Then 11 is always 
+either in subset 1 or 3, 12 is always in subset 3 and so on. For every integer in \([\![1,65]\!]\), we computed in which subset it can appear. 
+By using this constraints, we could then compute for every integer in \([\![1,185]\!]\), in which subset it can appear in a weakly sum-free 
+partition of  \([\![1,185]\!]\) which starts with a  weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets. Adding these constraints to the 
+formula corresponding to the above theorem gives additional information to the SAT solver without losing in generality.
+
+\par
+The above theorem shows that the previous lower bound for \(WS(6)\) is optimal in the search space considered by the papers which found it. 
+Therefore, finding a partition of \([\![1,n]\!]\) in 6 weakly sum-free subsets for some \(n \geq 590\) which does not have a template-like structure 
+would be extremely interesting since it could give indications on a new search space for improving lower bounds with a computer. More generally, 
+it questions the search space previously used for finding lower bounds for \(WS(n)\) with a computer. In particular, to our knowledge every paper 
+that found the lower bound \(WS(5) \geq 196\) used this assumption [reference necessaire]. Therefore one may wonder if this actually a good lower 
+bound. In the next subsection, we give properties that a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets has to verify.
+
+
+\subsection{Weak Schur number five}
+As explained in the previous subsection, the search space used for showing that  \(WS(5) \geq 196\) may not contain optimal solution. In this subsection, 
+we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same type of methods as in the
+previous subsection.
+
+\par
+First
+
+\begin{computational theorem}
+	If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). 
+\end{computational theorem}
+
+More precisely, we verified the following results using the glucose SAT solver [reference].
+
+\begin{tabular}{| c | *{21}{ p{2mm} |}}
+	\hline
+	\(m_4\)                   &   4   &   5   &   6  &   7   &   8   &   9   &  10  &  11  &  12  &  13  &  14  &  15  &  16  &  17  &  18  &  19  &  20  &  21  &  22  &  23  &  24  \\ 
+	\hline
+	\(WS(4 | m_4) + 1\) &  55  &  59  &  60  &  59  &  59  &  60  &  60  &  60  &  60  &  64  &  63  &  64  &  61  &  64  &  63  &  65  &  65  &  65  &  65  &  66  &  67  \\
+	\hline
+	\(max~m_5\)           &        &       &        &        &       &        &       &        &        &       &        &       &        &       &        &        &       &        &       &        &  53  \\
+	\hline
+\end{tabular}
