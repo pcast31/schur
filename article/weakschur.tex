@@ -105,7 +105,20 @@ Let \( n \in \mathbb{N}^*\), let\( (a,b) \in (\mathbb{N}^*)^2\) such as \(a>b\).
 \end{Theorem}
 
 \subsection{New lower bounds for Weak Schur numbers}
-Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The first two inequalities are due to Rowley, they are detailed in [2]. The best lower bound for each integer is highlighted.\\
+Having found suitable templates, which can be found in the appendix,  with a SAT solver, we can claim that for all \(n \in \mathbb{N}^*\):
+\[
+4S(n) + 1 \leqslant WS(n+1)
+\]
+\[
+13S(n) + 8 \leqslant WS(n+2)
+\]
+\[
+42S(n) + 24 \leqslant WS(n+3)
+\]
+\[
+127S(n) + 68 \leqslant WS(n+4)
+\]
+The first two inequalities are due to Rowley, they are detailed in [2]. Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound for each integer is highlighted.\\
 \\
 \begin{center}
 \begin{tabular}{|*{5}{c|}}
@@ -137,4 +150,7 @@ With \( S(9) \geqslant 17803 \), we found a new lower bound for
 \(WS(10)\) using Rowley's inequality. Moreover, the third inequality
 gives new lower bounds for \(WS(9)\) and \(WS(14)\). However, the last
 inequality doesn't give any better lower bound, even beyond \( n = 15 \)
-: the best bounds are always provided by the first three.
+: the best bounds are always provided by the first three. We highly suspect that these values can be improved by investigating the search
+space further, which would provide new, more effective templates. One
+may try to go over this search space using a Monte-Carlo method, as in
+(ref Eliahou) or (ref Bouzy). This could be the suject of a future work.
