@@ -82,27 +82,43 @@ This formula includes the results of Rowley \hyperlink{label2}{\textbf{[2]}} as 
 \end{remark}
 
 \subsection{Definition of \(WE_+\)}
-
 \begin{definition}
-Let \( n \in \mathbb{N}^*\), let\( b \in \mathbb{N}^*\) there exists a greatest integer that we note \(WE_b^+(n)\) such that \( [\![1, b+WE_b^+(n)]\!]\) can be partitionned into \(n\) weakly-sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
+Let \( (n,k,b) \in (\mathbb{N}^*)^3\), Let \((A_1,....,A_k)\) a partition of  \([\![1, n]\!]\). This partition is said to be a (n,k,b)-weakly-sum-free template when:
 \\\\
-\underline{\(\forall i \in [\![1, n]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free}
+\underline{\(\forall i \in [\![1, k]\!], \quad A_i\) is weakly-sum-free}
 \\\\
-\underline{For \(A_n\) (the special subset):} \quad \(\forall (x,y) \in A_n^2,\)
+\underline{\(\forall i \in [\![1, k]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free}
+\\\\
+\underline{For \(A_k\) (the special subset):} \quad \(\forall (x,y) \in A_k^2,\)
 \\
-\[if \quad x+y>b+2WE_b^+(n),\quad x+y-2WE_b^+(n)\notin A_n\]
+\[if \quad x+y>b+2(n-b),\quad x+y-2(n-b)\notin A_k\]
 \\
-\underline{For the others subsets:}\quad \(\forall (x,y) \in A_k^2\)
+\underline{For the others subsets:}\quad \(\forall i \in [\![0,k-1]\!], \forall(x,y) \in A_i^2\)
 \\
 \[
-(Id+WE_b^+(n)\mathbf{1}_{ [\![0,b]\!]})(x+y[WE_b^+(n)]) \notin A_k
+(Id+(n-b)\mathbf{1}_{ [\![0,b]\!]})(x+y[n-b]) \notin A_i
 \]
-
+\end{definition}
+\\\\
+\begin{definition}
+Let \( (k,b) \in (\mathbb{N}^*)^2\), if there exist n such as there exist a partition of k subsets of \([\![1, n]\!]\) which is a (n,k,b)-weakly-sum-free template, we note: 
+\\\\\(WS_b^+=\max \{n\in \mathbb{N}^*\)/ there exists a partition of k-subsets of \([\![1, n]\!]\) which is a (n,k,b)-weakly-sum-free template \}
+\\\\
+If this n does not exist, we set \(WS_b^+= 0\)
 \end{definition}
 
-\begin{Theorem}
-Let \( n \in \mathbb{N}^*\), let\( (a,b) \in (\mathbb{N}^*)^2\) such as \(a>b\). If there exist a partition of  
-\end{Theorem}
+\begin{definition}
+Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{WS_b^+(n)\}\) 
+\end{definition}
+
+
+\subsection{Lower bound for Weak schur numbers using Schur and Weak Schur template numbers}
+
+
+\begin{theorem}
+Let \((n,k,b) \in (\mathbb{N}*)^3\), let \( (m,p) \in (\mathbb{N}^*)^2\). If there exists a partition of p sum-free subsets of \([\![1,m]\!]\) and a partition of k subsets \((A_1,....,A_k)\) of \([\![1, n]\!]\) which is a (n,k,b)-weakly-sum-free template, then there exists a partition of (k+p-1) weakly sum-free subsets of \([\![1, b+c+m \times n]\!]\) with c=\(min A_n\bigcap [\![b+1, n]\!]\)-b-1
+\end{theorem}
+
 
 \subsection{New lower bounds for Weak Schur numbers}
 Having found suitable templates, which can be found in the appendix,  with a SAT solver, we can claim that for all \(n \in \mathbb{N}^*\):
