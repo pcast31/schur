@@ -1,9 +1,9 @@
 \section{Schur numbers}
 
 \qquad In this section, we use Rowley's constructions [7] in a Schur context. To improve lower bounds for Ramsay's numbers, Rowley 
-introduces partitions verifying some properties which can be extended using method which generalizes Abbott-Hanson's [8] construction. 
-Rolwey named these partitions "templates", and we will keep this name in the entire article. Finding suitable templates and applying his 
-method to these will allow us to find new lower bounds for Schur methods.
+introduces partitions verifying some properties which can be extended using a method which generalizes Abbott-Hanson's [8] construction. 
+Rolwey named these partitions "templates", and we will keep this name in the entire article. We find suitable templates and use them
+ to find new lower bounds for Schur numbers.
 
 \subsection{Definition of SE\(_+\)}
 
@@ -28,13 +28,13 @@ method to these will allow us to find new lower bounds for Schur methods.
 \end{remark}
 
 
-\subsection{Inequaties on \(SE_+\)} 
+\subsection{Inequalities on \(SE_+\)} 
 
 The main result on \(SE_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(SE_+\).
 
 \begin{theorem}
 	Let $(n,k), (r,s) \in (\mathbb{N}^*)^2$. If there exists a \(SF\)-template of $k+1$ colors and lenght \(r\),
-	and a partition of $n$ sum-free subsets of $[\![1,s]\!]$ then there exists a partition of $n+k$ sum-free subsets of $[\![1,rs]\!]$
+	and a partition of $n$ sum-free subsets of $[\![1,s]\!]$ then there exists a partition of $n+k$ sum-free subsets of $[\![1,rs]\!]$.
 \end{theorem}
 
 Setting $r = SE_+(k+1)$ and $s = S(n)$ yields the following corollary. 
@@ -109,5 +109,11 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, pleas
 Except for 8, 9 and 13, the best lower bounds are obtained thanks to
 the third inequality \( 380S(n-5) + 148 \leqslant S(n) \). The table
 doesn't go any further, but the same inequality allows to improve the
-lower bounds for every \( n \in [\![15,+\infty]\!] \). We also notice
-that the inequality \(380S(n-5) + 148 \leqslant S(n) \) provides a better growth rate \(\gamma = \sqrt[5]{380} \geqslant 3.28 \).
+lower bounds for every \( n \in [\![15,+\infty]\!] \). 
+
+\begin{corollary}
+The growth rate for Schur (and Ramsey) numbers satisfies \(\gamma = \sqrt[5]{380} \geqslant 3.28 \).
+\end{corollary}
+\textsc{Proof :} It is a mere consequence of the inequality \(380S(n-5) + 148 \leqslant S(n) \). As for Ramsey's 
+numbers growth rate, a lower bound can be found using Schur's one, thanks to \(S(n) \leqslant R_n(3)-2 \) 
+(see \hyperlink{label1}{\textbf{[1]}}).
