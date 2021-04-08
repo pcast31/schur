@@ -139,8 +139,22 @@ Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{
 \begin{theorem}
 Let \((p,k,b) \in (\mathbb{N}^*)^3\), let \( (q,n) \in (\mathbb{N}^*)^2\). If there exists a partition of \(n\)
  sum-free subsets of \([\![1,q]\!]\) and a partition of k subsets \((A_1,....,A_k)\) of \([\![1, p]\!]\) which is a \(b\)-WSF of \(k\) colors and lenght \(p\), 
- then there exists a partition of \([\![1, b+c+q \times p]\!]\) into \((k+n-1)\) weakly sum-free subsets with c=\(min A_p\bigcap [\![b+1, p]\!] -b-1\).
+ then there exists a partition of \([\![1, b+q \times p]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
+
+In particular, if we choose \(q = S(n)\) and \(p = WS^+(k)\) in the last theorem, the next corollary follows.
+
+
+\begin{corollary}
+	\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let \text{ } b_{max}=max \{b\in \mathbb{N}^*/WS^+(k+1)=WS_b^+(k+1)\},\)
+	\[ WS(n+k) \geqslant S(n) WS^+(k+1)+b_{max}\]
+\end{corollary}
+
+\begin{remark}
+There exists a \(c(b) \geqslant \text{min}(A_{k+1} \backslash [\![1,b]\) - b - 1\) such that \(c(b)\) numbers can be added at the end of the extended partition.Therefore, we can get a better lower bound by finding a couple \((b,c(b))\) which maximizes the sum  \(b+c(b)\) such that \(WS^+(k+1)=WS_b^+(k+1)\). Hence we have:
+	\[ WS(n+k) \geqslant S(n) WS^+(k+1)+b+c(b)\]
+
+\end{remark}
 
 
 \subsection{New lower bounds for Weak Schur numbers}
