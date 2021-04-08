@@ -1,25 +1,31 @@
 \section{Weak Schur numbers}
 
-In this section, we generalize Rowley's constructions in [2]. We then introduce, by analogy with the third section, the integer \(WS_+(n)\) 
+In this section, we generalize Rowley's constructions in [2]. We then introduce, by analogy with the third section, the
+integer \(WS^+(n)\)
 to build suitable templates.
 
 \subsection{Lower bound for Weak Schur numbers using Schur and Weak Schur numbers}
 
-Up to now, there was no equivalent for weak Schur numbers of Abott and Hanson's construction [refenrece]. Here we 
+Up to now, there was no equivalent for weak Schur numbers of Abott and Hanson's construction [refenrece]. Here we
 give a general lower bound for weak Schur numbers as a function of both regular and weak Schur numbers.
-The following theorem, inspired by Rowley's inequalities for \(WS(n+1)\) and \(WS(n+2)\), was found and proved 
+The following theorem, inspired by Rowley's inequalities for \(WS(n+1)\) and \(WS(n+2)\), was found and proved
 by Romain Ageron.
 
 \begin{theorem}
-	Let $(p,q), (n,k) \in (\mathbb{N}^*)^2$. If there exists a partition of $[\![1,q]\!]$ into $n$ weakly sum-free subsets and a partition of $[\![1,p]\!]$ into $k$ sum-free 
-	subsets then there exists a partition of $[\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]$ into $n+k$ weakly sum-free subsets.
+Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
+subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free
+subsets then there exists a partition of \([\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]\) into \(n+k\)
+weakly sum-free subsets.
 \end{theorem}
-In particular, if we choose $q = WS(n)$ and $p = S(k)$ in the last theorem, the next corollary follows.
+In particular, if we choose \(q = WS(n)\) and \(p = S(k)\) in the last theorem, the next corollary follows.
 \begin{corollary}
-	$ \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } WS(n+k) \geqslant S(k) \left (WS(n) + \left \lceil \frac{WS(n)}{2} \right \rceil +1 \right) + WS(n)$
+\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } WS(n+k) \geqslant S(k) \left (WS(n) + \left \lceil \frac{WS(n)}{2}
+\right \rceil +1 \right) + WS(n)\)
 \end{corollary}
-\textsc{Proof :} Let $(p,q), (n,k) \in (\mathbb{N}^*)^2$,  $N = p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q$, $\alpha = \left \lceil \frac{q}{2} \right \rceil > 0$ and $\beta = q + \alpha + 1$. 
-We denote by $f$ the projection of the equivalence relation induced by the partition of $[\![1,q]\!]$ and $g$ the one induced by the partition of $[\![1,p]\!]$. Each equivalence class is represented by a single integer, therefore :
+\textsc{Proof :} Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\), \(N = p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q\),
+\(\alpha = \left \lceil \frac{q}{2} \right \rceil > 0\) and \(\beta = q + \alpha + 1\).
+We denote by \(f\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(g\) the
+one induced by the partition of \([\![1,p]\!]\). Each equivalence class is represented by a single integer, therefore :
 \[ f : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2, \left\{
 \begin{array}{ll}
 	x \neq y \\
@@ -28,82 +34,118 @@ We denote by $f$ the projection of the equivalence relation induced by the parti
 \right.
 \Longrightarrow f(x+y) \neq f(x)
 \]
-\[g : [\![1,p]\!] \longrightarrow [\![1,k]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)
+\[g : [\![1,p]\!] \longrightarrow [\![1,k]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } f(x) = f(y)
+\Longrightarrow f(x+y) \neq f(x)
 \]
-Let us start by parting the integers of $[\![1,N]\!]$ in two subsets $\mathcal{A}$ and $\mathcal{B}$ where $\mathcal{A} = [\![1,\alpha]\!] \cup \{a\beta + u \mid (a,u) \in [\![0,p]\!] \times [\![\alpha + 1,q]\!]\}$ and $\mathcal{B} = \{a\beta + u \mid (a,u) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]\}$.\\
+Let us start by parting the integers of \([\![1,N]\!]\) in two subsets \(\mathcal{A}\) and \(\mathcal{B}\) where
+\(\mathcal{A} = [\![1,\alpha]\!] \cup \{a\beta + u \mid (a,u) \in [\![0,p]\!] \times [\![\alpha + 1,q]\!]\}\) and
+\(\mathcal{B} = \{a\beta + u \mid (a,u) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]\}\).\\
 \\
-First, \underline{$\mathcal{A} \cap \mathcal{B} = \varnothing$} : \\
-By contradiction, suppose there exists $x \in \mathcal{A} \cap \mathcal{B} \neq \varnothing $. Then there are $(a,u) \in [\![0,p]\!] \times [\![\alpha + 1,q]\!]$ and $(b,v) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]$ such that $x = a\beta + u = b\beta +v$. By definition of $\alpha$ and  $\beta$ we have $u \in [\![\alpha + 1,q]\!] \subset [\![0,\beta - 1]\!]$. 
+First, \underline{\(\mathcal{A} \cap \mathcal{B} = \varnothing\)} : \\
+By contradiction, suppose there exists \(x \in \mathcal{A} \cap \mathcal{B} \neq \varnothing \). Then there are \((a,u)
+\in [\![0,p]\!] \times [\![\alpha + 1,q]\!]\) and \((b,v) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]\) such that \(x
+= a\beta + u = b\beta +v\). By definition of \(\alpha\) and \(\beta\) we have \(u \in [\![\alpha + 1,q]\!] \subset
+[\![0,\beta - 1]\!]\).
 From there, we distinguish two cases :
 \begin{itemize}
-	\item If $v \in [\![0,\alpha]\!]$ then $v \in [\![0,\beta - 1]\!]$ and $v \neq u$ because $v < \alpha + 1 \leqslant u$
-	\item If $v \in [\![-\alpha,-1]\!]$, we note $\tilde{v} = \beta + v$ and thus have $x = (b-1)\beta + \tilde{v}$ with $\tilde{v} \in [\![\beta - \alpha,\beta - 1]\!] \subset [\![0,\beta - 1]\!]$ and $\tilde{v} \neq u$ because $u < q+1 = \beta - \alpha \leqslant \tilde{v}$.
+\item If \(v \in [\![0,\alpha]\!]\) then \(v \in [\![0,\beta - 1]\!]\) and \(v \neq u\) because \(v < \alpha + 1
+\leqslant u\)
+\item If \(v \in [\![-\alpha,-1]\!]\), we note \(\tilde{v} = \beta + v\) and thus have \(x = (b-1)\beta + \tilde{v}\)
+with \(\tilde{v} \in [\![\beta - \alpha,\beta - 1]\!] \subset [\![0,\beta - 1]\!]\) and \(\tilde{v} \neq u\) because \(u
+< q+1 = \beta - \alpha \leqslant \tilde{v}\).
 \end{itemize}
-In either cases, we run into a contradiction because of the remainder's uniqueness in the euclidean division of $x$ by $\beta$.\\
+In either cases, we run into a contradiction because of the remainder's uniqueness in the euclidean division of \(x\) by
+\(\beta\).\\
 \\
-Then, we have \underline{$\mathcal{A} \cup \mathcal{B} = [\![1,N]\!]$}:
+Then, we have \underline{\(\mathcal{A} \cup \mathcal{B} = [\![1,N]\!]\)}:
 \begin{itemize}
-	\item On the one hand : $1 = \text{min($\mathcal{A}$)} \leqslant \text{max($\mathcal{A}$)} = p\beta + q = N$ and 
-	$1 \leqslant \beta - \alpha = \text{min($\mathcal{B}$)} \leqslant \text{max($\mathcal{B}$)} = p\beta + \alpha \leqslant N$, 
-	which gives $\mathcal{A} \cup \mathcal{B} \subset [\![1,N]\!]$.
-	\item On the other hand, let $x \in  [\![1,N]\!]$. If $x \leqslant \alpha$, we directly have $x \in \mathcal{A}$, let us then suppose that $x > \alpha$ and write $x = a\beta + u$ 
-	the euclidean division of $x$ by $\beta$. We have $x \leqslant N$, thus $a \leqslant p$. We distinguish three cases : \\
-	- If $u \in [\![0,\alpha]\!]$ then we necessarily have $a \geqslant 1$ because $x > \alpha$, and so $x \in \mathcal{B}$.\\
-	- If $u \in [\![\alpha + 1,q]\!]$, then $x \in \mathcal{A}$. \\
-	- If $u \in [\![q + 1,\beta - 1]\!]$ then $x = (a+1)\beta - (\beta - u)$ with $-\alpha \leqslant \beta - u \leqslant 0$. 
-	Furthermore, $a \leqslant p - 1$, else we would have $x > N$, and so $x \in \mathcal{B}$ \\
-	In any case, $x \in \mathcal{A} \cup \mathcal{B}$ and we can thus conclude that $[\![1,N]\!] \subset \mathcal{A} \cup \mathcal{B}$.
+	\item On the one hand : \(1 = \text{min}(\mathcal{A}) \leqslant \text{max}(\mathcal{A}) = p\beta + q = N\) and
+\(1 \leqslant \beta - \alpha = \text{min}(\mathcal{B}) \leqslant \text{max}(\mathcal{B}) = p\beta + \alpha \leqslant
+N\),
+	which gives \(\mathcal{A} \cup \mathcal{B} \subset [\![1,N]\!]\).
+\item On the other hand, let \(x \in [\![1,N]\!]\). If \(x \leqslant \alpha\), we directly have \(x \in \mathcal{A}\),
+let us then suppose that \(x > \alpha\) and write \(x = a\beta + u\)
+the euclidean division of \(x\) by \(\beta\). We have \(x \leqslant N\), thus \(a \leqslant p\). We distinguish three
+cases : \\
+- If \(u \in [\![0,\alpha]\!]\) then we necessarily have \(a \geqslant 1\) because \(x > \alpha\), and so \(x \in
+\mathcal{B}\).\\
+	- If \(u \in [\![\alpha + 1,q]\!]\), then \(x \in \mathcal{A}\). \\
+- If \(u \in [\![q + 1,\beta - 1]\!]\) then \(x = (a+1)\beta - (\beta - u)\) with \(-\alpha \leqslant \beta - u
+\leqslant 0\).
+	Furthermore, \(a \leqslant p - 1\), else we would have \(x > N\), and so \(x \in \mathcal{B}\) \\
+In any case, \(x \in \mathcal{A} \cup \mathcal{B}\) and we can thus conclude that \([\![1,N]\!] \subset \mathcal{A} \cup
+\mathcal{B}\).
 \end{itemize}
-This first partition of $[\![1,N]\!]$ will help us to define our final partition by the projection of its equivalence relation. 
-We thereby define $h : [\![1,N]\!] \longrightarrow [\![1,n+k]\!]$ as such :\\
-- If $x \in \mathcal{A}$ then $h(x) = f(x \text{ mod } \beta)$ (well defined because $x \text{ mod } \beta \in [\![1,N]\!]$)\\
-- If $x \in \mathcal{B}$ then $x = a\beta + u$ with a unique $(a,u) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]$ and we define $h(x) = n + g(a)$\\
-The fact that $(\mathcal{A}, \mathcal{B})$ is a partition of $[\![1,N]\!]$ ensures that this definition of $h$ is valid. We then have to verify that $h$ induces weakly sum-free subsets.\\
+This first partition of \([\![1,N]\!]\) will help us to define our final partition by the projection of its equivalence
+relation.
+We thereby define \(h : [\![1,N]\!] \longrightarrow [\![1,n+k]\!]\) as such :\\
+- If \(x \in \mathcal{A}\) then \(h(x) = f(x \text{ mod } \beta)\) (well defined because \(x \text{ mod } \beta \in
+[\![1,N]\!]\))\\
+- If \(x \in \mathcal{B}\) then \(x = a\beta + u\) with a unique \((a,u) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]\)
+and we define \(h(x) = n + g(a)\)\\
+The fact that \((\mathcal{A}, \mathcal{B})\) is a partition of \([\![1,N]\!]\) ensures that this definition of \(h\) is
+valid. We then have to verify that \(h\) induces weakly sum-free subsets.\\
 \\
-\underline{The classes of equivalence $h(x)$ for $x \in \mathcal{A}$ are weakly sum-free :}
+\underline{The classes of equivalence \(h(x)\) for \(x \in \mathcal{A}\) are weakly sum-free :}
 \\
 \\
-Let $(x,y) \in \mathcal{A}^2$ such that $h(x) = h(y)$, $x \neq y$ and $x + y \leqslant N$
+Let \((x,y) \in \mathcal{A}^2\) such that \(h(x) = h(y)\), \(x \neq y\) and \(x + y \leqslant N\)
 \begin{itemize}
-	\item If $(x,y) \in [\![1,\alpha]\!]^2$ :\\
-	We have $x + y \leqslant 2\alpha \leqslant q$ and $x + y = 0\beta + x + y$, therefore $x + y \in \mathcal{A}$. 
-	Then, by definition : $h(x) = f(x)$, $h(y) = f(y)$ and $h(x+y) = f(x+y)$, which gives us, thanks to the property verified by $f$, that $h(x+y) \neq h(x)$.
-	\item If $(x,y) \in [\![1,\alpha]\!] \times ( \mathcal{A} \text{ \textbackslash} \text{ } [\![1,\alpha]\!] )$ :\\
-	We write $y = a\beta + u$ with $(a,u) \in [\![0,p]\!] \times [\![\alpha + 1,q]\!]$. Then $x+y = a\beta + x + u = (a+1)\beta + x + u - \beta$, 
-	and if $x + u > q$ it follows that $a \leqslant p-1$ since $x+y \leqslant N$, and $-\alpha \leqslant x + u - \beta \leqslant -1$. 
-	Therefore $x+y \in \mathcal{B}$ and $h(x+y) \neq h(x) = f(x)$ by definition of h. On the contrary, if $x - u \leqslant n$, 
-	then $x+y \in \mathcal{A}$ and $h(x+y) = f(x+u)$ because $x+u$ is actually the remainder of the euclidean division of $x+y$ by $\beta$. 
-	Moreover, $h(x) = f(x)$, $x < u$ and, with our initial hypothesis, $h(x) = h(y) = f(u)$. The property verified by $f$ gives us $f(x+u) \neq f(x)$ which can be rewritten as $h(x+y) \neq h(x)$.
-	\item If $(x,y) \in ( \mathcal{A} \text{ \textbackslash} \text{ } [\![1,\alpha]\!] ) \times [\![1,\alpha]\!]$ : \\
-	This case is handled exactly like the previous one by swaping the roles of $x$ and $y$.
-	\item If $(x,y) \in ( \mathcal{A} \text{ \textbackslash} \text{ } [\![1,\alpha]\!] )^2$ : \\
-	We write $x = a\beta + u$ and $y = b\beta + v$ with $(a,u)$ and $(b,v)$ in $[\![0,p]\!] \times [\![\alpha + 1,q]\!]$. Then $x+y = (a+b)\beta + u+v = (a+b+1)\beta + u + v - \beta$ 
-	with $a+b \leqslant p-1$ (else we would have $x+y > N$ because $u+v > q$) and $-\alpha \leqslant u + v - \beta \leqslant \alpha$, therefore $x+y \in \mathcal{B}$ and by definition $h(x+y) \neq h(x)$.
+	\item If \((x,y) \in [\![1,\alpha]\!]^2\) :\\
+	We have \(x + y \leqslant 2\alpha \leqslant q\) and \(x + y = 0\beta + x + y\), therefore \(x + y \in \mathcal{A}\).
+Then, by definition : \(h(x) = f(x)\), \(h(y) = f(y)\) and \(h(x+y) = f(x+y)\), which gives us, thanks to the property
+verified by \(f\), that \(h(x+y) \neq h(x)\).
+	\item If \((x,y) \in [\![1,\alpha]\!] \times ( \mathcal{A} \text{ \textbackslash} ~ [\![1,\alpha]\!] )\) :\\
+We write \(y = a\beta + u\) with \((a,u) \in [\![0,p]\!] \times [\![\alpha + 1,q]\!]\). Then \(x+y = a\beta + x + u =
+(a+1)\beta + x + u - \beta\),
+and if \(x + u > q\) it follows that \(a \leqslant p-1\) since \(x+y \leqslant N\), and \(-\alpha \leqslant x + u -
+\beta \leqslant -1\).
+Therefore \(x+y \in \mathcal{B}\) and \(h(x+y) \neq h(x) = f(x)\) by definition of h. On the contrary, if \(x - u
+\leqslant n\),
+then \(x+y \in \mathcal{A}\) and \(h(x+y) = f(x+u)\) because \(x+u\) is actually the remainder of the euclidean division
+of \(x+y\) by \(\beta\).
+Moreover, \(h(x) = f(x)\), \(x < u\) and, with our initial hypothesis, \(h(x) = h(y) = f(u)\). The property verified by
+\(f\) gives us \(f(x+u) \neq f(x)\) which can be rewritten as \(h(x+y) \neq h(x)\).
+	\item If \((x,y) \in ( \mathcal{A} \text{ \textbackslash} ~ [\![1,\alpha]\!] ) \times [\![1,\alpha]\!]\) : \\
+	This case is handled exactly like the previous one by swaping the roles of \(x\) and \(y\).
+	\item If \((x,y) \in ( \mathcal{A} \text{ \textbackslash} ~ [\![1,\alpha]\!] )^2\) : \\
+We write \(x = a\beta + u\) and \(y = b\beta + v\) with \((a,u)\) and \((b,v)\) in \([\![0,p]\!] \times [\![\alpha +
+1,q]\!]\). Then \(x+y = (a+b)\beta + u+v = (a+b+1)\beta + u + v - \beta\)
+with \(a+b \leqslant p-1\) (else we would have \(x+y > N\) because \(u+v > q\)) and \(-\alpha \leqslant u + v - \beta
+\leqslant \alpha\), therefore \(x+y \in \mathcal{B}\) and by definition \(h(x+y) \neq h(x)\).
 \end{itemize}
-In any case, $h(x+y) \neq h(x)$ and the classes of equivalence $h(x)$ for $x \in \mathcal{A}$ are weakly sum-free.\\
+In any case, \(h(x+y) \neq h(x)\) and the classes of equivalence \(h(x)\) for \(x \in \mathcal{A}\) are weakly
+sum-free.\\
 \\
-\underline{The classes of equivalence $h(x)$ for $x \in \mathcal{B}$ are weakly sum-free :}
+\underline{The classes of equivalence \(h(x)\) for \(x \in \mathcal{B}\) are weakly sum-free :}
 \\
 \\
-Let $(x,y) \in \mathcal{B}^2$ such that $h(x) = h(y)$, $x \neq y$ and $x + y \leqslant N$.\\
-We write $x = a\beta + u$ and $y = b\beta + v$ with $(a,u)$ and $(b,v)$ in $[\![1,p]\!] \times [\![-\alpha,\alpha]\!]$. 
-We have $h(x) = q + g(a)$ and $h(y) = q + g(b)$, therefore $g(a) = g(b)$. We also have $x+y = (a+b)\beta + u +v$.\\
-If $u + v \in [\![-\alpha,\alpha]\!]$, then $x+y \in \mathcal{B}$ and $h(x+y) = g(a+b)$, hence we can deduce that $h(x+y) \neq h(x)$ because of the property verified by $g$. On the contrary, if $u+v \notin [\![-\alpha,\alpha]\!]$, then necessarily $x+y \in \mathcal{A}$. Suppose $x+y \in \mathcal{B}$, then $x+y = c\beta + w$ with $(c,w) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]$. Thus, $c\beta + w = (a+b)\beta + u + v$ and $(a+b-c)\beta = w-u-v$. Furthermore $a+b-c \neq 0$, else we would have $u+v = w \in [\![-\alpha,\alpha]\!]$. This finally leads to the following inequality :
+Let \((x,y) \in \mathcal{B}^2\) such that \(h(x) = h(y)\), \(x \neq y\) and \(x + y \leqslant N\).\\
+We write \(x = a\beta + u\) and \(y = b\beta + v\) with \((a,u)\) and \((b,v)\) in \([\![1,p]\!] \times
+[\![-\alpha,\alpha]\!]\).
+We have \(h(x) = q + g(a)\) and \(h(y) = q + g(b)\), therefore \(g(a) = g(b)\). We also have \(x+y = (a+b)\beta + u
++v\).\\
+If \(u + v \in [\![-\alpha,\alpha]\!]\), then \(x+y \in \mathcal{B}\) and \(h(x+y) = g(a+b)\), hence we can deduce that
+\(h(x+y) \neq h(x)\) because of the property verified by \(g\). On the contrary, if \(u+v \notin
+[\![-\alpha,\alpha]\!]\), then necessarily \(x+y \in \mathcal{A}\). Suppose \(x+y \in \mathcal{B}\), then \(x+y = c\beta
++ w\) with \((c,w) \in [\![1,p]\!] \times [\![-\alpha,\alpha]\!]\). Thus, \(c\beta + w = (a+b)\beta + u + v\) and
+\((a+b-c)\beta = w-u-v\). Furthermore \(a+b-c \neq 0\), else we would have \(u+v = w \in [\![-\alpha,\alpha]\!]\). This
+finally leads to the following inequality :
 \[\beta \leqslant |a+b-c|\beta = |w-u-v| \leqslant |w| + |u| + |v| \leqslant 3\alpha \leqslant q + \alpha < \beta
 \]
-which is absurd. We can therefore conclude that $x+y \in \mathcal{A}$ and by definition of $h$, $h(x+y) \neq h(x)$, proving that the classes of equivalence $h(x)$ for $x \in \mathcal{B}$ are weakly sum-free.\\
+which is absurd. We can therefore conclude that \(x+y \in \mathcal{A}\) and by definition of \(h\), \(h(x+y) \neq
+h(x)\), proving that the classes of equivalence \(h(x)\) for \(x \in \mathcal{B}\) are weakly sum-free.\\
 \\
-Finally, we have showed that every classe of equivalence induced by $h$ is weakly sum-free, which ends the proof.
+Finally, we have showed that every classe of equivalence induced by \(h\) is weakly sum-free, which ends the proof.
 
 \begin{remark}
-This formula includes the results of Rowley \hyperlink{label2}{\textbf{[2]}} as a special case. For \(n>2\), 
-this formula does not give new lower bounds but in the same way as we introduced \(S_+\)\hyperref[SE]{(Definition 3.1)}, 
-we will define \(WS_+\) and find inequalities between \(WS_+\),\(WS\) and \(S\)
+This formula includes the results of Rowley \hyperlink{label2}{\textbf{[2]}} as a special case. For \(n>2\),
+this formula does not give new lower bounds but in the same way as we introduced \(S^+\)\hyperref[SE]{(Definition 3.1)},we will define \(WS^+\) and find inequalities between \(WS^+\),\(WS\) and \(S\)
 \end{remark}
 
-\subsection{Definition of \(WS_+\)}
+\subsection{Definition of \(WS^+\)}
 \begin{definition}
-Let \( (p,k,b) \in (\mathbb{N}^*)^3\), Let \((A_1,....,A_k)\) a partition of  \([\![1, p]\!]\). 
+Let \( (p,k,b) \in (\mathbb{N}^*)^3\), Let \((A_1,....,A_k)\) a partition of  \([\![1, p]\!]\).
 This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(k\) colors and lenght \(p\) when:
 \\\\
 \underline{\(\forall i \in [\![1, k]\!], \quad A_i\) is weakly-sum-free}
@@ -122,14 +164,16 @@ This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(
 \end{definition}
 
 \begin{definition}
-Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a \(b\)-WS-template of \(k\) colors and lenght \(p\), we note: 
-\\\\\(WS_b^+=\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a \(b\)-WSF-template of \(k\) colors and lenght \(p\) \}
+Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\)
+subsets which is a \(b\)-WS-template of \(k\) colors and lenght \(p\), we note:
+\\\\\(WS_b^+=\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a
+\(b\)-WSF-template of \(k\) colors and lenght \(p\) \}
 \\\\
 If this \(p\) does not exist, we set \(WS_b^+= 0\)
 \end{definition}
 
 \begin{definition}
-Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{WS_b^+(n)\}\) 
+Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{WS_b^+(n)\}\)
 \end{definition}
 
 
@@ -138,7 +182,8 @@ Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{
 
 \begin{theorem}
 Let \((p,k,b) \in (\mathbb{N}^*)^3\), let \( (q,n) \in (\mathbb{N}^*)^2\). If there exists a partition of \(n\)
- sum-free subsets of \([\![1,q]\!]\) and a partition of k subsets \((A_1,....,A_k)\) of \([\![1, p]\!]\) which is a \(b\)-WSF of \(k\) colors and lenght \(p\), 
+sum-free subsets of \([\![1,q]\!]\) and a partition of k subsets \((A_1,....,A_k)\) of \([\![1, p]\!]\) which is a
+\(b\)-WSF of \(k\) colors and lenght \(p\),
  then there exists a partition of \([\![1, b+q \times p]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
 
@@ -146,19 +191,21 @@ In particular, if we choose \(q = S(n)\) and \(p = WS^+(k)\) in the last theorem
 
 
 \begin{corollary}
-	\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let \text{ } b_{max}=max \{b\in \mathbb{N}^*/WS^+(k+1)=WS_b^+(k+1)\},\)
-	\[ WS(n+k) \geqslant S(n) WS^+(k+1)+b_{max}\]
+\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/WS^+(k+1)=WS_b^+(k+1)\},\)	\[ WS(n+k) \geqslant S(n) WS^+(k+1)+b_{max}\]
 \end{corollary}
 
 \begin{remark}
-There exists a \(c(b) \geqslant \text{min}(A_{k+1} \backslash [\![1,b]\) - b - 1\) such that \(c(b)\) numbers can be added at the end of the extended partition.Therefore, we can get a better lower bound by finding a couple \((b,c(b))\) which maximizes the sum  \(b+c(b)\) such that \(WS^+(k+1)=WS_b^+(k+1)\). Hence we have:
+There exists a \(c(b) \geqslant \text{min}(A_{k+1} \backslash [\![1,b] - b - 1\) such that \(c(b)\) numbers can be
+added at the end of the extended partition.Therefore, we can get a better lower bound by finding a couple \((b,c(b))\)
+which maximizes the sum \(b+c(b)\) such that \(WS^+(k+1)=WS_b^+(k+1)\). Hence we have:
 	\[ WS(n+k) \geqslant S(n) WS^+(k+1)+b+c(b)\]
 
 \end{remark}
 
 
 \subsection{New lower bounds for Weak Schur numbers}
-Having found suitable templates, which can be found in the appendix,  with a SAT solver, we claim that for all \(n \in \mathbb{N}^*\):
+Having found suitable templates, which can be found in the appendix, with a SAT solver, we claim that for all \(n \in
+\mathbb{N}^*\):
 \[
 4S(n) + 1 \leqslant WS(n+1)
 \]
@@ -171,7 +218,8 @@ Having found suitable templates, which can be found in the appendix,  with a SAT
 \[
 127S(n) + 68 \leqslant WS(n+4)
 \]
-The first two inequalities are due to Rowley, they are detailed in [2]. Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound for each integer is highlighted.\\
+The first two inequalities are due to Rowley, they are detailed in [2]. Like in 3.3, we compute the lower bounds given
+by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound for each integer is highlighted.\\
 \\
 \begin{center}
 \begin{tabular}{|*{5}{c|}}
@@ -204,8 +252,9 @@ With \( S(9) \geqslant 17803 \), we found a new lower bound for
 \(WS(10)\) using Rowley's inequality. Moreover, the third inequality
 gives new lower bounds for \(WS(9)\) and \(WS(14)\). However, the last
 inequality doesn't give any better lower bound, even beyond \( n = 15 \)
-: the best bounds are always provided by the first three. We highly suspect that these values can be improved by investigating the search
+: the best bounds are always provided by the first three. We highly suspect that these values can be improved by
+investigating the search
 space further, which would provide new, more effective templates. One
-may try to go over this search space using a Monte-Carlo method, as in (ref Bouzy), 
-but with a different search space (as we explain in \hyperref[SAT]{SAT section}). 
+may try to go over this search space using a Monte-Carlo method, as in (ref Bouzy),
+but with a different search space (as we explain in \hyperref[SAT]{SAT section}).
 This could be the suject of a future work.
