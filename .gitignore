@@ -3,3 +3,5 @@ article/*
 !article/*.bib
 !article/*.tex
 !article/article_push.pdf
+
+__pycache__
