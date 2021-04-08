@@ -2,52 +2,52 @@
 
 \qquad In this section, we use Rowley's constructions [7] in a Schur context. To improve lower bounds for Ramsay's numbers, Rowley 
 introduces partitions verifying some properties which can be extended using a method which generalizes Abbott-Hanson's [8] construction. 
-Rolwey named these partitions "templates", and we will keep this name in the entire article. We find suitable templates and use them
+Rowley named these partitions "templates", and we will keep this name in the entire article. We find suitable templates and use them
  to find new lower bounds for Schur numbers.
 
-\subsection{Definition of SE\(_+\)}
+\subsection{Definition of S\(_+\)}
 
 \begin{definition}
-	We call SF-template of \(k\) colors and lenght \(n\) a partition of \( [\![1,n]\!]\) into \(k\) sum-free subsets \(A_1, A_2, ..., A_k\) which verify :
+	We call SF-template of \(n\) colors and lenght \(p\) a partition of \( [\![1,p]\!]\) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) which verify :
 	\[
-	\forall i \in [\![1, k-1]\!], \forall (x,y) \in A_i^2, x+y > n
-	\Longrightarrow x+y-n \notin A_i
+	\forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
+	\Longrightarrow x+y-p \notin A_i
 	\]
-	We note \(SE_+(k)\) the maximal lenght for a SF-template of \(k\) colors. 
+	We note \(S_+(n)\) the maximal lenght for a SF-template of \(n\) colors. 
 \end{definition}
 
 \begin{theorem}
 	Let \(n \in [\![2, +\infty]\!]\), we have :
 	\[
-	2S(n-1)+1 \leqslant SE_+(n) \leqslant S(n)
+	2S(n-1)+1 \leqslant S_+(n) \leqslant S(n)
 	\]
 \end{theorem}
 
 \begin{remark}
-	\(SE_+\) and \(S\) have the same asymptotic growth rate.
+	\(S_+\) and \(S\) have the same asymptotic growth rate.
 \end{remark}
 
 
-\subsection{Inequalities on \(SE_+\)} 
+\subsection{Inequalities on \(S_+\)} 
 
-The main result on \(SE_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(SE_+\).
+The main result on \(S_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(S_+\).
 
 \begin{theorem}
-	Let $(n,k), (r,s) \in (\mathbb{N}^*)^2$. If there exists a \(SF\)-template of $k+1$ colors and lenght \(r\),
-	and a partition of $n$ sum-free subsets of $[\![1,s]\!]$ then there exists a partition of $n+k$ sum-free subsets of $[\![1,rs]\!]$.
+	Let $(n,k), (p,q) \in (\mathbb{N}^*)^2$. If there exists a \(SF\)-template of $k+1$ colors and lenght \(p\),
+	and a partition of $n$ sum-free subsets of $[\![1,q]\!]$ then there exists a partition of $n+k$ sum-free subsets of $[\![1,pq]\!]$.
 \end{theorem}
 
-Setting $r = SE_+(k+1)$ and $s = S(n)$ yields the following corollary. 
+Setting $p = S_+(k+1)$ and $q = S(n)$ yields the following corollary. 
 
 \begin{corollary}
 	Let \(n, k \in \mathbb{N}^*\), we have \\
-	\[ S(n+k) \geqslant SE_+(k+1)S(n) \]
+	\[ S(n+k) \geqslant S_+(k+1)S(n) \]
 \end{corollary}
 
 Using a SAT solvers, we are able to exhibit SF-template,
-hence providing lower bound on \(SE_+\). Moreover, when using 
+hence providing lower bound on \(S_+\). Moreover, when using 
 a SF-template in the above formula, it is possible to get an additive constant. We seek templates providing "affine"
-inequalities : \(aS(n+k) + b \) where \(a\) is a lower bound for \(SE_+(k+1)\). Further details can be found in the \hyperref[SAT]{SAT section}.
+inequalities : \(aS(n+k) + b \) where \(a\) is a lower bound for \(S_+(k+1)\). Further details can be found in the \hyperref[SAT]{SAT section}.
 Here are the best inequalities on Schur numbers so far :
 \[ S(n+1) \geqslant 3S(n) + 1 \]
 \[ S(n+2) \geqslant 9S(n) + 4 \]
@@ -56,34 +56,34 @@ Here are the best inequalities on Schur numbers so far :
 \[ S(n+5) \geqslant 380S(n) + 148 \]
 \[ S(n+6) \geqslant 1140S(n) + 528 \]
 
-The first inequality comes from the original Schur's paper \hyperlink{label1}{\textbf{[1]}}. The second and third ones were found by Rowley (reference nécessaire), 
-while the other ones are new. \\
+The first inequality comes from the original Schur's paper \hyperlink{label1}{\textbf{[1]}}. The second one are due to Abott (référence nécessaire) 
+and the third one to Rowley (reference nécessaire). The other ones are new. \\
 
-We also have a similar theorem where only \(SE_+\) is involved. 
+We also have a similar theorem where only \(S_+\) is involved. 
 
 \begin{theorem}
-	Let $(n,k), (r,s) \in (\mathbb{N}^*)^2$. If there exists a \(SF\)-template of $k+1$ colors and lenght \(r\),
-	and \(SF\)-template of \(n\) color and lenght \(s\), then there exists \(SF\)-template of \((n+k)\) and lenght \(rs\).
+	Let $(n,k), (p,q) \in (\mathbb{N}^*)^2$. If there exists a \(SF\)-template of $k+1$ colors and lenght \(p\),
+	and \(SF\)-template of \(n\) color and lenght \(q\), then there exists \(SF\)-template of \((n+k)\) and lenght \(pq\).
 \end{theorem}
 
 And the associated inequality :
 
 \begin{corollary}
 	Let \(n, k \in \mathbb{N}^*\), we have \\
-	\[ SE_+(n+k) \geqslant SE_+(k+1)SE_+(n) \]
+	\[ S_+(n+k) \geqslant S_+(k+1)S_+(n) \]
 \end{corollary}
 
 
 \subsection{New lower bounds for Schur numbers}
 
 The previous inequalities give new lower bounds for \(S(n)\) for
-\( n \in [\![9,+\infty]\!] \backslash \{13\} \). We compute the lower
+\( n \geqslant 9 \). We compute the lower
 bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n = 8\) and \(n = 13\) were already obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.\\
 \\
 \begin{center}
 \begin{tabular}{|*{5}{c|}}
     \hline
-	 & 8 & 9 & 10 & 11 \\
+	\(n\) & 8 & 9 & 10 & 11 \\
 	\hline
 	\(33S(n-3) + 6 \) & \cellcolor{yellow} 5286 & 17694 & 55446 & 174444\\
 	\hline
@@ -94,7 +94,7 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, pleas
 	\(1140S(n-6) + 528 \) & 5088 & 15348 & 50688 & 182928\\
 	\hline
 	\hline
-	& 12 & 13 & 14 & 15 \\
+	\(n\) & 12 & 13 & 14 & 15 \\
 	\hline
 	\(33S(n-3) + 6 \) & 587505 & \cellcolor{yellow} 2011290 & 6726330 & 21072090\\
 	\hline
@@ -107,13 +107,13 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, pleas
 \end{tabular}
 \end{center}
 Except for 8, 9 and 13, the best lower bounds are obtained thanks to
-the third inequality \( 380S(n-5) + 148 \leqslant S(n) \). The table
+the third inequality \( S(n+5) \geqslant 380S(n) + 148\). The table
 doesn't go any further, but the same inequality allows to improve the
-lower bounds for every \( n \in [\![15,+\infty]\!] \). 
+lower bounds for every \( n \geqslant 15 \). 
 
 \begin{corollary}
-The growth rate for Schur (and Ramsey) numbers satisfies \(\gamma = \sqrt[5]{380} \geqslant 3.28 \).
+The growth rate for Schur (and Ramsey) numbers satisfies \(\gamma \geqslant \sqrt[5]{380} \approx 3.28 \).
 \end{corollary}
-\textsc{Proof :} It is a mere consequence of the inequality \(380S(n-5) + 148 \leqslant S(n) \). As for Ramsey's 
+\textsc{Proof :} It is a mere consequence of the inequality \( S(n+5) \geqslant 380S(n) + 148\). As for Ramsey's 
 numbers growth rate, a lower bound can be found using Schur's one, thanks to \(S(n) \leqslant R_n(3)-2 \) 
 (see \hyperlink{label1}{\textbf{[1]}}).

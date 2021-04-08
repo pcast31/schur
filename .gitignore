@@ -1,3 +1,4 @@
 article/*
 !article/*.tex
 !article/*.cls
+!article/article_push.pdf

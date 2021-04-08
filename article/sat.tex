@@ -28,15 +28,15 @@ by an assignment \(\alpha\) if it contains a literal that is satisfied by \(\alp
 otherwise it is \textit{unsatisfiable}.
 \end{definition}
 
-We then encode the existence of a partition of \([\![1,n]\!]\) in \(k\)  weakly sum-free subsets as follows: for every integer
-\(i \in [\![1,n]\!]\), take \(k\) variables \(x^{(i)}_{1}, ..., x^{(i)}_{k}\) and for every \(\forall c \in [\![1,k]\!], x^{(i)}_c = 1 \iff i \in A_c\).
+We then encode the existence of a partition of \([\![1,p]\!]\) in \(k\)  weakly sum-free subsets as follows: for every integer
+\(i \in [\![1,p]\!]\), take \(k\) variables \(x^{(i)}_{1}, ..., x^{(i)}_{k}\) and for every \(\forall c \in [\![1,k]\!], x^{(i)}_c = 1 \iff i \in A_c\).
 The corresponding clauses are:
 
 \begin{itemize}
-\item \textbf{sumfree:} \(\forall c \in  [\![1,k]\!], \forall (i, j) \in [\![1,n]\!]^2, (i \neq j ~ \text{and} ~ i + j \leq n) \implies \lnot x^{(i)}_c
+\item \textbf{sumfree:} \(\forall c \in  [\![1,k]\!], \forall (i, j) \in [\![1,p]\!]^2, (i \neq j ~ \text{and} ~ i + j \leq n) \implies \lnot x^{(i)}_c
 \lor  \lnot x^{(i)}_c \lor \lnot x^{(i+j)}_c\)
-\item \textbf{union:} \(\forall i \in [\![1,n]\!], x^{(i)}_1 \lor ... \lor x^{(i)}_k\)
-\item \textbf{disjoint:} \(\forall i \in [\![1,n]\!],\forall (c_1, c_2) \in  [\![1,k]\!]^2, c_1 \neq c_2 \implies \neg x^{(i)}_{c_1} \lor \neg x^{(i)}_{c_2}\)
+\item \textbf{union:} \(\forall i \in [\![1,p]\!], x^{(i)}_1 \lor ... \lor x^{(i)}_k\)
+\item \textbf{disjoint:} \(\forall i \in [\![1,p]\!],\forall (c_1, c_2) \in  [\![1,k]\!]^2, c_1 \neq c_2 \implies \neg x^{(i)}_{c_1} \lor \neg x^{(i)}_{c_2}\)
 \end{itemize}
 
 In the above formula, every color plays a symmetric role. Hence the search space can reduced by \(k!\) by ordering the subsets, that is by
@@ -65,8 +65,8 @@ induced by these assumptions does not contain the optimal partitions.
 \begin{computational theorem}
 There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
 \begin{itemize}
-	\item \(m_5 \ge 66\)
-	\item \(m_6 \ge 186\)
+	\item \(m_5 \geqslant 66\)
+	\item \(m_6 \geqslant 186\)
 	\item \([\![210,349]\!] \subset A_6\)
 \end{itemize}
 \end{computational theorem}
@@ -85,21 +85,21 @@ formula corresponding to the above theorem gives additional information to the S
 
 \par
 The above theorem shows that the previous lower bound for \(WS(6)\) is optimal in the search space considered by the papers which found it.
-Therefore, finding a partition of \([\![1,n]\!]\) in 6 weakly sum-free subsets for some \(n \geq 590\) which does not have a template-like structure
+Therefore, finding a partition of \([\![1,n]\!]\) in 6 weakly sum-free subsets for some \(n \geqslant 590\) which does not have a template-like structure
 would be extremely interesting since it could give indications on a new search space for improving lower bounds with a computer. More generally,
 it questions the search space previously used for finding lower bounds for \(WS(n)\) with a computer. In particular, to our knowledge every paper
-that found the lower bound \(WS(5) \geq 196\) used this assumption [reference necessaire]. Therefore one may wonder if this actually a good lower
+that found the lower bound \(WS(5) \geqslant 196\) used this assumption [reference necessaire]. Therefore one may wonder if this actually a good lower
 bound. In the next subsection, we give properties that a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets has to verify.
 
 
 \subsection{Weak Schur number five}
-As explained in the previous subsection, the search space used for showing that  \(WS(5) \geq 196\) may not contain optimal solution. In this subsection,
+As explained in the previous subsection, the search space used for showing that  \(WS(5) \geqslant 196\) may not contain optimal solution. In this subsection,
 we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the same type of methods as in the 
 previous subsection.
 
 \begin{notation}
-Let \(P\) be a predicate over weakly sum-free partitions. We denote by \(WS(n | P)\) the greatest number \(N\) such that there exists a partition of  
-\([\![1,N]\!]\) in n weakly sum-free subsets which verifies P.
+Let \(P\) be a predicate over weakly sum-free partitions. We denote by \(WS(n | P)\) the greatest number \(p\) such that there exists a partition of  
+\([\![1,p]\!]\) in n weakly sum-free subsets which verifies P.
 \end{notation}
 
 \par
