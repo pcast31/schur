@@ -12,7 +12,7 @@ subsets are ordered.
 \label{SAT}
 
 We encode the existence of (weakly) sum-free partitions as propositional formulae like in
-\hyperlink{label3}{\textbf{[3]}} and then use
+\cite{Heule2017} and then use
 SAT solvers to determine whether these formulae are satisfiable.
 
 \begin{definition}
@@ -71,9 +71,9 @@ parallel SAT solver do not have a deterministic behaviour and it can results in 
 
 
 \subsection{The search space previously used in computer search for lower bounds may not contain the optimal partitions}
-Rowley's new lower bound for \(WS(6)\) (642) \hyperlink{label2}{\textbf{[2]}} was a quite significant improvement upon
+Rowley's new lower bound for \(WS(6)\) (642) \cite{RowleyWS} was a quite significant improvement upon
 the former
-best known lower bound (582) \hyperlink{label7}{\textbf{[7]}}. This previous lower bound was found using a computer
+best known lower bound (582) \cite{EliahouBook}. This previous lower bound was found using a computer
 (often with Monte-Carlo methods) and by making the
 assumption that a good partition for \(WS(n+1)\) starts with a good partition for \(WS(n)\) which is true for small
 values of \(n\).
@@ -90,7 +90,7 @@ There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
 \end{itemize}
 \end{computational theorem}
 
-This result was obtained in 8 hours with the SAT solver plingeling \hyperlink{label5}{\textbf{[5]}} on a 2.60 GHz Intel
+This result was obtained in 8 hours with the SAT solver plingeling \cite{Lingeling2017} on a 2.60 GHz Intel
 i7 processor PC.
 However, simply encoding the existence of such a partition as explained in the previous subsection would not result in a
 reasonable
@@ -139,12 +139,12 @@ there exists a partition of
 \end{notation}
 
 \par
-\hyperlink{label4}{\textbf{[4]}} verified with a SAT solver that there are no partition in 5 weakly sum-free subsets of
+\cite{ELIAHOU2012175} verified with a SAT solver that there are no partition in 5 weakly sum-free subsets of
 \([\![1,197]\!]\) with
 \(A_5 = \{67, 68\} \cup [\![70,134]\!] \cup \{136\}\) in 17 hours and could not provide a similar result when only
 assuming \(m_5 = 67\) even after several
 weeks of runtime. By using the same method as above, we were able to verify that \(WS(5 | m_5 = 67) = 196\) in 0.5
-seconds with the SAT solver glucose \hyperlink{label6}{\textbf{[6]}}
+seconds with the SAT solver glucose \cite{Glucose}
 on a 2.60 GHz Intel i7 processor PC (we used the non-parallel version here for the sake of comparison but in the rest of
 this subsection, we used the parallel version of glucose).
 The additional information we gave to the SAT solver is that every partition of \([\![1,66]\!]\) in 4 weakly sum-free
