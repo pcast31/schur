@@ -16,19 +16,27 @@ Rowley named these partitions "templates", and we will keep this name in the ent
 	We note \(S_+(n)\) the maximal lenght for a SF-template of \(n\) colors. 
 \end{definition}
 
-\begin{theorem}
+\begin{remark}
+	SF-templates include Abott and Hanson's construction [reference necessaire] as a special case.
+\end{remark}
+
+\begin{proposition}
 	Let \(n \in [\![2, +\infty]\!]\), we have :
 	\[
 	2S(n-1)+1 \leqslant S_+(n) \leqslant S(n)
 	\]
-\end{theorem}
+\end{proposition}
+
+\textsc{Proof :} The lower bound comes from Abott and Hanson's construction. The upper bound comes 
+from the fact that a SF-template of length \(p\) with \(n\) colors is also a partition of 
+\([\![1, p]\!]\) into \(n\) sum-free subsets.
 
 \begin{remark}
 	\(S_+\) and \(S\) have the same asymptotic growth rate.
 \end{remark}
 
 
-\subsection{Inequalities on \(S_+\)} 
+\subsection{Inequalities using \(S_+\)} 
 
 The main result on \(S_+\) follows. It allows us to improve lower bounds on Schur numbers by computing \(S_+\).
 
@@ -78,7 +86,7 @@ And the associated inequality :
 
 The previous inequalities give new lower bounds for \(S(n)\) for
 \( n \geqslant 9 \). We compute the lower
-bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n = 8\) and \(n = 13\) were already obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.\\
+bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n = 8\) and \(n = 13\) were obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.\\
 \\
 \begin{center}
 \begin{tabular}{|*{5}{c|}}

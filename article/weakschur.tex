@@ -5,7 +5,11 @@ to build suitable templates.
 
 \subsection{Lower bound for Weak Schur numbers using Schur and Weak Schur numbers}
 
-The following theorem, inspired by Rowley's work, was found and proved by Romain Ageron.
+Up to now, there was no equivalent for weak Schur numbers of Abott and Hanson's construction [refenrece]. Here we 
+give a general lower bound for weak Schur numbers as a function of both regular and weak Schur numbers.
+The following theorem, inspired by Rowley's inequalities for \(WS(n+1)\) and \(WS(n+2)\), was found and proved 
+by Romain Ageron.
+
 \begin{theorem}
 	Let $(p,q), (n,k) \in (\mathbb{N}^*)^2$. If there exists a partition of $[\![1,q]\!]$ into $n$ weakly sum-free subsets and a partition of $[\![1,p]\!]$ into $k$ sum-free 
 	subsets then there exists a partition of $[\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]$ into $n+k$ weakly sum-free subsets.
@@ -116,7 +120,7 @@ This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(
 (Id+(p-b)\mathbf{1}_{ [\![0,b]\!]})(x+y ~\text{mod}~ (p-b)) \notin A_i
 \]
 \end{definition}
-\\\\
+
 \begin{definition}
 Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a \(b\)-WS-template of \(k\) colors and lenght \(p\), we note: 
 \\\\\(WS_b^+=\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a \(b\)-WSF-template of \(k\) colors and lenght \(p\) \}
@@ -140,7 +144,7 @@ Let \((p,k,b) \in (\mathbb{N}^*)^3\), let \( (q,n) \in (\mathbb{N}^*)^2\). If th
 
 
 \subsection{New lower bounds for Weak Schur numbers}
-Having found suitable templates, which can be found in the appendix,  with a SAT solver, we can claim that for all \(n \in \mathbb{N}^*\):
+Having found suitable templates, which can be found in the appendix,  with a SAT solver, we claim that for all \(n \in \mathbb{N}^*\):
 \[
 4S(n) + 1 \leqslant WS(n+1)
 \]
@@ -181,11 +185,13 @@ The first two inequalities are due to Rowley, they are detailed in [2]. Like in 
 	\hline
 \end{tabular}
 \end{center}
+
 With \( S(9) \geqslant 17803 \), we found a new lower bound for
 \(WS(10)\) using Rowley's inequality. Moreover, the third inequality
 gives new lower bounds for \(WS(9)\) and \(WS(14)\). However, the last
 inequality doesn't give any better lower bound, even beyond \( n = 15 \)
 : the best bounds are always provided by the first three. We highly suspect that these values can be improved by investigating the search
 space further, which would provide new, more effective templates. One
-may try to go over this search space using a Monte-Carlo method, as in
-(ref Eliahou) or (ref Bouzy). This could be the suject of a future work.
+may try to go over this search space using a Monte-Carlo method, as in (ref Bouzy), 
+but with a different search space (as we explain in \hyperref[SAT]{SAT section}). 
+This could be the suject of a future work.
