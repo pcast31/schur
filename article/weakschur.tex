@@ -288,6 +288,113 @@ WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \hline
 \end{tabular}
 
+\textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b
+
+
+We denote by \(g\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(h\) the
+one induced by the partition of \([\![1,p]\!]\). Each equivalence class is represented by a single integer, therefore :
+\[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a b-WSF-template.}
+\]
+\[h : [\![1,p]\!] \longrightarrow [\![1,k]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } h(x) = h(y)
+\Longrightarrow h(x+y) \neq h(x)
+\]
+
+Let \( f : [\![1,b+p \time a]\!] \longrightarrow [\![1,n]\!] \) such as:
+\\\\-if x \(\leqslant b \text{ (we will note x} \in \mathcal{T}): f(x)=g(x)\)
+\\\\-if \( x \in [\![1,b+p \time a]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
+\\\\-if \( x \in [\![1,b+p \time a]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{L}): f(x)=n-1+h(\lambda(x))\)
+\\\\
+f is well defined because \(\pi\) is defined for x\(>b\) and \(\forall x \in \![1,b+p \time a]\!], f(x)\leqslant n+k-1\) because h(\(\lambda(x))\leqslant k\)
+
+We have parted the integers of \(\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{L}\).
+
+We have to verify that f induces weakly-sum-free templates:\\
+\\
+\underline{if (x,y) \(\in (\mathcal{T})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\x+y\(<\)a+b since b\(<\)a and g(x)=f(x)=f(y)=g(y). 
+\\Hence f(x+y)=g(x+y)\(\neq\)g(x)=f(x)
+\\\\
+\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{C}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+We distinguish two cases:
+
+
+\begin{itemize}
+\item If x+\(\pi(y)\leqslant a+b\)
+\\g(x)=f(x)=f(y)=g(\(\pi(y)\). Hence g(x)\(\neq g(x+\pi(y))=g(\pi(x+y))\) (qv previous proposition)
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))\neq g(x)=f(x)\)
+\item If x+\(\pi(y)> a+b\), x+y\(>\)a+b and by definition of g, \(g(\pi(x+y))\neq g(x)\)
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))\neq g(\pi(x))=f(x)\)
+\end{itemize}
+
+
+\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{L}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Then, f(x)=f(y)=n. We distinguish two cases:
+
+
+\begin{itemize}
+\item If \(\lambda(y)=\lambda(x+y)\),
+\\\(g(x)=g(\pi(y))=n \text{ since } g(y)=g(\pi(y))\)
+\\Therefore \(g(\pi(x+y))=g(x+\pi(y)) \neq g(x)=n\)(qv previous proposition)
+\\Hence \(f(x+y)=g(\pi(x+y))\neq n\)
+\item If  \(\lambda(y)\neq \lambda(x+y)\), \(\lambda(y)+1= \lambda(x+y)\)\\
+n=f(y)=n-1+h(\(\lambda(y)\)). Hence h(\(\lambda(y)\))=1.
+\\Moreover h(1)=1, therefore \(h(\lambda(y)+1) \neq 1\)
+\\if \(\pi(x+y) \in A_n\), \(f(x+y)=n-1+h(\lambda(x+y))>n\)
+\end{itemize}
+
+\underline{if (x,y) \(\in (\mathcal{C})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases:
+
+\begin{itemize}
+\item If \(\pi(x)+\pi(y)>q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) (qv previous proposition)
+\\Hence \(g(\pi(x+y))= g(\pi(\pi(x)+\pi(y))\neq g(\pi(x))\) 
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))\neq g(\pi(x))=f(x)\)
+\item If  \(\pi(x)+\pi(y)\leqslant q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) since g is sum-free for x\(>b\)
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))=g(\pi(\pi(x)+\pi(y))\neq g(\pi(x))=f(x)\)
+
+
+\end{itemize}
+
+
+
+\underline{if (x,y) \(\in \mathcal{C} \times \mathcal{L} \), \(f(x)\neq f(y)\)}\\
+
+\underline{if (x,y) \(\in (\mathcal{L})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Let r(x)=\(\pi(x)-a\) and r(y)=\(\pi(y)-a\),
+\\We proved that \(x=a\lambda(x)+\pi(x)-a\), therefore \(x=a\lambda(x)+\pi(x)\)
+\\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases:
+
+\begin{itemize}
+\item If \(r(x)+r(y) \in [\![b-a+1,b]\!]\), \(h(\lambda(x))=f(x)+1-n=f(y)+1-n=h(\lambda(y))\)
+Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
+\begin{align*}
+ \\\lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
+& = \lambda(x)+\lambda(y)+\left\lfloor\dfrac{r(x)+r(y)-b-1}{a}\right\rfloor+1 \\
+& = \lambda(x)+\lambda(y) -1 +1 \text{ since } r(x)+r(y) \in [\![b-a+1,b]\!] \\
+& =\lambda(x)+\lambda(y)
+\end{align*}
+
+
+\begin{align*}
+ \\\text{if f(x+y)\(\geqslant\)n, }f(x+y) & =n-1+h(\lambda(x+y))\\
+& =n-1+h(\lambda(x)+\lambda(y)) \\
+& \neq n-1+h(\lambda(x))\\
+& =f(x)
+\end{align*}
+
+
+\item If \(r(x)+r(y)>b\), \(\pi(x)+\pi(y)>2a+b\)
+\\Since g is a b-WSF template, \(g(\pi(\pi(x)+\pi(y))) \neq n\)
+\\Therefore, \(g(\pi(x+y)) \neq n\) ie \(x+y \in \mathcal{C}\)
+\\Hence \(f(x+y) <n\leqslant f(x)\)
+\item If \(r(x)+r(y)\leqslant b-a,\), \(\pi(x)+\pi(y)\leqslant b+a\)
+\\Since g is sum-free for x\(>b\), since \(g(\pi(x)) = g(\pi(y))=n\), \(g(\pi(x+y)) \neq g(\pi(x))=n\)
+\\Hence, \(f(x+y) <n\leqslant f(x)\)
+\end{itemize}
 
 \begin{remark}
 There exists a \(c(b) \geqslant \text{min}(A_{k+1} \backslash [\![1,b] - b - 1\) such that \(c(b)\) numbers can be
