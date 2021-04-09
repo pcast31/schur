@@ -147,6 +147,79 @@ this formula does not give new lower bounds but in the same way as we introduced
 \end{remark}
 
 \subsection{Definition of \(WS^+\)}
+
+We will now define notations and results, we will use in the following theorem. 
+
+\begin{notation}
+
+Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\pi_{a,b}\) the projection:
+\[ \pi_{a,b}:x->(Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x mod a}))\]
+\end{notation}
+ 
+We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the a and b we use.
+
+\begin{proposition}
+Let x \(\in [\![1,b]\!]\), let y \(\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\), then we have: \(\pi(x+y)=x+\pi(y)\)
+\end{proposition}
+
+\textsc{Proof :}Let x \(\in [\![1,b]\!]\), let y \(\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\)
+
+if \(x+\pi(y)< a:\)we remark that \(\pi(y)>b\) and therefore \(x+\pi(y)>b\):
+
+\begin{align*}
+ \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x+y mod a})\\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y)\text{ mod a) since } \pi(y)\text{=y mod a} \\
+& =x+ \pi(y)
+\end{align*}
+
+if \(x+\pi(y\geqslant a\):
+\begin{align*}
+ \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x+y mod a})\\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y)\text{ mod a) since } \pi(y)\text{=y mod a} \\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
+& = x+\pi(y) - a +a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
+& = x+\pi(y) - a +a \text{ \quad since } x+\pi(y) - a \in [\![0,b]\!] \\
+& = x+\pi(y)
+\end{align*}
+
+
+\begin{proposition}
+Let (x,y)\(\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
+\end{proposition}
+
+\textsc{Proof :}Let (x,y)\(\in (\mathbb{N}^*)^2\),
+
+\begin{align*}
+ \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y)\text{ mod a})\\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})((Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x mod a})+(Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{y mod a})\text{ mod a}) \\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{ ((x mod a) + (y mod a)) mod a})\\
+& =(Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{ x+y mod a})\\
+& =\pi(x+y)
+\end{align*}
+
+
+\begin{notation}
+
+Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\lambda_{a,b}\) the projection:
+\[ \lambda_{a,b}:x->1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor\]
+\end{notation}
+
+We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the a and b we use.
+
+\begin{remark}
+In the following theorem, \(\lambda\) is the function which return the line number of an element x.
+\end{remark}
+
+\begin{proposition}
+Let (a,b)\(\in (\mathbb{N}^*)^2\), \(a>b\), let x \(\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
+\end{proposition}
+\textsc{Proof :}Let (a,b)\(\in (\mathbb{N}^*)^2\), \(a>b\), let x \(\in \mathbb{N}^*\),
+\\\\ \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(\text{x mod a})+\mathbf{1}_{ [\![0,b]\!]}(\text{x mod a})\)
+
+if x mod a \(>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+\text{x mod a}=x\)
+
+if x mod a \(\leqslant b\):
+\(a\lambda(x)+\pi(x)-a=a(\left\lfloor\dfrac{x}{a}\right\rfloor-1)+\text{x mod a}+a=x\)
 \begin{definition}
 Let \( (p,k,b) \in (\mathbb{N}^*)^3\), Let \((A_1,....,A_k)\) a partition of  \([\![1, p]\!]\).
 This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(k\) colors and lenght \(p\) when:
@@ -169,7 +242,7 @@ This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(
 \begin{definition}
 Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\)
 subsets which is a \(b\)-WS-template of \(k\) colors and lenght \(p\), we note:
-\\\\\(WS_b^+=\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a
+\\\\\(WS_b^+=-b+\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a
 \(b\)-WSF-template of \(k\) colors and lenght \(p\) \}
 \\\\
 If this \(p\) does not exist, we set \(WS_b^+= 0\)
@@ -184,19 +257,37 @@ Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{
 
 
 \begin{theorem}
-Let \((p,k,b) \in (\mathbb{N}^*)^3\), let \( (q,n) \in (\mathbb{N}^*)^2\). If there exists a partition of \(n\)
-sum-free subsets of \([\![1,q]\!]\) and a partition of k subsets \((A_1,....,A_k)\) of \([\![1, p]\!]\) which is a
-\(b\)-WSF of \(k\) colors and lenght \(p\),
- then there exists a partition of \([\![1, b+q \times p]\!]\) into \((k+n-1)\) weakly sum-free subsets.
+Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \(k\)
+sum-free subsets of \([\![1,p]\!]\) and a partition of n subsets \((A_1,....,A_n)\) of \([\![1, q]\!]\) which is a
+\(b\)-WSF of \(n\) colors and lenght \(q\),
+ then there exists a partition of \([\![1, b+p \times (q-b)]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
 
-In particular, if we choose \(q = S(n)\) and \(p = WS^+(k)\) in the last theorem, the next corollary follows.
+In particular, if we choose \(p = S(k)\) and \(q = WS^+(n)\) in the last theorem, the next corollary follows.
 
 
 \begin{corollary}
-\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/WS^+(k+1)=WS_b^+(k+1)\},\) \[
-WS(n+k) \geqslant S(n) WS^+(k+1)+b_{max}\]
+\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/WS^+(n+1)=WS_b^+(n+1)\},\) \[
+WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \end{corollary}
+
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
+\hline
+  & & & & & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} 3&\cellcolor{green}4&5&6&7&8 \\
+\hline
+   \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
+\hline
+\cellcolor{yellow}22&\cellcolor{yellow}23&\cellcolor{yellow}24&\cellcolor{yellow}25&\cellcolor{yellow}26&\cellcolor{yellow}27&\cellcolor{yellow}28&\cellcolor{yellow}29&\cellcolor{yellow}30&31&32&33&34\\
+\hline
+...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...&...&...&...\\
+\hline
+\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&...&...&...&...\\
+\hline
+...&...&...&...&...&...&...&...&...&...&...&...&...\\
+\hline
+\end{tabular}
+
 
 \begin{remark}
 There exists a \(c(b) \geqslant \text{min}(A_{k+1} \backslash [\![1,b] - b - 1\) such that \(c(b)\) numbers can be
