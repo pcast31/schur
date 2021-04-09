@@ -20,11 +20,25 @@
 \newtheorem{remark}{Remark}[section]
 \newtheorem{proposition}{Proposition}[section]
 
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
 
 
 
 \begin{document}
+
 \maketitle
+
+\begin{abstract}
+
+This paper offers new lower bounds for both Schur and weak Schur numbers. These results were produced by pushing forward
+Rowley's "templates"-based approach for Ramsey and Schur numbers in 2020. Finding suitable templates allows us to apply Rowley's construction 
+to get explicit partitions improving lower bounds. Furthermore, this paper tries to analyse former work on the subject based on
+the principle that good partitions into \(n+1\) subsets start with good partitions into \(n\) subsets. We show that exceeding
+the previous lower bound \(WS(6) \geqslant 582\) is impossible with such a method upon imposing certain conditions on the good
+5-subsets partition. The new lower bounds includes \(S(9) \geqslant 17803\), \(S(10) \geqslant 60948\), \(WS(9) \geqslant 22536 \) and \(WS(10) \geqslant 71214 \).
+
+\end{abstract}
 
 \include{intro.tex}
 
@@ -43,7 +57,7 @@ if lower bounds are later improved using better templates. Moreover, studying sp
 of interest as they are closely related to Schur and weak Schur numbers.
 
 \par
-The fifth section gives new insight on the method that was formerly used to achieve new lower bounds. The principle behind it
+The fourth section gives new insight on the method that was formerly used to achieve new lower bounds. The principle behind it
 might have discarded many interesting partititions of the search space and lowered the highest value that can be reached within it.
 However, algorithms based on randomness such as Monte-Carlo algorithms may appear very useful if used in a search space with more
 potential. For example, such an algorithm could be used to find better templates and improve inequalities and lower bounds for high values
@@ -130,7 +144,7 @@ SF-template partitionning \([\![1, 380]\!]\) into 6 subsets
 WSF-template partitionning \([\![1, 42]\!]\) into 4 subsets
 \begin{tabular}{|*{2}{c|}}
 	\hline
-	1 & 1, 2, 4, 8, 11, 22, 25 & \textbf{(66)}\\
+	1 & 1, 2, 4, 8, 11, 22, 25, \textbf{(66)}\\
 	\hline
 	2 & 5, 6, 7, 19, 21, 23, 36\\
 	\hline
