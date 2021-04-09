@@ -48,21 +48,74 @@ The main result on \(S^+\) follows. It allows us to improve lower bounds on Schu
 \begin{theorem}
 	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template of \(k+1\) colors and lenght \(p\),
 and a partition of \(n\) sum-free subsets of \([\![1,q]\!]\) then there exists a partition of \(n+k\) sum-free subsets
-of \([\![1,pq]\!]\).
+of \([\![1,pq+m_{k+1}-1]\!]\). \(m_{k+1}\) is the first number colored with the \(k+1\)-th color in the \(SF\)-template.
 \end{theorem}
 
 Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
 
 \begin{corollary}
 	Let \(n, k \in \mathbb{N}^*\), we have \\
-	\[ S(n+k) \geqslant S^+(k+1)S(n) \]
+	\[ S(n+k) \geqslant S^+(k+1)S(n) + m_{k+1} - 1 \]
 \end{corollary}
 
-See below an example of such a construction. \\
-It is quite similar to Abott and Hanson construction \cite{AbbottHanson}. They extend vertically a sum-free partition,
-and horizontally an other sum-free partition. This way each "block" acts like a security zone for the other one.
-Here, the horizontal partition is no longer to the side of the vertical one, but occupies the column of the special color
-of the \(SF\)-template, i.e the one without the extra condition. 
+The idea lying beneath this inequality is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. 
+They extend vertically a sum-free partition, and horizontally an other sum-free partition. This way each "block" 
+acts like a security zone for the other one. Here, the horizontal partition is no longer to the side of the 
+vertical one, but occupies the column of the special color of the \(SF\)-template, i.e the one without the 
+extra condition. We give the following table for \(p = 7, q = 4, n = 2 ~\textrm{and}~ k = 2\) to make the intuition clear. \\
+
+This shows the inequality \(S(2+2) \geqslant S^+(3)S(2)\), with the extra constant. 
+We prooved \(S^+(3) = 9\).The special color is blue. 
+
+\(\overset{SF\textrm{-template}}{\textrm{Sum-free partition} \left \updownarrow\overleftrightarrow{\begin{tabular}{|*{9}{c|}}
+	\hline
+	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
+	\hline
+	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & \cellcolor{yellow} 15 & \cellcolor{red} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
+	\hline
+	\cellcolor{red} 19 & \cellcolor{green} 20 & \cellcolor{green} 21 & \cellcolor{red} 22 & \cellcolor{yellow} 23 & \cellcolor{yellow} 24 & \cellcolor{red} 25 & \cellcolor{yellow} 26 & \cellcolor{yellow} 27\\
+	\hline
+	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{red} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36\\
+	\hline
+	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 & & & & &\\
+	\hline
+\end{tabular}}
+\right.}\)
+ \\
+
+\begin{center}
+\(SF\)-template with 3 colors (it is actually maximal)\\
+\begin{tabular}{|*{9}{c|}}
+	\hline 
+	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
+	\hline
+\end{tabular} \\
+
+Sum-free partition (\(S(2)\) actually) \\
+\begin{tabular}{|*{4}{c|}}
+	\hline 
+	\cellcolor{blue} 1 & \cellcolor{yellow} 2 & \cellcolor{yellow} 3 & \cellcolor{blue} 4 \\
+	\hline
+\end{tabular}
+\end{center}
+
+To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). \\
+
+\begin{center}
+\begin{tabular}{|*{9}{c|}}
+	\hline
+	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{blue} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
+	\hline
+	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & \cellcolor{yellow} 15 & \cellcolor{yellow} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
+	\hline
+	\cellcolor{red} 19 & \cellcolor{green} 20 & \cellcolor{green} 21 & \cellcolor{red} 22 & \cellcolor{yellow} 23 & \cellcolor{yellow} 24 & \cellcolor{yellow} 25 & \cellcolor{yellow} 26 & \cellcolor{yellow} 27\\
+	\hline
+	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{blue} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36 \\
+	\hline
+	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 & & & & &\\
+	\hline
+\end{tabular}
+\end{center}
 
 \textsc{Proof :} We denote by \(f\) the projection of the equivalence relation induced by the \(SF\)-template of lenght
 \(p\)
@@ -85,7 +138,7 @@ with also the sum-free condition : \[ \forall (x,y) \in [\![1,p]\!]^2 \text{, } 
 \]
 
 We now define \(h : [\![1,pq]\!] \longrightarrow [\![1,n+k]\!] \) as follows :
-\( \forall x \in [\![1,pq]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q]\!] \) and \( u \in
+\( \forall x \in [\![1,pq + m_{k+1}-1]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q]\!] \) and \( u \in
 [\![0,p-1]\!] \).
 This decomposition if of course unique. If \(f(p-u) \leqslant k\), we set \(h(x) = f(p-u)\), else (i.e \(f(p-u) = k + 1)\) \(h(x) = k + g(\alpha) \).
 Prooving that the partition of \([\![1,pq]\!]\) induced by \(h\) is sum-free will complete the proof.
@@ -155,6 +208,7 @@ And the associated inequality :
 
 \textsc{Proof :} The idea is the same as in the previous theorem. The only difference is the \(SF\) property inherited 
 from the second \(SF\)-template.
+
 
 
 \subsection{New lower bounds for Schur numbers}
