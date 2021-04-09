@@ -28,12 +28,12 @@ In particular, if we choose \(q = WS(n)\) and \(p = S(k)\) in the last theorem, 
 \end{corollary}
 
 \begin{remark}
-In the above ineqality, a "\(+1\)" can be added to the lower bound if \(WS(n)\) is odd (more generally if \(q\) is odd in the theorem). However, it makes the proof less 
+In the above ineqality, a "\(+1\)" can be added to the lower bound if \(WS(n)\) is odd (more generally if \(q\) is odd in the theorem). However, it makes the proof less
 clear and it is never useful in practice.
 \end{remark}
 
 We first give an intuitive explanation of the above theorem. Let \((p, q) \in \mathbb{N}^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
-subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\) and let's try to build a colouring of \([\![1, ap + q]\!]\) 
+subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\) and let's try to build a colouring of \([\![1, ap + q]\!]\)
 into \(n + k\) weakly sum-free subsets. Let \(l = a - b - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = b - r\). \\
 
 First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)):
@@ -77,17 +77,17 @@ Let \((x, y) \in \mathcal(L)^2\). The cases are twofold.
 
 	\item \underline{\(\lambda(x+y) \neq \lambda(x) + \lambda(y)\)} \\
 	In this case, we do not have information about the colour of \(\lambda(x+y)\). Thereby, we want to have \(x+y \in \mathcal{C}\).
-	A simple solution is to limit the horizontal movement, that is if the sum changes line, not to move too far so that it stays in \(\mathcal{C}\). 
-	There, the maximal displacement to the left (resp. to the right) is \(2l\) (resp. \(2r\)). Not crossing entirely \(\mathcal{C}\) by going to the left 
+	A simple solution is to limit the horizontal movement, that is if the sum changes line, not to move too far so that it stays in \(\mathcal{C}\).
+	There, the maximal displacement to the left (resp. to the right) is \(2l\) (resp. \(2r\)). Not crossing entirely \(\mathcal{C}\) by going to the left
 	is then expressed as \(-2l > -a + r\). Likewise, not going to far to the right is expressed as \(2r < a - l\). It can then be written as
 	 \(\text{max}(l, r) \leqslant w\).
 \end{itemize}
 
 \underline{\textbf{\(\mathcal{C}\) block}} \\
-In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) according to its column number (written \(\tilde{\pi}(x)\), it is linked to the 
-projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\)). A simple solution is to colour \(x\) with the same colour 
-as \(\tilde{\pi}(x)\) in the weakly sum-free colouring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there 
-is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when 
+In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) according to its column number (written \(\tilde{\pi}(x)\), it is linked to the
+projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\)). A simple solution is to colour \(x\) with the same colour
+as \(\tilde{\pi}(x)\) in the weakly sum-free colouring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there
+is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when
 taking two numbers in the same column), the colours \(1, ..., n\) are sum-free. \\
 
 In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \frac{q}{2} \rfloor\) works, thus obtaining the above theorem. \\
@@ -216,14 +216,14 @@ this formula does not give new lower bounds but in the same way as we introduced
 
 \subsection{Definition of \(WS^+\)}
 
-We will now define notations and results, we will use in the following theorem. 
+We will now define notations and results, we will use in the following theorem.
 
 \begin{notation}
 
 Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\pi_{a,b}\) the projection:
 \[ \pi_{a,b}:x->(Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x mod a}))\]
 \end{notation}
- 
+
 We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the a and b we use.
 
 \begin{proposition}
@@ -338,6 +338,132 @@ In particular, if we choose \(p = S(k)\) and \(q = WS^+(n)\) in the last theorem
 \( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/WS^+(n+1)=WS_b^+(n+1)\},\) \[
 WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \end{corollary}
+
+\renewcommand{\arraystretch}{2}
+\begin{center}
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
+\cline{6-9}
+   \multicolumn{5}{c|}{} & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} 3&\cellcolor{green}4&5&6&7&8 \\
+\hline
+   \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
+\hline
+\cellcolor{yellow}22&\cellcolor{yellow}23&\cellcolor{yellow}24&\cellcolor{yellow}25&\cellcolor{yellow}26&\cellcolor{yellow}27&\cellcolor{yellow}28&\cellcolor{yellow}29&\cellcolor{yellow}30&31&32&33&34\\
+\hline
+...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...&...&...&...\\
+\hline
+\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&...&...&...&...\\
+\hline
+...&...&...&...&...&...&...&...&...&...&...&...&...\\
+\hline
+\end{array}
+\]
+\end{center}
+\textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
+We denote by \(g\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(h\) the
+one induced by the partition of \([\![1,p]\!]\). Each equivalence class is represented by a single integer, therefore :
+\[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a b-WSF-template.}
+\]
+\[h : [\![1,p]\!] \longrightarrow [\![1,k]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } h(x) = h(y)
+\Longrightarrow h(x+y) \neq h(x)
+\]
+
+Let \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such as:
+\\\\-if x \(\leqslant b \text{ (we will note x} \in \mathcal{T}): f(x)=g(x)\)
+\\\\-if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
+\\\\-if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{L}): f(x)=n-1+h(\lambda(x))\)
+\\\\
+f is well defined because \(\pi\) is defined for x\(>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because h(\(\lambda(x))\leqslant k\)
+
+We have parted the integers of \(\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{L}\).
+
+We have to verify that f induces weakly-sum-free templates:\\
+\\
+\underline{if (x,y) \(\in (\mathcal{T})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\x+y\(<\)a+b since b\(<\)a and g(x)=f(x)=f(y)=g(y).
+\\Hence f(x+y)=g(x+y)\(\neq\)g(x)=f(x)
+\\\\
+\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{C}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+We distinguish two cases:
+
+
+\begin{itemize}
+\item If x+\(\pi(y)\leqslant a+b\)
+\\g(x)=f(x)=f(y)=g(\(\pi(y)\). Hence g(x)\(\neq g(x+\pi(y))=g(\pi(x+y))\) (qv previous proposition)
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))\neq g(x)=f(x)\)
+\item If x+\(\pi(y)> a+b\), x+y\(>\)a+b and by definition of g, \(g(\pi(x+y))\neq g(x)\)
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))\neq g(\pi(x))=f(x)\)
+\end{itemize}
+
+
+\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{L}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Then, f(x)=f(y)=n. We distinguish two cases:
+
+
+\begin{itemize}
+\item If \(\lambda(y)=\lambda(x+y)\),
+\\\(g(x)=g(\pi(y))=n \text{ since } g(y)=g(\pi(y))\)
+\\Therefore \(g(\pi(x+y))=g(x+\pi(y)) \neq g(x)=n\)(qv previous proposition)
+\\Hence \(f(x+y)=g(\pi(x+y))\neq n\)
+\item If  \(\lambda(y)\neq \lambda(x+y)\), \(\lambda(y)+1= \lambda(x+y)\)\\
+n=f(y)=n-1+h(\(\lambda(y)\)). Hence h(\(\lambda(y)\))=1.
+\\Moreover h(1)=1, therefore \(h(\lambda(y)+1) \neq 1\)
+\\if \(\pi(x+y) \in A_n\), \(f(x+y)=n-1+h(\lambda(x+y))>n\)
+\end{itemize}
+
+\underline{if (x,y) \(\in (\mathcal{C})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases:
+
+\begin{itemize}
+\item If \(\pi(x)+\pi(y)>q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) (qv previous proposition)
+\\Hence \(g(\pi(x+y))= g(\pi(\pi(x)+\pi(y))\neq g(\pi(x))\)
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))\neq g(\pi(x))=f(x)\)
+\item If  \(\pi(x)+\pi(y)\leqslant q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) since g is sum-free for x\(>b\)
+\\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
+\\else, \(f(x+y)=g(\pi(x+y))=g(\pi(\pi(x)+\pi(y))\neq g(\pi(x))=f(x)\)
+
+
+\end{itemize}
+
+
+
+\underline{if (x,y) \(\in \mathcal{C} \times \mathcal{L} \), \(f(x)\neq f(y)\)}\\
+
+\underline{if (x,y) \(\in (\mathcal{L})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Let r(x)=\(\pi(x)-a\) and r(y)=\(\pi(y)-a\),
+\\We proved that \(x=a\lambda(x)+\pi(x)-a\), therefore \(x=a\lambda(x)+\pi(x)\)
+\\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases:
+
+\begin{itemize}
+\item If \(r(x)+r(y) \in [\![b-a+1,b]\!]\), \(h(\lambda(x))=f(x)+1-n=f(y)+1-n=h(\lambda(y))\)
+Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
+\begin{align*}
+ \\\lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
+& = \lambda(x)+\lambda(y)+\left\lfloor\dfrac{r(x)+r(y)-b-1}{a}\right\rfloor+1 \\
+& = \lambda(x)+\lambda(y) -1 +1 \text{ since } r(x)+r(y) \in [\![b-a+1,b]\!] \\
+& =\lambda(x)+\lambda(y)
+\end{align*}
+
+
+\begin{align*}
+ \\\text{if f(x+y)\(\geqslant\)n, }f(x+y) & =n-1+h(\lambda(x+y))\\
+& =n-1+h(\lambda(x)+\lambda(y)) \\
+& \neq n-1+h(\lambda(x))\\
+& =f(x)
+\end{align*}
+
+
+\item If \(r(x)+r(y)>b\), \(\pi(x)+\pi(y)>2a+b\)
+\\Since g is a b-WSF template, \(g(\pi(\pi(x)+\pi(y))) \neq n\)
+\\Therefore, \(g(\pi(x+y)) \neq n\) ie \(x+y \in \mathcal{C}\)
+\\Hence \(f(x+y) <n\leqslant f(x)\)
+\item If \(r(x)+r(y)\leqslant b-a,\), \(\pi(x)+\pi(y)\leqslant b+a\)
+\\Since g is sum-free for x\(>b\), since \(g(\pi(x)) = g(\pi(y))=n\), \(g(\pi(x+y)) \neq g(\pi(x))=n\)
+\\Hence, \(f(x+y) <n\leqslant f(x)\)
+\end{itemize}
 
 \begin{remark}
 There exists a \(c(b) \geqslant \text{min}(A_{k+1} \backslash [\![1,b] - b - 1\) such that \(c(b)\) numbers can be

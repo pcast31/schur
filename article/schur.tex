@@ -64,12 +64,16 @@ acts like a security zone for the other one. Here, the horizontal partition is n
 vertical one, but occupies the column of the special color of the \(SF\)-template, i.e the one without the 
 extra condition. We give the following table for \(p = 7, q = 4, n = 2 ~\textrm{and}~ k = 2\) to make the intuition clear. \\
 
-This shows the inequality \(S(2+2) \geqslant S^+(3)S(2)\), with the extra constant. 
-We prooved \(S^+(3) = 9\).The special color is blue. 
+This shows the inequality \(S(2+2) \geqslant S^+(3)S(2) + 4\). The special color is blue and is first used
+to color 5, hence \(4 = m_{3} - 1\). 
+We prooved \(S^+(3) = 9\). The special color is blue. 
 
-\(\overset{SF\textrm{-template}}{\textrm{Sum-free partition} \left \updownarrow\overleftrightarrow{\begin{tabular}{|*{9}{c|}}
+\begin{center}
+\[
+\begin{array}{|*{9}{c|}}
+	\multicolumn{9}{c}{\overset{S^+(3)}{\overbrace{\rule{6cm}{0pt}}}} \\
 	\hline
-	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
+	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9 \\
 	\hline
 	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & \cellcolor{yellow} 15 & \cellcolor{red} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
 	\hline
@@ -77,32 +81,36 @@ We prooved \(S^+(3) = 9\).The special color is blue.
 	\hline
 	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{red} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36\\
 	\hline
-	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 & & & & &\\
-	\hline
-\end{tabular}}
-\right.}\)
- \\
+	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 \\
+	\cline{1-4}
+\end{array}
+\]
+\end{center}
+
 
 \begin{center}
-\(SF\)-template with 3 colors (it is actually maximal)\\
-\begin{tabular}{|*{9}{c|}}
+\[
+S^+(3) 
+\begin{array}{|*{9}{c|}}
 	\hline 
 	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
 	\hline
-\end{tabular} \\
-
-Sum-free partition (\(S(2)\) actually) \\
-\begin{tabular}{|*{4}{c|}}
+\end{array}  \]
+\[
+S(2) 
+\begin{array}{|*{4}{c|}}
 	\hline 
 	\cellcolor{blue} 1 & \cellcolor{yellow} 2 & \cellcolor{yellow} 3 & \cellcolor{blue} 4 \\
 	\hline
-\end{tabular}
+\end{array}
+\]
 \end{center}
 
-To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). \\
-
+To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). 
 \begin{center}
-\begin{tabular}{|*{9}{c|}}
+\[
+\begin{array}{|*{9}{c|}}
+	\multicolumn{4}{c}{\overset{S(2)}{\overbrace{\rule{2.6cm}{0pt}}}} \\
 	\hline
 	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{blue} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
 	\hline
@@ -112,9 +120,10 @@ To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S
 	\hline
 	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{blue} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36 \\
 	\hline
-	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 & & & & &\\
-	\hline
-\end{tabular}
+	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 \\
+	\cline{1-4}
+\end{array}
+\]
 \end{center}
 
 \textsc{Proof :} We denote by \(f\) the projection of the equivalence relation induced by the \(SF\)-template of lenght
@@ -132,20 +141,25 @@ single integer, therefore :
 \]
 with also the sum-free condition : \[ \forall (x,y) \in [\![1,p]\!]^2 \text{, } f(x) = f(y)
 \Longrightarrow f(x+y) \neq f(x) \]
+Moreover, by definition of \(m_{k+1}\), if \(x < m_{k+1}\), \(f(x) \leqslant k\).
 
 \[g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } g(x) = g(y)
 \Longrightarrow g(x+y) \neq g(x)
 \]
 
-We now define \(h : [\![1,pq]\!] \longrightarrow [\![1,n+k]\!] \) as follows :
-\( \forall x \in [\![1,pq + m_{k+1}-1]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q]\!] \) and \( u \in
+We now define \(h : [\![1,pq+m_{k+1}-1]\!] \longrightarrow [\![1,n+k]\!] \) as follows :
+\( \forall x \in [\![1,pq + m_{k+1}-1]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q+1]\!] \) and \( u \in
 [\![0,p-1]\!] \).
-This decomposition if of course unique. If \(f(p-u) \leqslant k\), we set \(h(x) = f(p-u)\), else (i.e \(f(p-u) = k + 1)\) \(h(x) = k + g(\alpha) \).
-Prooving that the partition of \([\![1,pq]\!]\) induced by \(h\) is sum-free will complete the proof.
+This decomposition if of course unique. \\
 
-Let \(x,y \in [\![1,pq]\!]\), with \(h(x) = h(y)\) and \(x+y \leqslant pq\). We write \(x = \alpha p - u\) and \(y =
-\beta p - v\). \\
-We simply need \(h(x+y) \neq h(x)\). \\
+If \(f(p-u) \leqslant k\), we set \(h(x) = f(p-u)\), else (i.e \(f(p-u) = k + 1)\) \(h(x) = k + g(\alpha) \). \\
+If \(\alpha = q+1\), we have a problem plugging it into \(g\). Hopefully, this issue never arises : if 
+\(\alpha = q+1\), we have \(u > p - m_{k+1}\) since \(x \in [\![1,pq + m_{k+1}-1]\!]\), hence \(p-u < m_{k+1}\) and \(f(p-u) \leqslant k\). \\
+
+Prooving that the partition of \([\![1,pq]\!]\) induced by \(h\) is sum-free will complete the proof.\\
+
+Let \(x,y \in [\![1,pq + m_{k+1}-1]\!]\), with \(h(x) = h(y)\) and \(x+y \leqslant pq+m_{k+1}-1\). We write \(x = \alpha p - u\) and \(y =
+\beta p - v\). We simply need \(h(x+y) \neq h(x)\). \\
 
 We first examine the case where \(h(x) \leqslant k\). We assume \(h(x+y) \leqslant k\), otherwise we are fine. 
 Thus by definition of \(h\), we have \(h(x) = f(p-u) = f(p-v) = h(y)\).
@@ -175,11 +189,10 @@ hence \(h(x+y) = f(p-(u+v-p)) \) by construction of \(h\). Thus \(h(x+y) \leqsla
 \end{itemize}
 
 
-Using a SAT solvers, we are able to exhibit SF-template,
-hence providing lower bound on \(S^+\). Moreover, when using
-a SF-template in the above formula, it is possible to get an additive constant. We seek templates providing "affine"
-inequalities : \(aS(n+k) + b \) where \(a\) is a lower bound for \(S^+(k+1)\). Further details can be found in the
-\hyperref[SAT]{SAT section}.
+Using a SAT solvers, we are able to exhibit SF-template, hence providing lower bound on \(S^+\). 
+We seek templates providing the best lower bound possible, but also the best additive constant (\(m_{k+1}\) with the previous notation). 
+Further details can be found in the\hyperref[SAT]{SAT section}. \\
+
 Here are the best inequalities on Schur numbers so far :
 \[ S(n+1) \geqslant 3S(n) + 1 \]
 \[ S(n+2) \geqslant 9S(n) + 4 \]
