@@ -272,8 +272,10 @@ WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \end{corollary}
 
 \renewcommand{\arraystretch}{2}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
-\cline{4-9}
+\begin{center}
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
+\cline{6-9}
    \multicolumn{5}{c|}{} & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} 3&\cellcolor{green}4&5&6&7&8 \\
 \hline
    \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
@@ -286,11 +288,10 @@ WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \hline
 ...&...&...&...&...&...&...&...&...&...&...&...&...\\
 \hline
-\end{tabular}
-
-\textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b
-
-
+\end{array}
+\]
+\end{center}
+\textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
 We denote by \(g\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(h\) the
 one induced by the partition of \([\![1,p]\!]\). Each equivalence class is represented by a single integer, therefore :
 \[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a b-WSF-template.}
@@ -299,12 +300,12 @@ one induced by the partition of \([\![1,p]\!]\). Each equivalence class is repre
 \Longrightarrow h(x+y) \neq h(x)
 \]
 
-Let \( f : [\![1,b+p \time a]\!] \longrightarrow [\![1,n]\!] \) such as:
+Let \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such as:
 \\\\-if x \(\leqslant b \text{ (we will note x} \in \mathcal{T}): f(x)=g(x)\)
-\\\\-if \( x \in [\![1,b+p \time a]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
-\\\\-if \( x \in [\![1,b+p \time a]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{L}): f(x)=n-1+h(\lambda(x))\)
+\\\\-if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
+\\\\-if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{L}): f(x)=n-1+h(\lambda(x))\)
 \\\\
-f is well defined because \(\pi\) is defined for x\(>b\) and \(\forall x \in \![1,b+p \time a]\!], f(x)\leqslant n+k-1\) because h(\(\lambda(x))\leqslant k\)
+f is well defined because \(\pi\) is defined for x\(>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because h(\(\lambda(x))\leqslant k\)
 
 We have parted the integers of \(\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{L}\).
 
