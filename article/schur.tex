@@ -69,9 +69,11 @@ to color 5, hence \(4 = m_{3} - 1\).
 We prooved \(S^+(3) = 9\). The special color is blue. 
 
 \begin{center}
-\(\overset{S^+(3)}{\left. \overleftrightarrow{\begin{tabular}{|*{9}{c|}}
+\[
+\begin{array}{|*{9}{c|}}
+	\multicolumn{9}{c}{\overset{S^+(3)}{\overbrace{\rule{6cm}{0pt}}}} \\
 	\hline
-	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
+	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9 \\
 	\hline
 	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & \cellcolor{yellow} 15 & \cellcolor{red} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
 	\hline
@@ -79,33 +81,36 @@ We prooved \(S^+(3) = 9\). The special color is blue.
 	\hline
 	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{red} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36\\
 	\hline
-	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 & & & & &\\
-	\hline
-\end{tabular}}
-\right \updownarrow S(2)}\)
+	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 \\
+	\cline{1-4}
+\end{array}
+\]
 \end{center}
 
 
 \begin{center}
-\(S^+(3)\)\\
-\begin{tabular}{|*{9}{c|}}
+\[
+S^+(3) 
+\begin{array}{|*{9}{c|}}
 	\hline 
 	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
 	\hline
-\end{tabular} \\
-
-\(S(2)\) \\
-\begin{tabular}{|*{4}{c|}}
+\end{array}  \]
+\[
+S(2) 
+\begin{array}{|*{4}{c|}}
 	\hline 
 	\cellcolor{blue} 1 & \cellcolor{yellow} 2 & \cellcolor{yellow} 3 & \cellcolor{blue} 4 \\
 	\hline
-\end{tabular}
+\end{array}
+\]
 \end{center}
 
-To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). \\
-
+To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). 
 \begin{center}
-\begin{tabular}{|*{9}{c|}}
+\[
+\begin{array}{|*{9}{c|}}
+	\multicolumn{4}{c}{\overset{S(2)}{\overbrace{\rule{2.6cm}{0pt}}}} \\
 	\hline
 	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{blue} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
 	\hline
@@ -115,9 +120,10 @@ To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S
 	\hline
 	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{blue} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36 \\
 	\hline
-	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 & & & & &\\
-	\hline
-\end{tabular}
+	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 \\
+	\cline{1-4}
+\end{array}
+\]
 \end{center}
 
 \textsc{Proof :} We denote by \(f\) the projection of the equivalence relation induced by the \(SF\)-template of lenght
@@ -145,14 +151,15 @@ We now define \(h : [\![1,pq+m_{k+1}-1]\!] \longrightarrow [\![1,n+k]\!] \) as f
 \( \forall x \in [\![1,pq + m_{k+1}-1]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q+1]\!] \) and \( u \in
 [\![0,p-1]\!] \).
 This decomposition if of course unique. \\
+
 If \(f(p-u) \leqslant k\), we set \(h(x) = f(p-u)\), else (i.e \(f(p-u) = k + 1)\) \(h(x) = k + g(\alpha) \). \\
 If \(\alpha = q+1\), we have a problem plugging it into \(g\). Hopefully, this issue never arises : if 
 \(\alpha = q+1\), we have \(u > p - m_{k+1}\) since \(x \in [\![1,pq + m_{k+1}-1]\!]\), hence \(p-u < m_{k+1}\) and \(f(p-u) \leqslant k\). \\
-Prooving that the partition of \([\![1,pq]\!]\) induced by \(h\) is sum-free will complete the proof.
+
+Prooving that the partition of \([\![1,pq]\!]\) induced by \(h\) is sum-free will complete the proof.\\
 
 Let \(x,y \in [\![1,pq + m_{k+1}-1]\!]\), with \(h(x) = h(y)\) and \(x+y \leqslant pq+m_{k+1}-1\). We write \(x = \alpha p - u\) and \(y =
-\beta p - v\). \\
-We simply need \(h(x+y) \neq h(x)\). \\
+\beta p - v\). We simply need \(h(x+y) \neq h(x)\). \\
 
 We first examine the case where \(h(x) \leqslant k\). We assume \(h(x+y) \leqslant k\), otherwise we are fine. 
 Thus by definition of \(h\), we have \(h(x) = f(p-u) = f(p-v) = h(y)\).
