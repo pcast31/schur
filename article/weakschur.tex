@@ -220,13 +220,13 @@ this formula does not give new lower bounds but in the same way as we introduced
 
 \subsection{Definition of \(WS^+\)}
 
-We will now define notations and results, we will use in the following theorem.
+We will now define functions and results, that will be used in the following theorem.
 
-\begin{notation}
+\begin{definition}
 
 Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\pi_{a,b}\) the projection:
-\[ \pi_{a,b}:x->(Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x mod a}))\]
-\end{notation}
+\[ \pi_{a,b}:x \longmapsto (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x mod a}))\]
+\end{definition}
 
 We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the a and b we use.
 
@@ -270,16 +270,16 @@ Let (x,y)\(\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 \end{align*}
 
 
-\begin{notation}
+\begin{definition}
 
 Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\lambda_{a,b}\) the projection:
-\[ \lambda_{a,b}:x->1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor\]
-\end{notation}
+\[ \lambda_{a,b}:x \longmapsto 1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor\]
+\end{definition}
 
 We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the a and b we use.
 
 \begin{remark}
-In the following theorem, \(\lambda\) is the function which return the line number of an element x.
+In the following theorem, \(\lambda\) is the function which maps an element x to its line number.
 \end{remark}
 
 \begin{proposition}
