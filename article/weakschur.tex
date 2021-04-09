@@ -242,7 +242,7 @@ This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(
 \begin{definition}
 Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\)
 subsets which is a \(b\)-WS-template of \(k\) colors and lenght \(p\), we note:
-\\\\\(WS_b^+=\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a
+\\\\\(WS_b^+=-b+\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a
 \(b\)-WSF-template of \(k\) colors and lenght \(p\) \}
 \\\\
 If this \(p\) does not exist, we set \(WS_b^+= 0\)
@@ -257,18 +257,18 @@ Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{
 
 
 \begin{theorem}
-Let \((p,k,b) \in (\mathbb{N}^*)^3\), let \( (q,n) \in (\mathbb{N}^*)^2\). If there exists a partition of \(n\)
-sum-free subsets of \([\![1,q]\!]\) and a partition of k subsets \((A_1,....,A_k)\) of \([\![1, p]\!]\) which is a
-\(b\)-WSF of \(k\) colors and lenght \(p\),
- then there exists a partition of \([\![1, b+q \times p]\!]\) into \((k+n-1)\) weakly sum-free subsets.
+Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \(k\)
+sum-free subsets of \([\![1,p]\!]\) and a partition of n subsets \((A_1,....,A_n)\) of \([\![1, q]\!]\) which is a
+\(b\)-WSF of \(n\) colors and lenght \(q\),
+ then there exists a partition of \([\![1, b+q \times (p-b)]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
 
-In particular, if we choose \(q = S(n)\) and \(p = WS^+(k)\) in the last theorem, the next corollary follows.
+In particular, if we choose \(p = S(k)\) and \(q = WS^+(n)\) in the last theorem, the next corollary follows.
 
 
 \begin{corollary}
-\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/WS^+(k+1)=WS_b^+(k+1)\},\) \[
-WS(n+k) \geqslant S(n) WS^+(k+1)+b_{max}\]
+\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/WS^+(n+1)=WS_b^+(n+1)\},\) \[
+WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \end{corollary}
 
 \renewcommand{\arraystretch}{2}
