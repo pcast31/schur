@@ -1,6 +1,7 @@
 \section{Schur numbers}
 
-\qquad In this section, we use Rowley's constructions \cite{RowleyRamsey} in a Schur context. To improve lower bounds for Ramsay's
+\qquad In this section, we use Rowley's constructions \cite{RowleyRamsey} in a Schur context. To improve lower bounds
+for Ramsay's
 numbers, Rowley
 introduces partitions verifying some properties which can be extended using a method which generalizes Abbott-Hanson's
 \cite{AbbottHanson} construction.
@@ -57,8 +58,10 @@ Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
 	\[ S(n+k) \geqslant S^+(k+1)S(n) \]
 \end{corollary}
 
-\textsc{Proof :} We denote by \(f\) the projection of the equivalence relation induced by the \(SF\)-template of lenght \(p\) 
-and \(g\) the one induced by the sum-free partition of \([\![1,q]\!]\). Each equivalence class is represented by a single integer, therefore :
+\textsc{Proof :} We denote by \(f\) the projection of the equivalence relation induced by the \(SF\)-template of lenght
+\(p\)
+and \(g\) the one induced by the sum-free partition of \([\![1,q]\!]\). Each equivalence class is represented by a
+single integer, therefore :
 
 \[ f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!] \text{ and } \forall (x,y) \in [\![1,p]\!]^2, \left\{
 \begin{array}{ll}
@@ -76,22 +79,26 @@ with also the sum-free condition : \[ \forall (x,y) \in [\![1,p]\!]^2 \text{, } 
 \]
 
 We now define \(h : [\![1,pq]\!] \longrightarrow [\![1,n+k]\!] \) as follows :
-\( \forall x \in [\![1,pq]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q]\!] \) and \( u \in [\![0,p-1]\!] \).
-This decomposition if of course unique. If \(f(p-u) \leqslant k\), we set \(h(x) = f(p-u)\), else (i.e \(f(p-u) = k + 1) \) \(h(x) = k + g(\alpha) \). 
+\( \forall x \in [\![1,pq]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q]\!] \) and \( u \in
+[\![0,p-1]\!] \).
+This decomposition if of course unique. If \(f(p-u) \leqslant k\), we set \(h(x) = f(p-u)\), else (i.e \(f(p-u) = k + 1)\) \(h(x) = k + g(\alpha) \).
 Prooving that the partition of \([\![1,pq]\!]\) induced by \(h\) is sum-free will complete the proof.
 
-Let \(x,y \in [\![1,pq]\!]\), with \(h(x) = h(y)\) and \(x+y \leqslant pq\). We write \(x = \alpha p - u\) and \(y = \beta p - v\). \\
+Let \(x,y \in [\![1,pq]\!]\), with \(h(x) = h(y)\) and \(x+y \leqslant pq\). We write \(x = \alpha p - u\) and \(y =
+\beta p - v\). \\
 We simply need \(h(x+y) \neq h(x)\). \\
 
 We first examine the case where \(h(x) \leqslant k\). We assume \(h(x+y) \leqslant k\), otherwise we are fine. 
 Thus by definition of \(h\), we have \(h(x) = f(p-u) = f(p-v) = h(y)\).
 \begin{itemize}
 \item If \(u+v < p\), then \(x+y = (\alpha+\beta) - (u+v) \) with \(u+v \in [\![0,p-1]\!] \).
-We have \(f(p-u) = f(p-v)  \leqslant k\) and \(p-u + p-v > p\), the extra condition on \(f\) provides \(f(p-u-v) \neq f(p-u)\).
-We assumed \(h(x+y) \leqslant k\) hence \(h(x+y) = f(p-u-v)\). Since \(h(x) = f(p-u)\), we have at last \(h(x+y) \neq h(x)\).
+We have \(f(p-u) = f(p-v) \leqslant k\) and \(p-u + p-v > p\), the extra condition on \(f\) provides \(f(p-u-v) \neq
+f(p-u)\).
+We assumed \(h(x+y) \leqslant k\) hence \(h(x+y) = f(p-u-v)\). Since \(h(x) = f(p-u)\), we have at last \(h(x+y) \neq
+h(x)\).
 \item If \(u+v \geqslant p\), then \(x+y = (\alpha+\beta-1) - (u+v-p) \) with \(u+v-p \in [\![0,p-1]\!] \).
-We assumed \(h(x+y) \leqslant k \) hence \(h(x+y) = f( p- (p-u-v)) = f((p-u + p-v))\). Since \(f(p-u+p-v) \neq f(p-u)\),
-we get \(h(x+y) \neq h(x)\).
+We assumed \(h(x+y) \leqslant k \) hence \(h(x+y) = f( p- (p-u-v)) = f((p-u + p-v))\). Since \(f(p-u+p-v) \neq
+f(p-u)\),we get \(h(x+y) \neq h(x)\).
 \end{itemize} 
   
 We now assume \(h(x) > k\). Then \(h(x) = k + g(\alpha) = k + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta\). 
@@ -145,8 +152,8 @@ And the associated inequality :
 
 The previous inequalities give new lower bounds for \(S(n)\) for
 \( n \geqslant 9 \). We compute the lower
-bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n =
-8\) and \(n = 13\) were obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.\\
+bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n
+=8\) and \(n = 13\) were obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.\\
 \\
 \begin{center}
 \begin{tabular}{|*{5}{c|}}
@@ -168,7 +175,7 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, pleas
 	\hline
 	\(111S(n-4) + 43 \) & 586789 & 1976176 & 6765271 & 22624951 \\
 	\hline
-\(380S(n-5) + 148 \) & \cellcolor{yellow} 638548 & 2008828 & \cellcolor{yellow} 6765288 & \cellcolor{yellow} 23160388 \\	\hline
+\(380S(n-5) + 148 \) & \cellcolor{yellow} 638548 & 2008828 & \cellcolor{yellow} 6765288 & \cellcolor{yellow} 23160388 \\\hline
 	\(1140S(n-6) + 528 \) & 611568 & 1915728 & 6026568 & 20295948 \\
 	\hline
 \end{tabular}
