@@ -47,9 +47,11 @@ First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(
 Note that with this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the sum of the columns modulo \(a\).
 
 \renewcommand{\arraystretch}{2}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
-\hline
-  & & & & & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} ...&\cellcolor{green}\(r\)&\(r+1\)&...&\(b - 1\)&\(b\) \\
+\begin{center}
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
+\cline{6-9}
+   \multicolumn{5}{c|}{} & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} 3&\cellcolor{green}4&5&6&7&8 \\
 \hline
    \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
 \hline
@@ -61,7 +63,9 @@ Note that with this numbering of columns, the column of the sum of two numbers i
 \hline
 ...&...&...&...&...&...&...&...&...&...&...&...&...\\
 \hline
-\end{tabular}
+\end{array}
+\]
+\end{center}
 
 \underline{\textbf{\(\mathcal{T}\) block}} \\
 We color this block using the weakly sum-free colouring of \([\![1,q]\!]\) with colors \(1, ..., n\).
@@ -288,6 +292,8 @@ if x mod a \(>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor
 
 if x mod a \(\leqslant b\):
 \(a\lambda(x)+\pi(x)-a=a(\left\lfloor\dfrac{x}{a}\right\rfloor-1)+\text{x mod a}+a=x\)
+
+
 \begin{definition}
 Let \( (p,k,b) \in (\mathbb{N}^*)^3\), Let \((A_1,....,A_k)\) a partition of  \([\![1, p]\!]\).
 This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(k\) colors and lenght \(p\) when:
@@ -303,7 +309,7 @@ This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(
 \underline{For the others subsets:}\quad \(\forall i \in [\![0,k-1]\!], \forall(x,y) \in A_i^2\)
 \\
 \[
-(Id+(p-b)\mathbf{1}_{ [\![0,b]\!]})(x+y ~\text{mod}~ (p-b)) \notin A_i
+x+y>p \implies \pi(x+y) \notin A_i
 \]
 \end{definition}
 
@@ -339,26 +345,7 @@ In particular, if we choose \(p = S(k)\) and \(q = WS^+(n)\) in the last theorem
 WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \end{corollary}
 
-\renewcommand{\arraystretch}{2}
-\begin{center}
-\[
-\begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
-\cline{6-9}
-   \multicolumn{5}{c|}{} & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} 3&\cellcolor{green}4&5&6&7&8 \\
-\hline
-   \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
-\hline
-\cellcolor{yellow}22&\cellcolor{yellow}23&\cellcolor{yellow}24&\cellcolor{yellow}25&\cellcolor{yellow}26&\cellcolor{yellow}27&\cellcolor{yellow}28&\cellcolor{yellow}29&\cellcolor{yellow}30&31&32&33&34\\
-\hline
-...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...&...&...&...\\
-\hline
-\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&...&...&...&...\\
-\hline
-...&...&...&...&...&...&...&...&...&...&...&...&...\\
-\hline
-\end{array}
-\]
-\end{center}
+
 \textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
 We denote by \(g\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(h\) the
 one induced by the partition of \([\![1,p]\!]\). Each equivalence class is represented by a single integer, therefore :
