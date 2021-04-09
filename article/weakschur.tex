@@ -19,11 +19,79 @@ subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free
 subsets then there exists a partition of \([\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]\) into \(n+k\)
 weakly sum-free subsets.
 \end{theorem}
+
 In particular, if we choose \(q = WS(n)\) and \(p = S(k)\) in the last theorem, the next corollary follows.
+
 \begin{corollary}
 \( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } WS(n+k) \geqslant S(k) \left (WS(n) + \left \lceil \frac{WS(n)}{2}
 \right \rceil +1 \right) + WS(n)\)
 \end{corollary}
+
+\begin{remark}
+In the above ineqality, a "\(+1\)" can be added to the lower bound if \(WS(n)\) is odd (more generally if \(q\) is odd in the theorem). However, it makes the proof less 
+clear and it is never useful in practice.
+\end{remark}
+
+We first give an intuitive explanation of the above theorem. Let \((p, q) \in \mathbb{N}^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
+subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\) and let's try to build a colouring of \([\![1, ap + q]\!]\) 
+into \(n + k\) weakly sum-free subsets. Let \(l = a - b - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = b - r\). \\
+
+First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)):
+
+\begin{itemize}
+	\item \(\mathcal{T}\) (the "tail"): the integers from 1 to \(q\). NB: this is line number 0.
+	\item \(\mathcal{L}\) (the "lines"): the integers in columns \(-l\) to \(+r\) (excluding  \(\mathcal{T}\)).
+	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns (excluding  \(\mathcal{T}\)).
+\end{itemize}
+
+Note that with this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the sum of the columns modulo \(a\).
+
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
+\hline
+  & & & & & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} ...&\cellcolor{green}\(r\)&\(r+1\)&...&\(b - 1\)&\(b\) \\
+\hline
+   \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
+\hline
+\cellcolor{yellow}22&\cellcolor{yellow}23&\cellcolor{yellow}24&\cellcolor{yellow}25&\cellcolor{yellow}26&\cellcolor{yellow}27&\cellcolor{yellow}28&\cellcolor{yellow}29&\cellcolor{yellow}30&31&32&33&34\\
+\hline
+...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...&...&...&...\\
+\hline
+\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&...&...&...&...\\
+\hline
+...&...&...&...&...&...&...&...&...&...&...&...&...\\
+\hline
+\end{tabular}
+
+\underline{\textbf{\(\mathcal{T}\) block}} \\
+We color this block using the weakly sum-free colouring of \([\![1,q]\!]\) with colors \(1, ..., n\).
+
+\underline{\textbf{\(\mathcal{L}\) block}} \\
+In this block,  we use the colors \(n + 1, ..., n + k\). We colour an integer \(x\) according to its line number (written \(\lambda(x)\)).
+For every \(x \in \mathcal{L}\), we colour \(x\) with \(n + c\) where \(c\) is the colour of \(\lambda(x)\) in the sum-free colouring of  \([\![1,p]\!]\).
+Let \((x, y) \in \mathcal(L)^2\). The cases are twofold.
+
+\begin{itemize}
+	\item \underline{\(\lambda(x+y) = \lambda(x) + \lambda(y)\)} \\
+	In this case, we use the sum-free property of the colouring of \([\![1,p]\!]\) (in block \(\mathcal{C}\), we only use colours \(1, ..., n\)).
+
+	\item \underline{\(\lambda(x+y) \neq \lambda(x) + \lambda(y)\)} \\
+	In this case, we do not have information about the colour of \(\lambda(x+y)\). Thereby, we want to have \(x+y \in \mathcal{C}\).
+	A simple solution is to limit the horizontal movement, that is if the sum changes line, not to move too far so that it stays in \(\mathcal{C}\). 
+	There, the maximal displacement to the left (resp. to the right) is \(2l\) (resp. \(2r\)). Not crossing entirely \(\mathcal{C}\) by going to the left 
+	is then expressed as \(-2l > -a + r\). Likewise, not going to far to the right is expressed as \(2r < a - l\). It can then be written as
+	 \(\text{max}(l, r) \leqslant w\).
+\end{itemize}
+
+\underline{\textbf{\(\mathcal{C}\) block}} \\
+In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) according to its column number (written \(\tilde{\pi}(x)\), it is linked to the 
+projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\)). A simple solution is to colour \(x\) with the same colour 
+as \(\tilde{\pi}(x)\) in the weakly sum-free colouring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there 
+is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when 
+taking two numbers in the same column), the colours \(1, ..., n\) are sum-free. \\
+
+In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \frac{q}{2} \rfloor\) works, thus obtaining the above theorem. \\
+
 \textsc{Proof :} Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\), \(N = p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q\),
 \(\alpha = \left \lceil \frac{q}{2} \right \rceil > 0\) and \(\beta = q + \alpha + 1\).
 We denote by \(f\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(g\) the
@@ -270,24 +338,6 @@ In particular, if we choose \(p = S(k)\) and \(q = WS^+(n)\) in the last theorem
 \( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/WS^+(n+1)=WS_b^+(n+1)\},\) \[
 WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 \end{corollary}
-
-\renewcommand{\arraystretch}{2}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
-\hline
-  & & & & & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} 3&\cellcolor{green}4&5&6&7&8 \\
-\hline
-   \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
-\hline
-\cellcolor{yellow}22&\cellcolor{yellow}23&\cellcolor{yellow}24&\cellcolor{yellow}25&\cellcolor{yellow}26&\cellcolor{yellow}27&\cellcolor{yellow}28&\cellcolor{yellow}29&\cellcolor{yellow}30&31&32&33&34\\
-\hline
-...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...&...&...&...\\
-\hline
-\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&...&...&...&...\\
-\hline
-...&...&...&...&...&...&...&...&...&...&...&...&...\\
-\hline
-\end{tabular}
-
 
 \begin{remark}
 There exists a \(c(b) \geqslant \text{min}(A_{k+1} \backslash [\![1,b] - b - 1\) such that \(c(b)\) numbers can be
