@@ -195,8 +195,10 @@ A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetr
 
 Using a SAT solver, we exhibited SF-templates, hence providing lower bound on \(S^+\) and inequalities 
 of the type \(S(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
-\((a, b)\) (for the lexicographic order). When the number of colors excceeded 5, we looked for symmetric SF-templates, 
-we assumed that the special color was the last color to appear and we constrained the \(m_c\)'s out of being too small.
+\((a, b)\) (for the lexicographic order). When the number of colors excceeded 5,in order to reduce the search space we 
+looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
+the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in the
+\hyperref[SAT]{SAT section}. \\
 
 Here are the best inequalities on Schur numbers so far (the templates corresponding to the third, fourth and fifth 
 inequalities can be found in the appendix):
