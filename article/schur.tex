@@ -58,6 +58,12 @@ Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
 	\[ S(n+k) \geqslant S^+(k+1)S(n) \]
 \end{corollary}
 
+See below an example of such a construction. \\
+It is quite similar to Abott and Hanson construction \cite{AbbottHanson}. They extend vertically a sum-free partition,
+and horizontally an other sum-free partition. This way each "block" acts like a security zone for the other one.
+Here, the horizontal partition is no longer to the side of the vertical one, but occupies the column of the special color
+of the \(SF\)-template, i.e the one without the extra condition. 
+
 \textsc{Proof :} We denote by \(f\) the projection of the equivalence relation induced by the \(SF\)-template of lenght
 \(p\)
 and \(g\) the one induced by the sum-free partition of \([\![1,q]\!]\). Each equivalence class is represented by a
@@ -129,7 +135,7 @@ Here are the best inequalities on Schur numbers so far :
 \[ S(n+5) \geqslant 380S(n) + 148 \]
 \[ S(n+6) \geqslant 1140S(n) + 528 \]
 
-The first inequality comes from the original Schur's paper \cite{Schur1917}. The second one are due to
+The first inequality comes from the original Schur's paper \cite{Schur1917}. The second one is due to
 Abott \cite{AbbottHanson}
 and the third one to Rowley \cite{RowleyRamsey}. The other ones are new. \\
 
@@ -146,6 +152,9 @@ And the associated inequality :
 	Let \(n, k \in \mathbb{N}^*\), we have \\
 	\[ S^+(n+k) \geqslant S^+(k+1)S^+(n) \]
 \end{corollary}
+
+\textsc{Proof :} The idea is the same as in the previous theorem. The only difference is the \(SF\) property inherited 
+from the second \(SF\)-template.
 
 
 \subsection{New lower bounds for Schur numbers}
