@@ -23,8 +23,9 @@ We denote by \([\![1,p]\!]\) the set of integers \(\{1, 2, ..., p\}\).
 Schur proved in \cite{Schur1917} that given a number of subsets \(n\), there exists a value of \(p\)
 such that there exists no partition of \([\![1,q]\!]\) into \(n\) sum-free subsets for any \(q \geqslant p\). A similar
 property holds for weakly sum-free subsets (reference necessaire). These observations lead to the following definitions.
+
 \begin{definition}
-Let \(n \in \mathbb{N}^*\). There exists a greatest integer that we note \(S(n)\) (\textit{resp. \(WS(n)\)}) such that
+Let \(n \in \mathbb{N}^*\). There exists a greatest integer that we denote \(S(n)\) (\textit{resp. \(WS(n)\)}) such that
 \([\![1,S(n)]\!]\) (resp. \([\![1,WS(n)]\!]\)) can be partitioned into \(n\) sum-free subsets (resp. weakly sum-free
 subsets). \(S(n)\) is called the \textit{\(n\)\textsuperscript{th} Schur number} and \textit{\(WS(n)\) the
 \(n\)\textsuperscript{th} weak
@@ -32,9 +33,15 @@ Schur number}.
 \end{definition}
 
 \begin{notation}
-For a partition of \([\![1, p]\!]\) in \(n\) subsets, we generally note these subsets \(A_1, ..., A_n\). We also note
+For a partition of \([\![1, p]\!]\) in \(n\) subsets, we generally denote these subsets \(A_1, ..., A_n\). We also denote
 \(m_i = \text{min}(A_i)\).
 By ordering the subsets, we mean assuming that \(m_1 < ... < m_n\). However, if not specified we do not make this
 hypothesis since we
 do not always consider partitions in which every subset plays a symmetric role.
 \end{notation}
+
+\begin{definition}
+We sometimes refer to a partitition as a colouring. The colouring associated to a partition \(A_1, ..., A_n\) of 
+\([\![1, p]\!]\) is the function \(f\) that \(\forall x \in [\![1, p]\!], x \in A_{f(x)}\). Likewise, the partition associated to 
+a colouring \(f\) of \([\![1, p]\!]\) with \(n\) colors is \(\forall i \in [\![1, n]\!], A_i = f^{-1}(i)\).
+\end{definition}

@@ -28,6 +28,10 @@ In particular, if we choose \(q = WS(n)\) and \(p = S(k)\) in the last theorem, 
 \end{corollary}
 
 \begin{remark}
+This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers.
+\end{remark}
+
+\begin{remark}
 In the above ineqality, a "\(+1\)" can be added to the lower bound if \(WS(n)\) is odd (more generally if \(q\) is odd in the theorem). However, it makes the proof less
 clear and it is never useful in practice.
 \end{remark}
@@ -44,24 +48,26 @@ First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(
 	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns (excluding  \(\mathcal{T}\)).
 \end{itemize}
 
-Note that with this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the sum of the columns modulo \(a\).
+Like for SF-templates, \(\mathcal{L}\) and \(\mathcal{C}\) play the role of security zones for each other. Note that with 
+this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the 
+sum of the columns modulo \(a\).
 
 \renewcommand{\arraystretch}{2}
 \begin{center}
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
 \cline{6-9}
-   \multicolumn{5}{c|}{} & \cellcolor{green}1 & \cellcolor{green}2 & \cellcolor{blue} 3&\cellcolor{green}4&5&6&7&8 \\
+   \multicolumn{5}{c|}{} & \cellcolor{green} 1 & \cellcolor{green} 2 & \cellcolor{blue} ... &\cellcolor{green} r & r + 1 & ... & b - 1 &  b \\
 \hline
-   \cellcolor{red}9 & \cellcolor{red}10 & \cellcolor{red}11 & \cellcolor{red}12 &\cellcolor{red}13&\cellcolor{red}14&\cellcolor{red}15&\cellcolor{red}16&\cellcolor{red}17&18&19&20&21\\
+   \cellcolor{red} a - l & \cellcolor{red} a- l + 1 & \cellcolor{red} ... & \cellcolor{red} a - 1 & \cellcolor{red} a & \cellcolor{red} a + 1 & \cellcolor{red} ... &\cellcolor{red} a + r - 1 & \cellcolor{red} a + r & a + r + 1 & ... & a + b - 1 & a+ b \\
 \hline
-\cellcolor{yellow}22&\cellcolor{yellow}23&\cellcolor{yellow}24&\cellcolor{yellow}25&\cellcolor{yellow}26&\cellcolor{yellow}27&\cellcolor{yellow}28&\cellcolor{yellow}29&\cellcolor{yellow}30&31&32&33&34\\
+\cellcolor{yellow} 2 a - l &\cellcolor{yellow}...&\cellcolor{yellow}...&\cellcolor{yellow}...&\cellcolor{yellow} 2 a &\cellcolor{yellow} ... &\cellcolor{yellow} ... &\cellcolor{yellow} ... &\cellcolor{yellow} 2 a + r & ... & ... & ... & 2 a + b \\
 \hline
 ...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...&...&...&...\\
 \hline
 \cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&...&...&...&...\\
 \hline
-...&...&...&...&...&...&...&...&...&...&...&...&...\\
+p a - l & ... & ... & ... &p a & ... & ... & .... & p a + r & ... & ... & ... & p a + b\\
 \hline
 \end{array}
 \]
@@ -98,8 +104,8 @@ In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \f
 
 \textsc{Proof :} Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\), \(N = p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q\),
 \(\alpha = \left \lceil \frac{q}{2} \right \rceil > 0\) and \(\beta = q + \alpha + 1\).
-We denote by \(f\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(g\) the
-one induced by the partition of \([\![1,p]\!]\). Each equivalence class is represented by a single integer, therefore :
+We denote by \(f\) the colouring associated to the partition of \([\![1,q]\!]\) and \(g\) the
+one associated to the partition of \([\![1,p]\!]\).
 \[ f : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2, \left\{
 \begin{array}{ll}
 	x \neq y \\
@@ -230,6 +236,10 @@ Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\pi_{a,b}\) the p
 
 We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the a and b we use.
 
+\begin{remark}
+\(\pi\) is the projection on the first line mentioned in the intuitive explanation.
+\end{remark}
+
 \begin{proposition}
 Let x \(\in [\![1,b]\!]\), let y \(\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\), then we have: \(\pi(x+y)=x+\pi(y)\)
 \end{proposition}
@@ -279,7 +289,7 @@ Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\lambda_{a,b}\) t
 We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the a and b we use.
 
 \begin{remark}
-In the following theorem, \(\lambda\) is the function which maps an element x to its line number.
+In the following theorem, \(\lambda\) is the function which maps an element x to its line number, as mentioned in the intuitive explanation.
 \end{remark}
 
 \begin{proposition}
@@ -295,23 +305,28 @@ if x mod a \(\leqslant b\):
 
 
 \begin{definition}
-Let \( (p,k,b) \in (\mathbb{N}^*)^3\), Let \((A_1,....,A_k)\) a partition of  \([\![1, p]\!]\).
-This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(k\) colors and lenght \(p\) when:
+Let \( (p,n,b) \in (\mathbb{N}^*)^3\), Let \((A_1,...,A_n)\) a partition of  \([\![1, p]\!]\).
+This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(n\) colors and lenght \(p\) when:
 \\\\
-\underline{\(\forall i \in [\![1, k]\!], \quad A_i\) is weakly-sum-free}
+\underline{\(\forall i \in [\![1, n]\!], \quad A_i\) is weakly-sum-free}
 \\\\
-\underline{\(\forall i \in [\![1, k]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free}
+\underline{\(\forall i \in [\![1, n]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free}
 \\\\
-\underline{For \(A_k\) (the special subset):} \quad \(\forall (x,y) \in A_k^2,\)
+\underline{For \(A_n\) (the special subset):} \quad \(\forall (x,y) \in A_n^2,\)
 \\
-\[if \quad x+y>b+2(p-b),\quad x+y-2(p-b)\notin A_k\]
+\[if \quad x+y>b+2(p-b),\quad x+y-2(p-b)\notin A_n\]
 \\
-\underline{For the others subsets:}\quad \(\forall i \in [\![0,k-1]\!], \forall(x,y) \in A_i^2\)
+\underline{For the others subsets:}\quad \(\forall i \in [\![0,n-1]\!], \forall(x,y) \in A_i^2,\)
 \\
 \[
 x+y>p \implies \pi(x+y) \notin A_i
 \]
 \end{definition}
+
+
+\begin{remark}
+	Please note that the special color \(n\) is not necessarily the last color by order of appearance.
+\end{remark}
 
 \begin{definition}
 Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\)
@@ -347,15 +362,15 @@ WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
 
 
 \textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
-We denote by \(g\) the projection of the equivalence relation induced by the partition of \([\![1,q]\!]\) and \(h\) the
-one induced by the partition of \([\![1,p]\!]\). Each equivalence class is represented by a single integer, therefore :
+We denote by \(g\) the colouring associated to the partition of \([\![1,q]\!]\) and \(h\) the
+one associated to the partition of \([\![1,p]\!]\).
 \[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a b-WSF-template.}
 \]
 \[h : [\![1,p]\!] \longrightarrow [\![1,k]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } h(x) = h(y)
 \Longrightarrow h(x+y) \neq h(x)
 \]
 
-Let \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such as:
+Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such that:
 \\\\-if x \(\leqslant b \text{ (we will note x} \in \mathcal{T}): f(x)=g(x)\)
 \\\\-if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
 \\\\-if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{L}): f(x)=n-1+h(\lambda(x))\)
@@ -460,10 +475,16 @@ which maximizes the sum \(b+c(b)\) such that \(WS^+(k+1)=WS_b^+(k+1)\). Hence we
 
 \end{remark}
 
+\begin{corollary}
+The general lower bound for weak Schur numbers in function of both regular and weak Schur numbers can be seen as a particular 
+case of WSF-template in the same way Abott and Hanson's construction can be seen as a particular case of SF-template.
+\end{corollary}
+
 
 \subsection{New lower bounds for Weak Schur numbers}
 Having found suitable templates, which can be found in the appendix, with a SAT solver, we claim that for all \(n \in
 \mathbb{N}^*\):
+
 \[
 4S(n) + 1 \leqslant WS(n+1)
 \]
@@ -476,8 +497,17 @@ Having found suitable templates, which can be found in the appendix, with a SAT 
 \[
 127S(n) + 68 \leqslant WS(n+4)
 \]
-The first two inequalities are due to Rowley, they are detailed in [2]. Like in 3.3, we compute the lower bounds given
-by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound for each integer is highlighted.\\
+
+The first two inequalities were found by Rowley, they are detailed in [2]. The third inequality is optimal and was found with a SAT solver. 
+As for the fourth inequality, it is not useful since by comibing the first inequality with \(S(n) \geqslant 33 S(n-3) + 6\) provides a 
+better inequality. It was also found with the SAT solver. In order to reduce the search space, we only looked for WSF-templates of 
+5 colors which start with a good \(WS(4)\) partition. However, this approach most likely prevents us from finding the best WSF-templates 
+as we explain in the next subsection for weakly sum-free partitions. We highly suspect that there exists more efficient WSF-templates 
+with \(n \geqslant 5\) colors. One may try to go over a different search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}. 
+This could be the suject of a future work.
+
+Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound 
+for each integer is highlighted.\\
 \\
 \begin{center}
 \begin{tabular}{|*{5}{c|}}
@@ -506,13 +536,5 @@ by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound 
 \end{tabular}
 \end{center}
 
-With \( S(9) \geqslant 17803 \), we found a new lower bound for
-\(WS(10)\) using Rowley's inequality. Moreover, the third inequality
-gives new lower bounds for \(WS(9)\) and \(WS(14)\). However, the last
-inequality doesn't give any better lower bound, even beyond \( n = 15 \)
-: the best bounds are always provided by the first three. We highly suspect that these values can be improved by
-investigating the search
-space further, which would provide new, more effective templates. One
-may try to go over this search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP},
-but with a different search space (as we explain in \hyperref[SAT]{SAT section}).
-This could be the suject of a future work.
+With \( S(9) \geqslant 17803 \), we found a new lower bound for \(WS(10)\) using Rowley's inequality. 
+Moreover, the third inequality gives new lower bounds for \(WS(9)\) and \(WS(14)\).

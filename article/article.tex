@@ -31,12 +31,14 @@
 
 \begin{abstract}
 
-This paper offers new lower bounds for both Schur and weak Schur numbers. These results were produced by pushing forward
+This paper provides new lower bounds for both Schur and weak Schur numbers. These results were produced by pushing forward
 Rowley's "templates"-based approach for Ramsey and Schur numbers in 2020. Finding suitable templates allows us to apply Rowley's construction
-to get explicit partitions improving lower bounds. We also developed a new method to improve weak Schur lower bounds. Furthermore, this paper tries to analyse former work on the subject based on
-the principle that good partitions into \(n+1\) subsets start with good partitions into \(n\) subsets. We show that exceeding
-the previous lower bound \(WS(6) \geqslant 582\) is impossible with such an assumption upon imposing certain conditions on the good
-5-subsets partition. The new lower bounds includes \(S(9) \geqslant 17803\), \(S(10) \geqslant 60948\), \(WS(9) \geqslant 22536 \) and \(WS(10) \geqslant 71214 \).
+to get explicit partitions improving lower bounds as well as the growth rate of Schur numbers and Ramsey numbers \(R_n(3)\). 
+We also developed a new method to improve lower bounds on weak Schur numbers. Furthermore, this paper tries to analyze former 
+works on the subject based on the principle that good partitions into \(n+1\) subsets start with good partitions 
+into \(n\) subsets. We show that exceeding the previous lower bound \(WS(6) \geqslant 582\) is impossible with such an assumption upon 
+imposing certain conditions on the good 5-subsets partition. The new lower bounds includes \(S(9) \geqslant 17803\), \(S(10) \geqslant 60948\), 
+\(WS(9) \geqslant 22536 \) and \(WS(10) \geqslant 71214 \).
 
 \end{abstract}
 
@@ -52,22 +54,22 @@ the previous lower bound \(WS(6) \geqslant 582\) is impossible with such an assu
 \section{Conclusions and future work}
 
 \par
-These new results come from Rowley's approach for Ramsey graphs which is relatively new. Therefore, it would not surprise us
-if lower bounds are later improved using better templates. Moreover, studying specifically \(S^+(n)\) and \(WS^+(n)\) numbers might be
-of interest as they are closely related to Schur and weak Schur numbers.
+These new results come from an extension of Rowley's template-based approach for Ramsey graphs and Schur numbers which is relatively new. 
+Therefore, we would not be surprised if lower bounds are later improved using better templates. Moreover, studying specifically \(S^+(n)\) and 
+\(WS^+(n)\) might be of interest as they are closely related to Schur and weak Schur numbers.
 
 \par
-The fourth section gives new insight on the method that was formerly used to achieve new lower bounds for weak Schur numbers. The principle behind it
-might have discarded many interesting partitions of the search space and lowered the highest value that can be reached within it.
-However, algorithms based on randomness such as Monte-Carlo algorithms may appear very useful if used in a search space with more
-potential. For example, such an algorithm could be used to find better templates and improve inequalities and lower bounds for high values
-of \(n\). This could be the subject fo a future work. Nevertheless, it would not help for the smallest values.
+The fourth section gives new insight on the method that was formerly used to achieve new lower bounds for weak Schur numbers. The assumption behind it
+might have removed the optimal partitions from the search space and thus lowered the highest value that can be reached within it.
+However, algorithms based on randomness such as Monte-Carlo algorithms may prove to be very useful if used in a search space with more
+potential. For instance, such an algorithm could be used to find better templates and improve inequalities and lower bounds for high values
+of \(n\). This could be the subject of a future work.
 
 \section{Acknowledgments}
 
 \par
 We would first like to thank our professors, Joanna Tomasik and Arpad Rimmel, who guided and advised 
-us during the whole research and writing. Finally, last but not least, we would like to address warm thanks 
+us during the whole research and writing. Last but not least, we would like to address warm thanks 
 to Fred Rowley who kindly answered our many questions and with who it was a pleasure to exchange.
 
 
@@ -76,7 +78,25 @@ to Fred Rowley who kindly answered our many questions and with who it was a plea
 
 \appendix
 \renewcommand{\arraystretch}{1}
+
+
 \section{SF-templates}
+
+\begin{center}
+SF-template partitionning \([\![1, 33]\!]\) into 4 subsets \\
+\begin{tabular}{|*{2}{c|}}
+	\hline
+	1 & 1, 6, 9, 13, 16, 20, 24, 27, 31 \\
+	\hline
+	2 & 2, 5, 14, 15, 25, 26 \\
+	\hline
+	3 & 3, 4, 10, 11, 12, 28, 29, 30 \\
+	\hline
+	4 & 7, 8, 17, 18, 19, 21, 22, 23, 32, 33 \\
+	\hline
+\end{tabular}
+\end{center}
+
 \begin{center}
 SF-template partitionning \([\![1, 111]\!]\) into 5 subsets
 \begin{tabular}{|*{2}{c|}}
@@ -98,6 +118,7 @@ SF-template partitionning \([\![1, 111]\!]\) into 5 subsets
 	\hline
 \end{tabular}
 \end{center}
+
 \begin{center}
 SF-template partitionning \([\![1, 380]\!]\) into 6 subsets
 \begin{tabular}{|*{2}{c|}}
@@ -139,12 +160,15 @@ SF-template partitionning \([\![1, 380]\!]\) into 6 subsets
 
 \end{tabular}
 \end{center}
+
+
 \section{WSF-templates}
+
 \begin{center}
 WSF-template partitionning \([\![1, 42]\!]\) into 4 subsets
 \begin{tabular}{|*{2}{c|}}
 	\hline
-	1 & 1, 2, 4, 8, 11, 22, 25, \textbf{(66)}\\
+	1 & 1, 2, 4, 8, 11, 22, 25, \(\mathbf{(N+1)}\)\\
 	\hline
 	2 & 5, 6, 7, 19, 21, 23, 36\\
 	\hline
@@ -155,7 +179,8 @@ WSF-template partitionning \([\![1, 42]\!]\) into 4 subsets
 	\hline
 \end{tabular}
 \end{center}
-This template produces the inequality \(WS(n+3) \geqslant 42S(n) + 24\)
-by placing 66 in the first subset.
+
+This template provides the inequality \(WS(n+3) \geqslant 42S(n) + 24\)
+by placing one last number, here represented by \(\mathbf{(N+1)}\), in the first subset.
 
 \end{document}

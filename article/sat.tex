@@ -100,8 +100,8 @@ speedup, but it most likely allowed us to gain several order of magnitude in com
 subsection.
 
 \par
-Every weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets starts with the following sequence 1121222133. Then 11
-is always
+For every weakly sum-free colouring \(f\) of \([\![1,65]\!]\) with 4 colors, the sequence \(f(1), f(2), f(3), ...\) always 
+starts with the following subsequence 1121222133. Then 11 is always
 either in subset 1 or 3, 12 is always in subset 3 and so on. For every integer in \([\![1,65]\!]\), we computed in which
 subset it can appear.
 By using this constraints, we could then compute for every integer in \([\![1,185]\!]\), in which subset it can appear
@@ -154,12 +154,10 @@ the 3 partitions of \([\![1,23]\!]\) in
 3 weakly sum-free subsets, every number always appears in the same subset except for 16 and 17 which can appear in two
 different subsets. We hardcoded
 this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation
-time. We also give the stronger
-following result.
+time. We also give the stronger following result.
 
 \begin{computational theorem}
-If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). \\
-NB : on doit finir d'obtenir les valeurs.
+If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). NB : on doit finir d'obtenir les valeurs.
 \end{computational theorem}
 
 More precisely, we verified the following results (\(max~m_5\) is the greatest value of \(m_5\) for which we have not
@@ -172,10 +170,12 @@ verified that \(WS(5 | m_5) \leq 196\)).
 	\(WS(4 | m_4) + 1\) & 55 & 59 & 60 & 59 & 59 & 60 & 60 & 60 & 60 & 64 & 63 & 64 & 61 & 64 & 63 & 65 & 65 & 65 & 65 & 66
 	& 67 \\
 	\hline
-	\(max~m_5\) & 49 & 51 & 54 & 53 & 54 & 54 & & & & & & & & & & & & & & 57 & 53 \\
+	\(max~m_5\) & 49 & 51 & 54 & 53 & 54 & 54 & & & & & & & & & & & & 59 & 61 & 58 & 53 \\
 	\hline
 \end{tabular}
 
-To obtain these results, we once again provided additionnal information to the SAT solver. We also gave other types of
-information to the SAT solver.
-(pas encore fini)
+In the above table, we only made real efforts (trying different additionnal information) for \(m_4 = 24\). In this case, the value \(m_5 \leqslant 53\) 
+was obtained after 7 hours of runtime.
+To obtain these results, we once again provided additionnal information to the SAT solver. We added two different types information. 
+The first one is the same above. The second one is maximum length of a sequence using only a certain subset of the colors. For instance, 
+if \(m_4 \geqslant 22\), then there cannot be more than 17 consecutive numbers with color 1, 2 or 3. \\
