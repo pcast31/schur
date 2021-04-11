@@ -154,28 +154,34 @@ the 3 partitions of \([\![1,23]\!]\) in
 3 weakly sum-free subsets, every number always appears in the same subset except for 16 and 17 which can appear in two
 different subsets. We hardcoded
 this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation
-time. We also give the stronger following result.
+time. Since \(WS(4) = 66\), we have \(m_5 \leqslant 67\). We give the stronger following result.
 
 \begin{computational theorem}
-If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leq\). NB : on doit finir d'obtenir les valeurs.
+If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leqslant 59\).
 \end{computational theorem}
 
 More precisely, we verified the following results (\(max~m_5\) is the greatest value of \(m_5\) for which we have not
 verified that \(WS(5 | m_5) \leq 196\)).
 
-\begin{tabular}{| c | *{21}{ p{2mm} |}}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{3pt}
+
+\begin{center}
+\begin{tabular}{| c | *{21}{c |}}
 	\hline
 	\(m_4\) & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 \\
 	\hline
 	\(WS(4 | m_4) + 1\) & 55 & 59 & 60 & 59 & 59 & 60 & 60 & 60 & 60 & 64 & 63 & 64 & 61 & 64 & 63 & 65 & 65 & 65 & 65 & 66
 	& 67 \\
 	\hline
-	\(max~m_5\) & 49 & 51 & 54 & 53 & 54 & 54 & & & & & & & & & & & & 59 & 61 & 58 & 53 \\
+	\(max~m_5\) & 49 & 51 & 54 & 53 & 54 & 54 & 55 & 55 & 55 & 55 & 55 & 56 & 57 & 57 & 59 & 59 & 59 & 59 & 59 & 58 & 53 \\
 	\hline
 \end{tabular}
+\end{center}
 
-In the above table, we only made real efforts (trying different additionnal information) for \(m_4 = 24\). In this case, the value \(m_5 \leqslant 53\) 
-was obtained after 7 hours of runtime.
+For \(m_4 = 24\), the value \(m_5 \leqslant 53\) was obtained after 7 hours of runtime, and for  \(m_4 = 22\), the 
+value \(m_5 \leqslant 59\) was obtained after 11 hours of runtime. All the other values took between 1 minutes and 2 hours.
 To obtain these results, we once again provided additionnal information to the SAT solver. We added two different types information. 
-The first one is the same above. The second one is maximum length of a sequence using only a certain subset of the colors. For instance, 
+The first one is the same as previously: we compute the subsets in which the first numbers can appear. The second type of 
+information is the maximum length of a sequence using only a certain subset of the colors. For instance, 
 if \(m_4 \geqslant 22\), then there cannot be more than 17 consecutive numbers with color 1, 2 or 3. \\
