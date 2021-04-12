@@ -59,7 +59,32 @@ Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
 	\[ S(n+k) \geqslant S^+(k+1)S(n) + m_{k+1} - 1 \]
 \end{corollary}
 
-The idea lying beneath this inequality is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. 
+\begin{remark}
+The following proposition can help improve the additive constant of a SF-template. Although it does not allow us to improve the SF-templates 
+we have found, the analogous of this proposition for WSF-templates (see next section) allows to improve one of them.
+\end{remark}
+
+\begin{proposition}
+Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k\) colors. Let 
+\(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a colouring \(g\) of \([\![1, b]\!]\) with \(k\) colors such that:
+\begin{itemize}
+	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in [\![1, p]\!]^2,(f(x) = f(y) \text{ and } (x + y) \mod p \leqslant b) 
+	\implies g((x + y) \mod p) \neq f(x)\)
+	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in [\![1, p]\!] \times  [\![1, b]\!], (f(x) = g(y) \text{ and } x + y \leqslant b) 
+	\implies g(x + y) \neq f(x)\)
+\end{itemize}
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have\\
+\[ S(n+k) \geqslant S^+(k+1)S(n) + b\]
+\end{proposition}
+
+\begin{remark}
+This proposition corresponds to the fact that sometimes a column is not the sum of two columns of a given color, but adding this 
+column to the color would create sums in the color when applying the extension procedure. However, the last line does not 
+intereact will all the columns when it comes to creating new sums. As a result, the hypotheses made on the colouring of the last 
+row can be weakened.
+\end{remark}
+
+The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. 
 They extend vertically a sum-free partition, and horizontally an other sum-free partition. This way each "block" 
 acts like a security zone for the other one. Here, the horizontal partition is no longer to the side of the 
 vertical one, but it occupies the column of the special color of the \(SF\)-template, i.e the one without the 
@@ -127,7 +152,7 @@ To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S
 \]
 \end{center}
 
-\textsc{Proof :} We denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\)
+\textsc{Proof of theorem:} We denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\)
 and \(g\) the one associated to the sum-free partition of \([\![1,q]\!]\).
 
 \[ f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!] \text{ and } \forall (x,y) \in [\![1,p]\!]^2, \left\{
@@ -195,7 +220,7 @@ A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetr
 
 Using a SAT solver, we exhibited SF-templates, hence providing lower bound on \(S^+\) and inequalities 
 of the type \(S(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
-\((a, b)\) (for the lexicographic order). When the number of colors excceeded 5,in order to reduce the search space we 
+\((a, b)\) (for the lexicographic order). When the number of colors excceeded 5, in order to reduce the search space we 
 looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
 the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in the
 \hyperref[SAT]{SAT section}. \\
@@ -216,10 +241,10 @@ and the third one to Rowley \cite{RowleyRamsey}. The other ones are new. \\
 The first 3 inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
 the last in the order of apparition (and with a multiplicative factor less than or equal to 118). The fifth one is most 
 likely not optimal but should not be too far from the optimal SF-template. 
-Finally, the sixth one is obtained by combining (see below) the SF-template of length 380 and the one of length 3. Although we 
-could not find a better SF-template with 7 colors, this one definetely very far from the optimal value. One may try to seek better 
-templates by constraining less the search space and by using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}. 
-This could be the suject of a future work.\\
+Finally, the sixth one is obtained by combining (see below) the SF-template of length 380 and the one of length 3. 
+Although we could not find a better SF-template with 7 colors, the last inequality is definetely very far from the 
+optimal value. One may try to seek better templates by constraining less the search space and by using 
+Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.\\
 
 We also have a similar theorem where only \(S^+\) is involved.
 
