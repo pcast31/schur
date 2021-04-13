@@ -1,9 +1,9 @@
 \section{Schur numbers}
 
 \qquad In this section, we use Rowley's constructions \cite{RowleyRamsey} in the context of Schur numbers. To improve lower bounds
-for Ramsay's numbers, Rowley introduces partitions verifying some properties which can be extended using a method which generalizes 
-Abbott and Hanson's  construction \cite{AbbottHanson}. Rowley named these partitions "templates", and we will keep this name in the 
-entire article. We find suitable templates and use them to find new lower bounds for Schur numbers.
+for Ramsay's numbers, Rowley introduces some sum-free partitions verifying some additional properties which can be extended using a 
+method which generalizes Abbott and Hanson's  construction \cite{AbbottHanson}. Rowley named these partitions "templates", and 
+we will keep this name in the entire article. We find suitable templates and use them to find new lower bounds for Schur numbers.
 
 \subsection{Definition of \(S^+\)}
 
@@ -27,7 +27,7 @@ A_2, ..., A_n\) which verify :
 \end{remark}
 
 \begin{proposition}
-	Let \(n \in [\![2, +\infty]\!]\), we have :
+	Let \(n \in [\![2, +\infty]\!]\). Then
 	\[
 	2S(n-1)+1 \leqslant S^+(n) \leqslant S(n)
 	\]
@@ -49,19 +49,19 @@ The main result on \(S^+\) follows. It allows us to improve lower bounds on Schu
 \begin{theorem}
 	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template of \(k+1\) colors and lenght \(p\),
 	and a partition of \(n\) sum-free subsets of \([\![1,q]\!]\) then there exists a partition of \(n+k\) sum-free subsets
-	of \([\![1,pq+m_{k+1}-1]\!]\). \(m_{k+1}\) is the first number colored with the \(k+1\)-th color in the \(SF\)-template.
+	of \([\![1,pq+m_{k+1}-1]\!]\). \(m_{k+1}\) is the minimum of the special subset in the \(SF\)-template.
 \end{theorem}
 
 Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
 
 \begin{corollary}
-	Let \(n, k \in \mathbb{N}^*\), we have \\
+	Let \(n, k \in \mathbb{N}^*\). Then
 	\[ S(n+k) \geqslant S^+(k+1)S(n) + m_{k+1} - 1 \]
 \end{corollary}
 
 \begin{remark}
 The following proposition can help improve the additive constant of a SF-template. Although it does not allow us to improve the SF-templates 
-we have found, the analogous of this proposition for WSF-templates (see next section) allows to improve one of them.
+we have found, the analogous of this proposition for WSF-templates (see next section) allows us to improve one of them.
 \end{remark}
 
 \begin{proposition}
@@ -88,11 +88,10 @@ The idea lying beneath this theorem is similar to Abbott and Hanson's contructio
 They extend vertically a sum-free partition, and horizontally an other sum-free partition. This way each "block" 
 acts like a security zone for the other one. Here, the horizontal partition is no longer to the side of the 
 vertical one, but it occupies the column of the special color of the \(SF\)-template, i.e the one without the 
-extra condition. We give the following example for \(p = 7, q = 4, n = 2 ~\textrm{and}~ k = 2\). \\
+extra condition. We give the following example for \(p = 9, q = 4, n = 2 ~\textrm{and}~ k = 2\). \\
 
 This shows the inequality \(S(2+2) \geqslant S^+(3)S(2) + 4\). The special color is blue and is first used
-to color 5, hence \(4 = m_{3} - 1\). 
-We prooved \(S^+(3) = 9\). The special color is blue. 
+to color 5, hence \(4 = m_{3} - 1\). The special color is blue. 
 
 \begin{center}
 \[
@@ -132,7 +131,7 @@ S(2)
 \]
 \end{center}
 
-To compare, here is a classic Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). 
+To comparison, here is an usual Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). 
 \begin{center}
 \[
 \begin{array}{|*{9}{c|}}
