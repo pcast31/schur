@@ -2,7 +2,7 @@
 
 In this section, we generalize Rowley's constructions in \cite{RowleyWS}. We then introduce, by analogy with the third
 section, the
-integer \(WS^+(n)\)
+integer \(\WS^+(n)\)
 to build suitable templates.
 
 \subsection{Lower bound for Weak Schur numbers using Schur and Weak Schur numbers}
@@ -10,7 +10,7 @@ to build suitable templates.
 Up to now, there was no equivalent for weak Schur numbers of Abott and Hanson's construction \cite{AbbottHanson}. Here
 we
 give a general lower bound for weak Schur numbers as a function of both regular and weak Schur numbers.
-The following theorem, inspired by Rowley's inequalities for \(WS(n+1)\) and \(WS(n+2)\), was found and proved
+The following theorem, inspired by Rowley's inequalities for \(\WS (n+1)\) and \(\WS (n+2)\), was found and proved
 by Romain Ageron.
 
 \begin{theorem}
@@ -20,11 +20,11 @@ subsets then there exists a partition of \([\![1,p(q+\left \lceil \frac{q}{2} \r
 weakly sum-free subsets.
 \end{theorem}
 
-In particular, if we choose \(q = WS(n)\) and \(p = S(k)\) in the last theorem, the next corollary follows.
+In particular, if we choose \(q = \WS (n)\) and \(p = S(k)\) in the last theorem, the next corollary follows.
 
 \begin{corollary}
-\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } WS(n+k) \geqslant S(k) \left (WS(n) + \left \lceil \frac{WS(n)}{2}
-\right \rceil +1 \right) + WS(n)\)
+\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } \WS (n+k) \geqslant S(k) \left (\WS (n) + \left \lceil \frac{\WS (n)}{2}
+\right \rceil +1 \right) + \WS (n)\)
 \end{corollary}
 
 \begin{remark}
@@ -32,7 +32,7 @@ This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's c
 \end{remark}
 
 \begin{remark}
-In the above ineqality, a "\(+1\)" can be added to the lower bound if \(WS(n)\) is odd (more generally if \(q\) is odd in the theorem). However, it makes the proof less
+In the above ineqality, a "\(+1\)" can be added to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is odd in the theorem). However, it makes the proof less
 clear and it is never useful in practice.
 \end{remark}
 
@@ -48,8 +48,8 @@ First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(
 	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns (excluding  \(\mathcal{T}\)).
 \end{itemize}
 
-Like for SF-templates, \(\mathcal{R}\) and \(\mathcal{C}\) play the role of security zones for each other. Note that with 
-this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the 
+Like for SF-templates, \(\mathcal{R}\) and \(\mathcal{C}\) play the role of security zones for each other. Note that with
+this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the
 sum of the columns modulo \(a\).
 
 \renewcommand{\arraystretch}{2}
@@ -105,12 +105,12 @@ In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \f
 \begin{remark}
 This formula includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\),
 this formula does not give new lower bounds but in the same way as we introduced \(S^+\)\hyperref[SE]{(Definition
-3.1)},we define \(WS^+\) and find inequalities between \(WS^+\),\(WS\) and \(S\)
+3.1)},we define \(\WS^+\) and find inequalities between \(\WS^+\),\(\WS\) and \(S\)
 \end{remark}
 
-\subsection{Definition of \(WS^+\)}
+\subsection{Definition of \(\WS^+\)}
 
-In this subsection, we define the objects and proove the results needed for the general theorem regarding templates for 
+In this subsection, we define the objects and prove the results needed for the general theorem regarding templates for
 weak Schur numbers.
 
 \begin{definition}
@@ -215,30 +215,30 @@ x+y>p \implies \pi(x+y) \notin A_i
 
 \begin{definition}
 Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\)
-subsets which is a \(b\)-WS-template of \(k\) colors and lenght \(p\), we note:
-\\\\\(WS_b^+=-b+\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a
+subsets which is a \(b\)-WSF-template of \(k\) colors and lenght \(p\), we note:
+\\\\\(\WS_b^+=-b+\max \{p\in \mathbb{N}^*\)/ there exists a partition of \([\![1, p]\!]\) into \(k\) subsets which is a
 \(b\)-WSF-template of \(k\) colors and lenght \(p\) \}
 \\\\
-If this \(p\) does not exist, we set \(WS_b^+= 0\)
+If this \(p\) does not exist, we set \(\WS_b^+= 0\)
 \end{definition}
 
 \begin{definition}
-Let \( n \in \mathbb{N}^*\), we define \(WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{WS_b^+(n)\}\)
+Let \( n \in \mathbb{N}^*\), we define \(\WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{\WS_b^+(n)\}\)
 \end{definition}
 
 \begin{proposition}
 	Let \(n \in [\![2, +\infty]\!]\), we have :
 	\[
-	\frac{3}{2}WS(n-1)+1 \leqslant WS^+(n) \leqslant WS(n)
+	\frac{3}{2} \WS (n-1)+1 \leqslant \WS^+(n) \leqslant \WS (n)
 	\]
 \end{proposition}
 
-\textsc{Proof :} The lower bound comes from the analogous of Abott and Hanson's construction for weak Schur numbers. 
+\textsc{Proof :} The lower bound comes from the analogous of Abott and Hanson's construction for weak Schur numbers.
 The upper bound comes from the fact that a WSF-template of length \(p\) with \(n\) colors is also a partition of
 \([\![1, p]\!]\) into \(n\) sum-free subsets.
 
 \begin{remark}
-	\(WS^+\) and \(WS\) have the same asymptotic growth rate.
+	\(\WS^+\) and \(\WS\) have the same asymptotic growth rate.
 \end{remark}
 
 
@@ -252,37 +252,37 @@ sum-free subsets of \([\![1,p]\!]\) and a partition of n subsets \((A_1,....,A_n
  then there exists a partition of \([\![1, b+p \times (q-b)]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
 
-In particular, if we choose \(p = S(k)\) and \(q = WS^+(n)\) in the last theorem, the next corollary follows.
+In particular, if we choose \(p = S(k)\) and \(q = \WS^+(n)\) in the last theorem, the next corollary follows.
 
 
 \begin{corollary}
-\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/ WS_b^+(n+1) = WS^+(n+1)\},\) \[
-WS(n+k) \geqslant S(k) WS^+(n+1)+b_{max}\]
+\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\},\) \[
+\WS(n+k) \geqslant S(k) \WS^+(n+1)+b_{max}\]
 \end{corollary}
 
 \begin{remark}
-In the SF-template construction for Schur numbers, the additive constant comes from the fact that the special color does 
+In the SF-template construction for Schur numbers, the additive constant comes from the fact that the special color does
 not necessarily appear right at the begining of the repeating pattern. Likewise, \(b_max\) can actually be replaced by \\
-\[\max \left\{ b + \min (A_{n+1} \backslash [\![1, b ]\!]) - 1~|~ WS_b^+(n+1) = WS^+(n+1) \right\}\]
+\[\max \left\{ b + \min (A_{n+1} \backslash [\![1, b ]\!]) - 1~|~ \WS_b^+(n+1) = \WS^+(n+1) \right\}\]
 \end{remark}
 
 \begin{remark}
-Acutally, like for SF-templates, the additive constant of a WSF-template (in the form given by the above remark) can be improved 
+Acutally, like for SF-templates, the additive constant of a WSF-template (in the form given by the above remark) can be improved
 by weakening the hypotheses made on the last row. The principle behind it is the same as in the analogous proposition for SF-templates.
 \end{remark}
 
 \begin{proposition}
-Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to a b-WSF-template of length \(p\) with \(k\) colors. Let 
-\(c \in \mathbb{N}\) (\(c = \min (A_{k+1} \backslash [\![1, b ]\!]) - 1\) works) and assume there there exists a colouring \(g\) of 
+Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to a b-WSF-template of length \(p\) with \(k\) colors. Let
+\(c \in \mathbb{N}\) (\(c = \min (A_{k+1} \backslash [\![1, b ]\!]) - 1\) works) and assume there there exists a colouring \(g\) of
 \([\![b + 1, b + c]\!]\) with \(k\) colors such that:
 \begin{itemize}
-	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!], (f(x) = f(y) \text{ and } \pi(x + y) \leqslant b + c) 
+	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!], (f(x) = f(y) \text{ and } \pi(x + y) \leqslant b + c)
 	\implies g(\pi(x + y)) \neq f(x)\)
-	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, b + c]\!],  (f(x) = g(y) \text{ and } \pi(x + y) \leqslant b + c) 
+	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, b + c]\!],  (f(x) = g(y) \text{ and } \pi(x + y) \leqslant b + c)
 \implies g(\pi(x + y)) \neq f(x)\)
 \end{itemize}
 Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n)\), we have\\
-\[ WS(n+k) \geqslant WS^+(k+1) S(n) + b + c\]
+\[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
 \textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
@@ -392,32 +392,32 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \end{itemize}
 
 \begin{corollary}
-The general lower bound for weak Schur numbers in function of both regular and weak Schur numbers can be seen as a particular 
+The general lower bound for weak Schur numbers in function of both regular and weak Schur numbers can be seen as a particular
 case of WSF-template in the same way Abott and Hanson's construction can be seen as a particular case of SF-template.
 \end{corollary}
 
 \begin{remark}
-The WSF-templates can actually be fine-tuned further. However, it gives only minor improvements (most likely only additive 
-constant) at the cost of dramatically increasing the size of the search space while. Therefore, it does not seem relevant to 
-use this sophistications given that we could not even find good WSF-templates with 5 colors using a computer (here good 
+The WSF-templates can actually be fine-tuned further. However, it gives only minor improvements (most likely only additive
+constant) at the cost of dramatically increasing the size of the search space while. Therefore, it does not seem relevant to
+use this sophistications given that we could not even find good WSF-templates with 5 colors using a computer (here good
 means better than those obtain by combining smaller templates).
 
-\par These modifications work as follows. One may notice that the first row (excluding the "tail") has constraints that other rows 
-do not have because of the tail, especially if the special color appears in the tail as well. Thus allowing to have a colouring on the 
-first row different from the colouring of the other rows would weaken the constraints. Acutally, one may even go further by 
-noticing that on the one hand the first (ordered) color of the sum-free partition used for the extension procedure has more 
-more constraints than the other colors of the sum-free partition since the first row is of this color and is more constrained than 
-the other rows, but that on the other hand it has more degrees of freedom than the other colors of the sum-free partition since in 
+\par These modifications work as follows. One may notice that the first row (excluding the "tail") has constraints that other rows
+do not have because of the tail, especially if the special color appears in the tail as well. Thus allowing to have a colouring on the
+first row different from the colouring of the other rows would weaken the constraints. Acutally, one may even go further by
+noticing that on the one hand the first (ordered) color of the sum-free partition used for the extension procedure has more
+more constraints than the other colors of the sum-free partition since the first row is of this color and is more constrained than
+the other rows, but that on the other hand it has more degrees of freedom than the other colors of the sum-free partition since in
 the sum-free partition there cannot be two consecutive numbers of this color. As a result, it removes  some constraints imposed
- by the first row on the other rows. 
+ by the first row on the other rows.
 
-\par To sum up, one can look for a generalised WSF-template that uses a special colouring for the tail and the first row, a 
-colouring dedicated to the rows whose number is not 1 but is in the first color in the sum-free partition, a colouring for all 
-the other rows and a special colouring for the last numbers (as previously explained for the improvement of the additive 
+\par To sum up, one can look for a generalised WSF-template that uses a special colouring for the tail and the first row, a
+colouring dedicated to the rows whose number is not 1 but is in the first color in the sum-free partition, a colouring for all
+the other rows and a special colouring for the last numbers (as previously explained for the improvement of the additive
 constant of WSF-templates).
 \end{remark}
 
-We also have a similar theorem where only \(WS^+\) is involved.
+We also have a similar theorem where only \(\WS^+\) is involved.
 
 \begin{theorem}
 	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template of \(k+1\) colors and lenght \(p\),
@@ -428,10 +428,10 @@ And the associated inequality :
 
 \begin{corollary}
 	Let \(n, k \in \mathbb{N}^*\), we have \\
-	\[ WS^+(n+k) \geqslant S^+(k+1)WS^+(n) \]
+	\[ \WS^+(n+k) \geqslant S^+(k+1) \WS^+(n) \]
 \end{corollary}
 
-\textsc{Proof :} The idea is the same as in the previous theorem. The only difference is the \(SF\) property inherited 
+\textsc{Proof :} The idea is the same as in the previous theorem. The only difference is the \(SF\) property inherited
 from the second \(SF\)-template.
 
 
@@ -441,30 +441,30 @@ Having found suitable templates, which can be found in the appendix, with a SAT 
 \mathbb{N}^*\):
 
 \[
-4S(n) + 1 \leqslant WS(n+1)
+\WS(n+1) \geqslant 4S(n) + 1 
 \]
 \[
-13S(n) + 8 \leqslant WS(n+2)
+\WS(n+2) \geqslant 13S(n) + 8
 \]
 \[
-42S(n) + 24 \leqslant WS(n+3)
+\WS(n+3) \geqslant 42S(n) + 24
 \]
 \[
-132S(n) + 26 \leqslant WS(n+4)
+\WS(n+4) \geqslant 132S(n) + 26
 \]
 
-The first two inequalities were found by Rowley, they are detailed in [2]. The third inequality is optimal and was found with a SAT solver. 
-It uses the first sophistication explained in the previous subsection in order to add the last number in the first color.  
-As for the fourth inequality, it was obtained by combining an optimal SF-template of length 33 with a WSF-template of length 4. 
-The best template we could get with a computer search gives the inequality \(WS(n+4) \geqslant 127 S(n) + 68\). 
-It was also found with the SAT solver. In order to reduce the search space, we only looked for WSF-templates of 
-5 colors which start with a good \(WS(4)\) partition. However, this approach most likely prevents us from finding the best WSF-templates 
-as we explain in the next subsection for weakly sum-free partitions. We highly suspect that there exists more efficient WSF-templates 
-with \(n \geqslant 5\) colors. One may try to go over a different search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}. 
+The first two inequalities were found by Rowley, they are detailed in [2]. The third inequality is optimal and was found with a SAT solver.
+It uses the first sophistication explained in the previous subsection in order to add the last number in the first color.
+As for the fourth inequality, it was obtained by combining an optimal SF-template of length 33 with a WSF-template of length 4.
+The best template we could get with a computer search gives the inequality \(\WS(n+4) \geqslant 127 S(n) + 68\).
+It was also found with the SAT solver. In order to reduce the search space, we only looked for WSF-templates of
+5 colors which start with a good \(\WS(4)\) partition. However, this approach most likely prevents us from finding the best WSF-templates
+as we explain in the next subsection for weakly sum-free partitions. We highly suspect that there exists more efficient WSF-templates
+with \(n \geqslant 5\) colors. One may try to go over a different search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}.
 This could be the suject of a future work. Further details about the encoding as a SAT problem can be found in the
 \hyperref[SAT]{SAT section}. \\
 
-Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound 
+Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound
 for each integer is highlighted.\\
 \\
 \begin{center}
@@ -494,5 +494,5 @@ for each integer is highlighted.\\
 \end{tabular}
 \end{center}
 
-With \( S(9) \geqslant 17803 \), we found a new lower bound for \(WS(10)\) using Rowley's inequality. 
-Moreover, the third inequality gives new lower bounds for \(WS(9)\) and \(WS(14)\).
+With \( S(9) \geqslant 17803 \), we found a new lower bound for \(\WS(10)\) using Rowley's inequality.
+Moreover, the third inequality gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
