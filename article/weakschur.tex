@@ -32,13 +32,15 @@ This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's c
 \end{remark}
 
 \begin{remark}
-In the above ineqality, a "\(+1\)" can be added to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is odd in the theorem). However, it makes the proof less
-clear and it is never useful in practice.
+In the above ineqality, a "\(+1\)" can be added to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is 
+odd in the theorem). However, it makes the proof less clear and it is never useful in practice.
 \end{remark}
 
-We first give an intuitive explanation of the above theorem. Let \((p, q) \in \mathbb{N}^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
-subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\) and let's try to build a colouring of \([\![1, ap + q]\!]\)
-into \(n + k\) weakly sum-free subsets. Let \(l = a - b - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = b - r\). \\
+We give here an intuitive explanation of the above theorem; a formal proof can be found in the appendix. 
+Let \((p, q) \in \mathbb{N}^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
+subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\) 
+and let's try to build a colouring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let 
+\(l = a - b - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = b - r\).
 
 First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)):
 
@@ -100,12 +102,12 @@ as \(\tilde{\pi}(x)\) in the weakly sum-free colouring of \([\![1,q]\!]\). As lo
 is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when
 taking two numbers in the same column), the colours \(1, ..., n\) are sum-free. \\
 
-In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \frac{q}{2} \rfloor\) works, thus obtaining the above theorem. \\
+In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \frac{q}{2} \rfloor\) works, thus obtaining the above theorem.
 
 \begin{remark}
 This formula includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\),
 this formula does not give new lower bounds but in the same way as we introduced \(S^+\)\hyperref[SE]{(Definition
-3.1)},we define \(\WS^+\) and find inequalities between \(\WS^+\),\(\WS\) and \(S\)
+3.1)}, we define \(\WS^+\) and find inequalities between \(\WS^+\),\(\WS\) and \(S\).
 \end{remark}
 
 \subsection{Definition of \(\WS^+\)}
@@ -285,7 +287,7 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
-\textsc{Proof :}Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
+\textsc{Proof:} Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
 We denote by \(g\) the colouring associated to the partition of \([\![1,q]\!]\) and \(h\) the
 one associated to the partition of \([\![1,p]\!]\).
 \[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a b-WSF-template.}
@@ -297,11 +299,11 @@ one associated to the partition of \([\![1,p]\!]\).
 Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such that:
 \\\\-if x \(\leqslant b \text{ (we will note x} \in \mathcal{T}): f(x)=g(x)\)
 \\\\-if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
-\\\\-if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{L}): f(x)=n-1+h(\lambda(x))\)
+\\\\-if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
 \\\\
 f is well defined because \(\pi\) is defined for x\(>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because h(\(\lambda(x))\leqslant k\)
 
-We have parted the integers of \(\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{L}\).
+We have parted the integers of \(\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{R}\).
 
 We have to verify that f induces weakly-sum-free templates:\\
 \\
@@ -324,7 +326,7 @@ We distinguish two cases:
 \end{itemize}
 
 
-\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{L}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{R}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
 \\Then, f(x)=f(y)=n. We distinguish two cases:
 
 
@@ -356,9 +358,9 @@ n=f(y)=n-1+h(\(\lambda(y)\)). Hence h(\(\lambda(y)\))=1.
 
 
 
-\underline{if (x,y) \(\in \mathcal{C} \times \mathcal{L} \), \(f(x)\neq f(y)\)}\\
+\underline{if (x,y) \(\in \mathcal{C} \times \mathcal{R} \), \(f(x)\neq f(y)\)}\\
 
-\underline{if (x,y) \(\in (\mathcal{L})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if (x,y) \(\in (\mathcal{R})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
 \\Let r(x)=\(\pi(x)-a\) and r(y)=\(\pi(y)-a\),
 \\We proved that \(x=a\lambda(x)+\pi(x)-a\), therefore \(x=a\lambda(x)+\pi(x)\)
 \\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases:
@@ -386,7 +388,7 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \\Since g is a b-WSF template, \(g(\pi(\pi(x)+\pi(y))) \neq n\)
 \\Therefore, \(g(\pi(x+y)) \neq n\) ie \(x+y \in \mathcal{C}\)
 \\Hence \(f(x+y) <n\leqslant f(x)\)
-\item If \(r(x)+r(y)\leqslant b-a,\), \(\pi(x)+\pi(y)\leqslant b+a\)
+\item If \(r(x)+r(y) \leqslant b - a\), \(\pi(x)+\pi(y)\leqslant b+a\)
 \\Since g is sum-free for x\(>b\), since \(g(\pi(x)) = g(\pi(y))=n\), \(g(\pi(x+y)) \neq g(\pi(x))=n\)
 \\Hence, \(f(x+y) <n\leqslant f(x)\)
 \end{itemize}
@@ -462,11 +464,11 @@ It was also found with the SAT solver. In order to reduce the search space, we o
 as we explain in the next subsection for weakly sum-free partitions. We highly suspect that there exists more efficient WSF-templates
 with \(n \geqslant 5\) colors. One may try to go over a different search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}.
 This could be the suject of a future work. Further details about the encoding as a SAT problem can be found in the
-\hyperref[SAT]{SAT section}. \\
+\hyperref[SAT]{SAT section}.
 
 Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound
-for each integer is highlighted.\\
-\\
+for each integer is highlighted.
+
 \begin{center}
 \begin{tabular}{|*{5}{c|}}
     \hline
@@ -496,3 +498,12 @@ for each integer is highlighted.\\
 
 With \( S(9) \geqslant 17803 \), we found a new lower bound for \(\WS(10)\) using Rowley's inequality.
 Moreover, the third inequality gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
+
+
+\subsection{Conclusion on WSF-templates}
+
+In this section, we first gave a new construction which can be seen as an equivalent for weakly sum-free partitions of Abott 
+and Hanson's construction for sum-free partitions. We then  introduced WSF-templates and generalized this construction. This 
+allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant difference 
+between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds 
+obtained with WSF-templates (including Rowley's two inequalities). In the next section, we try to analyze this phenomenon.

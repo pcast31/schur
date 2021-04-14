@@ -1,85 +1,21 @@
-\section{About the construction of lower bounds for weak Schur numbers using a computer}
+\section{Analysis of the former search space}
 
-In this section, we first reframe the question of the existence of (weakly) sum-free partitions as a boolean
-satisfiability (SAT) problem. We then provide evidence which indicates that the main assumption made by papers which
-found the previous best known lower bounds for weak Schur numbers may not be correct. Finally, we obtain stronger
-results than those previously known for \(\WS (5)\) while gaining several orders of magnitude in computation time by
-giving additional information to the SAT solver without losing in generality. In this section, we assume that the
-subsets are ordered.
-
-
-\subsection{Reformulation as a SAT problem}
-\label{SAT}
-
-We encode the existence of (weakly) sum-free partitions as propositional formulae like in
-\cite{Heule2017} and then use
-SAT solvers to determine whether these formulae are satisfiable.
-
-\begin{definition}
-A \textit{literal} is either a variable \(v\) (a positive literal) or the negation \(\bar{v}\) of a variable \(v\) (a
-negative literal) where \(v\)
-takes a truth value: \(true\) or \(false\). A \textit{clause} is a disjunction of literals and a \textit{formula} is a
-conjunction of clauses: it
-is a propositional formula in \textit{conjonctive normal form} (CNF).
-\end{definition}
-
-\begin{definition}
-An \textit{assignment} is a function from a set of variables to the truth values \(true\) (1) and \(false\) (0). A
-literal \(l\) is
-\textit{satisfied} (\textit{falsified}) by an assignment \(\alpha\) if l is positive and \(\alpha(var (l)) = 1\)
-(resp. \(\alpha(var (l)) = 0\)) or if it is negative and \(\alpha(var (l)) = 0\) (resp. \(\alpha(var (l)) = 1\)). A
-clause is \textit{satisfied}
-by an assignment \(\alpha\) if it contains a literal that is satisfied by \(\alpha\). Finally, a formula is
-\textit{satisfied} by an assignment
-\(\alpha\) if all its clauses are satisfied by \(\alpha\). A formula is \textit{satisfiable} if there exists an
-assignment that satisfies it;
-otherwise it is \textit{unsatisfiable}.
-\end{definition}
-
-We then encode the existence of a partition of \([\![1,p]\!]\) in \(k\) weakly sum-free subsets as follows: for every
-integer
-\(i \in [\![1,p]\!]\), take \(k\) variables \(x^{(i)}_{1}, ..., x^{(i)}_{k}\) and for every \(\forall c \in [\![1,k]\!],
-x^{(i)}_c = 1 \iff i \in A_c\).
-The corresponding clauses are:
-
-\begin{itemize}
-\item \textbf{sumfree:} \(\forall c \in [\![1,k]\!], \forall (i, j) \in [\![1,p]\!]^2, (i \neq j ~ \text{and} ~ i + j
-\leq n) \implies \lnot x^{(i)}_c
-\lor  \lnot x^{(i)}_c \lor \lnot x^{(i+j)}_c\)
-\item \textbf{union:} \(\forall i \in [\![1,p]\!], x^{(i)}_1 \lor ... \lor x^{(i)}_k\)
-\item \textbf{disjoint:} \(\forall i \in [\![1,p]\!],\forall (c_1, c_2) \in [\![1,k]\!]^2, c_1 \neq c_2 \implies \neg
-x^{(i)}_{c_1} \lor \neg x^{(i)}_{c_2}\)
-\end{itemize}
-
-In the above formula, every color plays a symmetric role. Hence the search space can reduced by \(k!\) by ordering the
-subsets, that is by
-enforcing that \(m_1 < ... < m_k\). The corresponding clauses are: \linebreak
-\textbf{symmetry breaking:} \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1, \WS (c - 1)+1]\!],
-x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
-
-\begin{remark}
-For a given problem, it can be interesting to try out different SAT solvers because the relative performance can vary
-significantly according to the problem.
-For instance, we used two different SAT solvers in the next two next subsections.
-\end{remark}
-
-\begin{remark}
-Using a parallel SAT solver usually reduces the computation time, especially when trying to show that a formula is
-unsatisfiable. However, most of the
-parallel SAT solver do not have a deterministic behaviour and it can results in a strong variation of running times.
-\end{remark}
+In this section, we first provide evidence which indicates that the main assumption made by papers which
+found the previous best known lower bounds for weak Schur numbers using a computer may not be correct. 
+This is done primarily by studying \(\WS(6)\). Then, in an effort to eliminate irrelevant search spaces, we 
+obtain stronger results than those previously known for \(\WS (5)\) while gaining several orders of magnitude 
+in computation time by giving additional information to the SAT solver without losing in generality. In this 
+section, we assume that the subsets are ordered.
 
 
-\subsection{The search space previously used in computer search for lower bounds may not contain the optimal partitions}
-Rowley's new lower bound for \(\WS (6)\) (642) \cite{RowleyWS} was a quite significant improvement upon
-the former
-best known lower bound (582) \cite{EliahouBook}. This previous lower bound was found using a computer
-(often with Monte-Carlo methods) and by making the
-assumption that a good partition for \(\WS (n+1)\) starts with a good partition for \(\WS (n)\) which is true for small
-values of \(n\).
-Therefore, one may wonder whether the limiting factor are the assumptions or the methods used to search for partitions.
-It appears that the search space
-induced by these assumptions does not contain the optimal partitions.
+\subsection{Former assumption appears to be wrong}
+Rowley's new lower bound for \(\WS (6)\) (642) \cite{RowleyWS} was a significant improvement upon
+the former best known lower bound (582) \cite{EliahouBook}. This previous lower bound has been found 
+several times using a computer (often with Monte-Carlo methods) and by recursively making the assumption 
+that a good partition for \(\WS (n+1)\) starts with a good partition for \(\WS (n)\) which is true for small
+values of \(n\). Therefore, one may wonder whether the limiting factor are the assumptions or the 
+methods used to search for partitions. It appears that the search space induced by these assumptions does 
+not contain the optimal partitions.
 
 \begin{computational theorem}
 There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
@@ -184,4 +120,14 @@ value \(m_5 \leqslant 59\) was obtained after 11 hours of runtime. All the other
 To obtain these results, we once again provided additionnal information to the SAT solver. We added two different types information.
 The first one is the same as previously: we compute the subsets in which the first numbers can appear. The second type of
 information is the maximum length of a sequence using only a certain subset of the colors. For instance,
-if \(m_4 \geqslant 22\), then there cannot be more than 17 consecutive numbers with color 1, 2 or 3. \\
+if \(m_4 \geqslant 22\), then there cannot be more than 17 consecutive numbers with color 1, 2 or 3.
+
+
+\subsection{Conclusion on the search space}
+As explained in the first subsection, the recursive assumption that a good partition for\(\WS (n+1)\) starts with a good partition for 
+\(\WS (n)\) appears to be wrong. Given that no extensive search for \(\WS(5)\) has been conducted without making this assumption and 
+that the size of the considered partitions is reasonable (the current lower bound is 196 and \(S(5) = 160\) was verified), it seems worth 
+investigating this special case further. In a spirit of orientating this search, we then give necessary conditions on an hypothetical partition 
+of \([\![1,197]\!]\) in 5 weakly sum-free subsets. Finding partitions that exceeds the lower bounds found with a computer (even if they 
+do not exceed those obtained with templates) which are not as regular as those obtained with templates would be extremely interesing 
+since it could designate a new search space for finding lower bounds with a computer.

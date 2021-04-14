@@ -106,6 +106,70 @@ This template provides the inequality \(\WS (n+3) \geqslant 42S(n) + 24\)
 by placing one last number, here represented by \(\mathbf{(N+1)}\), in the first subset.
 
 
+
+\section{Reformulation as a SAT problem}
+\label{SAT}
+
+In this section, we reframe the question of the existence of (weakly) sum-free partitions as a boolean
+satisfiability (SAT) problem. We encode the existence of (weakly) sum-free partitions as propositional formulae like in
+\cite{Heule2017} and then use SAT solvers to determine whether these formulae are satisfiable.
+
+\begin{definition}
+A \textit{literal} is either a variable \(v\) (a positive literal) or the negation \(\bar{v}\) of a variable \(v\) (a
+negative literal) where \(v\)
+takes a truth value: \(true\) or \(false\). A \textit{clause} is a disjunction of literals and a \textit{formula} is a
+conjunction of clauses: it
+is a propositional formula in \textit{conjonctive normal form} (CNF).
+\end{definition}
+
+\begin{definition}
+An \textit{assignment} is a function from a set of variables to the truth values \(true\) (1) and \(false\) (0). A
+literal \(l\) is
+\textit{satisfied} (\textit{falsified}) by an assignment \(\alpha\) if l is positive and \(\alpha(var (l)) = 1\)
+(resp. \(\alpha(var (l)) = 0\)) or if it is negative and \(\alpha(var (l)) = 0\) (resp. \(\alpha(var (l)) = 1\)). A
+clause is \textit{satisfied}
+by an assignment \(\alpha\) if it contains a literal that is satisfied by \(\alpha\). Finally, a formula is
+\textit{satisfied} by an assignment
+\(\alpha\) if all its clauses are satisfied by \(\alpha\). A formula is \textit{satisfiable} if there exists an
+assignment that satisfies it;
+otherwise it is \textit{unsatisfiable}.
+\end{definition}
+
+We then encode the existence of a partition of \([\![1,p]\!]\) in \(k\) weakly sum-free subsets as follows: for every
+integer
+\(i \in [\![1,p]\!]\), take \(k\) variables \(x^{(i)}_{1}, ..., x^{(i)}_{k}\) and for every \(\forall c \in [\![1,k]\!],
+x^{(i)}_c = 1 \iff i \in A_c\).
+The corresponding clauses are:
+
+\begin{itemize}
+\item \textbf{weakly sum-free:} \(\forall c \in [\![1,k]\!], \forall (i, j) \in [\![1,p]\!]^2, (i \neq j ~ \text{and} ~ i + j
+\leq n) \implies \lnot x^{(i)}_c
+\lor  \lnot x^{(i)}_c \lor \lnot x^{(i+j)}_c\)
+\item \textbf{union:} \(\forall i \in [\![1,p]\!], x^{(i)}_1 \lor ... \lor x^{(i)}_k\)
+\item \textbf{disjoint:} \(\forall i \in [\![1,p]\!],\forall (c_1, c_2) \in [\![1,k]\!]^2, c_1 \neq c_2 \implies \neg
+x^{(i)}_{c_1} \lor \neg x^{(i)}_{c_2}\)
+\end{itemize}
+
+In the above formula, every color plays a symmetric role. Hence the search space can reduced by \(k!\) by ordering the
+subsets, that is by
+enforcing that \(m_1 < ... < m_k\). The corresponding clauses are: \linebreak
+\textbf{symmetry breaking:} \(x^{(1)}_1 = 1\) and \(\forall c \in [\![2,k-1]\!], \forall i \in [\![1, \WS (c - 1)+1]\!],
+x^{(1)}_c \lor ... \lor x^{(i)}_c \lor \neg x^{(i+1)}_{c+1}\)
+
+\begin{remark}
+For a given problem, it can be interesting to try out different SAT solvers because the relative performance can vary
+significantly according to the problem.
+For instance, we used two different SAT solvers in the next two next subsections.
+\end{remark}
+
+\begin{remark}
+Using a parallel SAT solver usually reduces the computation time, especially when trying to show that a formula is
+unsatisfiable. However, most of the
+parallel SAT solver do not have a deterministic behaviour and it can results in a strong variation of running times.
+\end{remark}
+
+
+
 \section{Proof of theorem j'arrive pas a afficher le numero du theoreme avec un lien}
 
 \textsc{Proof :} Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\), \(N = p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q\),
