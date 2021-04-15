@@ -303,11 +303,11 @@ Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such that:
 \\\\
 \(f\) is well defined because \(\pi\) is defined for \(x>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because \(h(\lambda(x))\leqslant k\)
 
-We have parted the integers of \(\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{R}\).
+We have parted the integers of \([\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{R}\).
 
 We have to verify that f induces weakly-sum-free templates:\\
 \\
-\underline{if (x,y) \(\in (\mathcal{T})^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T}^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
 \\\(x+y<a+b\) since \(b<a\) and \(g(x)=f(x)=f(y)=g(y)\).
 \\Hence \(f(x+y)=g(x+y)\neq g(x)=f(x)\)
 \\\\
@@ -333,7 +333,7 @@ We distinguish two cases:
 \begin{itemize}
 \item If \(\lambda(y)=\lambda(x+y)\),
 \\\(g(x)=g(\pi(y))=n \text{ since } g(y)=g(\pi(y))\)
-\\Therefore \(g(\pi(x+y))=g(x+\pi(y)) \neq g(x)=n\)(qv previous proposition)
+\\Therefore \(g(\pi(x+y))=g(x+\pi(y)) \neq g(x)=n\) (qv previous proposition)
 \\Hence \(f(x+y)=g(\pi(x+y))\neq n\)
 \item If  \(\lambda(y)\neq \lambda(x+y)\), \(\lambda(y)+1= \lambda(x+y)\)\\
 \(n=f(y)=n-1+h(\lambda(y))\). Hence \(h(\lambda(y))=1\).
@@ -341,7 +341,7 @@ We distinguish two cases:
 \\if \(\pi(x+y) \in A_n\), \(f(x+y)=n-1+h(\lambda(x+y))>n\)
 \end{itemize}
 
-\underline{if \((x,y) \in (\mathcal{C})^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{C}^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
 \\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases:
 
 \begin{itemize}
@@ -377,7 +377,7 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 
 
 \begin{align*}
- \\\text{if f(x+y)\(\geqslant\)n, }f(x+y) & =n-1+h(\lambda(x+y))\\
+ \\\text{if \(f(x+y) \geqslant n\), }f(x+y) & =n-1+h(\lambda(x+y))\\
 & =n-1+h(\lambda(x)+\lambda(y)) \\
 & \neq n-1+h(\lambda(x))\\
 & =f(x)
