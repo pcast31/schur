@@ -1,17 +1,16 @@
 \section{Weak Schur numbers}
 
-In this section, we generalize Rowley's constructions in \cite{RowleyWS}. We then introduce, by analogy with the third
-section, the
-integer \(\WS^+(n)\)
-to build suitable templates.
+\qquad In this section, we generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS} and give an analogous
+for weak Schur numbers of Abbott and Hanson's construction for Schur numbers. By analogy with the previous section,
+we then introduce WSF-templates as well as the sequence \(\WS^+(n)\). We find suitable templates and use them to
+provide new lower bounds for weak Schur numbers.
 
 \subsection{Lower bound for Weak Schur numbers using Schur and Weak Schur numbers}
 
-Up to now, there was no equivalent for weak Schur numbers of Abott and Hanson's construction \cite{AbbottHanson}. Here
-we
-give a general lower bound for weak Schur numbers as a function of both regular and weak Schur numbers.
-The following theorem, inspired by Rowley's inequalities for \(\WS (n+1)\) and \(\WS (n+2)\), was found and proved
-by Romain Ageron.
+\qquad Up to now, there was no equivalent for weak Schur numbers of Abbott and Hanson's construction for Schur numbers
+\cite{AbbottHanson}. Here we give a general lower bound for weak Schur numbers as a function of both regular and
+weak Schur numbers. The following theorem, inspired by Rowley's inequalities for \(\WS (n+1)\) and \(\WS (n+2)\),
+was found and proved by Romain Ageron.
 
 \begin{theorem}
 Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
@@ -32,14 +31,22 @@ This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's c
 \end{remark}
 
 \begin{remark}
-In the above ineqality, a "\(+1\)" can be added to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is 
+This formula includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give
+new lower bounds.
+\end{remark}
+
+\begin{remark}
+In the above ineqality, a "\(+1\)" can be added to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
 odd in the theorem). However, it makes the proof less clear and it is never useful in practice.
 \end{remark}
 
-We give here an intuitive explanation of the above theorem; a formal proof can be found in the appendix. 
+Given that this theorem will appear as a particular case of a more general theorem after the introduction of
+templates for weak Schur numbers, we only give here an intuitive explanation of the above theorem; a formal
+proof can be found in the appendix.
+
 Let \((p, q) \in \mathbb{N}^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
-subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\) 
-and let's try to build a colouring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let 
+subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\)
+and let's try to build a colouring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let
 \(l = a - b - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = b - r\).
 
 First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)):
@@ -100,25 +107,21 @@ In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) accordin
 projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\)). A simple solution is to colour \(x\) with the same colour
 as \(\tilde{\pi}(x)\) in the weakly sum-free colouring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there
 is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when
-taking two numbers in the same column), the colours \(1, ..., n\) are sum-free. \\
+taking two numbers in the same column), the colours \(1, ..., n\) are sum-free.
 
-In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \frac{q}{2} \rfloor\) works, thus obtaining the above theorem.
-
-\begin{remark}
-This formula includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\),
-this formula does not give new lower bounds but in the same way as we introduced \(S^+\)\hyperref[SE]{(Definition
-3.1)}, we define \(\WS^+\) and find inequalities between \(\WS^+\),\(\WS\) and \(S\).
-\end{remark}
+In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \frac{q}{2} \rfloor\) works, thus obtaining the above theorem.\\
+\par
+As in the previous section, we now introduce WSF-templates and the sequence \(\WS^+\) in order to generalize the above construction.
 
 \subsection{Definition of \(\WS^+\)}
 
-In this subsection, we define the objects and prove the results needed for the general theorem regarding templates for
-weak Schur numbers.
+\qquad In this subsection, we introduce WSF-templates and define the objects and prove the results needed
+for the general theorem regarding templates for weak Schur numbers.
 
 \begin{definition}
 
 Let \((a,b) \in (\mathbb{N}^*)^2\),\(a>b\), \(n \in \mathbb{N}^*\), we will define \(\pi_{a,b}\) the projection:
-\[ \pi_{a,b}:x \longmapsto (Id+a\mathbf{1}_{ [\![0,b]\!]})(x \mod a))\]
+\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a))\]
 \end{definition}
 
 We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
@@ -136,17 +139,17 @@ Let x \(\in [\![1,b]\!]\), let  \(y \in \mathbb{N}^*\) such that \(x+\pi(y)\leqs
 if \(x+\pi(y)< a:\)we remark that \(\pi(y)>b\) and therefore \(x+\pi(y)>b\):
 
 \begin{align*}
- \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+y \mod a)\\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a)\text{ since } \pi(y)=y \mod a \\
+ \pi(x+y) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)\\
+& = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a)\text{ since } \pi(y)=y \mod a \\
 & =x+ \pi(y)
 \end{align*}
 
 if \(x+\pi(y)\geqslant a\):
 \begin{align*}
- \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+y \mod a)\\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a)\text{ since } \pi(y)=y \mod a \\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
-& = x+\pi(y) - a +a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
+ \pi(x+y) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)\\
+& = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a)\text{ since } \pi(y)=y \mod a \\
+& = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
+& = x+\pi(y) - a +a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
 & = x+\pi(y) - a +a \text{ \quad since } x+\pi(y) - a \in [\![0,b]\!] \\
 & = x+\pi(y)
 \end{align*}
@@ -159,10 +162,10 @@ Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 \textsc{Proof :}Let \((x,y)\in (\mathbb{N}^*)^2\),
 
 \begin{align*}
- \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y)\text{ mod a})\\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})((Id+a\mathbf{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathbf{1}_{ [\![0,b]\!]})(y \mod a)\ mod a) \\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
-& =(Id+a\mathbf{1}_{ [\![0,b]\!]})( x+y \mod a)\\
+ \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y)\text{ mod a})\\
+& = (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a)\ mod a) \\
+& = (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
+& =(Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
 & =\pi(x+y)
 \end{align*}
 
@@ -183,12 +186,12 @@ In the following theorem, \(\lambda\) is the function which maps an element x to
 Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
 \end{proposition}
 \textsc{Proof :}Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\),
-\\\\ \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(\text{x mod a})+\mathbf{1}_{ [\![0,b]\!]}(x \mod a)\)
+\\\\ \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(x \mod a)+\mathds{1}_{ [\![0,b]\!]}(x \mod a)\)
 
 if \(x \mod a>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\)
 
 if \(x \mod a \leqslant b\):
-\(a\lambda(x)+\pi(x)-a=a(\left\lfloor\dfrac{x}{a}\right\rfloor-1)+\text{x mod a}+a=x\)
+\(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+\text{x mod a}+a=x\)
 
 
 \begin{definition}
@@ -243,19 +246,19 @@ The upper bound comes from the fact that a WSF-template of length \(p\) with \(n
 	\(\WS^+\) and \(\WS\) have the same asymptotic growth rate.
 \end{remark}
 
+We now proceed to state and prove the main result of this article.
 
-\subsection{Lower bound for Weak schur numbers using Schur and Weak Schur template numbers}
 
+\subsection{Construction of weak Schur partitions using WSF-templates}
 
 \begin{theorem}
 Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \(k\)
 sum-free subsets of \([\![1,p]\!]\) and a partition of \(n\) subsets \((A_1,....,A_n)\) of \([\![1, q]\!]\) which is a
-\(b\)-WSF of \(n\) colors and lenght \(q\),
+\(b\)-WSF-template of \(n\) colors and lenght \(q\),
  then there exists a partition of \([\![1, b+p \times (q-b)]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
 
 In particular, if we choose \(p = S(k)\) and \(q = \WS^+(n)\) in the last theorem, the next corollary follows.
-
 
 \begin{corollary}
 \( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } let ~ b_{max}=max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\},\) \[
@@ -277,12 +280,14 @@ by weakening the hypotheses made on the last row. The principle behind it is the
 Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to a \(b\)-WSF-template of length \(p\) with \(k\) colors. Let
 \(c \in \mathbb{N}\) (\(c = \min (A_{k+1} \backslash [\![1, b ]\!]) - 1\) works) and assume there there exists a colouring \(g\) of
 \([\![b + 1, b + c]\!]\) with \(k\) colors such that:
+
 \begin{itemize}
 	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!], (f(x) = f(y) \text{ and } \pi(x + y) \leqslant b + c)
 	\implies g(\pi(x + y)) \neq f(x)\)
 	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, b + c]\!],  (f(x) = g(y) \text{ and } \pi(x + y) \leqslant b + c)
 \implies g(\pi(x + y)) \neq f(x)\)
 \end{itemize}
+
 Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n)\), we have\\
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
@@ -296,12 +301,15 @@ one associated to the partition of \([\![1,p]\!]\).
 \Longrightarrow h(x+y) \neq h(x)
 \]
 
-Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such that:
-\\\\-if  \(x\leqslant b \text{ (we will note }x \in \mathcal{T}): f(x)=g(x)\)
-\\\\-if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
-\\\\-if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
-\\\\
-\(f\) is well defined because \(\pi\) is defined for \(x>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because \(h(\lambda(x))\leqslant k\)
+Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) as follows:
+
+\begin{itemize}
+\item if  \(x\leqslant b \text{ (we will note }x \in \mathcal{T}): f(x)=g(x)\)
+\item if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
+\item if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
+\end{itemize}
+
+\(f\) is well defined since \(\pi\) is defined for \(x>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because \(h(\lambda(x))\leqslant k\)
 
 We have parted the integers of \([\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{R}\).
 
@@ -439,11 +447,12 @@ from the second \(SF\)-template.
 
 
 \subsection{New lower bounds for Weak Schur numbers}
-Having found suitable templates, which can be found in the appendix, with a SAT solver, we claim that for all \(n \in
+
+\qquad Having found suitable templates, which can be found in the appendix, with a SAT solver, we claim that for all \(n \in
 \mathbb{N}^*\):
 
 \[
-\WS(n+1) \geqslant 4S(n) + 1 
+\WS(n+1) \geqslant 4S(n) + 1
 \]
 \[
 \WS(n+2) \geqslant 13S(n) + 8
@@ -502,9 +511,8 @@ Moreover, the third inequality gives new lower bounds for \(\WS(9)\) and \(WS(14
 
 \subsection{Conclusion on WSF-templates}
 
-In this section, we first gave a new construction which can be seen as an equivalent for weakly sum-free partitions of Abott 
-and Hanson's construction for sum-free partitions. We then  introduced WSF-templates and generalized this construction. This 
-allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant difference 
-between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds 
+\qquad In this section, we first gave a new construction which can be seen as an equivalent for weakly sum-free partitions of Abott
+and Hanson's construction for sum-free partitions. We then  introduced WSF-templates and generalized this construction. This
+allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant difference
+between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds
 obtained with WSF-templates (including Rowley's two inequalities). In the next section, we try to analyze this phenomenon.
-
