@@ -65,12 +65,12 @@ we have found, the analogous of this proposition for WSF-templates (see next sec
 \end{remark}
 
 \begin{proposition}
-Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k\) colors. Let 
-\(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a colouring \(g\) of \([\![1, b]\!]\) with \(k\) colors such that:
+Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k+1\) colors. Let 
+\(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a colouring \(g\) of \([\![1, b]\!]\) with \(k+1\) colors such that:
 \begin{itemize}
-	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in [\![1, p]\!]^2,(f(x) = f(y) \text{ and } (x + y) \mod p \leqslant b) 
+	\item \(\forall (x, y) \in [\![1, p]\!]^2,(f(x) = f(y) \text{ and } (x + y) \mod p \leqslant b) 
 	\implies g((x + y) \mod p) \neq f(x)\)
-	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in [\![1, p]\!] \times  [\![1, b]\!], (f(x) = g(y) \text{ and } x + y \leqslant b) 
+	\item \(\forall (x, y) \in [\![1, p]\!] \times  [\![1, b]\!], (f(x) = g(y) \text{ and } x + y \leqslant b) 
 	\implies g(x + y) \neq f(x)\)
 \end{itemize}
 Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have\\
@@ -187,13 +187,13 @@ Let \(x,y \in [\![1,pq + m_{k+1}-1]\!]\), with \(h(x) = h(y)\) and \(x+y \leqsla
 We first examine the case where \(h(x) \leqslant k\). We assume \(h(x+y) \leqslant k\), otherwise we are fine. 
 Thus by definition of \(h\), we have \(h(x) = f(p-u) = f(p-v) = h(y)\).
 \begin{itemize}
-\item If \(u+v < p\), then \(x+y = (\alpha+\beta) - (u+v) \) with \(u+v \in [\![0,p-1]\!] \).
+\item If \(u+v < p\), then \(x+y = (\alpha+\beta)p - (u+v) \) with \(u+v \in [\![0,p-1]\!] \).
 We have \(f(p-u) = f(p-v) \leqslant k\) and \(p-u + p-v > p\), the extra condition on \(f\) provides \(f(p-u-v) \neq
 f(p-u)\).
 We assumed \(h(x+y) \leqslant k\) hence \(h(x+y) = f(p-u-v)\). Since \(h(x) = f(p-u)\), we have at last \(h(x+y) \neq
 h(x)\).
-\item If \(u+v \geqslant p\), then \(x+y = (\alpha+\beta-1) - (u+v-p) \) with \(u+v-p \in [\![0,p-1]\!] \).
-We assumed \(h(x+y) \leqslant k \) hence \(h(x+y) = f( p- (p-u-v)) = f(p-u + p-v)\). Since \(f(p-u+p-v) \neq f(p-u)\),
+\item If \(u+v \geqslant p\), then \(x+y = (\alpha+\beta-1)p - (u+v-p) \) with \(u+v-p \in [\![0,p-1]\!] \).
+We assumed \(h(x+y) \leqslant k \) hence \(h(x+y) = f( p- (u+v-p)) = f(p-u + p-v)\). Since \(f(p-u+p-v) \neq f(p-u)\),
 we get \(h(x+y) \neq h(x)\).
 \end{itemize} 
   
@@ -201,11 +201,11 @@ We now assume \(h(x) > k\). Then \(h(x) = k + g(\alpha) = k + g(\beta) = h(y)\),
 We have the two same cases as before.
 
 \begin{itemize}
-\item If \(u+v < p\), then \(x+y = (\alpha+\beta) - (u+v) \) with \(u+v \in [\![0,p-1]\!] \).
+\item If \(u+v < p\), then \(x+y = (\alpha+\beta)p - (u+v) \) with \(u+v \in [\![0,p-1]\!] \).
 We assume \(h(x+y) > k\) otherwise the expected result is trivial.
 Since \(g(\alpha) = g(\beta)\), the sum-free condition garanties \(g(\alpha) \neq g(\alpha+\beta)\), 
 thus \(h(x+y) = k + g(\alpha + \beta) \neq k + g(\alpha) = h(x)\).
-\item If \(u+v \geqslant p\), then \(x+y = (\alpha+\beta-1) - (u+v-p) \) with \(u+v-p \in [\![0,p-1]\!] \).
+\item If \(u+v \geqslant p\), then \(x+y = (\alpha+\beta-1)p - (u+v-p) \) with \(u+v-p \in [\![0,p-1]\!] \).
 Because of the assumption \(h(x) > k\), we necessarily have \(f(p-u) = k+1 = f(p-v)\). 
 Then \(f(p-(u+v-p)) = f(p-u + p-v) \leqslant k \) with the sum-free condition on \(f\), 
 hence \(h(x+y) = f(p-(u+v-p)) \) by construction of \(h\). Thus \(h(x+y) \leqslant k < h(x)\).
