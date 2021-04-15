@@ -1,1 +1,56 @@
 \section{Introduction}
+
+We are interested in partioning the set of integers \(\{1, ..., p\}\) in \(n\) subsets such that there is no subset 
+containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\). We say the subsets are sum-free. If we 
+add the hypothesis \(x \neq y\), we say the subsets are weakly sum-free. The greatest \(p\) for which a 
+partition into \(n\) sum-free exists is called the \(n^{\text{th}}\) Schur number and is denoted \(S(n)\). 
+\cite{Schur1917} Likewise for weakly sum-free partitions we define \(WS(n)\) the \(n^{\text{th}}\) weak Schur 
+number. \cite{Irving1973} Only the first values of these sequences are known.
+
+\par Before Rowley's "template"-based approach for Schur and Ramsey numbers \cite{RowleyRamsey}, the 
+previous generic construction for Schur numbers was given by Abott and Hanson \cite{AbottHanson} in 1972 
+with a recursive construction. It gave the best lower bounds for all sufficiently large bounds. No equivalent 
+was known for weak Schur numbers and as a result the best known partitions for large weak Schur numbers 
+were actually sum-free partitions. As for smaller numbers, the best lower bounds were obtained by conducting 
+a computer search. This search for weakly sum-free partitions relied on the recursive assumption that a good 
+weakly sum-free partition into \(n+1\) colors starts with a good weakly sum-freepartition into \(n\) colors. In 
+2020, Rowley introduced the notion of template for Schur and Ramsey numbers which generalizes Abott and 
+Hanson's construction and gives new lower bounds (and inequalties) for Schur numbers. Rowley also gives two 
+inequalities for weak Schur numbers that yield significant improvements over previous lower bounds which 
+besides are higher than the lower bounds on Schur numbers. \cite{RowleyWS}
+
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{2pt}
+
+\begin{center}
+\begin{tabular}{|*{13}{c|}}
+    \hline
+    \(k\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    \hline
+    \(S(n)\) & & & & & & & & & & & & \\
+    old & 1 & 4 & 13 & 44 & 160 \cite{Heule2017} & 536 \cite{Fredricksen} & 1680 \cite{Fredricksen} & 5041 
+    \cite{ELIAHOU2012175} & 15124 \cite{ELIAHOU2012175} & 51120 \cite{AbbottHanson} & 172216 
+    \cite{AbbottHanson} & 575664 \cite{AbbottHanson} \\
+    Rowley & & & & & & & & 5286 & 17694 & 60320 & 201696 & 631840 \\
+    new & & & & & & & & & 17803 & 60948 & 203828 & 638548 \\
+    \hline
+    \(\WS(n)\) & & & & & & & & & & & & \\
+    old & 2 & 8 & 23 & 66 & 196 \cite{ELIAHOU2012175} & 582 \cite{EliahouBook} & 1740 
+    \cite{Rafilipojaona} & 5201 \cite{Rafilipojaona} & 15596 \cite{Rafilipojaona} & 51520 & 172216 & 575664 \\
+    Rowley & & & & & & 642 & 2146 & 6976 & 21848 & 70778 & 241282 & 806786 \\
+    new & & & & & & & & & 22536 & 71214 & 243794 & 815314 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\par The main contribution of this article is a generalization of the concept of template to weak Schur numbers. 
+This gives new lower bounds (and inequalities) for weak Schur numbers. This construction also includes as a 
+special case an analogous for weak Schur numbers of Abott and Hanson's construction.
+
+\par We first explain Rowley's template-based construction in the context of Schur numbers and then give 
+new templates, thus providing new lowers bounds and inequalities as well as showing that the growth rates 
+of both Schur and Ramsey numbers exceed 3.28. Then, we generalize the concept of templates to weak Schur 
+numbers and provide new lower bounds for weak Schur numbers. Finally, we analyze the significant difference 
+between new lower bounds obtain with templates and the former lower bounds obtained by computer search 
+and we provide evidence that the main assumption made in those articles removes the optimal partitions from 
+the search.
