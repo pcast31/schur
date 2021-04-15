@@ -117,34 +117,34 @@ weak Schur numbers.
 
 \begin{definition}
 
-Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\pi_{a,b}\) the projection:
-\[ \pi_{a,b}:x \longmapsto (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x mod a}))\]
+Let \((a,b) \in (\mathbb{N}^*)^2\),\(a>b\), \(n \in \mathbb{N}^*\), we will define \(\pi_{a,b}\) the projection:
+\[ \pi_{a,b}:x \longmapsto (Id+a\mathbf{1}_{ [\![0,b]\!]})(x \mod a))\]
 \end{definition}
 
-We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the a and b we use.
+We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
 
 \begin{remark}
 \(\pi\) is the projection on the first line mentioned in the intuitive explanation.
 \end{remark}
 
 \begin{proposition}
-Let x \(\in [\![1,b]\!]\), let y \(\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\), then we have: \(\pi(x+y)=x+\pi(y)\)
+Let x \(\in [\![1,b]\!]\), let  \(y \in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\), then we have: \(\pi(x+y)=x+\pi(y)\)
 \end{proposition}
 
-\textsc{Proof :}Let x \(\in [\![1,b]\!]\), let y \(\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\)
+\textsc{Proof :}Let  \(x\in [\![1,b]\!]\), let  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\)
 
 if \(x+\pi(y)< a:\)we remark that \(\pi(y)>b\) and therefore \(x+\pi(y)>b\):
 
 \begin{align*}
- \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x+y mod a})\\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y)\text{ mod a) since } \pi(y)\text{=y mod a} \\
+ \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+y \mod a)\\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a)\text{ since } \pi(y)\=y \mod a \\
 & =x+ \pi(y)
 \end{align*}
 
-if \(x+\pi(y\geqslant a\):
+if \(x+\pi(y)\geqslant a\):
 \begin{align*}
- \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x+y mod a})\\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y)\text{ mod a) since } \pi(y)\text{=y mod a} \\
+ \pi(x+y) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+y \mod a)\\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a)\text{ since } \pi(y)=y \mod a \\
 & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
 & = x+\pi(y) - a +a\mathbf{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
 & = x+\pi(y) - a +a \text{ \quad since } x+\pi(y) - a \in [\![0,b]\!] \\
@@ -153,41 +153,41 @@ if \(x+\pi(y\geqslant a\):
 
 
 \begin{proposition}
-Let (x,y)\(\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
+Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 \end{proposition}
 
-\textsc{Proof :}Let (x,y)\(\in (\mathbb{N}^*)^2\),
+\textsc{Proof :}Let \((x,y)\in (\mathbb{N}^*)^2\),
 
 \begin{align*}
  \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y)\text{ mod a})\\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})((Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{x mod a})+(Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{y mod a})\text{ mod a}) \\
-& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{ ((x mod a) + (y mod a)) mod a})\\
-& =(Id+a\mathbf{1}_{ [\![0,b]\!]})(\text{ x+y mod a})\\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})((Id+a\mathbf{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathbf{1}_{ [\![0,b]\!]})(y \mod a)\ mod a) \\
+& = (Id+a\mathbf{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
+& =(Id+a\mathbf{1}_{ [\![0,b]\!]})( x+y \mod a)\\
 & =\pi(x+y)
 \end{align*}
 
 
 \begin{definition}
 
-Let (a,b) \(n \in (\mathbb{N}^*)^2\),\(a>b\), we will define \(\lambda_{a,b}\) the projection:
+Let \((a,b) \in (\mathbb{N}^*)^2\), \(a>b\), let \(n \in\mathbb{N}\) we will define \(\lambda_{a,b}\) the projection:
 \[ \lambda_{a,b}:x \longmapsto 1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor\]
 \end{definition}
 
-We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the a and b we use.
+We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
 
 \begin{remark}
 In the following theorem, \(\lambda\) is the function which maps an element x to its line number, as mentioned in the intuitive explanation.
 \end{remark}
 
 \begin{proposition}
-Let (a,b)\(\in (\mathbb{N}^*)^2\), \(a>b\), let x \(\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
+Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
 \end{proposition}
-\textsc{Proof :}Let (a,b)\(\in (\mathbb{N}^*)^2\), \(a>b\), let x \(\in \mathbb{N}^*\),
-\\\\ \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(\text{x mod a})+\mathbf{1}_{ [\![0,b]\!]}(\text{x mod a})\)
+\textsc{Proof :}Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\),
+\\\\ \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(\text{x mod a})+\mathbf{1}_{ [\![0,b]\!]}(x \mod a)\)
 
-if x mod a \(>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+\text{x mod a}=x\)
+if \(x \mod a>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\)
 
-if x mod a \(\leqslant b\):
+if \(x \mod a \leqslant b\):
 \(a\lambda(x)+\pi(x)-a=a(\left\lfloor\dfrac{x}{a}\right\rfloor-1)+\text{x mod a}+a=x\)
 
 
@@ -225,7 +225,7 @@ If this \(p\) does not exist, we set \(\WS_b^+= 0\)
 \end{definition}
 
 \begin{definition}
-Let \( n \in \mathbb{N}^*\), we define \(\WS^+(n)\)=\(\max_{b\in \mathbb{N}^*} \{\WS_b^+(n)\}\)
+Let \( n \in \mathbb{N}^*\), we define \(\WS^+(n)=\max_{b\in \mathbb{N}^*} \{\WS_b^+(n)\}\)
 \end{definition}
 
 \begin{proposition}
@@ -249,7 +249,7 @@ The upper bound comes from the fact that a WSF-template of length \(p\) with \(n
 
 \begin{theorem}
 Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \(k\)
-sum-free subsets of \([\![1,p]\!]\) and a partition of n subsets \((A_1,....,A_n)\) of \([\![1, q]\!]\) which is a
+sum-free subsets of \([\![1,p]\!]\) and a partition of \(n\) subsets \((A_1,....,A_n)\) of \([\![1, q]\!]\) which is a
 \(b\)-WSF of \(n\) colors and lenght \(q\),
  then there exists a partition of \([\![1, b+p \times (q-b)]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
@@ -274,7 +274,7 @@ by weakening the hypotheses made on the last row. The principle behind it is the
 \end{remark}
 
 \begin{proposition}
-Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to a b-WSF-template of length \(p\) with \(k\) colors. Let
+Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to a \(b\)-WSF-template of length \(p\) with \(k\) colors. Let
 \(c \in \mathbb{N}\) (\(c = \min (A_{k+1} \backslash [\![1, b ]\!]) - 1\) works) and assume there there exists a colouring \(g\) of
 \([\![b + 1, b + c]\!]\) with \(k\) colors such that:
 \begin{itemize}
@@ -287,47 +287,47 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
-\textsc{Proof:} Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let a=q-b. \\
+\textsc{Proof:} Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let \(a=q-b\). \\
 We denote by \(g\) the colouring associated to the partition of \([\![1,q]\!]\) and \(h\) the
 one associated to the partition of \([\![1,p]\!]\).
-\[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a b-WSF-template.}
+\[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a \(b\)-WSF-template.}
 \]
 \[h : [\![1,p]\!] \longrightarrow [\![1,k]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } h(x) = h(y)
 \Longrightarrow h(x+y) \neq h(x)
 \]
 
 Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) such that:
-\\\\-if x \(\leqslant b \text{ (we will note x} \in \mathcal{T}): f(x)=g(x)\)
+\\\\-if  \(x\leqslant b \text{ (we will note }x \in \mathcal{T}): f(x)=g(x)\)
 \\\\-if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
 \\\\-if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
 \\\\
-f is well defined because \(\pi\) is defined for x\(>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because h(\(\lambda(x))\leqslant k\)
+\(f\) is well defined because \(\pi\) is defined for \(x>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because \(h(\lambda(x))\leqslant k\)
 
 We have parted the integers of \(\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{R}\).
 
 We have to verify that f induces weakly-sum-free templates:\\
 \\
-\underline{if (x,y) \(\in (\mathcal{T})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
-\\x+y\(<\)a+b since b\(<\)a and g(x)=f(x)=f(y)=g(y).
-\\Hence f(x+y)=g(x+y)\(\neq\)g(x)=f(x)
+\underline{if (x,y) \(\in (\mathcal{T})^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\\(x+y<a+b\) since \(b<a\) and \(g(x)=f(x)=f(y)=g(y)\).
+\\Hence \(f(x+y)=g(x+y)\neq g(x)=f(x)\)
 \\\\
-\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{C}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T} \times \mathcal{C}\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
 We distinguish two cases:
 
 
 \begin{itemize}
-\item If x+\(\pi(y)\leqslant a+b\)
-\\g(x)=f(x)=f(y)=g(\(\pi(y)\). Hence g(x)\(\neq g(x+\pi(y))=g(\pi(x+y))\) (qv previous proposition)
+\item If \(x+\pi(y)\leqslant a+b\)
+\\\(g(x)=f(x)=f(y)=g(\pi(y)\). Hence \(g(x)\neq g(x+\pi(y))=g(\pi(x+y))\) (qv previous proposition)
 \\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
 \\else, \(f(x+y)=g(\pi(x+y))\neq g(x)=f(x)\)
-\item If x+\(\pi(y)> a+b\), x+y\(>\)a+b and by definition of g, \(g(\pi(x+y))\neq g(x)\)
+\item If \(x+\pi(y)> a+b\), \(x+y>a+b\) and by definition of \(g\), \(g(\pi(x+y))\neq g(x)\)
 \\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
 \\else, \(f(x+y)=g(\pi(x+y))\neq g(\pi(x))=f(x)\)
 \end{itemize}
 
 
-\underline{if (x,y) \(\in \mathcal{T} \times \mathcal{R}\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
-\\Then, f(x)=f(y)=n. We distinguish two cases:
+\underline{if \((x,y) \in \mathcal{T} \times \mathcal{R}\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Then, \(f(x)=f(y)=n\). We distinguish two cases:
 
 
 \begin{itemize}
@@ -336,12 +336,12 @@ We distinguish two cases:
 \\Therefore \(g(\pi(x+y))=g(x+\pi(y)) \neq g(x)=n\)(qv previous proposition)
 \\Hence \(f(x+y)=g(\pi(x+y))\neq n\)
 \item If  \(\lambda(y)\neq \lambda(x+y)\), \(\lambda(y)+1= \lambda(x+y)\)\\
-n=f(y)=n-1+h(\(\lambda(y)\)). Hence h(\(\lambda(y)\))=1.
-\\Moreover h(1)=1, therefore \(h(\lambda(y)+1) \neq 1\)
+\(n=f(y)=n-1+h(\lambda(y))\). Hence \(h(\lambda(y))=1\).
+\\Moreover \(h(1)=1\), therefore \(h(\lambda(y)+1) \neq 1\)
 \\if \(\pi(x+y) \in A_n\), \(f(x+y)=n-1+h(\lambda(x+y))>n\)
 \end{itemize}
 
-\underline{if (x,y) \(\in (\mathcal{C})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in (\mathcal{C})^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
 \\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases:
 
 \begin{itemize}
@@ -349,7 +349,7 @@ n=f(y)=n-1+h(\(\lambda(y)\)). Hence h(\(\lambda(y)\))=1.
 \\Hence \(g(\pi(x+y))= g(\pi(\pi(x)+\pi(y))\neq g(\pi(x))\)
 \\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
 \\else, \(f(x+y)=g(\pi(x+y))\neq g(\pi(x))=f(x)\)
-\item If  \(\pi(x)+\pi(y)\leqslant q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) since g is sum-free for x\(>b\)
+\item If  \(\pi(x)+\pi(y)\leqslant q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) since \(g\) is sum-free for \(x>b\)
 \\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
 \\else, \(f(x+y)=g(\pi(x+y))=g(\pi(\pi(x)+\pi(y))\neq g(\pi(x))=f(x)\)
 
@@ -358,10 +358,10 @@ n=f(y)=n-1+h(\(\lambda(y)\)). Hence h(\(\lambda(y)\))=1.
 
 
 
-\underline{if (x,y) \(\in \mathcal{C} \times \mathcal{R} \), \(f(x)\neq f(y)\)}\\
+\underline{if \((x,y) \in \mathcal{C} \times \mathcal{R} \), \(f(x)\neq f(y)\)}\\
 
-\underline{if (x,y) \(\in (\mathcal{R})^2\) such that f(x)=f(y), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
-\\Let r(x)=\(\pi(x)-a\) and r(y)=\(\pi(y)-a\),
+\underline{if \((x,y) \in (\mathcal{R})^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\\Let \(r(x)=\pi(x)-a\) and \(r(y)=\pi(y)-a\),
 \\We proved that \(x=a\lambda(x)+\pi(x)-a\), therefore \(x=a\lambda(x)+\pi(x)\)
 \\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases:
 
@@ -385,11 +385,11 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 
 
 \item If \(r(x)+r(y)>b\), \(\pi(x)+\pi(y)>2a+b\)
-\\Since g is a b-WSF template, \(g(\pi(\pi(x)+\pi(y))) \neq n\)
+\\Since \(g\) is a \(b\)-WSF template, \(g(\pi(\pi(x)+\pi(y))) \neq n\)
 \\Therefore, \(g(\pi(x+y)) \neq n\) ie \(x+y \in \mathcal{C}\)
 \\Hence \(f(x+y) <n\leqslant f(x)\)
 \item If \(r(x)+r(y) \leqslant b - a\), \(\pi(x)+\pi(y)\leqslant b+a\)
-\\Since g is sum-free for x\(>b\), since \(g(\pi(x)) = g(\pi(y))=n\), \(g(\pi(x+y)) \neq g(\pi(x))=n\)
+\\Since \(g\) is sum-free for \(x>b\), since \(g(\pi(x)) = g(\pi(y))=n\), \(g(\pi(x+y)) \neq g(\pi(x))=n\)
 \\Hence, \(f(x+y) <n\leqslant f(x)\)
 \end{itemize}
 
@@ -507,3 +507,4 @@ and Hanson's construction for sum-free partitions. We then  introduced WSF-templ
 allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant difference 
 between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds 
 obtained with WSF-templates (including Rowley's two inequalities). In the next section, we try to analyze this phenomenon.
+
