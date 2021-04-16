@@ -1,57 +1,57 @@
 \section{Schur numbers}
+\label{Schur}
 
-\qquad In this section, we use Rowley's constructions \cite{RowleyRamsey} in the context of Schur numbers. To improve lower bounds
-for Ramsay's numbers, Rowley introduces some sum-free partitions verifying some additional properties which can be extended using a 
-method which generalizes Abbott and Hanson's  construction \cite{AbbottHanson}. Rowley named these partitions "templates", and 
-we will keep this name in the entire article. We find suitable templates and use them to provide new lower bounds for Schur numbers.
+\qquad In this section, we use Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur 
+numbers. To improve lower bounds for Ramsay's numbers, Rowley introduces special sum-free partitions verifying 
+some additional properties which can be extended using a method generalizing Abbott and Hanson's construction 
+\cite{AbbottHanson}. Rowley named these partitions "templates", and we keep this name in the entire article. We 
+then find new templates and use them to provide new lower bounds for Schur numbers.
 
 \subsection{Definition of \(S^+\)}
 
 \begin{definition}
-We call SF-template of \(n\) colors and lenght \(p\) a partition of \( [\![1,p]\!]\) into \(n\) sum-free subsets \(A_1,
-A_2, ..., A_n\) which verify :
-	\[
-	\forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
-	\Longrightarrow x+y-p \notin A_i
-	\]
-	We note \(S^+(n)\) the maximal lenght for a SF-template of \(n\) colors.
+A SF-template with length \(p\) and \(n\) colors is defined as a partition of \( [\![1,p]\!]\) into \(n\) sum-free subsets 
+\(A_1, A_2, ..., A_n\) verifying:
+\[
+\forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
+\Longrightarrow x+y-p \notin A_i
+\]
 \end{definition}
 
 \begin{remark}
-	Here, \(n\) is the "special" color: it has less constraints than the other colors. However, please note that \(n\) 
+	Here \(n\) is the "special" color: it has less constraints than the other colors. However, please note that \(n\) 
 	is not necessarily the last color by order of appearance.
 \end{remark}
 
 \begin{remark}
-	\(SF\)-templates include Abott and Hanson's construction \cite{AbbottHanson} as a special case.
+	\(SF\)-templates include Abbott and Hanson's construction \cite{AbbottHanson} as a special case.
 \end{remark}
 
 \begin{proposition}
-	Let \(n \in [\![2, +\infty]\!]\). Then
+	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the maximal lenght of a SF-template with \(n\) colors. 
+	\(S^+(n)\) is well defined and verifies:
 	\[
 	2S(n-1)+1 \leqslant S^+(n) \leqslant S(n)
 	\]
 \end{proposition}
 
-\textsc{Proof :} The lower bound comes from Abott and Hanson's construction. The upper bound comes
-from the fact that a SF-template of length \(p\) with \(n\) colors is also a partition of
-\([\![1, p]\!]\) into \(n\) sum-free subsets.
+\textsc{Proof :} The lower bound comes from Abbott and Hanson's construction. The upper bound comes from the 
+fact that a SF-template with length \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets.
 
 \begin{remark}
 	\(S^+\) and \(S\) have the same asymptotic growth rate.
 \end{remark}
 
 
-
 \subsection{Construction of Schur partitions using SF-templates}
 
-\qquad The main result on SF-templates follows. It allows us to improve lower bounds on Schur numbers by finding 
-suitable SF-templates.
+\qquad Here we state the main result on SF-templates stated by Rowley in the context of Ramsey numbers. It consists 
+in the explicit construction of a sum-free partition using a SF-template and a sum-free partition.
 
 \begin{theorem}
-	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template of \(k+1\) colors and lenght \(p\),
-	and a partition of \(n\) sum-free subsets of \([\![1,q]\!]\) then there exists a partition of \(n+k\) sum-free subsets
-	of \([\![1,pq+m_{k+1}-1]\!]\). \(m_{k+1}\) is the minimum of the special subset in the \(SF\)-template.
+	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with lenght \(p\) and \(k+1\) colors 
+	and a partition of \([\![1,q]\!]\) into \(n\) sum-free subsets then there exists a partition of \([\![1,pq+m_{k+1}
+	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{k+1}\) is the minimum of the special subset in the \(SF\)-template.
 \end{theorem}
 
 Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
@@ -61,99 +61,101 @@ Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
 	\[ S(n+k) \geqslant S^+(k+1)S(n) + m_{k+1} - 1 \]
 \end{corollary}
 
-\begin{remark}
-The following proposition can help improve the additive constant of a SF-template. Although it does not allow us to improve the SF-templates 
-we have found, the analogous of this proposition for WSF-templates (see next section) allows us to improve one of them.
-\end{remark}
-
-\begin{proposition}
-Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k+1\) colors. Let 
-\(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a colouring \(g\) of \([\![1, b]\!]\) with \(k+1\) colors such that:
-\begin{itemize}
-	\item \(\forall (x, y) \in [\![1, p]\!]^2,(f(x) = f(y) \text{ and } (x + y) \mod p \leqslant b) 
-	\implies g((x + y) \mod p) \neq f(x)\)
-	\item \(\forall (x, y) \in [\![1, p]\!] \times  [\![1, b]\!], (f(x) = g(y) \text{ and } x + y \leqslant b) 
-	\implies g(x + y) \neq f(x)\)
-\end{itemize}
-Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have\\
-\[ S(n+k) \geqslant S^+(k+1)S(n) + b\]
-\end{proposition}
-
-\begin{remark}
-This proposition corresponds to the fact that sometimes a column is not the sum of two columns of a given color, but adding this 
-column to the color would create sums in the color when applying the extension procedure. However, the last line does not 
-intereact will all the columns when it comes to creating new sums. As a result, the hypotheses made on the colouring of the last 
-row can be weakened.
-\end{remark}
-
-The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. 
-They extend vertically a sum-free partition, and horizontally an other sum-free partition. This way each "block" 
-acts like a security zone for the other one. Here, the horizontal partition is no longer to the side of the 
-vertical one, but it occupies the column of the special color of the \(SF\)-template, i.e the one without the 
-extra condition. We give the following example for \(p = 9, q = 4, n = 2 ~\textrm{and}~ k = 2\). \\
-
-This shows the inequality \(S(2+2) \geqslant S^+(3)S(2) + 4\). The special color is blue and is first used
-to color 5, hence \(4 = m_{3} - 1\). The special color is blue. 
+The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. They vertically 
+extend a sum-free partition by repeating it and they use an other sum-free partition to color the other half according 
+to the line number. This way the "blocks" act as safe areas for each other. We give here an example for \(p = 9\), 
+\(q = 4\), \(n = 2\) and \(k = 2\) showing that \(S(2 + 2) \geqslant S(2) (2 S(2) + 1) + S(2)\), both with Abbott 
+and Hanson's construction and with a SF-template which is not of this type. In both cases, the special color is grey.
 
 \begin{center}
+\textbf{Abbott and Hanson's construction}
+\end{center}
+
 \[
 \begin{array}{|*{9}{c|}}
-	\multicolumn{9}{c}{\overset{S^+(3)}{\overbrace{\rule{6cm}{0pt}}}} \\
 	\hline
-	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9 \\
+	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{cyan} 5 & 
+	\cellcolor{cyan} 6 & \cellcolor{cyan} 7 & \cellcolor{cyan} 8 & \cellcolor{cyan} 9\\
 	\hline
-	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & \cellcolor{yellow} 15 & \cellcolor{red} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
+	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & 
+	\cellcolor{yellow} 15 & \cellcolor{yellow} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
 	\hline
-	\cellcolor{red} 19 & \cellcolor{green} 20 & \cellcolor{green} 21 & \cellcolor{red} 22 & \cellcolor{yellow} 23 & \cellcolor{yellow} 24 & \cellcolor{red} 25 & \cellcolor{yellow} 26 & \cellcolor{yellow} 27\\
+	\cellcolor{red} 19 & \cellcolor{green} 20 & \cellcolor{green} 21 & \cellcolor{red} 22 & \cellcolor{yellow} 23 & 
+	\cellcolor{yellow} 24 & \cellcolor{yellow} 25 & \cellcolor{yellow} 26 & \cellcolor{yellow} 27\\
 	\hline
-	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{red} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36\\
+	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{cyan} 32 & 
+	\cellcolor{cyan} 33 & \cellcolor{cyan} 34 & \cellcolor{cyan} 35 & \cellcolor{cyan} 36 \\
 	\hline
 	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 \\
 	\cline{1-4}
 \end{array}
 \]
-\end{center}
-
 
 \begin{center}
-\[
-S^+(3) 
-\begin{array}{|*{9}{c|}}
-	\hline 
-	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{red} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
-	\hline
-\end{array}  \]
-\[
-S(2) 
-\begin{array}{|*{4}{c|}}
-	\hline 
-	\cellcolor{blue} 1 & \cellcolor{yellow} 2 & \cellcolor{yellow} 3 & \cellcolor{blue} 4 \\
-	\hline
-\end{array}
-\]
+\begin{tabular}{c c}
+	\textbf{Corresponding SF-template} & \textbf{Corresponding sum-free partition} \\
+	\begin{tabular}{|*{9}{c|}}
+		\hline 
+		\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{gray!40} 5 & 
+		\cellcolor{gray!40} 6 & \cellcolor{gray!40} 7 & \cellcolor{gray!40} 8 & \cellcolor{gray!40} 9 \\
+		\hline
+	\end{tabular} &
+	\begin{tabular}{|*{4}{c|}}
+		\hline 
+		\cellcolor{cyan} 1 & \cellcolor{yellow} 2 & \cellcolor{yellow} 3 & \cellcolor{cyan} 4 \\
+		\hline
+	\end{tabular}
+\end{tabular}
 \end{center}
 
-To comparison, here is an usual Abbott and Hanson partition : \(S(2+2) \geqslant S(2)(2S(2)+1)+S(2) \). 
+In the general construction with SF-templates, the special color no longer necessarily contains consecutive 
+numbers. However, the special color is still replaced by the colors of the sum-free partition according to the 
+line number and the other colors are still vertically extended.
+
 \begin{center}
+\textbf{SF-template construction}
+\end{center}
+
 \[
 \begin{array}{|*{9}{c|}}
-	\multicolumn{4}{c}{\overset{S(2)}{\overbrace{\rule{2.6cm}{0pt}}}} \\
 	\hline
-	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{blue} 5 & \cellcolor{blue} 6 & \cellcolor{blue} 7 & \cellcolor{blue} 8 & \cellcolor{blue} 9\\
+	\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{cyan} 5 & 
+	\cellcolor{cyan} 6 & \cellcolor{red} 7 & \cellcolor{cyan} 8 & \cellcolor{cyan} 9\\
 	\hline
-	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & \cellcolor{yellow} 15 & \cellcolor{yellow} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
+	\cellcolor{red} 10 & \cellcolor{green} 11 & \cellcolor{green} 12 & \cellcolor{red} 13 & \cellcolor{yellow} 14 & 
+	\cellcolor{yellow} 15 & \cellcolor{red} 16 & \cellcolor{yellow} 17 & \cellcolor{yellow} 18\\
 	\hline
-	\cellcolor{red} 19 & \cellcolor{green} 20 & \cellcolor{green} 21 & \cellcolor{red} 22 & \cellcolor{yellow} 23 & \cellcolor{yellow} 24 & \cellcolor{yellow} 25 & \cellcolor{yellow} 26 & \cellcolor{yellow} 27\\
+	\cellcolor{red} 19 & \cellcolor{green} 20 & \cellcolor{green} 21 & \cellcolor{red} 22 & \cellcolor{yellow} 23 & 
+	\cellcolor{yellow} 24 & \cellcolor{red} 25 & \cellcolor{yellow} 26 & \cellcolor{yellow} 27\\
 	\hline
-	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{blue} 32 & \cellcolor{blue} 33 & \cellcolor{blue} 34 & \cellcolor{blue} 35 & \cellcolor{blue} 36 \\
+	\cellcolor{red} 28 & \cellcolor{green} 29 & \cellcolor{green} 30 & \cellcolor{red} 31 & \cellcolor{cyan} 32 & 
+	\cellcolor{cyan} 33 & \cellcolor{red} 34 & \cellcolor{cyan} 35 & \cellcolor{cyan} 36 \\
 	\hline
 	\cellcolor{red} 37 & \cellcolor{green} 38 & \cellcolor{green} 39 & \cellcolor{red} 40 \\
 	\cline{1-4}
 \end{array}
 \]
+
+\begin{center}
+\begin{tabular}{c c}
+	\textbf{Corresponding SF-template} & \textbf{Corresponding sum-free partition} \\
+	\begin{tabular}{|*{9}{c|}}
+		\hline 
+		\cellcolor{red} 1 & \cellcolor{green} 2 & \cellcolor{green} 3 & \cellcolor{red} 4 & \cellcolor{gray!40} 5 & 
+		\cellcolor{gray!40} 6 & \cellcolor{red} 7 & \cellcolor{gray!40} 8 & \cellcolor{gray!40} 9 \\
+		\hline
+	\end{tabular} &
+	\begin{tabular}{|*{4}{c|}}
+		\hline 
+		\cellcolor{cyan} 1 & \cellcolor{yellow} 2 & \cellcolor{yellow} 3 & \cellcolor{cyan} 4 \\
+		\hline
+	\end{tabular}
+\end{tabular}
 \end{center}
 
-\textsc{Proof of theorem:} We denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\)
+We know proceed to prove the above mentioned theorem.\\
+
+\textsc{Proof:} We denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\)
 and \(g\) the one associated to the sum-free partition of \([\![1,q]\!]\).
 
 \[ f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!] \text{ and } \forall (x,y) \in [\![1,p]\!]^2, \left\{
@@ -213,6 +215,35 @@ Then \(f(p-(u+v-p)) = f(p-u + p-v) \leqslant k \) with the sum-free condition on
 hence \(h(x+y) = f(p-(u+v-p)) \) by construction of \(h\). Thus \(h(x+y) \leqslant k < h(x)\).
 \end{itemize}
 
+\begin{remark}
+The following proposition can help improve the additive constant of a SF-template. Although it does not allow us to 
+improve the SF-templates we have found, the analogous of this proposition for WSF-templates (see next section) 
+allows us to improve one of them.
+\end{remark}
+
+\begin{proposition}
+Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k+1\) 
+colors. Let \(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a colouring \(g\) of 
+\([\![1, b]\!]\) with \(k+1\) colors such that:
+
+\begin{itemize}
+	\item \(\forall (x, y) \in [\![1, p]\!]^2,(f(x) = f(y) \text{ and } (x + y) \mod p \leqslant b) 
+	\implies g((x + y) \mod p) \neq f(x)\)
+	\item \(\forall (x, y) \in [\![1, p]\!] \times  [\![1, b]\!], (f(x) = g(y) \text{ and } x + y \leqslant b) 
+	\implies g(x + y) \neq f(x)\)
+\end{itemize}
+
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have
+\[ S(n+k) \geqslant S^+(k+1)S(n) + b\]
+\end{proposition}
+
+\begin{remark}
+This proposition corresponds to the fact that sometimes a column is not the sum of two columns of a given color, but adding this 
+column to the color would create sums in the color when applying the extension procedure. However, the last line does not 
+intereact will all the columns when it comes to creating new sums. As a result, the hypotheses made on the colouring of the last 
+row can be weakened.
+\end{remark}
+
 \begin{definition}
 A SF-template with \(n\) colors is said to be symmetric if the partition in \(n\) sum-free subsets derived (with the additive constant) from this template is symmetric. 
 A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), \(x\) and \(p + 1 - x\) belong to the same subset 
@@ -271,8 +302,8 @@ from the second \(SF\)-template.
 The previous inequalities give new lower bounds for \(S(n)\) for
 \( n \geqslant 9 \). We compute the lower
 bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n
-=8\) and \(n = 13\) were obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.\\
-\\
+=8\) and \(n = 13\) were obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.
+
 \begin{center}
 \begin{tabular}{|*{5}{c|}}
     \hline
