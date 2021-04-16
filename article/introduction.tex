@@ -1,26 +1,27 @@
 \section{Introduction}
 
-We are interested in partioning the set of integers \(\{1, ..., p\}\) in \(n\) subsets such that there is no subset 
-containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\). We say these subsets are sum-free. If we 
-add the hypothesis \(x \neq y\), we say the subsets are weakly sum-free. The greatest \(p\) for which a 
-partition into \(n\) sum-free exists is called the \(n^{\text{th}}\) Schur number and is denoted \(S(n)\) 
-\cite{Schur1917}. Likewise for weakly sum-free partitions we define \(WS(n)\) the \(n^{\text{th}}\) weak Schur 
-number \cite{Irving1973}. Only the first values of these sequences are known. This article concerns the lower 
-bounds of these numbers.
+\qquad We are interested in partioning the set of integers \(\{1, ..., p\}\) in \(n\) subsets such that there is no 
+subset containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\). We say these subsets are 
+\textit{sum-free}. If we add the hypothesis \(x \neq y\), we say the subsets are \textit{weakly sum-free}. The 
+greatest \(p\) for which there exists a partition into \(n\) sum-free subsets is called the \(n^{\text{th}}\) Schur 
+number and is denoted \(S(n)\) \cite{Schur1917}. Likewise for weakly sum-free partitions we define \(\WS(n)\) 
+the \(n^{\text{th}}\) weak Schur number \cite{Irving1973}. Only the first values of these sequences are known. 
+This article focuses on the lower bounds for these numbers.
 
-\par Before Rowley's "template"-based approach for Schur and Ramsey numbers \cite{RowleyRamsey}, the 
+\par
+Before Rowley's "template"-based approach for Schur and Ramsey numbers \cite{RowleyRamsey}, the 
 previous generic construction for Schur numbers was given by Abbott and Hanson \cite{AbbottHanson} in 1972 
-with a recursive construction. It gave the best lower bounds for all sufficiently large bounds. No equivalent 
+with a recursive construction. It used to give the best lower bounds for all sufficiently large numbers. No equivalent 
 was known for weak Schur numbers and as a result the best known partitions for large weak Schur numbers 
 did not utilize the weakly sum-free hypothesis. As for smaller numbers, the best lower bounds were obtained 
 by conducting a computer search. This search for weakly sum-free partitions relied on the recursive assumption 
 that a good weakly sum-free partition into \(n+1\) colors starts with a good weakly sum-free partition into \(n\) 
 colors. In 2020, Rowley introduced the notion of template for Schur and Ramsey numbers which generalizes 
 Abbott and Hanson's construction and gives new lower bounds (and inequalties) for Schur numbers. Rowley also 
-gives two inequalities for weak Schur numbers that yield significant improvements over previous lower bounds 
-which besides do utilize the weakly sum-free hypothesis \cite{RowleyWS}.
+gives two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements over previous 
+lower bounds which besides do utilize the \textit{weakly} sum-free hypothesis.
 
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.2}
 
 \begin{center}
 
@@ -30,46 +31,64 @@ which besides do utilize the weakly sum-free hypothesis \cite{RowleyWS}.
     \hline
     \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
     \hline
-    old & 1 & 4 & 13 & 44 & 160 & 536 & 1680 & 5041 & 15124 & 51120 & 172216 & 575664 \\
+    \multirow{2}{*}{old} & 1 & 4 & 13 & 44 & 160 & 536 & 1680 & 5041 & 15124 & 51120 & 172216 & 575664 \\
       & & & & & \cite{Heule2017} & \cite{Fredricksen} & \cite{Fredricksen} & \cite{ELIAHOU2012175} & 
     \cite{ELIAHOU2012175} & \cite{AbbottHanson} & \cite{AbbottHanson} & \cite{AbbottHanson} \\
     \hline
-    Rowley & & & & & & & & 5286 & 17694 & 60320 & 201696 & 631840 \\
+    \begin{tabular}{@{}c@{}}Rowley \\ \cite{RowleyRamsey}\end{tabular} & & & & & & & & 5286 & 17694 & 
+    60320 & 201696 & 631840 \\
     \hline
-    new & & & & & & & & & 17803 & 60948 & 203828 & 638548 \\
+    \hyperref[Schur]{new}  & & & & & & & & & 17803 & 60948 & 203828 & 638548 \\
     \hline
 \end{tabular}
 
 \vspace{3ex}
+\setlength{\tabcolsep}{4pt}
+
 \textbf{Table 2 - Comparison of lower bounds for weak Schur numbers}
 
 \begin{tabular}{|*{13}{c|}}
     \hline
     \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
     \hline
-    old & 2 & 8 & 23 & 66 & 196 & 582 & 1740 & 5201 & 15596 & 51520 & 172216 & 575664 \\
+    \multirow{2}{*}{old} & 2 & 8 & 23 & 66 & 196 & 582 & 1740 & 5201 & 15596 & 51520 & 172216 & 575664 \\
       & & & & & \cite{ELIAHOU2012175} &\cite{EliahouBook} & \cite{Rafilipojaona} & \cite{Rafilipojaona} & 
     \cite{Rafilipojaona} & \cite{AbbottHanson} & \cite{AbbottHanson} & \cite{AbbottHanson} \\
     \hline
-    Rowley & & & & & & 642 & 2146 & 6976 & 21848 & 70778 & 241282 & 806786 \\
+    \begin{tabular}{@{}c@{}}Rowley \\ \cite{RowleyWS}\end{tabular} & & & & & & 642 & 2146 & 6976 & 21848 
+    & 70778 & 241282 & 806786 \\
     \hline
-    new & & & & & & & & & 22536 & 71214 & 243794 & 815314 \\
+    \hyperref[WeakSchur]{new} & & & & & & & & & 22536 & 71214 & 243794 & 815314 \\
+    \hline
+    \(\displaystyle \frac{\text{new} - \text{old}}{\text{old}}\) & 0\% & 0\% & 0\% & 0\% & 0\% & 10.3\% & 
+    23.3\% & 34.1\% 
+    & 44.5\% & 38.2\% & 41.6\% & 41.6\% \\
     \hline
 \end{tabular}
 
 \end{center}
 
-\par The main contribution of this article is a generalization of the concept of template to weak Schur numbers. 
+\par
+The main contribution of this article is a generalization of the concept of template to weak Schur numbers. 
 This gives new lower bounds (and inequalities) for weak Schur numbers. This construction also includes as a 
-special case an analogous for weak Schur numbers of Abbott and Hanson's construction.
+special case an analogous for weak Schur numbers of Abbott and Hanson's construction for Schur numbers.
 
-\par We first explain Rowley's template-based construction in the context of Schur numbers and then give 
+\par
+We first explain Rowley's template-based construction in the context of Schur numbers and then give 
 new templates, thus providing new lowers bounds and inequalities as well as showing that the growth rates 
-for both Schur and Ramsey numbers exceed 3.28. Then, we generalize the concept of templates to weak Schur 
-numbers and provide new lower bounds for weak Schur numbers. Finally, we analyze the significant difference 
-between new lower bounds obtain with templates and the former lower bounds obtained by computer search 
-and we provide evidence which indicate that the main assumption made in those articles removes the optimal 
-partitions from the search space.
+for both Schur and Ramsey numbers \(R_n(3)\) exceed 3.28. 
+
+\par
+We then  generalize the concept of templates to weak Schur numbers and provide new lower bounds for weak 
+Schur numbers. 
+
+\par
+Finally, we analyze the significant difference between new lower bounds obtain with templates and the former 
+lower bounds obtained by computer search and we provide evidence which indicate that the main assumption 
+made in those articles removes the optimal partitions from the search space.
+
+\par
+We now introduce notations and definitions we use throughout this article.
 
 \begin{notation}
 We denote by \([\![1,p]\!]\) the set of integers \(\{1, 2, ..., p\}\).
@@ -83,7 +102,7 @@ make this hypothesis since we do not always consider partitions in which every s
 \end{notation}
 
 \begin{definition}
-We sometimes refer to a partitition as a colouring. The colouring associated to a partition \(A_1, ..., A_n\) of
+A partitition is sometimes referred to as a colouring. The colouring associated to a partition \(A_1, ..., A_n\) of
 \([\![1, p]\!]\) is the function \(f\) such that \(\forall x \in [\![1, p]\!], x \in A_{f(x)}\). Likewise, the partition 
 associated to a colouring \(f\) of \([\![1, p]\!]\) with \(n\) colors is \(\forall c \in [\![1, n]\!], A_c = f^{-1}(c)\).
 \end{definition}
