@@ -135,7 +135,8 @@ We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doub
 Let x \(\in [\![1,b]\!]\), let  \(y \in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\), then we have: \(\pi(x+y)=x+\pi(y)\)
 \end{proposition}
 
-\textsc{Proof :}Let  \(x\in [\![1,b]\!]\), let  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\)
+\begin{proof}[\textsc{Proof.}]
+Let  \(x\in [\![1,b]\!]\), let  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\)
 
 if \(x+\pi(y)< a:\)we remark that \(\pi(y)>b\) and therefore \(x+\pi(y)>b\):
 
@@ -154,13 +155,15 @@ if \(x+\pi(y)\geqslant a\):
 & = x+\pi(y) - a +a \text{ \quad since } x+\pi(y) - a \in [\![0,b]\!] \\
 & = x+\pi(y)
 \end{align*}
+\end{proof}
 
 
 \begin{proposition}
 Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 \end{proposition}
 
-\textsc{Proof :}Let \((x,y)\in (\mathbb{N}^*)^2\),
+\begin{proof}[\textsc{Proof.}]
+Let \((x,y)\in (\mathbb{N}^*)^2\),
 
 \begin{align*}
  \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y)\text{ mod a})\\
@@ -169,6 +172,7 @@ Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 & =(Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
 & =\pi(x+y)
 \end{align*}
+\end{proof}
 
 
 \begin{definition}
@@ -186,13 +190,15 @@ In the following theorem, \(\lambda\) is the function which maps an element x to
 \begin{proposition}
 Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
 \end{proposition}
-\textsc{Proof :}Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\),
-\\\\ \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(x \mod a)+\mathds{1}_{ [\![0,b]\!]}(x \mod a)\)
+\begin{proof}[\textsc{Proof.}]
+Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\),\\
+\(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(x \mod a)+\mathds{1}_{ [\![0,b]\!]}(x \mod a)\)
 
 if \(x \mod a>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\)
 
 if \(x \mod a \leqslant b\):
 \(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+\text{x mod a}+a=x\)
+\end{proof}
 
 
 \begin{definition}
@@ -239,9 +245,11 @@ Let \( n \in \mathbb{N}^*\), we define \(\WS^+(n)=\max_{b\in \mathbb{N}^*} \{\WS
 	\]
 \end{proposition}
 
-\textsc{Proof :} The lower bound comes from the analogous of Abott and Hanson's construction for weak Schur numbers.
+\begin{proof}[\textsc{Proof.}]
+The lower bound comes from the analogous of Abott and Hanson's construction for weak Schur numbers.
 The upper bound comes from the fact that a WSF-template of length \(p\) with \(n\) colors is also a partition of
 \([\![1, p]\!]\) into \(n\) sum-free subsets.
+\end{proof}
 
 \begin{remark}
 	\(\WS^+\) and \(\WS\) have the same asymptotic growth rate.
@@ -293,7 +301,8 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
-\textsc{Proof:} Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let \(a=q-b\). \\
+\begin{proof}[\textsc{Proof.}]
+Let \((q,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\), let \(a=q-b\). \\
 We denote by \(g\) the colouring associated to the partition of \([\![1,q]\!]\) and \(h\) the
 one associated to the partition of \([\![1,p]\!]\).
 \[ g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } (A_{g^{-1}(1)},...A_{g^{-1}(q)})\text{ is a \(b\)-WSF-template.}
@@ -361,8 +370,6 @@ We distinguish two cases:
 \item If  \(\pi(x)+\pi(y)\leqslant q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) since \(g\) is sum-free for \(x>b\)
 \\if \(g(\pi(x+y))=n, f(x+y)\geqslant n > f(x)\)
 \\else, \(f(x+y)=g(\pi(x+y))=g(\pi(\pi(x)+\pi(y))\neq g(\pi(x))=f(x)\)
-
-
 \end{itemize}
 
 
@@ -401,6 +408,7 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \\Since \(g\) is sum-free for \(x>b\), since \(g(\pi(x)) = g(\pi(y))=n\), \(g(\pi(x+y)) \neq g(\pi(x))=n\)
 \\Hence, \(f(x+y) <n\leqslant f(x)\)
 \end{itemize}
+\end{proof}
 
 \begin{corollary}
 The general lower bound for weak Schur numbers in function of both regular and weak Schur numbers can be seen as a particular
@@ -442,8 +450,10 @@ And the associated inequality :
 	\[ \WS^+(n+k) \geqslant S^+(k+1) \WS^+(n) \]
 \end{corollary}
 
-\textsc{Proof :} The idea is the same as in the previous theorem. The only difference is the \(SF\) property inherited
-from the second \(SF\)-template.
+\begin{proof}[\textsc{Proof.}]
+The idea is the same as in the previous theorem. The only difference is the WSF property inherited
+from the WSF-template.
+\end{proof}
 
 
 

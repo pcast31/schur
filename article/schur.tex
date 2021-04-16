@@ -35,8 +35,10 @@ A SF-template with length \(p\) and \(n\) colors is defined as a partition of \(
 	\]
 \end{proposition}
 
-\textsc{Proof :} The lower bound comes from Abbott and Hanson's construction. The upper bound comes from the 
+\begin{proof}[\textsc{Proof.}]
+The lower bound comes from Abbott and Hanson's construction. The upper bound comes from the 
 fact that a SF-template with length \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets.
+\end{proof}
 
 \begin{remark}
 	\(S^+\) and \(S\) have the same asymptotic growth rate.
@@ -153,9 +155,10 @@ line number and the other colors are still vertically extended.
 \end{tabular}
 \end{center}
 
-We know proceed to prove the above mentioned theorem.\\
+We now proceed to prove the above mentioned theorem.\\
 
-\textsc{Proof:} We denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\)
+\begin{proof}[\textsc{Proof.}]
+We denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\)
 and \(g\) the one associated to the sum-free partition of \([\![1,q]\!]\).
 
 \[ f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!] \text{ and } \forall (x,y) \in [\![1,p]\!]^2, \left\{
@@ -214,12 +217,11 @@ Because of the assumption \(h(x) > k\), we necessarily have \(f(p-u) = k+1 = f(p
 Then \(f(p-(u+v-p)) = f(p-u + p-v) \leqslant k \) with the sum-free condition on \(f\), 
 hence \(h(x+y) = f(p-(u+v-p)) \) by construction of \(h\). Thus \(h(x+y) \leqslant k < h(x)\).
 \end{itemize}
+\end{proof}
 
-\begin{remark}
 The following proposition can help improve the additive constant of a SF-template. Although it does not allow us to 
 improve the SF-templates we have found, the analogous of this proposition for WSF-templates (see next section) 
 allows us to improve one of them.
-\end{remark}
 
 \begin{proposition}
 Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k+1\) 
@@ -292,9 +294,10 @@ And the associated inequality :
 	\[ S^+(n+k) \geqslant S^+(k+1)S^+(n) \]
 \end{corollary}
 
-\textsc{Proof :} The idea is the same as in the previous theorem. The only difference is the \(SF\) property inherited 
-from the second \(SF\)-template.
-
+\begin{proof}[\textsc{Proof.}]
+The idea is the same as in the previous theorem. The only difference is the SF property inherited 
+from the second SF-template.
+\end{proof}
 
 
 \subsection{New lower bounds for Schur numbers}
