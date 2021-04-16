@@ -2,10 +2,10 @@
 \label{Schur}
 
 \qquad In this section, we use Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur 
-numbers. To improve lower bounds for Ramsay's numbers, Rowley introduces special sum-free partitions verifying 
-some additional properties which can be extended using a method generalizing Abbott and Hanson's construction 
-\cite{AbbottHanson}. Rowley named these partitions "templates", and we keep this name in the entire article. We 
-then find new templates and use them to provide new lower bounds for Schur numbers.
+numbers. In order to improve lower bounds for Schur and Ramsey numbers, Rowley introduces special sum-free 
+partitions verifying some additional properties which can be extended using a method generalizing Abbott and 
+Hanson's construction \cite{AbbottHanson}. Rowley named these partitions "templates", and we keep this name in 
+the entire article. We then find new templates and use them to provide new lower bounds for Schur numbers.
 
 \subsection{Definition of \(S^+\)}
 
@@ -246,41 +246,7 @@ intereact will all the columns when it comes to creating new sums. As a result, 
 row can be weakened.
 \end{remark}
 
-\begin{definition}
-A SF-template with \(n\) colors is said to be symmetric if the partition in \(n\) sum-free subsets derived (with the additive constant) from this template is symmetric. 
-A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), \(x\) and \(p + 1 - x\) belong to the same subset 
-(except if \(x = p + 1 - x\)).
-\end{definition}
-
-Using a SAT solver, we exhibited SF-templates, hence providing lower bound on \(S^+\) and inequalities 
-of the type \(S(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
-\((a, b)\) (for the lexicographic order). When the number of colors excceeded 5, in order to reduce the search space we 
-looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
-the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in the
-\hyperref[SAT]{SAT section}. \\
-
-Here are the best inequalities on Schur numbers so far (the templates corresponding to the third, fourth and fifth 
-inequalities can be found in the appendix):
-\[ S(n+1) \geqslant 3S(n) + 1 \]
-\[ S(n+2) \geqslant 9S(n) + 4 \]
-\[ S(n+3) \geqslant 33S(n) + 6 \]
-\[ S(n+4) \geqslant 111S(n) + 43 \]
-\[ S(n+5) \geqslant 380S(n) + 148 \]
-\[ S(n+6) \geqslant 1140S(n) + 528 \]
-
-The first inequality comes from the original Schur's paper \cite{Schur1917}. The second one is due to
-Abott \cite{AbbottHanson}
-and the third one to Rowley \cite{RowleyRamsey}. The other ones are new. \\
-
-The first 3 inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
-the last in the order of apparition (and with a multiplicative factor less than or equal to 118). The fifth one is most 
-likely not optimal but should not be too far from the optimal SF-template. 
-Finally, the sixth one is obtained by combining (see below) the SF-template of length 380 and the one of length 3. 
-Although we could not find a better SF-template with 7 colors, the last inequality is definetely very far from the 
-optimal value. One may try to seek better templates by constraining less the search space and by using 
-Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.\\
-
-We also have a similar theorem where only \(S^+\) is involved.
+We also have a similar construction theorem where only \(S^+\) is involved.
 
 \begin{theorem}
 	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template of \(k+1\) colors and lenght \(p\),
@@ -302,6 +268,42 @@ from the second SF-template.
 
 \subsection{New lower bounds for Schur numbers}
 
+\begin{definition}
+A SF-template with \(n\) colors is said to be symmetric if the partition in \(n\) sum-free subsets derived (with the additive constant) from this template is symmetric. 
+A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), \(x\) and \(p + 1 - x\) belong to the same subset 
+(except if \(x = p + 1 - x\)).
+\end{definition}
+
+Using a SAT solver, we exhibited SF-templates, hence providing lower bound on \(S^+\) and inequalities 
+of the type \(S(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
+\((a, b)\) (for the lexicographic order). When the number of colors excceeded 5, in order to reduce the search space we 
+looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
+the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
+
+\par
+Here are the best inequalities on Schur numbers so far (the templates corresponding to the third, fourth and fifth 
+inequalities can be found in the appendix):
+\[ S(n+1) \geqslant 3S(n) + 1 \]
+\[ S(n+2) \geqslant 9S(n) + 4 \]
+\[ S(n+3) \geqslant 33S(n) + 6 \]
+\[ S(n+4) \geqslant 111S(n) + 43 \]
+\[ S(n+5) \geqslant 380S(n) + 148 \]
+\[ S(n+6) \geqslant 1140S(n) + 528 \]
+
+The first inequality comes from  Schur's original article\cite{Schur1917}. The second one is due to
+Abott \cite{AbbottHanson}
+and the third one to Rowley \cite{RowleyRamsey}. The other ones are new.
+
+\par
+The first 3 inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
+the last in the order of apparition (and with a multiplicative factor less than or equal to 118). The fifth one is most 
+likely not optimal but should not be too far from the optimal. 
+Finally, the sixth one is obtained by combining (see below) the SF-template of length 380 and the one of length 3. 
+Although we could not find a better SF-template with 7 colors, the last inequality is definetely very far from the 
+optimal value. One may try to seek better templates by constraining less the search space and by using 
+Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.
+
+\par
 The previous inequalities give new lower bounds for \(S(n)\) for
 \( n \geqslant 9 \). We compute the lower
 bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n
@@ -332,6 +334,7 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, pleas
 	\hline
 \end{tabular}
 \end{center}
+
 Except for 8, 9 and 13, the best lower bounds are obtained thanks to
 the third inequality \( S(n+5) \geqslant 380S(n) + 148\). The table
 doesn't go any further, but the same inequality allows to improve the
@@ -340,8 +343,11 @@ lower bounds for every \( n \geqslant 15 \).
 \begin{corollary}
 The growth rate for Schur numbers (and Ramsey numbers \(R_n(3)\))  satisfies \(\gamma \geqslant \sqrt[5]{380} \approx 3.28 \).
 \end{corollary}
-\textsc{Proof :} It is a mere consequence of the inequality \( S(n+5) \geqslant 380S(n) + 148\). As for Ramsey's
-numbers growth rate, a lower bound can be found using Schur's one, thanks to \(S(n) \leqslant R_n(3)-2 \)
-(see \cite{Schur1917}).
+
+\begin{proof}[\textsc{Proof.}]
+It is a mere consequence of the inequality \( S(n+5) \geqslant 380S(n) + 148\). As for Ramsey
+numbers, the following inequality holds \(S(n) \leqslant R_n(3) - 2\) (see \cite{AbbottHanson}).
+\end{proof}
+
 
 \subsection{Conclusion on SF-templates}
