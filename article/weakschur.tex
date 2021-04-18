@@ -158,7 +158,7 @@ Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 Let \((x,y)\in (\mathbb{N}^*)^2\),
 
 \begin{align*}
- \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
+ \pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
 & = (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a)\ mod a) \\
 & = (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
 & =(Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
@@ -352,7 +352,7 @@ We distinguish two cases:
 \item If \(r(x)+r(y) \in [\![b-a+1,b]\!]\), \(h(\lambda(x))=f(x)+1-n=f(y)+1-n=h(\lambda(y))\)
 Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \begin{align*}
- \\\lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
+ \lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
 & = \lambda(x)+\lambda(y)+\left\lfloor\dfrac{r(x)+r(y)-b-1}{a}\right\rfloor+1 \\
 & = \lambda(x)+\lambda(y) -1 +1 \text{ since } r(x)+r(y) \in [\![b-a+1,b]\!] \\
 & =\lambda(x)+\lambda(y)
@@ -360,7 +360,7 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 
 
 \begin{align*}
- \\\text{if \(f(x+y) \geqslant n\), }f(x+y) & =n-1+h(\lambda(x+y))\\
+ \text{if \(f(x+y) \geqslant n\), }f(x+y) & =n-1+h(\lambda(x+y))\\
 & =n-1+h(\lambda(x)+\lambda(y)) \\
 & \neq n-1+h(\lambda(x))\\
 & =f(x)
