@@ -27,17 +27,11 @@ In particular, if we choose \(q = \WS (n)\) and \(p = S(k)\) in the last theorem
 \right \rceil +1 \right) + \WS (n)\)
 \end{corollary}
 
-\begin{remark}
-This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers.
-\end{remark}
+This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers. This formula includes
+the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give new lower bounds.
 
 \begin{remark}
-This formula includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give
-new lower bounds.
-\end{remark}
-
-\begin{remark}
-In the above ineqality, a "\(+1\)" can be added to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
+The above inequality can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
 odd in the theorem). However, it makes the proof less clear and it is never useful in practice.
 \end{remark}
 
@@ -127,9 +121,7 @@ Let \((a,b) \in (\mathbb{N}^*)^2\),\(a>b\), \(n \in \mathbb{N}^*\), we will defi
 
 We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
 
-\begin{remark}
 \(\pi\) is the projection on the first line mentioned in the intuitive explanation.
-\end{remark}
 
 \begin{proposition}
 Let x \(\in [\![1,b]\!]\), let  \(y \in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\), then we have: \(\pi(x+y)=x+\pi(y)\)
@@ -183,9 +175,7 @@ Let \((a,b) \in (\mathbb{N}^*)^2\), \(a>b\), let \(n \in\mathbb{N}\) we will def
 
 We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
 
-\begin{remark}
 In the following theorem, \(\lambda\) is the function which maps an element x to its line number as mentioned in the intuitive explanation.
-\end{remark}
 
 \begin{proposition}
 Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
@@ -220,10 +210,7 @@ x+y>p \implies \pi(x+y) \notin A_i
 \]
 \end{definition}
 
-
-\begin{remark}
-	Please note that the special color \(n\) is not necessarily the last color by order of appearance.
-\end{remark}
+Please note that the special color \(n\) is not necessarily the last color by order of appearance.
 
 \begin{definition}
 Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\)
@@ -390,15 +377,10 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \end{itemize}
 \end{proof}
 
-\begin{corollary}
 The general lower bound for weak Schur numbers in function of both regular and weak Schur numbers can be seen as a particular
-case of WSF-template in the same way Abott and Hanson's construction can be seen as a particular case of SF-template.
-\end{corollary}
-
-\begin{remark}
-Acutally, like for SF-templates, the additive constant of a WSF-template can be improved by weakening the hypotheses made on 
+case of WSF-template in the same way Abott and Hanson's construction can be seen as a particular case of SF-template. Acutally,
+like for SF-templates, the additive constant of a WSF-template can be improved by weakening the hypotheses made on 
 the last row. The principle behind it is the same as in the analogous proposition for SF-templates. 
-\end{remark}
 
 \begin{proposition}
 Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to a \(b\)-WSF-template of length \(p\) with \(k\) colors. Let
@@ -416,7 +398,6 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
-\begin{remark}
 The WSF-templates can actually be fine-tuned further. However, it gives only minor improvements (most likely only an additive
 constant) at the cost of dramatically increasing the size of the search space. Therefore, it does not seem relevant to
 use this sophistications given that we could not even find good WSF-templates with 5 colors using a computer (here good
@@ -436,7 +417,6 @@ To sum up, one can look for a generalised WSF-template that uses a special colou
 colouring dedicated to the rows whose number is not 1 but is in the first color in the sum-free partition, a colouring for all
 the other rows and a special colouring for the last numbers (as previously explained for the improvement of the additive
 constant of WSF-templates).
-\end{remark}
 
 We also have a similar theorem where only \(\WS^+\) is involved.
 
