@@ -158,7 +158,7 @@ Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 Let \((x,y)\in (\mathbb{N}^*)^2\),
 
 \begin{align*}
- \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
+ \pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
 & = (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a)\ mod a) \\
 & = (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
 & =(Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
@@ -292,11 +292,11 @@ We have parted the integers of \([\![1,b+pa]\!]\) in three disjoints subsets \(\
 
 We have to verify that f induces weakly-sum-free templates:\\
 \\
-\underline{if \((x,y) \in \mathcal{T}^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T}^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\\(x+y<a+b\) since \(b<a\) and \(g(x)=f(x)=f(y)=g(y)\).
 \\Hence \(f(x+y)=g(x+y)\neq g(x)=f(x)\)
 \\\\
-\underline{if \((x,y) \in \mathcal{T} \times \mathcal{C}\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T} \times \mathcal{C}\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 We distinguish two cases:
 
 
@@ -311,7 +311,7 @@ We distinguish two cases:
 \end{itemize}
 
 
-\underline{if \((x,y) \in \mathcal{T} \times \mathcal{R}\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T} \times \mathcal{R}\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\Then, \(f(x)=f(y)=n\). We distinguish two cases:
 
 
@@ -326,7 +326,7 @@ We distinguish two cases:
 \\if \(\pi(x+y) \in A_n\), \(f(x+y)=n-1+h(\lambda(x+y))>n\)
 \end{itemize}
 
-\underline{if \((x,y) \in \mathcal{C}^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{C}^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases:
 
 \begin{itemize}
@@ -343,7 +343,7 @@ We distinguish two cases:
 
 \underline{if \((x,y) \in \mathcal{C} \times \mathcal{R} \), \(f(x)\neq f(y)\)}\\
 
-\underline{if \((x,y) \in (\mathcal{R})^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in (\mathcal{R})^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\Let \(r(x)=\pi(x)-a\) and \(r(y)=\pi(y)-a\),
 \\We proved that \(x=a\lambda(x)+\pi(x)-a\), therefore \(x=a\lambda(x)+\pi(x)\)
 \\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases:
@@ -352,7 +352,7 @@ We distinguish two cases:
 \item If \(r(x)+r(y) \in [\![b-a+1,b]\!]\), \(h(\lambda(x))=f(x)+1-n=f(y)+1-n=h(\lambda(y))\)
 Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \begin{align*}
- \\\lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
+ \lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
 & = \lambda(x)+\lambda(y)+\left\lfloor\dfrac{r(x)+r(y)-b-1}{a}\right\rfloor+1 \\
 & = \lambda(x)+\lambda(y) -1 +1 \text{ since } r(x)+r(y) \in [\![b-a+1,b]\!] \\
 & =\lambda(x)+\lambda(y)
@@ -360,7 +360,7 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 
 
 \begin{align*}
- \\\text{if \(f(x+y) \geqslant n\), }f(x+y) & =n-1+h(\lambda(x+y))\\
+ \text{if \(f(x+y) \geqslant n\), }f(x+y) & =n-1+h(\lambda(x+y))\\
 & =n-1+h(\lambda(x)+\lambda(y)) \\
 & \neq n-1+h(\lambda(x))\\
 & =f(x)
