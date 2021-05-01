@@ -116,7 +116,7 @@ for the general theorem regarding templates for weak Schur numbers.
 \begin{definition}
 
 Let \((a,b) \in (\mathbb{N}^*)^2\),\(a>b\), \(n \in \mathbb{N}^*\), we will define \(\pi_{a,b}\) the projection:
-\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a))\]
+\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
 \end{definition}
 
 We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
@@ -143,7 +143,7 @@ if \(x+\pi(y)\geqslant a\):
  \pi(x+y) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)\\
 & = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a)\text{ since } \pi(y)=y \mod a \\
 & = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
-& = x+\pi(y) - a +a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
+& = x+\pi(y) - a +a\mathds{1}_{ [\![0,b]\!]}(x+\pi(y) - a) \\
 & = x+\pi(y) - a +a \text{ \quad since } x+\pi(y) - a \in [\![0,b]\!] \\
 & = x+\pi(y)
 \end{align*}
@@ -158,7 +158,7 @@ Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
 Let \((x,y)\in (\mathbb{N}^*)^2\),
 \begin{align*}
  \pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
-& = (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a)\ mod a) \\
+& = (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a)\mod a) \\
 & = (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
 & =(Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
 & =\pi(x+y)
@@ -174,7 +174,7 @@ Let \((a,b) \in (\mathbb{N}^*)^2\), \(a>b\), let \(n \in\mathbb{N}\) we will def
 
 We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
 
-In the following theorem, \(\lambda\) is the function which maps an element x to its line number as mentioned in the intuitive explanation.
+In the following theorem, \(\lambda\) is the function which maps an element \(x\) to its line number as mentioned in the intuitive explanation.
 
 \begin{proposition}
 Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
@@ -186,7 +186,7 @@ Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\),\\
 if \(x \mod a>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\)
 
 if \(x \mod a \leqslant b\):
-\(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+\text{x mod a}+a=x\)
+\(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+(x \mod a)+a=x\)
 \end{proof}
 
 
@@ -281,8 +281,8 @@ Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) as follows:
 
 \begin{itemize}
 \item if  \(x\leqslant b \text{ (we will note }x \in \mathcal{T}): f(x)=g(x)\)
-\item if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
-\item if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
+\item if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n (\text{ we will note } x \in \mathcal{C}): f(x)=g(\pi(x))\)
+\item if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n (\text{ we will note } x \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
 \end{itemize}
 
 \(f\) is well defined since \(\pi\) is defined for \(x>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because \(h(\lambda(x))\leqslant k\)
