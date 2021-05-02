@@ -14,6 +14,7 @@ weak Schur numbers. The following theorem, inspired by Rowley's inequalities for
 was found and proved by Romain Ageron.
 
 \begin{theorem}
+\label{theorem}
 Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free
 subsets then there exists a partition of \([\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]\) into \(n+k\)
@@ -37,7 +38,7 @@ odd in the theorem). However, it makes the proof less clear and it is never usef
 
 Given that this theorem will appear as a particular case of a more general theorem after the introduction of
 templates for weak Schur numbers, we only give here an intuitive explanation of the above theorem; a formal
-proof can be found in the appendix.
+\hyperref[proof_theorem]{proof} can be found in the appendix.
 
 Let \((p, q) \in \mathbb{N}^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\)
@@ -97,13 +98,13 @@ Let \((x, y) \in \mathcal{R}^2\). The cases are twofold.
 \end{itemize}
 
 \underline{\textbf{\(\mathcal{C}\) block}} \\
-In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) according to its column number (written \(\tilde{\pi}(x)\), it is linked to the
-projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\)). A simple solution is to colour \(x\) with the same colour
+In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) according to its column number, written \(\tilde{\pi}(x)\). It is linked to the
+projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\). A simple solution is to colour \(x\) with the same colour
 as \(\tilde{\pi}(x)\) in the weakly sum-free colouring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there
 is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when
 taking two numbers in the same column), the colours \(1, ..., n\) are sum-free.
 
-In particular, taking \(w = l = \lceil \displaystyle \frac{q}{2} \rceil\) and \(r = \lfloor \displaystyle \frac{q}{2} \rfloor\) works, thus obtaining the above theorem.\\
+In particular, taking \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rceil\) and \(r = \left\lfloor \displaystyle \frac{q}{2} \right\rfloor\) works, thus obtaining the above theorem.\\
 \par
 As in the previous section, we now introduce WSF-templates and the sequence \(\WS^+\) in order to generalize the above construction.
 
@@ -115,7 +116,7 @@ for the general theorem on templates for weak Schur numbers.
 \begin{definition}
 
 Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
-\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a))\]
+\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
 \end{definition}
 
 If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\).
@@ -400,7 +401,7 @@ Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to
 \implies g(\pi(x + y)) \neq f(x)\)
 \end{itemize}
 
-Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n)\), we have\\
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have\\
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
@@ -451,19 +452,15 @@ from the WSF-template.
 \mathbb{N}^*\):
 
 \[
-\WS(n+1) \geqslant 4S(n) + 1
-\]
-\[
-\WS(n+2) \geqslant 13S(n) + 8
-\]
-\[
-\WS(n+3) \geqslant 42S(n) + 24
-\]
-\[
-\WS(n+4) \geqslant 132S(n) + 26
+\begin{array}{r r r r r}
+	WS(n + 1) & \geqslant & 4 S(n) & + & 2 \\
+	WS(n + 2) & \geqslant & 13 S(n) & + & 8 \\
+	WS(n + 3) & \geqslant & 42 S(n) & + & 24 \\
+	WS(n + 4) & \geqslant & 132 S(n) & + & 26 \\
+\end{array}
 \]
 
-The first two inequalities were found by Rowley, they are detailed in [2]. The third inequality is optimal and was found with a SAT solver.
+The first two inequalities were found by Rowley, they are detailed in \cite{RowleyWS}. The third inequality is optimal and was found with a SAT solver.
 It uses the first sophistication explained in the previous subsection in order to add the last number in the first color.
 As for the fourth inequality, it was obtained by combining an optimal SF-template of length 33 with a WSF-template of length 4.
 The best template we could get with a computer search gives the inequality \(\WS(n+4) \geqslant 127 S(n) + 68\).
