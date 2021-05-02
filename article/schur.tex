@@ -153,64 +153,74 @@ line number and the other colors are still vertically extended.
 We now proceed to prove the above mentioned theorem.\\
 
 \begin{proof}[\textsc{Proof.}]
-We denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\)
-and \(g\) the one associated to the sum-free partition of \([\![1,q]\!]\).
+Denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\) and \(g\) the one associated 
+to the sum-free partition of \([\![1,q]\!]\); where \(f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!]\) and 
+\(g : [\![1,q]\!] \longrightarrow [\![1,n]\!]\).
 
-\[ f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!] \text{ and } \forall (x,y) \in [\![1,p]\!]^2, \left\{
+\par
+The sum-free condition is expressed as
+\[\forall (x,y) \in [\![1,p]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)\]
+\[\forall (x,y) \in [\![1,q]\!]^2 \text{, } g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)\]
+
+The additionnal constraint for the SF-template is
+\[
+\forall (x,y) \in [\![1,p]\!]^2, \left\{
 \begin{array}{ll}
 	f(x) = f(y) \leqslant k \\
 	x + y > p
 \end{array}
-\right.
-\Longrightarrow f(x+y-p) \neq f(x)
-\]
-with also the sum-free condition : \[ \forall (x,y) \in [\![1,p]\!]^2 \text{, } f(x) = f(y)
-\Longrightarrow f(x+y) \neq f(x) \]
-Moreover, by definition of \(m_{k+1}\), if \(x < m_{k+1}\), \(f(x) \leqslant k\).
-
-\[g : [\![1,q]\!] \longrightarrow [\![1,n]\!] \text{ and } \forall (x,y) \in [\![1,q]\!]^2 \text{, } g(x) = g(y)
-\Longrightarrow g(x+y) \neq g(x)
+\right. \Longrightarrow f(x+y-p) \neq f(x)
 \]
 
-We now define \(h : [\![1,pq+m_{k+1}-1]\!] \longrightarrow [\![1,n+k]\!] \) as follows :
-\( \forall x \in [\![1,pq + m_{k+1}-1]\!] \), we write \(x = \alpha p - u\) where \(\alpha \in [\![1,q+1]\!] \) and \( u \in
-[\![0,p-1]\!] \).
-This decomposition if of course unique. \\
+For \(x \in [\![1,pq+m_{k+1}-1]\!]\), write \(x = (\alpha - 1) + u\) for some integers \(\alpha \in \mathbb{Z}\) and 
+\(u \in [\![1,p]\!]\). This decomposition is of course unique. \(\alpha\) (resp. \(u\)) can be interpreted as the row 
+(resp. column) number of \(x\). Define a new coloring \(h\) as follows
+\[
+\begin{array}{c c c l}
+	h : & [\![1,pq+m_{k+1}-1]\!] & \longrightarrow & [\![1,n+k]\!] \\
+	& x & \longmapsto & 
+	\left\{ \begin{array}{l l}
+		f(u) & \text{if}~f(u) \leqslant k \\
+		k + g(\alpha) & \text{if}~f(u) = k + 1 \\
+	\end{array} \right.
+\end{array}
+\]
 
-If \(f(p-u) \leqslant k\), we set \(h(x) = f(p-u)\), else (i.e \(f(p-u) = k + 1)\) \(h(x) = k + g(\alpha) \). \\
-If \(\alpha = q+1\), we have a problem plugging it into \(g\). Hopefully, this issue never arises : if 
-\(\alpha = q+1\), we have \(u > p - m_{k+1}\) since \(x \in [\![1,pq + m_{k+1}-1]\!]\), hence \(p-u < m_{k+1}\) and \(f(p-u) \leqslant k\). \\
+\(h\) is well-defined since, by definition of \(m_{k+1}\), \(\forall x \in [\![p q + 1, p q + m_{k + 1} - 1 ]\!], f(u) 
+\leqslant k\) and therefore \(\forall x \in [\![1,pq+m_{k+1}-1]\!], f(u) = k + 1 \implies \alpha \in [\![1, q]\!]\).
 
-Prooving that the partition of \([\![1,pq]\!]\) induced by \(h\) is sum-free will complete the proof.\\
+\par
+We now prove that \(h\) is a sum-free coloring. Let \(x,y \in [\![1,pq + m_{k+1}-1]\!]\) such that \(h(x) = h(y)\) 
+and \(x+y \leqslant pq+m_{k+1}-1\). We claim that \(h(x+y) \neq h(x)\). Write \(x = (\alpha - 1) p + u\) and 
+\(y = (\beta - 1) p + v\) where \(\alpha, \beta \in \mathbb{Z}\) and \(u, v \in [\![1,p]\!]\). Distinguish between 
+two cases according to the value of \(h(x)\). \\
 
-Let \(x,y \in [\![1,pq + m_{k+1}-1]\!]\), with \(h(x) = h(y)\) and \(x+y \leqslant pq+m_{k+1}-1\). We write \(x = \alpha p - u\) and \(y =
-\beta p - v\). We simply need \(h(x+y) \neq h(x)\). \\
+\noindent \underline{\textbf{First case:} \(h(x) \leqslant k\)} \\
+\qquad Assume that \(h(x+y) \leqslant k\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of \(h\) 
+and given that \(h(u) = h(v)\), \(f(u) = f(v)\). Distinguish between two cases according to the value of \(x + y\).
 
-We first examine the case where \(h(x) \leqslant k\). We assume \(h(x+y) \leqslant k\), otherwise we are fine. 
-Thus by definition of \(h\), we have \(h(x) = f(p-u) = f(p-v) = h(y)\).
 \begin{itemize}
-\item If \(u+v < p\), then \(x+y = (\alpha+\beta)p - (u+v) \) with \(u+v \in [\![0,p-1]\!] \).
-We have \(f(p-u) = f(p-v) \leqslant k\) and \(p-u + p-v > p\), the extra condition on \(f\) provides \(f(p-u-v) \neq
-f(p-u)\).
-We assumed \(h(x+y) \leqslant k\) hence \(h(x+y) = f(p-u-v)\). Since \(h(x) = f(p-u)\), we have at last \(h(x+y) \neq
-h(x)\).
-\item If \(u+v \geqslant p\), then \(x+y = (\alpha+\beta-1)p - (u+v-p) \) with \(u+v-p \in [\![0,p-1]\!] \).
-We assumed \(h(x+y) \leqslant k \) hence \(h(x+y) = f( p- (u+v-p)) = f(p-u + p-v)\). Since \(f(p-u+p-v) \neq f(p-u)\),
-we get \(h(x+y) \neq h(x)\).
+\item If \(u + v > p\), write \(w = u + v - p \in [\![1, p]\!]\). Then \(x + y = (\alpha + \beta - 1) p + w\). By definition, 
+	\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant k\), the additionnal constraint on \(f\) implies \(f(w) 
+	\neq f(u)\), that is \(h(x + y) \neq h(x)\).
+\item If \(u + v \leqslant p\), write \(w = u + v \in [\![1, p]\!]\). Then \(x+y = (\alpha + \beta- 2) p + w\). By definition, 
+	\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant k\), the sum-free property of \(f\) implies \(f(w) \neq f(u)\), 
+	that is \(h(x + y) \neq h(x)\).
 \end{itemize} 
   
-We now assume \(h(x) > k\). Then \(h(x) = k + g(\alpha) = k + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). 
-We have the two same cases as before.
+\noindent \underline{\textbf{Second case:} \(h(x) \geqslant k + 1\)} \\
+\qquad \(h(x) = k + g(\alpha) = 
+k + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). As in the first case, distinguish between two cases according 
+to the value of \(x + y\).
 
 \begin{itemize}
-\item If \(u+v < p\), then \(x+y = (\alpha+\beta)p - (u+v) \) with \(u+v \in [\![0,p-1]\!] \).
-We assume \(h(x+y) > k\) otherwise the expected result is trivial.
-Since \(g(\alpha) = g(\beta)\), the sum-free condition garanties \(g(\alpha) \neq g(\alpha+\beta)\), 
-thus \(h(x+y) = k + g(\alpha + \beta) \neq k + g(\alpha) = h(x)\).
-\item If \(u+v \geqslant p\), then \(x+y = (\alpha+\beta-1)p - (u+v-p) \) with \(u+v-p \in [\![0,p-1]\!] \).
-Because of the assumption \(h(x) > k\), we necessarily have \(f(p-u) = k+1 = f(p-v)\). 
-Then \(f(p-(u+v-p)) = f(p-u + p-v) \leqslant k \) with the sum-free condition on \(f\), 
-hence \(h(x+y) = f(p-(u+v-p)) \) by construction of \(h\). Thus \(h(x+y) \leqslant k < h(x)\).
+\item If \(u + v > p\), write \(w = u + v - p \in [\![1, p]\!]\). Then \(x + y = (\alpha + \beta - 1) p + w\). Assume that 
+	\(h(x+y) \geqslant k + 1\),  otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition, \(h(x + y) = k + g(\alpha + 
+	\beta)\). Given that \(g(\alpha) = g(\beta)\), the sum-free property of \(g\) implies \(g(\alpha + \beta) 
+	\neq g(\alpha)\) that is \(h(x + y) \neq h(x)\).
+\item  If \(u + v \leqslant p\), write \(w = u + v \in [\![1, p]\!]\). Then \(x+y = (\alpha + \beta- 2) p + w\). The sum-free 
+	property of \(f\) implies \(f(w) \neq f(u)\). Therefore \(f(w) \leqslant k\) and thus \(h(x + y) \leqslant k\). In particular,
+	given that \(h(x) \geqslant k + 1\), \(h(x + y) \neq h(x)\).
 \end{itemize}
 \end{proof}
 
@@ -276,12 +286,16 @@ the \(m_c\)'s out of being too small. Further details about the encoding as a SA
 \par
 Here are the best inequalities on Schur numbers so far (the templates corresponding to the third, fourth and fifth 
 inequalities can be found in the appendix):
-\[ S(n+1) \geqslant 3S(n) + 1 \]
-\[ S(n+2) \geqslant 9S(n) + 4 \]
-\[ S(n+3) \geqslant 33S(n) + 6 \]
-\[ S(n+4) \geqslant 111S(n) + 43 \]
-\[ S(n+5) \geqslant 380S(n) + 148 \]
-\[ S(n+6) \geqslant 1140S(n) + 528 \]
+\[
+\begin{array}{r r r r r}
+	S(n + 1) & \geqslant & 3 S(n) & + & 1 \\
+	S(n + 2) & \geqslant & 9 S(n) & + & 4 \\
+	S(n + 3) & \geqslant & 33 S(n) & + & 6 \\
+	S(n + 4) & \geqslant & 111 S(n) & + & 43 \\
+	S(n + 5) & \geqslant & 380 S(n) & + & 148 \\
+	S(n + 6) & \geqslant & 1140 S(n) & + & 528 \\
+\end{array}
+\]
 
 The first inequality comes from  Schur's original article\cite{Schur1917}. The second one is due to
 Abott \cite{AbbottHanson}
