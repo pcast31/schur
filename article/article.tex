@@ -14,6 +14,7 @@
 
 \usepackage[table]{xcolor}
 \usepackage{multirow}
+\usepackage{nicematrix}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 
 \renewcommand{\qedsymbol}{\(\square\)}
@@ -27,7 +28,9 @@
 \newtheorem{proposition}{Proposition}[section]
 
 \newcommand{\WS}{\mathit{WS}}
-
+\newcommand{\docarraystretch}{1.2}
+\newcommand{\resetarraystretch}{\renewcommand{\arraystretch}{\docarraystretch}}
+\resetarraystretch
 
 
 \begin{document}
@@ -43,8 +46,8 @@ both Schur numbers and Ramsey numbers \(R_n(3)\). We also developed a new method
 weak Schur numbers. Furthermore, this paper tries to analyze former works on the subject based on the principle 
 that good partitions into \(n+1\) subsets start with good partitions into \(n\) subsets. We show that exceeding the 
 previous lower bound \(\WS (6) \geqslant 582\) is impossible with such an assumption upon imposing certain conditions 
-on the good 5-subsets partition. The new lower bounds include \(S(9) \geqslant 17803\), \(S(10) \geqslant 60948\),
-\(\WS (9) \geqslant 22536 \) and \(\WS (10) \geqslant 71214 \).
+on the good 5-subsets partition. The new lower bounds include \(S(9) \geqslant 17\,803\), \(S(10) \geqslant 60\,948\),
+\(\WS (9) \geqslant 22\,536 \) and \(\WS (10) \geqslant 71\,214 \).
 
 \end{abstract}
 

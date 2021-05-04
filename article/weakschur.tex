@@ -57,7 +57,10 @@ Like SF-templates, \(\mathcal{R}\) and \(\mathcal{C}\) play the role of security
 this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the
 sum of the columns modulo \(a\).
 
-\renewcommand{\arraystretch}{2}
+\renewcommand{\arraystretch}{1.7}
+
+
+
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
 \cline{6-9}
@@ -75,7 +78,8 @@ p a - l & ... & ... & ... &p a & ... & ... & .... & p a + r & ... & ... & ... & 
 \hline
 \end{array}
 \]
-\renewcommand{\arraystretch}{1}
+
+\resetarraystretch
 
 \underline{\textbf{\(\mathcal{T}\) block}} \\
 We color this block using the weakly sum-free colouring of \([\![1,q]\!]\) with colors \(1, ..., n\).
@@ -181,7 +185,7 @@ Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
 
 If there is no confusion on the \(a\) and \(b\) to use, \(\lambda_{a, b}\) is denoted by \(\lambda\).
 
-\(\lambda\) is the function which maps an element x to its line number as mentioned in the intuitive explanation.
+\(\lambda\) is the function which maps an element \(x\) to its line number as mentioned in the intuitive explanation.
 
 \begin{proposition}
 Let \((a,b)\in (\mathbb{N}^*)^2\) such that \(a>b\) and let \(x\in \mathbb{N}^*\). Then \(x=a\lambda(x)+\pi(x)-a\).
@@ -478,29 +482,29 @@ for each integer is highlighted.
     \hline
 	n & 8 & 9 & 10 & 11 \\
 	\hline
-	\(4S(n-1) + 2 \) & 6722 & 21146 & \cellcolor{yellow} 71214 & \cellcolor{yellow} 243794\\
+	\(4S(n-1) + 2 \) & 6\,722 & 21\,146 & \cellcolor{yellow} 71\,214 & \cellcolor{yellow} 243\,794\\
 	\hline
-	\(13S(n-2) + 8 \) & \cellcolor{yellow} 6976 & 21848 & 68726 & 231447\\
+	\(13S(n-2) + 8 \) & \cellcolor{yellow} 6\,976 & 21\,848 & 68\,726 & 231\,447\\
 	\hline
-	\(42S(n-3) + 24 \) & 6744 & \cellcolor{yellow} 22536 & 70584 & 222036 \\
+	\(42S(n-3) + 24 \) & 6\,744 & \cellcolor{yellow} 22\,536 & 70\,584 & 222\,036 \\
 	\hline
-	\(127S(n-4) + 68 \) & 5656 & 20388 & 68140 & 213428\\
+	\(127S(n-4) + 68 \) & 5\,656 & 20\,388 & 68\,140 & 213\,428\\
 	\hline
 	\hline
 	n & 12 & 13 & 14 & 15 \\
 	\hline
-	\(4S(n-1) + 2 \) & \cellcolor{yellow} 815314 & 2554194 & 8045162 & \cellcolor{yellow} 27061154\\
+	\(4S(n-1) + 2 \) & \cellcolor{yellow} 815\,314 & 2\,554\,194 & 8\,045\,162 & \cellcolor{yellow} 27\,061\,154\\
 	\hline
-	\(13S(n-2) + 8 \) & 792332 & \cellcolor{yellow}2649772 & 8301132 & 26146778 \\
+	\(13S(n-2) + 8 \) & 792\,332 & \cellcolor{yellow}2\,649\,772 & 8\,301\,132 & 26\,146\,778 \\
 	\hline
-	\(42S(n-3) + 24 \) & 747750 & 2559840 & \cellcolor{yellow} 8560800 &  25886224 \\
+	\(42S(n-3) + 24 \) & 747\,750 & 2\,559\,840 & \cellcolor{yellow} 8\,560\,800 &  25\,886\,224 \\
 	\hline
-	\(127S(n-4) + 68 \) & 671390 & 2261049 & 7740464 & 25886224 \\
+	\(127S(n-4) + 68 \) & 671\,390 & 2\,261\,049 & 7\,740\,464 & 25\,886\,224 \\
 	\hline
 \end{tabular}
 \end{center}
 
-With \( S(9) \geqslant 17803 \), we found a new lower bound for \(\WS(10)\) using Rowley's inequality.
+With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using Rowley's inequality.
 Moreover, the third inequality gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
 
 
