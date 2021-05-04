@@ -177,7 +177,7 @@ for the general theorem on templates for weak Schur numbers.
 \begin{definition}
 
 Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
-\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
+\[ \pi_{a,b}:x \longmapsto (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
 \end{definition}
 
 If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\).
@@ -195,8 +195,8 @@ Let  \(x\in [\![1,b]\!]\), and  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqsl
 
 \[
 \begin{array}{c c l l}
-	\pi(x+y) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a) & \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a) & \text{since } \pi(y)=y \mod a \\
+	\pi(x+y) & = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a) & \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a) & \text{since } \pi(y)=y \mod a \\
 	& = & x+ \pi(y) &
 \end{array}
 \]
@@ -204,9 +204,9 @@ Let  \(x\in [\![1,b]\!]\), and  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqsl
 \noindent if \(x+\pi(y)\geqslant a\):
 \[
 \begin{array}{c c l l}
-	\pi(x+y) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)& \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a) & \text{since } \pi(y)=y \mod a \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) & \\
+	\pi(x+y) & = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)& \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a) & \text{since } \pi(y)=y \mod a \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) & \\
 	& = & x+\pi(y) - a +a\mathds{1}_{ [\![0,b]\!]}(x+\pi(y) - a) & \\
 	& = & x+\pi(y) - a +a & \text{since } x+\pi(y) - a \in [\![0,b]\!] \\
 	& = & x+\pi(y) &
@@ -224,10 +224,10 @@ Let \((x,y)\in (\mathbb{N}^*)^2\).
 
 \[
 \begin{array}{c c l}
-	\pi(\pi(x)+\pi(y)) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a) \mod a) \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
+	\pi(\pi(x)+\pi(y)) & = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a) \mod a) \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
 	& = & \pi(x+y)
 \end{array}
 \]
@@ -262,20 +262,15 @@ Let \((a,b)\in (\mathbb{N}^*)^2\) such that \(a>b\) and let \(x\in \mathbb{N}^*\
 \begin{definition}
 Let \( (p,n,b) \in (\mathbb{N}^*)^3\), Let \((A_1,...,A_n)\) a partition of  \([\![1, p]\!]\).
 This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(n\) colors and lenght \(p\) when:
-\\\\
-\underline{\(\forall i \in [\![1, n]\!], \quad A_i\) is weakly-sum-free}
-\\\\
-\underline{\(\forall i \in [\![1, n]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free}
-\\\\
-\underline{For \(A_n\) (the special subset):} \quad \(\forall (x,y) \in A_n^2,\)
-\\
-\[x+y>b+2(p-b) \implies x+y-2(p-b)\notin A_n\]
-\\
-\underline{For the others subsets:}\quad \(\forall i \in [\![0,n-1]\!], \forall(x,y) \in A_i^2,\)
-\\
-\[
+\begin{itemize}
+\item \(\forall i \in [\![1, n]\!], \quad A_i\) is weakly-sum-free
+\item \(\forall i \in [\![1, n]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free
+\item For \(A_n\) (the special subset): \[\forall (x,y) \in A_n^2, \,
+x+y>b+2(p-b) \implies x+y-2(p-b)\notin A_n\]
+\item For the others subsets: \\ \[\forall i \in [\![0,n-1]\!], \, \forall(x,y) \in A_i^2, \,
 x+y>p \implies \pi(x+y) \notin A_i
 \]
+\end{itemize}
 \end{definition}
 
 Please note that the special color \(n\) is not necessarily the last color by order of appearance.
