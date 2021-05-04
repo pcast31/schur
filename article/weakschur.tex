@@ -59,24 +59,81 @@ sum of the columns modulo \(a\).
 
 \renewcommand{\arraystretch}{1.7}
 
-
-
 \[
-\begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
-\cline{6-9}
-   \multicolumn{5}{c|}{} & \cellcolor{green} 1 & \cellcolor{green} 2 & \cellcolor{blue} ... &\cellcolor{green} r & r + 1 & ... & b - 1 &  b \\
-\hline
-   \cellcolor{red} a - l & \cellcolor{red} a- l + 1 & \cellcolor{red} ... & \cellcolor{red} a - 1 & \cellcolor{red} a & \cellcolor{red} a + 1 & \cellcolor{red} ... &\cellcolor{red} a + r - 1 & \cellcolor{red} a + r & a + r + 1 & ... & a + b - 1 & a+ b \\
-\hline
-\cellcolor{yellow} 2 a - l &\cellcolor{yellow}...&\cellcolor{yellow}...&\cellcolor{yellow}...&\cellcolor{yellow} 2 a &\cellcolor{yellow} ... &\cellcolor{yellow} ... &\cellcolor{yellow} ... &\cellcolor{yellow} 2 a + r & ... & ... & ... & 2 a + b \\
-\hline
-...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...\cellcolor{yellow}&...&...&...&...\\
-\hline
-\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&\cellcolor{red}...&...&...&...&...\\
-\hline
-p a - l & ... & ... & ... &p a & ... & ... & .... & p a + r & ... & ... & ... & p a + b\\
-\hline
-\end{array}
+\begin{NiceArray}{|*{13}{c|}}[corners=NW,standard-cline,hlines]
+\CodeBefore
+	\cellcolor{green}{1-6}
+	\cellcolor{green}{1-7}
+	\cellcolor{cyan}{1-8}
+	\cellcolor{green}{1-9}
+	\cellcolor{cyan}{1-10}
+	\cellcolor{cyan}{1-11}
+	\cellcolor{cyan}{1-12}
+	\cellcolor{green}{1-13}
+	\cellcolor{red}{2-1}
+	\cellcolor{red}{2-2}
+	\cellcolor{red}{2-3}
+	\cellcolor{red}{2-4}
+	\cellcolor{red}{2-5}
+	\cellcolor{red}{2-6}
+	\cellcolor{red}{2-7}
+	\cellcolor{red}{2-8}
+	\cellcolor{red}{2-9}
+	\cellcolor{cyan}{2-10}
+	\cellcolor{cyan}{2-11}
+	\cellcolor{cyan}{2-12}
+	\cellcolor{green}{2-13}
+	\cellcolor{yellow}{3-1}
+	\cellcolor{yellow}{3-2}
+	\cellcolor{yellow}{3-3}
+	\cellcolor{yellow}{3-4}
+	\cellcolor{yellow}{3-5}
+	\cellcolor{yellow}{3-6}
+	\cellcolor{yellow}{3-7}
+	\cellcolor{yellow}{3-8}
+	\cellcolor{yellow}{3-9}
+	\cellcolor{cyan}{3-10}
+	\cellcolor{cyan}{3-11}
+	\cellcolor{cyan}{3-12}
+	\cellcolor{green}{3-13}
+	\cellcolor{yellow}{4-1}
+	\cellcolor{yellow}{4-2}
+	\cellcolor{yellow}{4-3}
+	\cellcolor{yellow}{4-4}
+	\cellcolor{yellow}{4-5}
+	\cellcolor{yellow}{4-6}
+	\cellcolor{yellow}{4-7}
+	\cellcolor{yellow}{4-8}
+	\cellcolor{yellow}{4-9}
+	\cellcolor{cyan}{4-10}
+	\cellcolor{cyan}{4-11}
+	\cellcolor{cyan}{4-12}
+	\cellcolor{green}{4-13}
+	\cellcolor{red}{5-1}
+	\cellcolor{red}{5-2}
+	\cellcolor{red}{5-3}
+	\cellcolor{red}{5-4}
+	\cellcolor{red}{5-5}
+	\cellcolor{red}{5-6}
+	\cellcolor{red}{5-7}
+	\cellcolor{red}{5-8}
+	\cellcolor{red}{5-9}
+	\cellcolor{cyan}{5-10}
+	\cellcolor{cyan}{5-11}
+	\cellcolor{cyan}{5-12}
+	\cellcolor{green}{5-13}
+	\cellcolor{cyan}{6-10}
+	\cellcolor{cyan}{6-11}
+	\cellcolor{cyan}{6-12}
+	\cellcolor{green}{6-13}
+\Body
+	& & & & & 1 & 2 & ... & r & r + 1 & ... & b - 1 & b \\
+	a - l & a - l + 1 & ... & a - 1 & a & a + 1 & ... & a + r - 1 & a + r & a + r + 1 & ... & a + b - 1 & a + b \\
+	2 a - l & ... & ... & ... & 2 a & ... & ... & ... & 2 a + r & ... & ... & ... & 2 a + b \\
+	... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
+	... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
+	p a - l & ... & ... & ... & p a & ... & ... & ... & p a + r & ... & ... & ... & p a + b \\
+\end{NiceArray}
 \]
 
 \resetarraystretch
