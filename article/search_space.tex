@@ -1,6 +1,6 @@
 \section{Analysis of the former search space}
 
-\qquad In this section, we first provide evidence which indicate that the main assumption made by papers which
+\qquad \hypertarget{sat}{In} this section, we first provide evidence which indicate that the main assumption made by papers which
 found the previous best known lower bounds for weak Schur numbers using a computer may not be correct. 
 This is done primarily by studying \(\WS(6)\). Then, in an effort to eliminate irrelevant search spaces, we 
 obtain stronger results than those previously known for \(\WS (5)\) while gaining several orders of magnitude 
@@ -8,7 +8,7 @@ in computation time by giving additional information to the SAT solver without l
 section, we assume that the subsets are ordered.
 
 
-\subsection{Former assumption appears to be wrong}
+\subsection{Limitation of the former assumption}
 
 \qquad Rowley's new lower bound for \(\WS (6)\) (642) \cite{RowleyWS} was a significant improvement upon
 the former best known lower bound (582) \cite{EliahouBook}. This previous lower bound has been found 
@@ -61,7 +61,7 @@ used this assumption. Therefore one may wonder if this is actually a good lower 
 properties that a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets has to verify.
 
 
-\subsection{Weak Schur number five}
+\subsection{Investigating weak Schur number five}
 
 \qquad As explained in the previous subsection, the search space used for showing that \(\WS (5) \geqslant 196\) may not contain
 optimal solution. In this subsection,
@@ -92,6 +92,7 @@ the 3 partitions of \([\![1,23]\!]\) in
 different subsets. We hardcoded
 this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation
 time. Since \(\WS (4) = 66\), we have \(m_5 \leqslant 67\). We give the stronger following result.
+
 
 \begin{computational theorem}
 If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leqslant 59\).

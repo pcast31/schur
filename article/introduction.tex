@@ -8,20 +8,33 @@ number and is denoted \(S(n)\) \cite{Schur1917}. Likewise for weakly sum-free pa
 the \(n^{\text{th}}\) weak Schur number \cite{Irving1973}. Only the first values of these sequences are known. 
 This article focuses on the lower bounds for these numbers.
 
-\par
-Before Rowley's "template"-based approach for Schur and Ramsey numbers \cite{RowleyRamsey}, the 
+
+\subsection{State of the art}
+
+\qquad Before Rowley's "template"-based approach for Schur and Ramsey numbers \cite{RowleyRamsey}, the 
 previous generic construction for Schur numbers was given by Abbott and Hanson \cite{AbbottHanson} in 1972 
 with a recursive construction. It used to give the best lower bounds for all sufficiently large numbers. No equivalent 
 was known for weak Schur numbers and as a result the best known partitions for large weak Schur numbers 
-did not utilize the weakly sum-free hypothesis. As for smaller numbers, the best lower bounds were obtained 
-by conducting a computer search. This search for weakly sum-free partitions relied on the recursive assumption 
-that a good weakly sum-free partition into \(n+1\) colors starts with a good weakly sum-free partition into \(n\) 
-colors. In 2020, Rowley introduced the notion of template for Schur and Ramsey numbers which generalizes 
-Abbott and Hanson's construction and gives new lower bounds (and inequalties) for Schur numbers. Rowley also 
-gives two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements over previous 
-lower bounds which besides do utilize the \textit{weakly} sum-free hypothesis.
+did not utilize the weakly sum-free hypothesis. 
+
+\par
+As for smaller numbers, the best lower bounds were obtained by conducting a computer search. Eliahou \cite{ELIAHOU2012175}, 
+Rafilipojaona \cite{Rafilipojaona} and Bouzy \cite{Bouzy2015AnAP} improved lower bounds with Monte-Carlo methods. It 
+has been the main approch in the previous decade. 
+This search for weakly sum-free partitions relied on the recursive assumption that a good weakly sum-free partition into \(n+1\) 
+colors starts with a good weakly sum-free partition into \(n\) colors. This assumption was necessary in order for the Monte-Carlo
+approch to yield results. However, we show in the \hyperlink{sat}{last section} how this search space may not countain
+the optimal solution. Thus further work using similar methods might need to put that assumption aside and 
+find a different search space.
+
+\par
+In 2020, Rowley introduced the notion of template for Schur and Ramsey numbers which generalizes Abbott and 
+Hanson's construction and gives new lower bounds (and inequalties) for Schur numbers. Rowley also gives two 
+inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements over previous lower 
+bounds which besides do utilize the \textit{weakly} sum-free hypothesis.
 
 \renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
 
 \begin{center}
 
@@ -64,6 +77,8 @@ lower bounds which besides do utilize the \textit{weakly} sum-free hypothesis.
 *these values are not just a lower bound but the exact value for WS(n)
 \end{center}
 
+\subsection{Structure of this article}
+
 \par
 The main contribution of this article is a generalization of the concept of template to weak Schur numbers. 
 This gives new lower bounds (and inequalities) for weak Schur numbers. This construction also includes as a 
@@ -86,19 +101,43 @@ made in those articles removes the optimal partitions from the search space.
 \par
 We now introduce notations and definitions we use throughout this article.
 
-\begin{notation}
-We denote by \([\![1,p]\!]\) the set of integers \(\{1, 2, ..., p\}\).
-\end{notation}
+\subsection{Definitions and notations}
 
-\begin{notation}
-For a partition of \([\![1, p]\!]\) in \(n\) subsets, we generally denote these subsets \(A_1, ..., A_n\). We 
-also denote \(m_i = \min(A_i)\).
-By ordering the subsets, we mean assuming that \(m_1 < ... < m_n\). However, if not specified we do not 
-make this hypothesis since we do not always consider partitions in which every subset plays a symmetric role.
-\end{notation}
+We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers.
 
 \begin{definition}
-A partitition is sometimes referred to as a coloring. The coloring associated to a partition \(A_1, ..., A_n\) of
-\([\![1, p]\!]\) is the function \(f\) such that \(\forall x \in [\![1, p]\!], x \in A_{f(x)}\). Likewise, the partition 
-associated to a coloring \(f\) of \([\![1, p]\!]\) with \(n\) colors is \(\forall c \in [\![1, n]\!], A_c = f^{-1}(c)\).
+A subset \(A\) of \(\mathbb{N}\) is said to be \textit{sum-free} when:
+\[ \forall (a,b) \in A^2 \text{, } a+b \notin A\]
+\end{definition}
+
+\begin{definition}
+A subset \(B\) of \(\mathbb{N}\) is said to be \textit{weakly sum-free} when:
+\[ \forall (a,b) \in B^2 \text{, } a \neq b \Longrightarrow a+b \notin B\]
+\end{definition}
+
+Let us notice that a sum-free subset is also weakly sum-free, hence justifying the name of \textit{weakly} sum-free
+subsets. Given \(p\) and \(n\) two integers, we are interested in partitioning the set of integers \(\{1, 2, ..., p\}\), 
+denoted by \([\![1,p]\!]\), into \(n\) (weakly) sum-free subsets.
+
+\par
+Schur proved in \cite{Schur1917} that given a number of subsets \(n\), there exists a value of \(p\)
+such that there exists no partition of \([\![1,q]\!]\) into \(n\) sum-free subsets for any \(q \geqslant p\). A similar
+property holds for weakly sum-free subsets (reference necessaire). These observations lead to the following definitions.
+
+\begin{definition}
+Let \(n \in \mathbb{N}^*\). There exists a greatest integer that we denote \(S(n)\) (\textit{resp. \(\WS (n)\)}) such that
+\([\![1,S(n)]\!]\) (resp. \([\![1, \WS (n)]\!]\)) can be partitioned into \(n\) sum-free subsets (resp. weakly sum-free
+subsets). \(S(n)\) is called the \textit{\(n\)\textsuperscript{th} Schur number} and \textit{\(\WS (n)\) the
+\(n\)\textsuperscript{th} weak
+Schur number}.
+\end{definition}
+
+Given a partition of \([\![1, p]\!]\) in \(n\) subsets, we generally denote these subsets \(A_1, ..., A_n\). We also denote
+\(m_i = \min(A_i)\). By ordering the subsets, we mean assuming that \(m_1 < ... < m_n\). However, if not specified we do 
+not make this hypothesis since we do not always consider partitions in which every subset plays a symmetric role.
+
+\begin{definition}
+We sometimes refer to a partitition as a coloring. The coloring associated to a partition \(A_1, ..., A_n\) of
+\([\![1, p]\!]\) is the function \(f\) such that \(\forall x \in [\![1, p]\!], x \in A_{f(x)}\). Likewise, the partition associated to
+a coloring \(f\) of \([\![1, p]\!]\) with \(n\) colors is \(\forall c \in [\![1, n]\!], A_c = f^{-1}(c)\).
 \end{definition}

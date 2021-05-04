@@ -1,4 +1,4 @@
-\section{Weak Schur numbers}
+\section{Templates for weak Schur numbers}
 \label{WeakSchur}
 
 \qquad In this section, we generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS} and give an analogous
@@ -6,7 +6,7 @@ for weak Schur numbers of Abbott and Hanson's construction for Schur numbers. By
 we then introduce WSF-templates as well as the sequence \(\WS^+(n)\). We find suitable templates and use them to
 provide new lower bounds for weak Schur numbers.
 
-\subsection{Lower bound for Weak Schur numbers using Schur and Weak Schur numbers}
+\subsection{Inequality for weak Schur numbers using Schur and weak Schur numbers}
 
 \qquad Up to now, there was no equivalent for weak Schur numbers of Abbott and Hanson's construction for Schur numbers
 \cite{AbbottHanson}. Here we give a general lower bound for weak Schur numbers as a function of both regular and
@@ -14,6 +14,7 @@ weak Schur numbers. The following theorem, inspired by Rowley's inequalities for
 was found and proved by Romain Ageron.
 
 \begin{theorem}
+\label{theorem}
 Let \((p,q), (n,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free
 subsets then there exists a partition of \([\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]\) into \(n+k\)
@@ -23,27 +24,21 @@ weakly sum-free subsets.
 In particular, if we choose \(q = \WS (n)\) and \(p = S(k)\) in the last theorem, the next corollary follows.
 
 \begin{corollary}
-\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } \WS (n+k) \geqslant S(k) \left (\WS (n) + \left \lceil \frac{\WS (n)}{2}
+\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } \WS (n+k) \geqslant S(k) \left (\WS (n) + \left \lceil \displaystyle \frac{\WS (n)}{2}
 \right \rceil +1 \right) + \WS (n)\)
 \end{corollary}
 
-\begin{remark}
-This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers.
-\end{remark}
+This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers. This formula includes
+the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give new lower bounds.
 
 \begin{remark}
-This formula includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give
-new lower bounds.
-\end{remark}
-
-\begin{remark}
-In the above ineqality, a "\(+1\)" can be added to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
+The above inequality can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
 odd in the theorem). However, it makes the proof less clear and it is never useful in practice.
 \end{remark}
 
 Given that this theorem will appear as a particular case of a more general theorem after the introduction of
 templates for weak Schur numbers, we only give here an intuitive explanation of the above theorem; a formal
-proof can be found in the appendix.
+\hyperref[proof_theorem]{proof} can be found in the appendix.
 
 Let \((p, q) \in \mathbb{N}^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\)
@@ -58,12 +53,11 @@ First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(
 	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns (excluding  \(\mathcal{T}\)).
 \end{itemize}
 
-Like for SF-templates, \(\mathcal{R}\) and \(\mathcal{C}\) play the role of security zones for each other. Note that with
+Like SF-templates, \(\mathcal{R}\) and \(\mathcal{C}\) play the role of security zones for each other. Note that with
 this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the
 sum of the columns modulo \(a\).
 
 \renewcommand{\arraystretch}{2}
-\begin{center}
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{blue}}c|>{\columncolor{green}} c|}
 \cline{6-9}
@@ -81,7 +75,7 @@ p a - l & ... & ... & ... &p a & ... & ... & .... & p a + r & ... & ... & ... & 
 \hline
 \end{array}
 \]
-\end{center}
+\renewcommand{\arraystretch}{1}
 
 \underline{\textbf{\(\mathcal{T}\) block}} \\
 We color this block using the weakly sum-free colouring of \([\![1,q]\!]\) with colors \(1, ..., n\).
@@ -104,100 +98,103 @@ Let \((x, y) \in \mathcal{R}^2\). The cases are twofold.
 \end{itemize}
 
 \underline{\textbf{\(\mathcal{C}\) block}} \\
-In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) according to its column number (written \(\tilde{\pi}(x)\), it is linked to the
-projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\)). A simple solution is to colour \(x\) with the same colour
+In this block,  we use colors \(1, ..., n\). We colour an integer \(x\) according to its column number, written \(\tilde{\pi}(x)\). It is linked to the
+projection on the first line, written \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\). A simple solution is to colour \(x\) with the same colour
 as \(\tilde{\pi}(x)\) in the weakly sum-free colouring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there
 is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when
 taking two numbers in the same column), the colours \(1, ..., n\) are sum-free.
 
-In particular, taking \(w = l = \lceil \frac{q}{2} \rceil\) and \(r = \lfloor \frac{q}{2} \rfloor\) works, thus obtaining the above theorem.\\
+In particular, taking \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rceil\) and \(r = \left\lfloor \displaystyle \frac{q}{2} \right\rfloor\) works, thus obtaining the above theorem.\\
 \par
 As in the previous section, we now introduce WSF-templates and the sequence \(\WS^+\) in order to generalize the above construction.
 
 \subsection{Definition of \(\WS^+\)}
 
 \qquad In this subsection, we introduce WSF-templates and define the objects and prove the results needed
-for the general theorem regarding templates for weak Schur numbers.
+for the general theorem on templates for weak Schur numbers.
 
 \begin{definition}
 
-Let \((a,b) \in (\mathbb{N}^*)^2\),\(a>b\), \(n \in \mathbb{N}^*\), we will define \(\pi_{a,b}\) the projection:
-\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a))\]
+Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
+\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
 \end{definition}
 
-We will note  the projection \(\pi\) and not \(\pi_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
+If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\).
 
-\begin{remark}
 \(\pi\) is the projection on the first line mentioned in the intuitive explanation.
-\end{remark}
 
 \begin{proposition}
-Let x \(\in [\![1,b]\!]\), let  \(y \in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\), then we have: \(\pi(x+y)=x+\pi(y)\)
+Let x \(\in [\![1,b]\!]\) and \(y \in \mathbb{N}^*\) such that \(x+\pi(y) \leqslant a+b\). Then \(\pi(x+y)=x+\pi(y)\).
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-Let  \(x\in [\![1,b]\!]\), let  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\)
+Let  \(x\in [\![1,b]\!]\), and  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqslant a+b\).
 
-if \(x+\pi(y)< a:\)we remark that \(\pi(y)>b\) and therefore \(x+\pi(y)>b\):
+\noindent if \(x+\pi(y)< a \):
 
-\begin{align*}
- \pi(x+y) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)\\
-& = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a)\text{ since } \pi(y)=y \mod a \\
-& =x+ \pi(y)
-\end{align*}
+\[
+\begin{array}{c c l l}
+	\pi(x+y) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a) & \\
+	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a) & \text{since } \pi(y)=y \mod a \\
+	& = & x+ \pi(y) &
+\end{array}
+\]
 
-if \(x+\pi(y)\geqslant a\):
-\begin{align*}
- \pi(x+y) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)\\
-& = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a)\text{ since } \pi(y)=y \mod a \\
-& = (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
-& = x+\pi(y) - a +a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) \\
-& = x+\pi(y) - a +a \text{ \quad since } x+\pi(y) - a \in [\![0,b]\!] \\
-& = x+\pi(y)
-\end{align*}
+\noindent if \(x+\pi(y)\geqslant a\):
+\[
+\begin{array}{c c l l}
+	\pi(x+y) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)& \\
+	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a) & \text{since } \pi(y)=y \mod a \\
+	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) & \\
+	& = & x+\pi(y) - a +a\mathds{1}_{ [\![0,b]\!]}(x+\pi(y) - a) & \\
+	& = & x+\pi(y) - a +a & \text{since } x+\pi(y) - a \in [\![0,b]\!] \\
+	& = & x+\pi(y) &
+\end{array}
+\]
 \end{proof}
 
 
 \begin{proposition}
-Let \((x,y)\in (\mathbb{N}^*)^2\), \(\pi(\pi(x)+\pi(y))=\pi(x+y)\)
+Let \((x,y)\in (\mathbb{N}^*)^2\). Then \(\pi(\pi(x)+\pi(y))=\pi(x+y)\).
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-Let \((x,y)\in (\mathbb{N}^*)^2\),
+Let \((x,y)\in (\mathbb{N}^*)^2\).
 
-\begin{align*}
- \\\pi(\pi(x)+\pi(y)) & = (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
-& = (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a)\ mod a) \\
-& = (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
-& =(Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
-& =\pi(x+y)
-\end{align*}
+\[
+\begin{array}{c c l}
+	\pi(\pi(x)+\pi(y)) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
+	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a) \mod a) \\
+	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
+	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
+	& = & \pi(x+y)
+\end{array}
+\]
 \end{proof}
 
 
 \begin{definition}
 
-Let \((a,b) \in (\mathbb{N}^*)^2\), \(a>b\), let \(n \in\mathbb{N}\) we will define \(\lambda_{a,b}\) the projection:
+Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
 \[ \lambda_{a,b}:x \longmapsto 1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor\]
 \end{definition}
 
-We will note  the projection \(\lambda\) and not \(\lambda_{a,b}\) when there is no doubt about the \(a\) and \(b\) we use.
+If there is no confusion on the \(a\) and \(b\) to use, \(\lambda_{a, b}\) is denoted by \(\lambda\).
 
-\begin{remark}
-In the following theorem, \(\lambda\) is the function which maps an element x to its line number as mentioned in the intuitive explanation.
-\end{remark}
+\(\lambda\) is the function which maps an element x to its line number as mentioned in the intuitive explanation.
 
 \begin{proposition}
-Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\), \(x=a\lambda(x)+\pi(x)-a\)
+Let \((a,b)\in (\mathbb{N}^*)^2\) such that \(a>b\) and let \(x\in \mathbb{N}^*\). Then \(x=a\lambda(x)+\pi(x)-a\).
 \end{proposition}
+
 \begin{proof}[\textsc{Proof.}]
-Let \((a,b)\in (\mathbb{N}^*)^2\), \(a>b\), let  \(x\in \mathbb{N}^*\),\\
-\(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(x \mod a)+\mathds{1}_{ [\![0,b]\!]}(x \mod a)\)
+Let \((a,b)\in (\mathbb{N}^*)^2\) such that \(a>b\) and let \(x\in \mathbb{N}^*\). \\
+\(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(x \mod a)+ a \mathds{1}_{ [\![0,b]\!]}(x \mod a)\)
 
-if \(x \mod a>b\): \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\)
+\noindent  if \(x \mod a>b\) then \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\)
 
-if \(x \mod a \leqslant b\):
-\(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+\text{x mod a}+a=x\)
+\noindent if \(x \mod a \leqslant b\) then
+\(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+x \mod a +a=x\)
 \end{proof}
 
 
@@ -211,7 +208,7 @@ This partition is said to be a b-weakly-sum-free template (b-WSF-template) of \(
 \\\\
 \underline{For \(A_n\) (the special subset):} \quad \(\forall (x,y) \in A_n^2,\)
 \\
-\[if \quad x+y>b+2(p-b),\quad x+y-2(p-b)\notin A_n\]
+\[x+y>b+2(p-b) \implies x+y-2(p-b)\notin A_n\]
 \\
 \underline{For the others subsets:}\quad \(\forall i \in [\![0,n-1]\!], \forall(x,y) \in A_i^2,\)
 \\
@@ -220,10 +217,7 @@ x+y>p \implies \pi(x+y) \notin A_i
 \]
 \end{definition}
 
-
-\begin{remark}
-	Please note that the special color \(n\) is not necessarily the last color by order of appearance.
-\end{remark}
+Please note that the special color \(n\) is not necessarily the last color by order of appearance.
 
 \begin{definition}
 Let \( (k,b) \in (\mathbb{N}^*)^2\). If there exist \(p\) such that exists a partition of \([\![1, p]\!]\) into \(k\)
@@ -270,7 +264,7 @@ sum-free subsets of \([\![1,p]\!]\) and a partition of \(n\) subsets \((A_1,....
 In particular, if we choose \(p = S(k)\) and \(q = \WS^+(n)\) in the last theorem, the next corollary follows.
 
 \begin{corollary}
-For every \((n,k) \in (\mathbb{N}^*)^2\), define \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\). 
+For every \((n,k) \in (\mathbb{N}^*)^2\), define \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\).
 Then the following inequality holds.
 \[\WS(n+k) \geqslant S(k) \WS^+(n+1)+b_{max}\]
 \end{corollary}
@@ -295,8 +289,8 @@ Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) as follows:
 
 \begin{itemize}
 \item if  \(x\leqslant b \text{ (we will note }x \in \mathcal{T}): f(x)=g(x)\)
-\item if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n \text{ (we will note x} \in \mathcal{C}): f(x)=g(\pi(x))\)
-\item if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n \text{ (we will note x} \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
+\item if \( x \in [\![1,b+pa]\!] \text{ and } \pi(x) \notin A_n (\text{ we will note } x \in \mathcal{C}): f(x)=g(\pi(x))\)
+\item if \( x \in [\![1,b+pa]\!]  \text{ and }\pi(x) \in A_n (\text{ we will note } x \in \mathcal{R}): f(x)=n-1+h(\lambda(x))\)
 \end{itemize}
 
 \(f\) is well defined since \(\pi\) is defined for \(x>b\) and \(\forall x \in \![1,b+pa]\!], f(x)\leqslant n+k-1\) because \(h(\lambda(x))\leqslant k\)
@@ -305,11 +299,11 @@ We have parted the integers of \([\![1,b+pa]\!]\) in three disjoints subsets \(\
 
 We have to verify that f induces weakly-sum-free templates:\\
 \\
-\underline{if \((x,y) \in \mathcal{T}^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T}^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\\(x+y<a+b\) since \(b<a\) and \(g(x)=f(x)=f(y)=g(y)\).
 \\Hence \(f(x+y)=g(x+y)\neq g(x)=f(x)\)
 \\\\
-\underline{if \((x,y) \in \mathcal{T} \times \mathcal{C}\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T} \times \mathcal{C}\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 We distinguish two cases:
 
 
@@ -324,7 +318,7 @@ We distinguish two cases:
 \end{itemize}
 
 
-\underline{if \((x,y) \in \mathcal{T} \times \mathcal{R}\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{T} \times \mathcal{R}\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\Then, \(f(x)=f(y)=n\). We distinguish two cases:
 
 
@@ -339,7 +333,7 @@ We distinguish two cases:
 \\if \(\pi(x+y) \in A_n\), \(f(x+y)=n-1+h(\lambda(x+y))>n\)
 \end{itemize}
 
-\underline{if \((x,y) \in \mathcal{C}^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in \mathcal{C}^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases:
 
 \begin{itemize}
@@ -356,7 +350,7 @@ We distinguish two cases:
 
 \underline{if \((x,y) \in \mathcal{C} \times \mathcal{R} \), \(f(x)\neq f(y)\)}\\
 
-\underline{if \((x,y) \in (\mathcal{R})^2\) such that \(f(x)=f(y)\), \(x \neq y\), then \(f(x+y)\neq f(x)\)  :}\\
+\underline{if \((x,y) \in (\mathcal{R})^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\Let \(r(x)=\pi(x)-a\) and \(r(y)=\pi(y)-a\),
 \\We proved that \(x=a\lambda(x)+\pi(x)-a\), therefore \(x=a\lambda(x)+\pi(x)\)
 \\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases:
@@ -365,7 +359,7 @@ We distinguish two cases:
 \item If \(r(x)+r(y) \in [\![b-a+1,b]\!]\), \(h(\lambda(x))=f(x)+1-n=f(y)+1-n=h(\lambda(y))\)
 Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \begin{align*}
- \\\lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
+ \lambda(x+y) & =1+\left\lfloor\dfrac{a(\lambda(x)+\lambda(y))+r(x)+r(y)-b-1}{a}\right\rfloor+1\\
 & = \lambda(x)+\lambda(y)+\left\lfloor\dfrac{r(x)+r(y)-b-1}{a}\right\rfloor+1 \\
 & = \lambda(x)+\lambda(y) -1 +1 \text{ since } r(x)+r(y) \in [\![b-a+1,b]\!] \\
 & =\lambda(x)+\lambda(y)
@@ -373,7 +367,7 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 
 
 \begin{align*}
- \\\text{if \(f(x+y) \geqslant n\), }f(x+y) & =n-1+h(\lambda(x+y))\\
+ \text{if \(f(x+y) \geqslant n\), }f(x+y) & =n-1+h(\lambda(x+y))\\
 & =n-1+h(\lambda(x)+\lambda(y)) \\
 & \neq n-1+h(\lambda(x))\\
 & =f(x)
@@ -390,15 +384,10 @@ Hence, \(h(\lambda(x)+\lambda(y)) \neq h(\lambda(x))\).
 \end{itemize}
 \end{proof}
 
-\begin{corollary}
 The general lower bound for weak Schur numbers in function of both regular and weak Schur numbers can be seen as a particular
-case of WSF-template in the same way Abott and Hanson's construction can be seen as a particular case of SF-template.
-\end{corollary}
-
-\begin{remark}
-Acutally, like for SF-templates, the additive constant of a WSF-template can be improved by weakening the hypotheses made on 
-the last row. The principle behind it is the same as in the analogous proposition for SF-templates. 
-\end{remark}
+case of WSF-template in the same way Abott and Hanson's construction can be seen as a particular case of SF-template. Acutally,
+like for SF-templates, the additive constant of a WSF-template can be improved by weakening the hypotheses made on
+the last row. The principle behind it is the same as in the analogous proposition for SF-templates.
 
 \begin{proposition}
 Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to a \(b\)-WSF-template of length \(p\) with \(k\) colors. Let
@@ -412,11 +401,10 @@ Let \((b, k, p) \in \mathbb{N}^*)^3\) and let \(f\) be a colouring associated to
 \implies g(\pi(x + y)) \neq f(x)\)
 \end{itemize}
 
-Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n)\), we have\\
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have\\
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
-\begin{remark}
 The WSF-templates can actually be fine-tuned further. However, it gives only minor improvements (most likely only an additive
 constant) at the cost of dramatically increasing the size of the search space. Therefore, it does not seem relevant to
 use this sophistications given that we could not even find good WSF-templates with 5 colors using a computer (here good
@@ -436,7 +424,6 @@ To sum up, one can look for a generalised WSF-template that uses a special colou
 colouring dedicated to the rows whose number is not 1 but is in the first color in the sum-free partition, a colouring for all
 the other rows and a special colouring for the last numbers (as previously explained for the improvement of the additive
 constant of WSF-templates).
-\end{remark}
 
 We also have a similar theorem where only \(\WS^+\) is involved.
 
@@ -459,25 +446,21 @@ from the WSF-template.
 
 
 
-\subsection{New lower bounds for Weak Schur numbers}
+\subsection{Inequalities and new lower bounds for Weak Schur numbers}
 
 \qquad Having found suitable templates, which can be found in the appendix, with a SAT solver, we claim that for all \(n \in
 \mathbb{N}^*\):
 
 \[
-\WS(n+1) \geqslant 4S(n) + 1
-\]
-\[
-\WS(n+2) \geqslant 13S(n) + 8
-\]
-\[
-\WS(n+3) \geqslant 42S(n) + 24
-\]
-\[
-\WS(n+4) \geqslant 132S(n) + 26
+\begin{array}{r r r r r}
+	WS(n + 1) & \geqslant & 4 S(n) & + & 2 \\
+	WS(n + 2) & \geqslant & 13 S(n) & + & 8 \\
+	WS(n + 3) & \geqslant & 42 S(n) & + & 24 \\
+	WS(n + 4) & \geqslant & 132 S(n) & + & 26 \\
+\end{array}
 \]
 
-The first two inequalities were found by Rowley, they are detailed in [2]. The third inequality is optimal and was found with a SAT solver.
+The first two inequalities were found by Rowley, they are detailed in \cite{RowleyWS}. The third inequality is optimal and was found with a SAT solver.
 It uses the first sophistication explained in the previous subsection in order to add the last number in the first color.
 As for the fourth inequality, it was obtained by combining an optimal SF-template of length 33 with a WSF-template of length 4.
 The best template we could get with a computer search gives the inequality \(\WS(n+4) \geqslant 127 S(n) + 68\).
