@@ -120,7 +120,7 @@ for the general theorem on templates for weak Schur numbers.
 \begin{definition}
 
 Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
-\[ \pi_{a,b}:x \longmapsto (Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
+\[ \pi_{a,b}:x \longmapsto (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
 \end{definition}
 
 If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\).
@@ -138,8 +138,8 @@ Let  \(x\in [\![1,b]\!]\), and  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqsl
 
 \[
 \begin{array}{c c l l}
-	\pi(x+y) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a) & \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a) & \text{since } \pi(y)=y \mod a \\
+	\pi(x+y) & = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a) & \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) \mod a) & \text{since } \pi(y)=y \mod a \\
 	& = & x+ \pi(y) &
 \end{array}
 \]
@@ -147,9 +147,9 @@ Let  \(x\in [\![1,b]\!]\), and  \(y\in \mathbb{N}^*\) such that \(x+\pi(y)\leqsl
 \noindent if \(x+\pi(y)\geqslant a\):
 \[
 \begin{array}{c c l l}
-	\pi(x+y) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)& \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a) & \text{since } \pi(y)=y \mod a \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) & \\
+	\pi(x+y) & = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+y \mod a)& \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y)\mod a) & \text{since } \pi(y)=y \mod a \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x+\pi(y) - a) & \\
 	& = & x+\pi(y) - a +a\mathds{1}_{ [\![0,b]\!]}(x+\pi(y) - a) & \\
 	& = & x+\pi(y) - a +a & \text{since } x+\pi(y) - a \in [\![0,b]\!] \\
 	& = & x+\pi(y) &
@@ -167,10 +167,10 @@ Let \((x,y)\in (\mathbb{N}^*)^2\).
 
 \[
 \begin{array}{c c l}
-	\pi(\pi(x)+\pi(y)) & = & (Id+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a) \mod a) \\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
-	& = & (Id+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
+	\pi(\pi(x)+\pi(y)) & = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(\pi(x)+\pi(y) \mod a)\\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})((Id+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)+(Id+a\mathds{1}_{ [\![0,b]\!]})(y \mod a) \mod a) \\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(((x \mod a) + (y \mod a)) \mod a)\\
+	& = & (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})( x+y \mod a)\\
 	& = & \pi(x+y)
 \end{array}
 \]
