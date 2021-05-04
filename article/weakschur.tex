@@ -529,32 +529,43 @@ This could be the suject of a future work. Further details about the encoding as
 Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound
 for each integer is highlighted.
 
-\begin{center}
-\begin{tabular}{|*{5}{c|}}
-    \hline
-	n & 8 & 9 & 10 & 11 \\
-	\hline
-	\(4S(n-1) + 2 \) & 6\,722 & 21\,146 & \cellcolor{yellow} 71\,214 & \cellcolor{yellow} 243\,794\\
-	\hline
-	\(13S(n-2) + 8 \) & \cellcolor{yellow} 6\,976 & 21\,848 & 68\,726 & 231\,447\\
-	\hline
-	\(42S(n-3) + 24 \) & 6\,744 & \cellcolor{yellow} 22\,536 & 70\,584 & 222\,036 \\
-	\hline
-	\(127S(n-4) + 68 \) & 5\,656 & 20\,388 & 68\,140 & 213\,428\\
-	\hline
-	\hline
-	n & 12 & 13 & 14 & 15 \\
-	\hline
-	\(4S(n-1) + 2 \) & \cellcolor{yellow} 815\,314 & 2\,554\,194 & 8\,045\,162 & \cellcolor{yellow} 27\,061\,154\\
-	\hline
-	\(13S(n-2) + 8 \) & 792\,332 & \cellcolor{yellow}2\,649\,772 & 8\,301\,132 & 26\,146\,778 \\
-	\hline
-	\(42S(n-3) + 24 \) & 747\,750 & 2\,559\,840 & \cellcolor{yellow} 8\,560\,800 &  25\,886\,224 \\
-	\hline
-	\(127S(n-4) + 68 \) & 671\,390 & 2\,261\,049 & 7\,740\,464 & 25\,886\,224 \\
-	\hline
-\end{tabular}
-\end{center}
+\renewcommand{\arraystretch}{0.2}
+
+\[
+\begin{array}{c}
+	\resetarraystretch
+	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
+	\CodeBefore
+		\cellcolor{yellow}{2-4}
+		\cellcolor{yellow}{2-5}
+		\cellcolor{yellow}{3-2}
+		\cellcolor{yellow}{4-3}
+	\Body
+		n & 8 & 9 & 10 & 11 \\
+		4 \, S(n-1) + 2 & 6\,722 & 21\,146 & 71\,214 & 243\,794 \\
+		13 \, S(n-2) + 8 & 6\,976 & 21\,848 & 68\,726 & 231\,447 \\
+		42 \, S(n-3) + 24 & 6\,744 & 22\,536 & 70\,584 & 222\,036 \\
+		127 \, S(n-4) + 68 & 5\,656 & 20\,388 & 68\,140 & 213\,428 \\
+	\end{NiceArray}
+	\\ \\
+	\resetarraystretch
+	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
+	\CodeBefore
+		\cellcolor{yellow}{2-2}
+		\cellcolor{yellow}{2-5}
+		\cellcolor{yellow}{3-3}
+		\cellcolor{yellow}{4-4}
+	\Body
+		n & 12 & 13 & 14 & 15 \\
+		4 \, S(n-1) + 2 & 815\,314 & 2\,554\,194 & 8\,045\,162 & 27\,061\,154 \\
+		13 \, S(n-2) + 8 & 792\,332 & 2\,649\,772 & 8\,301\,132 & 26\,146\,778 \\
+		42 \, S(n-3) + 24 & 747\,750 & 2\,559\,840 & 8\,560\,800 &  25\,886\,224 \\
+		127 \, S(n-4) + 68 & 671\,390 & 2\,261\,049 & 7\,740\,464 & 25\,886\,224 \\
+	\end{NiceArray}
+\end{array}
+\]
+
+\resetarraystretch
 
 With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using Rowley's inequality.
 Moreover, the third inequality gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
