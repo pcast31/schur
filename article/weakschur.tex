@@ -45,7 +45,8 @@ subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a 
 and let's try to build a coloring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let
 \(l = a - b - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = b - r\).
 
-First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)):
+First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) 
+and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)).
 
 \begin{itemize}
 	\item \(\mathcal{T}\) (the "tail"): the integers from 1 to \(q\). NB: this is line number 0.
@@ -262,16 +263,19 @@ Let \((a,b)\in (\mathbb{N}^*)^2\) such that \(a>b\) and let \(x\in \mathbb{N}^*\
 
 \begin{definition}
 Let \( (a,n,b) \in (\mathbb{N}^*)^3\), Let \((A_1,...,A_n)\) a partition of  \([\![1, a + b]\!]\).
-This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WSF-template) with width \(a\) and \(n\) colors if:
+This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WSF-template) with width \(a\) and \(n\) colors if
 
 \begin{itemize}
 \item \(\forall i \in [\![1, n]\!], \quad A_i\) is weakly-sum-free
 \item \(\forall i \in [\![1, n]\!], \quad A_i\backslash [\![1, b]\!]\) is sum-free
-\item For \(A_n\) (the special subset): \[\forall (x,y) \in A_n^2, \,
-x+y>b+2a \implies x+y-2a\notin A_n\]
-\item For the others subsets: \\ \[\forall i \in [\![0,n-1]\!], \, \forall(x,y) \in A_i^2, \,
-x+y>a+b \implies \pi(x+y) \notin A_i
-\]
+\item For \(A_n\) (the special subset)
+	\[
+	\forall (x,y) \in A_n^2, \,x+y>b+2a \implies x+y-2a\notin A_n
+	\]
+\item For the others subsets
+	\[
+	\forall i \in [\![0,n-1]\!], \, \forall(x,y) \in A_i^2, \, x+y>a+b \implies \pi(x+y) \notin A_i
+	\]
 \end{itemize}
 \end{definition}
 
@@ -279,7 +283,7 @@ Please note that the special color \(n\) is not necessarily the last color by or
 
 \begin{definition}
 Let \( (n,b) \in (\mathbb{N}^*)^2\). If there exists \(a\) such that there exists a \(b\)-WSF-template with width \(a\) 
-and \(n\) colors, define:
+and \(n\) colors, define
 \[
 \WS_b^+(n)=-b+\max \{a \in \mathbb{N}^*/ \text{there exists a } b \text{-WSF-template with width } a \text{ and } n \text{ colors} \}
 \]
@@ -316,7 +320,7 @@ We now proceed to state and prove the main result of this article.
 \subsection{Construction of weak Schur partitions using WSF-templates}
 
 \begin{theorem}
-Let \((a,n,b) \in (\mathbb{N}^*)^3\), let \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,p]\!]\) 
+Let \((a,n,b) \in (\mathbb{N}^*)^3\) and \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,p]\!]\) 
 into \(k\) sum-free subsets and a \(b\)-WSF-template \((A_1,...,A_n)\) with width \(a\) and \(n\) colors, 
 then there exists a partition of \([\![1, b+p \times a]\!]\) into \((k+n-1)\) weakly sum-free subsets.
 \end{theorem}
@@ -349,7 +353,7 @@ to the sum-free partition of \([\![1,p]\!]\).
 \end{array}
 \]
 
-Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) as follows:
+Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) as follows
 
 \begin{itemize}
 	\item if  \(x\leqslant b \text{ (we will note }x \in \mathcal{T}): f(x)=g(x)\)
@@ -361,14 +365,14 @@ Define \( f : [\![1,b+pa]\!] \longrightarrow [\![1,n]\!] \) as follows:
 
 We have parted the integers of \([\![1,b+pa]\!]\) in three disjoints subsets \(\mathcal{T},\mathcal{C} \text{ and } \mathcal{R}\).
 
-We have to verify that f induces weakly-sum-free templates:\\
+We have to verify that f induces weakly-sum-free templates\\
 \\
 \underline{if \((x,y) \in \mathcal{T}^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\\(x+y<a+b\) since \(b<a\) and \(g(x)=f(x)=f(y)=g(y)\).
 \\Hence \(f(x+y)=g(x+y)\neq g(x)=f(x)\)
 \\\\
 \underline{if \((x,y) \in \mathcal{T} \times \mathcal{C}\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
-We distinguish two cases:
+We distinguish two cases
 
 \begin{itemize}
 \item If \(x+\pi(y)\leqslant a+b\)
@@ -381,7 +385,7 @@ We distinguish two cases:
 \end{itemize}
 
 \underline{if \((x,y) \in \mathcal{T} \times \mathcal{R}\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
-\\Then, \(f(x)=f(y)=n\). We distinguish two cases:
+\\Then, \(f(x)=f(y)=n\). We distinguish two cases
 
 \begin{itemize}
 \item If \(\lambda(y)=\lambda(x+y)\),
@@ -395,7 +399,7 @@ We distinguish two cases:
 \end{itemize}
 
 \underline{if \((x,y) \in \mathcal{C}^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
-\\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases:
+\\Then  \(g(\pi(x))=f(x)=f(y)=g(\pi(y))\). We distinguish two cases
 
 \begin{itemize}
 \item If \(\pi(x)+\pi(y)>q\), \(g(\pi(\pi(x)+\pi(y)) \neq g(\pi(x))\) (qv previous proposition)
@@ -412,7 +416,7 @@ We distinguish two cases:
 \underline{if \((x,y) \in (\mathcal{R})^2\) such that \(f(x)=f(y)\), \(x \neq y\):}\\
 \\Let \(r(x)=\pi(x)-a\) and \(r(y)=\pi(y)-a\),
 \\We proved that \(x=a\lambda(x)+\pi(x)-a\), therefore \(x=a\lambda(x)+\pi(x)\)
-\\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases:
+\\\(x+y=a(\lambda(x)+\lambda(y))+r(x)+r(y)\). We distinguish three cases
 
 \begin{itemize}
 \item If \(r(x)+r(y) \in [\![b-a+1,b]\!]\), \(h(\lambda(x))=f(x)+1-n=f(y)+1-n=h(\lambda(y))\)
@@ -449,9 +453,9 @@ like for SF-templates, the additive constant of a WSF-template can be improved b
 the last row. The principle behind it is the same as in the analogous proposition for SF-templates.
 
 \begin{proposition}
-Let \((b, k, a) \in \mathbb{N}^*)^3\) and let \(f\) be a coloring associated to a \(b\)-WSF-template with width \(p\) and \(k\) colors. Let
+Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to a \(b\)-WSF-template with width \(p\) and \(k\) colors. Let
 \(c \in \mathbb{N}\) (\(c = \min (A_{k+1} \backslash [\![1, b ]\!]) - 1\) works) and assume there there exists a coloring \(g\) of
-\([\![b + 1, b + c]\!]\) with \(k\) colors such that:
+\([\![b + 1, b + c]\!]\) with \(k\) colors such that
 
 \begin{itemize}
 	\item \(\forall c \in [\![1, k]\!], \forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!], (f(x) = f(y) \text{ and } \pi(x + y) \leqslant b + c)
@@ -492,7 +496,7 @@ Let \((k,p), (n,a) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template wit
  colors.
 \end{theorem}
 
-And the associated inequality :
+And the associated inequality
 
 \begin{corollary}
 Let \(n, k \in \mathbb{N}^*\). Then
@@ -511,7 +515,7 @@ from the WSF-template.
 \subsection{Inequalities and new lower bounds for Weak Schur numbers}
 
 \qquad Having found suitable templates, which can be found in the appendix, with a SAT solver, we claim that for all \(n \in
-\mathbb{N}^*\):
+\mathbb{N}^*\)
 
 \[
 \begin{array}{r r r r r}
