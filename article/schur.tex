@@ -10,7 +10,7 @@ the entire article. We then find new templates and use them to provide new lower
 \subsection{Definition of \(S^+\)}
 
 \begin{definition}
-A SF-template with length \(p\) and \(n\) colors is defined as a partition of \( [\![1,p]\!]\) into \(n\) sum-free subsets 
+A SF-template with width \(p\) and \(n\) colors is defined as a partition of \( [\![1,p]\!]\) into \(n\) sum-free subsets 
 \(A_1, A_2, ..., A_n\) verifying:
 \[
 \forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
@@ -23,7 +23,7 @@ is not necessarily the last color by order of appearance. \(SF\)-templates inclu
 as a special case.
 
 \begin{proposition}
-	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the maximal lenght of a SF-template with \(n\) colors. 
+	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the maximal width of a SF-template with \(n\) colors. 
 	\(S^+(n)\) is well defined and verifies:
 	\[
 	2S(n-1)+1 \leqslant S^+(n) \leqslant S(n)
@@ -32,7 +32,7 @@ as a special case.
 
 \begin{proof}[\textsc{Proof.}]
 The lower bound comes from Abbott and Hanson's construction. The upper bound comes from the 
-fact that a SF-template with length \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets.
+fact that a SF-template with width \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets.
 \end{proof}
 
 \begin{remark}
@@ -46,7 +46,7 @@ fact that a SF-template with length \(p\) and \(n\) colors is also a partition o
 in the explicit construction of a sum-free partition using a SF-template and a sum-free partition.
 
 \begin{theorem}
-	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with lenght \(p\) and \(k+1\) colors 
+	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with width \(p\) and \(k+1\) colors 
 	and a partition of \([\![1,q]\!]\) into \(n\) sum-free subsets then there exists a partition of \([\![1,pq+m_{k+1}
 	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{k+1}\) is the minimum of the special subset in the \(SF\)-template.
 \end{theorem}
@@ -253,7 +253,7 @@ line number and the other colors are still vertically extended.
 We now proceed to prove the above mentioned theorem.\\
 
 \begin{proof}[\textsc{Proof.}]
-Denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\) and \(g\) the one associated 
+Denote by \(f\) the coloring associated to the \(SF\)-template with width \(p\) and \(g\) the one associated 
 to the sum-free partition of \([\![1,q]\!]\); where \(f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!]\) and 
 \(g : [\![1,q]\!] \longrightarrow [\![1,n]\!]\).
 
@@ -329,8 +329,8 @@ improve the SF-templates we have found, the analogous of this proposition for WS
 allows us to improve one of them.
 
 \begin{proposition}
-Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k+1\) 
-colors. Let \(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a colouring \(g\) of 
+Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a coloring associated to a SF-template with width \(p\) and \(k+1\) 
+colors. Let \(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a coloring \(g\) of 
 \([\![1, b]\!]\) with \(k+1\) colors such that:
 
 \begin{itemize}
@@ -340,20 +340,20 @@ colors. Let \(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there th
 	\implies g(x + y) \neq f(x)\)
 \end{itemize}
 
-Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(i \longmapsto g(i - p S(n))\), we have
 \[ S(n+k) \geqslant S^+(k+1)S(n) + b\]
 \end{proposition}
 
 This proposition corresponds to the fact that sometimes a column is not the sum of two columns of a given color, but adding this 
 column to the color would create sums in the color when applying the extension procedure. However, the last line does not 
-intereact will all the columns when it comes to creating new sums. As a result, the hypotheses made on the colouring of the last 
+intereact will all the columns when it comes to creating new sums. As a result, the hypotheses made on the coloring of the last 
 row can be weakened.
 
 We also have a similar construction theorem where only \(S^+\) is involved.
 
 \begin{theorem}
-	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template of \(k+1\) colors and lenght \(p\),
-	and \(SF\)-template of \(n\) color and lenght \(q\), then there exists \(SF\)-template of \((n+k)\) and lenght \(pq\).
+	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with and \(p\) and \(k+1\) colors,
+	and a \(SF\)-template with width \(q\) and \(n\) colors, then there exists \(SF\)-template with width \(pq\) and \((n+k)\).
 \end{theorem}
 
 And the associated inequality :
@@ -405,7 +405,7 @@ and the third one to Rowley \cite{RowleyRamsey}. The other ones are new.
 The first 3 inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
 the last in the order of apparition (and with a multiplicative factor less than or equal to 118). The fifth one is most 
 likely not optimal but should not be too far from the optimal. 
-Finally, the sixth one is obtained by combining (see below) the SF-template of length 380 and the one of length 3. 
+Finally, the sixth one is obtained by combining (see below) the SF-template with width 380 and the one with width 3. 
 Although we could not find a better SF-template with 7 colors, the last inequality is definetely very far from the 
 optimal value. One may try to seek better templates by constraining less the search space and by using 
 Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.
