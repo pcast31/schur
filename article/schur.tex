@@ -284,13 +284,13 @@ We now proceed to prove the above mentioned theorem.
 		& x & \longmapsto & 
 		\left\{ \begin{array}{l l}
 			f(u) & \text{if}~f(u) \leqslant n \\
-			k + g(\alpha) & \text{if}~f(u) = n + 1 \\
+			n + g(\alpha) & \text{if}~f(u) = n + 1 \\
 		\end{array} \right.
 	\end{array}
 	\]
 	
 	\(h\) is well-defined since, by definition of \(m_{n+1}\), \(\forall x \in [\![p q + 1, p q + m_{n + 1} - 1 ]\!], f(u) 
-	\leqslant k\) and therefore \(\forall x \in [\![1,pq+m_{n+1}-1]\!], f(u) = n + 1 \implies \alpha \in [\![1, p]\!]\).
+	\leqslant n\) and therefore \(\forall x \in [\![1,pq+m_{n+1}-1]\!], f(u) = n + 1 \implies \alpha \in [\![1, p]\!]\).
 	
 	\par
 	We now prove that \(h\) is a sum-free coloring. Let \(x,y \in [\![1,pq + m_{n+1}-1]\!]\) such that \(h(x) = h(y)\) 
@@ -298,9 +298,9 @@ We now proceed to prove the above mentioned theorem.
 	\(y = (\beta - 1) q + v\) where \(\alpha, \beta \in \mathbb{Z}\) and \(u, v \in [\![1,q]\!]\). Distinguish between 
 	two cases according to the value of \(h(x)\). \\
 	
-	\noindent \underline{\textbf{Case 1:} \(h(x) \leqslant k\)}
+	\noindent \underline{\textbf{Case 1:} \(h(x) \leqslant n\)}
 	\par
-	Assume that \(h(x+y) \leqslant k\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of \(h\) 
+	Assume that \(h(x+y) \leqslant n\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of \(h\) 
 	and given that \(h(u) = h(v)\), \(f(u) = f(v)\). Distinguish between two cases according to the value of \(x + y\).
 	
 	\begin{itemize}
