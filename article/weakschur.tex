@@ -61,7 +61,7 @@ this numbering of columns, the column of the sum of two numbers is the only inte
 sum of the columns modulo \(a\).
 
 \renewcommand{\arraystretch}{1.7}
-\setlength{\arraycolsep}{4pt}
+\setlength{\arraycolsep}{3pt}
 
 \[
 \begin{NiceArray}{*{13}{c}}[corners={NW,SW},hvlines,first-row,last-row,first-col]
@@ -131,7 +131,7 @@ sum of the columns modulo \(a\).
 	\cellcolor{cyan}{6-12}
 	\cellcolor{green}{6-13}
 \Body
-	& & & & & & \Block{1-8}{\overbrace{\hphantom{----------------------------}}^{\mathcal{T}}} \\
+	& & & & & & \Block{1-8}{\overbrace{\hphantom{---------------------------}}^{\mathcal{T}}} \\
 	& & & & & & 1 & 2 & ... & r & r + 1 & ... & b - 1 & b \\
 	\Block{5-1}{\mathcal{R} \left\{ \vphantom{\begin{array}{l} . \\ . \\ . \\ . \\ . \\ . \\ . \\ . \\ . \end{array}} \right.} 
 	& a - l & a - l + 1 & ... & a - 1 & a & a + 1 & ... & a + r - 1 & a + r & a + r + 1 & ... & a + b - 1 & a + b \\
@@ -139,7 +139,7 @@ sum of the columns modulo \(a\).
 	& ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
 	& ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
 	& p a - l & ... & ... & ... & p a & ... & ... & ... & p a + r & ... & ... & ... & p a + b \\
-	& & & & & & & & & & \Block{1-4}{\underbrace{\hphantom{---------------}}_{\mathcal{C}}} \\
+	& & & & & & & & & & \Block{1-4}{\underbrace{\hphantom{--------------}}_{\mathcal{C}}} \\
 \end{NiceArray}
 \]
 
@@ -567,13 +567,21 @@ Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to
 \([\![b + 1, b + c]\!]\) with \(k\) colors such that for all \(c \in [\![1, k]\!]\),
 
 \begin{itemize}
-\item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!], (f(x) = f(y) \text{ and } \pi(x + y) \leqslant b + c)
-	\implies g(\pi(x + y)) \neq f(x)\)
-\item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, b + c]\!],  (f(x) = g(y) \text{ and } \pi(x + y) \leqslant b + c)
-	\implies g(\pi(x + y)) \neq f(x)\)
+\item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!],  \left\{
+	\begin{array}{l}
+		f(x) = f(y) \\
+		\pi(x + y) \leqslant b + c
+	\end{array}
+	\right. \implies g(\pi(x + y)) \neq f(x)\)
+\item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, b + c]\!], \left\{
+	\begin{array}{l}
+		f(x) = g(y) \\
+		\pi(x + y) \leqslant b + c
+	\end{array}
+	\right. \implies g(\pi(x + y)) \neq f(x)\)
 \end{itemize}
 
-Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(i \longmapsto g(i - p S(n))\), we have\\
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(x \longmapsto g(x - p S(n))\), we have\\
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
 \end{proposition}
 
@@ -616,15 +624,16 @@ Let \(n, k \in \mathbb{N}^*\). Then
 
 \begin{proof}[\textsc{Proof.}]
 The idea is the same as in the previous theorem. The only difference is the WSF property inherited
-from the WSF-template.
+from the WSF-template. \\
 \end{proof}
 
 
 
 \subsection{Inequalities and new lower bounds for Weak Schur numbers}
 
-\qquad Having found suitable templates, which can be found in the appendix, with a SAT solver, we claim that for all \(n \in
-\mathbb{N}^*\)
+\qquad We exhibited WSF-templates using a SAT solver, hence providing lower bound on \(WS^+\) and inequalities 
+of the type \(WS(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
+\((a, b)\) (for the lexicographic order).
 
 \[
 \begin{array}{r r r r r}
@@ -635,12 +644,14 @@ from the WSF-template.
 \end{array}
 \]
 
-The first two inequalities were found by Rowley, they are detailed in \cite{RowleyWS}. The third inequality is optimal and was found with a SAT solver.
-It uses the first sophistication explained in the previous subsection in order to add the last number in the first color.
+The first two inequalities were found by Rowley, they are detailed in \cite{RowleyWS}. The third inequality is optimal 
+and was found with a SAT solver. It uses the first sophistication explained in the previous subsection in order to add 
+the last number in the first color. The \hyperref[WSF-templates]{corresponding template} can be found in the appendix.
 As for the fourth inequality, it was obtained by combining an optimal SF-template with width 33 with a WSF-template with width 4.
 The best template we could get with a computer search gives the inequality \(\WS(n+4) \geqslant 127 S(n) + 68\).
 It was also found with the SAT solver. In order to reduce the search space, we only looked for WSF-templates of
-5 colors which start with a good \(\WS(4)\) partition. However, this approach most likely prevents us from finding the best WSF-templates
+5 colors which start with a good \(\WS(4)\) partition and we assumed that the special color was the last by order of 
+appearance. However, this approach most likely prevents us from finding the best WSF-templates
 as we explain in the next subsection for weakly sum-free partitions. We highly suspect that there exists more efficient WSF-templates
 with \(n \geqslant 5\) colors. One may try to go over a different search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}.
 This could be the suject of a future work. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
