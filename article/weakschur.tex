@@ -64,7 +64,7 @@ sum of the columns modulo \(a\).
 \setlength{\arraycolsep}{4pt}
 
 \[
-\begin{NiceArray}{*{13}{c}}[corners=NW,hvlines]
+\begin{NiceArray}{*{13}{c}}[corners=NW,hvlines,xdots/line-style={solid}]
 \CodeBefore
 	\cellcolor{green}{1-6}
 	\cellcolor{green}{1-7}
@@ -219,7 +219,7 @@ Let x \(\in [\![1,b]\!]\) and \(y \in \mathbb{N}^*\). Then
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-It is a direct consequence of \(pi(x) = x \mod a\). \\
+It is a direct consequence of \(\pi(x) = x \mod a\). \\
 \end{proof}
 
 \begin{proposition}
@@ -464,7 +464,7 @@ Define a new coloring \(f\) as follows
 
 \(f\) is well defined since \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) is a partition of  \([\![1, p a + b]\!]\). 
 We now prove that \(f\) is a weakly sum-free coloring. Let \(x,y \in [\![1, p a + b]\!]\) such that \(x \neq y\), 
-\(h(x) = h(y)\) and \(x+y \leqslant p a+ b\). We claim that \(h(x+y) \neq h(x)\). Distinguish between six cases 
+\(f(x) = f(y)\) and \(x+y \leqslant p a+ b\). We claim that \(f(x+y) \neq f(x)\). Distinguish between six cases 
 according to the subsets \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) to which \(x\) and \(y\) belong. It is 
 sufficient to check only six cases out of nine since \(x\) and \(y\) play symmetric roles. \\
 
@@ -487,7 +487,7 @@ Given that \(f(x) = f(y)\) and by definition of \(f\), \(g(x) = g(\pi(y))\). Bes
 	\end{sloppypar}
 \item \begin{sloppypar}
 	If \(x+\pi(y)> a+b\) then given that \(g\) is a WSF-template and since \({g(x) = g(\pi(y)) \leqslant n}\), 
-	\({g(\pi(x+\pi(y))) \neq g(x)}\).~Given that \({g(\pi(x+\pi(y))) = g(\pi(x+y))}\) (proposition \ref{prop2}), 
+	\({g(\pi(x+\pi(y))) \neq g(x)}\).~Furthermore \({g(\pi(x+\pi(y))) = g(\pi(x+y))}\) (proposition \ref{prop2}), such that 
 	\({g(\pi(x+ y)) \neq g(x)}\).
 	\end{sloppypar}
 \end{itemize}
@@ -515,10 +515,10 @@ Necessarily \(f(x) = f(y) = n + 1\). Distinguish between two cases according to 
 By definition of \(f\) and since \(f(x)=f(y)\), \(g(\pi(x)) = g(\pi(y))\). Dsistinguish between two cases according 
 to the value of \(\pi(x)+\pi(y)\).
 \begin{itemize}
-\item If \(\pi(x) + \pi(y) \leqslant q\) then \(\pi(x)+\pi(y) = \pi(x + y)\). Hence \(g(\pi(x + y) \neq g(\pi(x))\) since 
+\item If \(\pi(x) + \pi(y) \leqslant a+b\) then \(\pi(x)+\pi(y) = \pi(x + y)\). Hence \(g(\pi(x + y) \neq g(\pi(x))\) since 
 	\(g\) is sum-free for \(x>b\)
 \item \begin{sloppypar} 
-	If \(\pi(x)+\pi(y)>q\) then given that \(g\) is a WSF-template, \({g(\pi(\pi(x)+\pi(y))) \neq g(\pi(x))}\) since 
+	If \(\pi(x)+\pi(y)>a+b\) then given that \(g\) is a WSF-template, \({g(\pi(\pi(x)+\pi(y))) \neq g(\pi(x))}\) since 
 	\({g(\pi(x)) = g(\pi(y))}\). Besides,  \({g(\pi(\pi(x)+\pi(y))) = g(\pi(x + y))}\) (proposition \ref{prop4}). Hence \({g(\pi(x + y)) 
 	\neq  g(\pi(x))}\).
 	\end{sloppypar}
@@ -534,23 +534,23 @@ By definition of \(f\), \(f(x) \neq f(y)\).\\
 
 \noindent \underline{\textbf{Case 6:} \((x,y) \in \mathcal{R}^2\)}
 \par
-In particular \(g(\pi(x)) = g(\pi(y))=n\). Distinguish between three cases according to the value of \(\pi(x) + \pi(y)\).
+In particular \(g(\pi(x)) = g(\pi(y))=n + 1\). Distinguish between three cases according to the value of \(\pi(x) + \pi(y)\).
 \begin{itemize}
 \item If \(\pi(x) + \pi(y) \in [\![a + b + 1, 2 a + b]\!]\) then \(\lambda(x + y) = \lambda(x) + \lambda(y)\) 
 	(proposition \ref{prop7}). By definition of \(f\) and since \(f(x) = f(y)\), \(h(\lambda(x)) = h(\lambda(y))\).
 	Hence, \(h(\lambda(x + y)) \neq h(\lambda(x)\) since \(h\) is a sum-free coloring. If \(f(x+y) \geqslant n + 1\) 
 	then \(f(x + y) = n + h(\lambda(x + y))\). And \(f(x) = n + h(\lambda(x))\). Therefore, \(f(x + y)  \neq f(x)\). 
 	Otherwise \(f(x+y) \leqslant n < f(x)\). In particular \(f(x + y) \neq f(x)\).
-\item If \(\pi(x)+\pi(y)>2a+b\) then \(g(\pi(\pi(x)+\pi(y))) \neq g(\pi(x)) = n\) since \(g\) is a \(b\)-WSF template and 
-	\(g(\pi(x)) = g(\pi(y))\). Given that \(\pi(\pi(x)+\pi(y)) = \pi(x+y)\) (proposition \ref{prop4}), \(g(\pi(x+y)) \neq n\).
+\item If \(\pi(x)+\pi(y)>2a+b\) then \(g(\pi(\pi(x)+\pi(y))) \neq g(\pi(x)) = n + 1\) since \(g\) is a \(b\)-WSF template and 
+	\(g(\pi(x)) = g(\pi(y))\). Given that \(\pi(\pi(x)+\pi(y)) = \pi(x+y)\) (proposition \ref{prop4}), \(g(\pi(x+y)) \neq n + 1\).
 \item \begin{sloppypar}
 	If \(\pi(x)+\pi(y)\leqslant b+a\) then, given that \(\pi(x)+\pi(y) \geqslant b\) and \(g_{| [\![b, a + b ]\!]}\) is 
-	sum-free, \({g(\pi(x) + \pi(y)) \neq g(\pi(x)) = n}\). That is \(g(\pi(x + y)) \neq n\) (proposition \ref{prop1}).
+	sum-free, \({g(\pi(x) + \pi(y)) \neq g(\pi(x)) = n + 1}\). That is \({g(\pi(x + y)) \neq n + 1}\) (proposition \ref{prop1}).
 	\end{sloppypar}
 \end{itemize}
 \par
-In both of the last two cases, that is \(x+y \in \mathcal{C}\). Therefore \(f(x+y) < n \leqslant f(x)\). In particular, 
-\(f(x + y) \neq f(x)\). \\
+In both of the last two cases, \({g(\pi(x + y)) \neq n + 1}\) that is \(x+y \in \mathcal{C}\). Therefore \(f(x+y) < n \leqslant f(x)\). 
+In particular, \(f(x + y) \neq f(x)\). \\
 \end{proof}
 
 The general lower bound for weak Schur numbers in function of both regular and weak Schur numbers can be seen as a particular
