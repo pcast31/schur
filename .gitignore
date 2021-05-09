@@ -2,6 +2,7 @@ article/*
 !article/*.cls
 !article/*.bib
 !article/*.tex
+!article/*.sty
 !article/article_push.pdf
 
 __pycache__

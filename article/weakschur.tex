@@ -64,7 +64,7 @@ sum of the columns modulo \(a\).
 \setlength{\arraycolsep}{4pt}
 
 \[
-\begin{NiceArray}{*{13}{c}}[corners=NW,hvlines,xdots/line-style={solid}]
+\begin{NiceArray}{*{13}{c}}[corners={NW,SW},hvlines,first-row,last-row,first-col]
 \CodeBefore
 	\cellcolor{green}{1-6}
 	\cellcolor{green}{1-7}
@@ -131,12 +131,15 @@ sum of the columns modulo \(a\).
 	\cellcolor{cyan}{6-12}
 	\cellcolor{green}{6-13}
 \Body
-	& & & & & 1 & 2 & ... & r & r + 1 & ... & b - 1 & b \\
-	a - l & a - l + 1 & ... & a - 1 & a & a + 1 & ... & a + r - 1 & a + r & a + r + 1 & ... & a + b - 1 & a + b \\
-	2 a - l & ... & ... & ... & 2 a & ... & ... & ... & 2 a + r & ... & ... & ... & 2 a + b \\
-	... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
-	... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
-	p a - l & ... & ... & ... & p a & ... & ... & ... & p a + r & ... & ... & ... & p a + b \\
+	& & & & & & \Block{1-8}{\overbrace{\hphantom{----------------------------}}^{\mathcal{T}}} \\
+	& & & & & & 1 & 2 & ... & r & r + 1 & ... & b - 1 & b \\
+	\Block{5-1}{\mathcal{R} \left\{ \vphantom{\begin{array}{l} . \\ . \\ . \\ . \\ . \\ . \\ . \\ . \\ . \end{array}} \right.} 
+	& a - l & a - l + 1 & ... & a - 1 & a & a + 1 & ... & a + r - 1 & a + r & a + r + 1 & ... & a + b - 1 & a + b \\
+	& 2 a - l & ... & ... & ... & 2 a & ... & ... & ... & 2 a + r & ... & ... & ... & 2 a + b \\
+	& ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
+	& ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
+	& p a - l & ... & ... & ... & p a & ... & ... & ... & p a + r & ... & ... & ... & p a + b \\
+	& & & & & & & & & & \Block{1-4}{\underbrace{\hphantom{---------------}}_{\mathcal{C}}} \\
 \end{NiceArray}
 \]
 
