@@ -10,8 +10,8 @@ the entire article. We then find new templates and use them to provide new lower
 \subsection{Definition of \(S^+\)}
 
 \begin{definition}
-A SF-template with length \(p\) and \(n\) colors is defined as a partition of \( [\![1,p]\!]\) into \(n\) sum-free subsets 
-\(A_1, A_2, ..., A_n\) verifying:
+Let \((p,n) \in (\mathbb{N}^*)^2\). A SF-template with width \(p\) and \(n\) colors is defined as a partition of 
+\([\![1,p]\!]\) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) verifying
 \[
 \forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
 \Longrightarrow x+y-p \notin A_i
@@ -23,8 +23,8 @@ is not necessarily the last color by order of appearance. \(SF\)-templates inclu
 as a special case.
 
 \begin{proposition}
-	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the maximal lenght of a SF-template with \(n\) colors. 
-	\(S^+(n)\) is well defined and verifies:
+	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the maximal width of a SF-template with \(n\) colors. 
+	\(S^+(n)\) is well defined and verifies
 	\[
 	2S(n-1)+1 \leqslant S^+(n) \leqslant S(n)
 	\]
@@ -32,7 +32,7 @@ as a special case.
 
 \begin{proof}[\textsc{Proof.}]
 The lower bound comes from Abbott and Hanson's construction. The upper bound comes from the 
-fact that a SF-template with length \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets.
+fact that a SF-template with width \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets. \\
 \end{proof}
 
 \begin{remark}
@@ -46,7 +46,7 @@ fact that a SF-template with length \(p\) and \(n\) colors is also a partition o
 in the explicit construction of a sum-free partition using a SF-template and a sum-free partition.
 
 \begin{theorem}
-	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with lenght \(p\) and \(k+1\) colors 
+	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with width \(p\) and \(k+1\) colors 
 	and a partition of \([\![1,q]\!]\) into \(n\) sum-free subsets then there exists a partition of \([\![1,pq+m_{k+1}
 	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{k+1}\) is the minimum of the special subset in the \(SF\)-template.
 \end{theorem}
@@ -61,8 +61,9 @@ Setting \(p = S^+(k+1)\) and \(q = S(n)\) yields the following corollary.
 The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. They vertically 
 extend a sum-free partition by repeating it and they use an other sum-free partition to color the other half according 
 to the line number. This way the "blocks" act as safe areas for each other. We give here an example for \(p = 9\), 
-\(q = 4\), \(n = 2\) and \(k = 2\) showing that \(S(2 + 2) \geqslant S(2) (2 S(2) + 1) + S(2)\), both with Abbott 
-and Hanson's construction and with a SF-template which is not of this type. In both cases, the special color is grey.
+\(q = 4\), \(n = 2\) and \(k = 2\) showing that \(S(2 + 2) \geqslant S(2) (2 S(2) + 1) + S(2)\), both with Abbott and 
+Hanson's construction and with a SF-template which is not included in Abbott and Hanson's construction. In both cases, 
+the special color is grey.
 
 \renewcommand{\arraystretch}{1.7}
 
@@ -250,22 +251,24 @@ line number and the other colors are still vertically extended.
 
 \resetarraystretch
 
-We now proceed to prove the above mentioned theorem.\\
+We now proceed to prove the above mentioned theorem.
 
 \begin{proof}[\textsc{Proof.}]
-Denote by \(f\) the colouring associated to the \(SF\)-template of lenght \(p\) and \(g\) the one associated 
+Denote by \(f\) the coloring associated to the \(SF\)-template with width \(p\) and \(g\) the one associated 
 to the sum-free partition of \([\![1,q]\!]\); where \(f : [\![1,p]\!] \longrightarrow [\![1,k+1]\!]\) and 
 \(g : [\![1,q]\!] \longrightarrow [\![1,n]\!]\).
 
 \par
+NB: In the following 3 predicates, the conditions \(x + y \leqslant p\)  and \(x + y \leqslant q\) are omitted for readability.
+\par
 The sum-free condition is expressed as
 \[\forall (x,y) \in [\![1,p]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)\]
-\[\forall (x,y) \in [\![1,q]\!]^2 \text{, } g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)\]
+\[\forall (x,y) \in [\![1,q]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)\]
 
 The additionnal constraint for the SF-template is
 \[
 \forall (x,y) \in [\![1,p]\!]^2, \left\{
-\begin{array}{ll}
+\begin{array}{l}
 	f(x) = f(y) \leqslant k \\
 	x + y > p
 \end{array}
@@ -295,8 +298,9 @@ and \(x+y \leqslant pq+m_{k+1}-1\). We claim that \(h(x+y) \neq h(x)\). Write \(
 \(y = (\beta - 1) p + v\) where \(\alpha, \beta \in \mathbb{Z}\) and \(u, v \in [\![1,p]\!]\). Distinguish between 
 two cases according to the value of \(h(x)\). \\
 
-\noindent \underline{\textbf{First case:} \(h(x) \leqslant k\)} \\
-\qquad Assume that \(h(x+y) \leqslant k\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of \(h\) 
+\noindent \underline{\textbf{Case 1:} \(h(x) \leqslant k\)}
+\par
+Assume that \(h(x+y) \leqslant k\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of \(h\) 
 and given that \(h(u) = h(v)\), \(f(u) = f(v)\). Distinguish between two cases according to the value of \(x + y\).
 
 \begin{itemize}
@@ -308,16 +312,19 @@ and given that \(h(u) = h(v)\), \(f(u) = f(v)\). Distinguish between two cases a
 	that is \(h(x + y) \neq h(x)\).
 \end{itemize} 
   
-\noindent \underline{\textbf{Second case:} \(h(x) \geqslant k + 1\)} \\
-\qquad \(h(x) = k + g(\alpha) = 
+\noindent \underline{\textbf{Case 2:} \(h(x) \geqslant k + 1\)}
+\par
+\(h(x) = k + g(\alpha) = 
 k + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). As in the first case, distinguish between two cases according 
 to the value of \(x + y\).
 
 \begin{itemize}
-\item If \(u + v > p\), write \(w = u + v - p \in [\![1, p]\!]\). Then \(x + y = (\alpha + \beta - 1) p + w\). Assume that 
-	\(h(x+y) \geqslant k + 1\),  otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition, \(h(x + y) = k + g(\alpha + 
-	\beta)\). Given that \(g(\alpha) = g(\beta)\), the sum-free property of \(g\) implies \(g(\alpha + \beta) 
+\item \begin{sloppypar}
+	If \(u + v > p\), write \(w = u + v - p \in [\![1, p]\!]\). Then \(x + y = (\alpha + \beta - 1) p + w\). Assume that 
+	\({h(x+y) \geqslant k + 1}\),  otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition, \({h(x + y) = k + g(\alpha + 
+	\beta)}\). Given that \(g(\alpha) = g(\beta)\), the sum-free property of \(g\) implies \(g(\alpha + \beta) 
 	\neq g(\alpha)\) that is \(h(x + y) \neq h(x)\).
+	\end{sloppypar}
 \item  If \(u + v \leqslant p\), write \(w = u + v \in [\![1, p]\!]\). Then \(x+y = (\alpha + \beta- 2) p + w\). The sum-free 
 	property of \(f\) implies \(f(w) \neq f(u)\). Therefore \(f(w) \leqslant k\) and thus \(h(x + y) \leqslant k\). In particular,
 	given that \(h(x) \geqslant k + 1\), \(h(x + y) \neq h(x)\).
@@ -329,9 +336,9 @@ improve the SF-templates we have found, the analogous of this proposition for WS
 allows us to improve one of them.
 
 \begin{proposition}
-Let \((k, p) \in \mathbb{N}^*)^2\) and let \(f\) be a colouring associated to a SF-template of length \(p\) with \(k+1\) 
-colors. Let \(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a colouring \(g\) of 
-\([\![1, b]\!]\) with \(k+1\) colors such that:
+Let \((p, k) \in \mathbb{N}^*)^2\) and let \(f\) be a coloring associated to a SF-template with width \(p\) and \(k+1\) 
+colors. Let \(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there there exists a coloring \(g\) of 
+\([\![1, b]\!]\) with \(k+1\) colors such that
 
 \begin{itemize}
 	\item \(\forall (x, y) \in [\![1, p]\!]^2,(f(x) = f(y) \text{ and } (x + y) \mod p \leqslant b) 
@@ -340,52 +347,55 @@ colors. Let \(b \in \mathbb{N}\) (\(b = m_{k+1} - 1\) works) and assume there th
 	\implies g(x + y) \neq f(x)\)
 \end{itemize}
 
-Then, for every \(n \in \mathbb{N}^*\), by using on the last row the colouring \(i \longmapsto g(i - p S(n))\), we have
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(i \longmapsto g(i - p S(n))\), we have
 \[ S(n+k) \geqslant S^+(k+1)S(n) + b\]
 \end{proposition}
 
-This proposition corresponds to the fact that sometimes a column is not the sum of two columns of a given color, but adding this 
-column to the color would create sums in the color when applying the extension procedure. However, the last line does not 
-intereact will all the columns when it comes to creating new sums. As a result, the hypotheses made on the colouring of the last 
-row can be weakened.
+This proposition corresponds to the fact that sometimes a column is not the sum of two columns of a given color, but 
+adding this column to the color would create sums in the color when applying the extension procedure. However, the 
+last row does not intereact with the right-most columns when it comes to creating new sums. As a result, the hypotheses 
+made on the coloring of the last row can be weakened.
 
-We also have a similar construction theorem where only \(S^+\) is involved.
+There is a construction theorem for SF-templates as well.
 
 \begin{theorem}
-	Let \((n,k), (p,q) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template of \(k+1\) colors and lenght \(p\),
-	and \(SF\)-template of \(n\) color and lenght \(q\), then there exists \(SF\)-template of \((n+k)\) and lenght \(pq\).
+Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a SF-template with width \(p\) and \(k+1\) colors,
+and a SF-template with width \(q\) and \(n\) colors, then there exists SF-template with width \(pq\) and \((n+k)\) 
+colors.
 \end{theorem}
 
-And the associated inequality :
+And the associated inequality
 
 \begin{corollary}
-	Let \(n, k \in \mathbb{N}^*\), we have \\
-	\[ S^+(n+k) \geqslant S^+(k+1)S^+(n) \]
+Let \(n, k \in \mathbb{N}^*\). Then
+\[ S^+(n+k) \geqslant S^+(k+1)S^+(n) \]
 \end{corollary}
 
 \begin{proof}[\textsc{Proof.}]
-The idea is the same as in the previous theorem. The only difference is the SF property inherited 
-from the second SF-template.
+The idea is the same as in the previous theorem. The only difference is the SF-template property inherited 
+from the second SF-template. \\
 \end{proof}
 
 
 \subsection{Inequalities and new lower bounds for Schur numbers}
 
 \begin{definition}
-A SF-template with \(n\) colors is said to be symmetric if the partition in \(n\) sum-free subsets derived (with the additive constant) from this template is symmetric. 
-A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), \(x\) and \(p + 1 - x\) belong to the same subset 
-(except if \(x = p + 1 - x\)).
+A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), 
+\(x\) and \(p + 1 - x\) belong to the same subset (except if \(x = p + 1 - x\)).
+
+A SF-template with \(n\) colors is said to be symmetric if the partition into \(n\) sum-free subsets derived 
+from this template by applying the extension procedure with a sum-free partition of length 1 is symmetric. 
 \end{definition}
 
-Using a SAT solver, we exhibited SF-templates, hence providing lower bound on \(S^+\) and inequalities 
+We exhibited SF-templates using a SAT solver, hence providing lower bound on \(S^+\) and inequalities 
 of the type \(S(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
 \((a, b)\) (for the lexicographic order). When the number of colors excceeded 5, in order to reduce the search space we 
-looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
+only looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
 the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
 
 \par
 Here are the best inequalities on Schur numbers so far (the templates corresponding to the third, fourth and fifth 
-inequalities can be found in the appendix):
+inequalities can be found in the appendix).
 \[
 \begin{array}{r r r r r}
 	S(n + 1) & \geqslant & 3 S(n) & + & 1 \\
@@ -404,11 +414,11 @@ and the third one to Rowley \cite{RowleyRamsey}. The other ones are new.
 \par
 The first 3 inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
 the last in the order of apparition (and with a multiplicative factor less than or equal to 118). The fifth one is most 
-likely not optimal but should not be too far from the optimal. 
-Finally, the sixth one is obtained by combining (see below) the SF-template of length 380 and the one of length 3. 
-Although we could not find a better SF-template with 7 colors, the last inequality is definetely very far from the 
+likely not optimal but should not be too far from the optimum. 
+Finally, the sixth one is obtained by combining a SF-template with width 380 and one with width 3. 
+Although we could not find a better SF-template with 7 colors, the last inequality is definitely very far from the 
 optimal value. One may try to seek better templates by constraining less the search space and by using 
-Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.
+Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the subject of a future work.
 
 \par
 The previous inequalities give new lower bounds for \(S(n)\) for
@@ -416,32 +426,43 @@ The previous inequalities give new lower bounds for \(S(n)\) for
 bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, please notice that the best values for \( n
 =8\) and \(n = 13\) were obtained thanks to the first one, found by Rowley. The best lower bounds are highlighted.
 
-\begin{center}
-\begin{tabular}{|*{5}{c|}}
-	\hline
-	\(n\) & 8 & 9 & 10 & 11 \\
-	\hline
-	\(33S(n-3) + 6 \) & \cellcolor{yellow} 5\,286 & 17\,694 & 55\,446 & 174\,444\\
-	\hline
-	\(111S(n-4) + 43 \) & 4927 & \cellcolor{yellow} 17\,803 & 59\,539 & 186\,523\\
-	\hline
-	\(380S(n-5) + 148 \) & 5\,088 & 16\,868 & \cellcolor{yellow} 60\,948 & \cellcolor{yellow} 203\,828 \\
-	\hline
-	\(1\,140S(n-6) + 528 \) & 5\,088 & 15\,348 & 50\,688 & 182\,928\\
-	\hline
-	\hline
-	\(n\) & 12 & 13 & 14 & 15 \\
-	\hline
-	\(33S(n-3) + 6 \) & 587\,505 & \cellcolor{yellow} 2\,011\,290 & 6\,726\,330 & 21\,072\,090\\
-	\hline
-	\(111S(n-4) + 43 \) & 586\,789 & 1\,976\,176 & 6\,765\,271 & 22\,624\,951 \\
-	\hline
-	\(380S(n-5) + 148 \) & \cellcolor{yellow} 638\,548 & 2\,008\,828 & \cellcolor{yellow} 6\,765\,288 & \cellcolor{yellow} 23\,160\,388 \\
-	\hline
-	\(1\,140S(n-6) + 528 \) & 611\,568 & 1\,915\,728 & 6\,026\,568 & 20\,295\,948 \\
-	\hline
-\end{tabular}
-\end{center}
+\renewcommand{\arraystretch}{0.2}
+
+\[
+\begin{array}{c}
+	\resetarraystretch
+	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
+	\CodeBefore
+		\cellcolor{yellow}{2-2}
+		\cellcolor{yellow}{3-3}
+		\cellcolor{yellow}{4-4}
+		\cellcolor{yellow}{4-5}
+	\Body
+		n & 8 & 9 & 10 & 11 \\
+		33 \, S(n-3) + 6 & 5\,286 & 17\,694 & 55\,446 & 174\,444 \\
+		111 \, S(n-4) + 43 & 4927 & 17\,803 & 59\,539 & 186\,523 \\
+		380 \, S(n-5) + 148 & 5\,088 & 16\,868 & 60\,948 & 203\,828 \\
+		1\,140 \, S(n-6) + 528 & 5\,088 & 15\,348 & 50\,688 & 182\,928 \\
+	\end{NiceArray}
+	\\ \\
+	\resetarraystretch
+	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
+	\CodeBefore
+		\cellcolor{yellow}{2-3}
+		\cellcolor{yellow}{4-2}
+		\cellcolor{yellow}{4-4}
+		\cellcolor{yellow}{4-5}
+	\Body
+		n & 12 & 13 & 14 & 15 \\
+		33 \, S(n-3) + 6 & 587\,505 & 2\,011\,290 & 6\,726\,330 & 21\,072\,090 \\
+		111 \, S(n-4) + 43 & 586\,789 & 1\,976\,176 & 6\,765\,271 & 22\,624\,951 \\
+		380 \, S(n-5) + 148 & 638\,548 & 2\,008\,828 & 6\,765\,288 & 23\,160\,388 \\
+		1\,140 \, S(n-6) + 528 & 611\,568 & 1\,915\,728 & 6\,026\,568 & 20\,295\,948 \\
+	\end{NiceArray}
+\end{array}
+\]
+
+\resetarraystretch
 
 Except for 8, 9 and 13, the best lower bounds are obtained thanks to
 the third inequality \( S(n+5) \geqslant 380S(n) + 148\). The table
@@ -449,12 +470,14 @@ doesn't go any further, but the same inequality allows to improve the
 lower bounds for every \( n \geqslant 15 \).
 
 \begin{corollary}
-The growth rate for Schur numbers (and Ramsey numbers \(R_n(3)\))  satisfies \(\gamma \geqslant \sqrt[5]{380} \approx 3.28\).
+\begin{sloppypar}
+The growth rate for Schur numbers (and Ramsey numbers \(R_n(3)\))  satisfies \({\gamma \geqslant \sqrt[5]{380} \approx 3.28}\).
+\end{sloppypar}
 \end{corollary}
 
 \begin{proof}[\textsc{Proof.}]
 It is a mere consequence of the inequality \( S(n+5) \geqslant 380S(n) + 148\). As for Ramsey
-numbers, the following inequality holds \(S(n) \leqslant R_n(3) - 2\) (see \cite{AbbottHanson}).
+numbers, the following inequality holds \(S(n) \leqslant R_n(3) - 2\) (see \cite{AbbottHanson}) hence the result. \\
 \end{proof}
 
 
@@ -468,4 +491,4 @@ find better SF-templates by making different assumptions or using a different me
 
 \par
 In the next section, we provide similar results for weak Schur numbers. We introduce WSF-templates and a corresponding sequence, 
-\(WS^+\). We then derive similar relations and construction method allowing us to find new lower bounds for weak Schur numbers.
+\(\WS^+\). We then derive similar relations and a construction method allowing us to find new lower bounds for weak Schur numbers.

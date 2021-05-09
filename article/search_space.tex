@@ -1,11 +1,12 @@
 \section{Analysis of the former search space}
+\label{SearchSpace}
 
 \qquad \hypertarget{sat}{In} this section, we first provide evidence which indicate that the main assumption made by papers which
 found the previous best known lower bounds for weak Schur numbers using a computer may not be correct. 
 This is done primarily by studying \(\WS(6)\). Then, in an effort to eliminate irrelevant search spaces, we 
 obtain stronger results than those previously known for \(\WS (5)\) while gaining several orders of magnitude 
 in computation time by giving additional information to the SAT solver without losing in generality. In this 
-section, we assume that the subsets are ordered.
+section, \textit{we assume that the subsets are ordered}.
 
 
 \subsection{Limitation of the former assumption}
@@ -15,11 +16,11 @@ the former best known lower bound (582) \cite{EliahouBook}. This previous lower 
 several times using a computer (often with Monte-Carlo methods) and by recursively making the assumption 
 that a good partition for \(\WS (n+1)\) starts with a good partition for \(\WS (n)\) which is true for small
 values of \(n\). Therefore, one may wonder whether the limiting factor are the assumptions or the 
-methods used to search for partitions. It appears that the search space induced by these assumptions does 
-not contain the optimal partitions.
+methods used to search for partitions.Here we provide evidence indicating that the search space induced by 
+these assumptions does not contain the optimal partitions.
 
 \begin{computational theorem}
-There is no weakly sum-free partition of \([\![1,583]\!]\) in 6 parts such that:
+There is no weakly sum-free partition of \([\![1,583]\!]\) into 6 subsets such that
 \begin{itemize}
 	\item \(m_5 \geqslant 66\)
 	\item \(m_6 \geqslant 186\)
@@ -37,46 +38,46 @@ speedup, but it most likely allowed us to gain several order of magnitude in com
 subsection.
 
 \par
-For every weakly sum-free colouring \(f\) of \([\![1,65]\!]\) with 4 colors, the sequence \(f(1), f(2), f(3), ...\) always
+For every weakly sum-free coloring \(f\) of \([\![1,65]\!]\) with 4 colors, the sequence \(f(1), f(2), f(3), ...\) always
 starts with the following subsequence 1121222133. Then 11 is always
 either in subset 1 or 3, 12 is always in subset 3 and so on. For every integer in \([\![1,65]\!]\), we computed in which
 subset it can appear.
 By using this constraints, we could then compute for every integer in \([\![1,185]\!]\), in which subset it can appear
 in a weakly sum-free
-partition of \([\![1,185]\!]\) which starts with a weakly sum-free partition of \([\![1,65]\!]\) in 4 subsets. Adding
+partition of \([\![1,185]\!]\) which starts with a weakly sum-free partition of \([\![1,65]\!]\) into 4 subsets. Adding
 these constraints to the
-formula corresponding to the above theorem gives additional information to the SAT solver without losing in generality.
+formula corresponding to the above theorem gives additional information to the SAT solver without loss of generality.
 
 \par
 The above theorem shows that the previous lower bound for \(\WS (6)\) is optimal in the search space considered by the
 papers which found it.
-Therefore, finding a partition of \([\![1,n]\!]\) in 6 weakly sum-free subsets for some \(n \geqslant 590\) which does
+Therefore, finding a partition of \([\![1,n]\!]\) into 6 weakly sum-free subsets for some \(n \geqslant 590\) which does
 not have a template-like structure
 would be extremely interesting since it could give indications on a new search space for improving lower bounds with a
-computer. 
+computer search. 
 
 \par More generally, this theorem questions the search space previously used for finding lower bounds for \(\WS (n)\) 
 with a computer. In particular, to our knowledge every paper that found the lower bound \(\WS (5) \geqslant 196\) 
-used this assumption. Therefore one may wonder if this is actually a good lower bound. In the next subsection, we give 
-properties that a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets has to verify.
+used this assumption. Therefore one may wonder whether this is actually a good lower bound. In the next subsection, we give 
+properties that a hypothetical partition of \([\![1,197]\!]\) into 5 weakly sum-free subsets has to verify.
 
 
 \subsection{Investigating weak Schur number five}
 
 \qquad As explained in the previous subsection, the search space used for showing that \(\WS (5) \geqslant 196\) may not contain
 optimal solution. In this subsection,
-we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets using the
+we give necessary conditions for a hypothetical partition of \([\![1,197]\!]\) into 5 weakly sum-free subsets using the
 same type of methods as in the
 previous subsection.
 
 \begin{notation}
 Let \(P\) be a predicate over weakly sum-free partitions. We denote by \(\WS (n | P)\) the greatest number \(p\) such that
 there exists a partition of
-\([\![1,p]\!]\) in n weakly sum-free subsets which verifies P.
+\([\![1,p]\!]\) into n weakly sum-free subsets which verifies P.
 \end{notation}
 
 \par
-\cite{ELIAHOU2012175} verified with a SAT solver that there are no partition in 5 weakly sum-free subsets of
+\cite{ELIAHOU2012175} verified with a SAT solver that there are no partition into 5 weakly sum-free subsets of
 \([\![1,197]\!]\) with
 \(A_5 = \{67, 68\} \cup [\![70,134]\!] \cup \{136\}\) in 17 hours and could not provide a similar result when only
 assuming \(m_5 = 67\) even after several
@@ -84,10 +85,10 @@ weeks of runtime. By using the same method as above, we were able to verify that
 seconds with the SAT solver glucose \cite{Glucose}
 on a 2.60 GHz Intel i7 processor PC (we used the non-parallel version here for the sake of comparison but in the rest of
 this subsection, we used the parallel version of glucose).
-The additional information we gave to the SAT solver is that every partition of \([\![1,66]\!]\) in 4 weakly sum-free
+The additional information we gave to the SAT solver is that every partition of \([\![1,66]\!]\) into 4 weakly sum-free
 subsets starts with a partition of
-\([\![1,23]\!]\) in 3 weakly sum-free subsets (this can be checked in a few dozens of minutes with a SAT solver). Among
-the 3 partitions of \([\![1,23]\!]\) in
+\([\![1,23]\!]\) into 3 weakly sum-free subsets (this can be checked in a dozen of minutes with a SAT solver). Among
+the 3 partitions of \([\![1,23]\!]\) into
 3 weakly sum-free subsets, every number always appears in the same subset except for 16 and 17 which can appear in two
 different subsets. We hardcoded
 this external knowledge in the propositional formula which allowed us to gain several orders of magnitude in computation
@@ -95,7 +96,7 @@ time. Since \(\WS (4) = 66\), we have \(m_5 \leqslant 67\). We give the stronger
 
 
 \begin{computational theorem}
-If there exists a partition of \([\![1,197]\!]\) in 5 weakly sum-free subsets then \(m_5 \leqslant 59\).
+If there exists a partition of \([\![1,197]\!]\) into 5 weakly sum-free subsets then \(m_5 \leqslant 59\).
 \end{computational theorem}
 
 More precisely, we verified the following results (\(max~m_5\) is the greatest value of \(m_5\) for which we have not
@@ -121,19 +122,20 @@ verified that \(\WS (5 | m_5) \leq 196\)).
 \setlength{\tabcolsep}{6pt}
 
 For \(m_4 = 24\), the value \(m_5 \leqslant 53\) was obtained after 7 hours of runtime, and for  \(m_4 = 22\), the
-value \(m_5 \leqslant 59\) was obtained after 11 hours of runtime. All the other values took between 1 minutes and 2 hours.
-To obtain these results, we once again provided additionnal information to the SAT solver. We added two different types information.
-The first one is the same as previously: we compute the subsets in which the first numbers can appear. The second type of
-information is the maximum length of a sequence using only a certain subset of the colors. For instance,
-if \(m_4 \geqslant 22\), then there cannot be more than 17 consecutive numbers with color 1, 2 or 3.
+value \(m_5 \leqslant 59\) was obtained after 11 hours of runtime. As for the other values, they were obtained after 
+between 1 minute and 2 hours of runtime. To obtain these results, we once again provided additionnal information to 
+the SAT solver. We added two different types information. The first one is the same as previously: we compute the 
+subsets in which the first numbers can appear. The second type of information is the maximum length of a sequence 
+using only a certain subset of the colors. For instance, if \(m_4 \geqslant 22\), then there cannot be more than 17 
+consecutive numbers with color 1, 2 or 3.
 
 
 \subsection{Conclusion on the search space}
 
-\qquad As explained in the first subsection, the recursive assumption that a good partition for\(\WS (n+1)\) starts with a good partition for 
+\qquad As explained in the first subsection, the recursive assumption that a good partition for \(\WS (n+1)\) starts with a good partition for 
 \(\WS (n)\) appears to be wrong. Given that no extensive search for \(\WS(5)\) has been conducted without making this assumption and 
 that the size of the considered partitions is reasonable (the current lower bound is 196 and \(S(5) = 160\) was verified), it seems worth 
 investigating this special case further. In a spirit of orientating this search, we then give necessary conditions on an hypothetical partition 
-of \([\![1,197]\!]\) in 5 weakly sum-free subsets. Finding partitions that exceeds the lower bounds found with a computer (even if they 
+of \([\![1,197]\!]\) into 5 weakly sum-free subsets. Finding partitions that exceeds the lower bounds found with a computer (even if they 
 do not exceed those obtained with templates) which are not as regular as those obtained with templates would be extremely interesing 
 since it could designate a new search space for finding lower bounds with a computer.
