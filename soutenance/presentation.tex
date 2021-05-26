@@ -350,4 +350,64 @@ Quelques résultats !
 \end{changemargin}
 \end{frame}
 
+\section{Template pour les nombres de Weak-Schur}
+
+
+\subsection{Inégalités entre les nombres de Schur et de Weak Schur}
+
+
+\begin{frame}
+	\begin{itemize}
+		\item \textbf{premières inégalités obtenu par Rowley:}
+		\vspace{3 mm}
+			\begin{itemize}
+			\item $WS(n+1) \geqslant 4S(n)+2$
+			\item $WS(n+2) \geqslant 13S(n)+8$
+			\end{itemize}
+		\vspace{5 mm}
+		\item \textbf{Inégalité généralisé:} 
+		\vspace{5 mm} Soit $(n,k) \in \mathbb{N}^2$,
+			\fbox{$WS (n+k) \geqslant S(k) \left (WS (n) + \left \lceil 					\displaystyle \frac{WS (n)}{2}
+			\right \rceil +1 \right) + WS (n)$}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+$WS (n+k) \geqslant \underbrace{S(k)}_p \underbrace{\left (WS (n) +\overbrace{\left \lceil 					\displaystyle \frac{WS (n)}{2}
+			\right \rceil}^{r=l} +1 \right)}_a + \underbrace{WS (n)}_b$
+\end{center}
+
+\begin{figure}
+        \centering
+        \includegraphics[scale=0.35]{tableau.png}
+\end{figure}
+\end{frame}
+
+\subsection{Principe général du template Weak Schur}
+\begin{frame}
+
+
+\begin{itemize}
+\item On cherche un template à n couleurs de cardinal $WS^+(n)$ tel que:
+\newline $WS(n+k) \geqslant S(k)WS^+(n)+b$
+\vspace{8 mm}
+\item Or $WS (n+k) \geqslant S(k) \left (WS (n) + \left \lceil 					\displaystyle \frac{WS (n)}{2}
+			\right \rceil +1 \right) + WS (n)$
+			\vspace{8 mm}
+\item Par conséquent, $WS^+(n) \geqslant WS (n) + \left \lceil 					\displaystyle \frac{WS (n)}{2}
+			\right \rceil +1 $
+\end{itemize}
+
+\end{frame}
+
+\subsection{Nouvelles valeurs obtenus}
+
+\begin{frame}
+\begin{figure}
+        \centering
+        \includegraphics[scale=0.30]{tableau_resultat.png}
+\end{figure}
+
+\end{frame}
 \end{document}
