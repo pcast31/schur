@@ -11,9 +11,9 @@
 \usepackage[export]{adjustbox}
 \usepackage{appendixnumberbeamer}
 \usepackage{stmaryrd} 
-\usepackage{minted}
 \usepackage{caption}
 \usepackage{version}
+\usepackage{nicematrix}
 \captionsetup[figure]{labelformat=empty}
 
 
@@ -21,9 +21,9 @@
 \usetheme{Warsaw}
 \usecolortheme{dolphin}
 
-\title[Algorithme génétique]{Algorithme génétique}
-\subtitle{Groupe 4}
-\author[R. Ageron, T. De Coninck, P. Dufresne, T. Pellerin]{Romain Ageron, Tom De Coninck, Paul Dufresne, Thibaut Pellerin}
+\title[Weak Schur numbers]{Weak Schur numbers}
+\subtitle{P05 - Formation à la recherche}
+\author[R. Ageron, P. Castéras, T. Pellerin, Y. Portella]{Romain Ageron, Paul Castéras, Thibaut Pellerin, Yann Portella}
 \titlegraphic{\centering
 	\includegraphics[scale=.08]{cs}
 }
@@ -54,49 +54,126 @@
 %\end{center}
 \end{frame}
 
-\section{Problème du plasmide circulaire}
-\subsection{Présentation}
+\section{Présentation}
+\subsection{Un problème de partition}
 \begin{frame}
-	On dispose d'une chaîne de nucléotides (A,T,C,G).
+	En 1917, le russe \textbf{Issai Schur} pose le problème suivant :
+	\pause
 	\begin{itemize}
-		\item chaque dinucléotide (ex : "AT") doit avoir une certaine orientation dans l'espace 
-		\item on veut trouver les orientations qui rendent la trajectoire associée à la séquence \textbf{circulaire}
-		\item nos variables sont les orientations, les individus seront donc des tables d'orientations
-		\item on dispose de mesures expérimentales, les orientations doivent rester dans un intervalle autour de ces mesures
+		\item On se donne \(n \geq 1\) un entier
+		\item \(k \geq 1\) un autre entier, qui correspond au nombre de \textbf{couleurs}
 	\end{itemize}
+	\pause
+	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Question]
+		Peut-on colorier les entiers de \(1\) à \(n\) de sorte que si deux nombres ont la même couleur,
+		leur somme n'est pas de cette couleur ? Si oui, un tel coloriage est dit \textbf{sans sommes}.
+	\end{tcolorbox}
 \end{frame}
+
+\subsection{Les nombres de Schur}
+
 \begin{frame}
+	Pour \(n = 13\) et \(k = 3\), le coloriage \\
 	\begin{center}
-		\begin{tabular}{ | c || c | c | c | }
-			\hline
-			Paires/orientations & Twist & Wedge & Direction \\ \hline
-			$AA$ & 35.62 & 7.2 & -154 \\ \hline
-			$AC$ & 34.4 & 1.1 & 143 \\ \hline
-			$AG$ & 27.7 & 8.4 & 2 \\ \hline
-			... & ... & ... & ... \\ \hline
-		\end{tabular}
+	\begin{NiceTabular}{|*{13}{c|}}[standard-cline,hlines]
+		\CodeBefore
+			\cellcolor{red}{1-1}
+			\cellcolor{blue}{1-2}
+			\cellcolor{blue}{1-3}
+			\cellcolor{red}{1-4}
+			\cellcolor{green}{1-5}
+			\cellcolor{green}{1-6}
+			\cellcolor{blue}{1-7}
+			\cellcolor{green}{1-8}
+			\cellcolor{green}{1-9}
+			\cellcolor{red}{1-10}
+			\cellcolor{blue}{1-11}
+			\cellcolor{blue}{1-12}
+			\cellcolor{red}{1-13}
+		\Body
+			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13\\
+	\end{NiceTabular}
 	\end{center}
-	On peut réduire le nombre de variables en exploitant les symétries : $AG^{-1} = CT$ et $AG$ et $CT$ ont même Twist, Wedge et leurs Directions sont opposées : on a finalement \textbf{20 variables}.
+	vérifie cette propriété.
+	\pause
+	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Définition]
+		Pour \(k\) couleurs, on note \(S(k)\) le plus grand entier \(n\) tel qu'on puisse colorier les entiers de
+		\(1\) à \(n\) en vérifiant cette propriété. C'est le \(k\)-ième \textbf{nombre de Schur}.
+	\end{tcolorbox}
+	\pause
+	Sur l'exemple, on peut vérifier que \(S(3) = 13\) : on ne peut colorier \([\![1,14]\!]\) avec trois couleurs.
 \end{frame}
 
-\subsection{Principe de l'algorithme génétique}
+\subsection{Weak Schur}
 
 \begin{frame}
-	Une algorithme génétique est une méthode d'\textbf{optimisation} qui s'inspire de la sélection naturelle.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.2]{algo_gen}
-	\end{figure}
+	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Définition]
+		Un coloriage est dit \textbf{faiblement sans sommes} lorsque pour deux nombres \textbf{différents} de même couleur,
+		leur somme n'est pas de la même couleur. On définit de même \(WS(k)\) le plus grand entier \(n\) tel qu'on puisse colorier les entiers de
+		\(1\) à \(n\) en vérifiant cette propriété plus faible.
+	\end{tcolorbox}
+	\pause
+	Un coloriage sans sommes et en particulier faiblement sans somme, donc on a toujours \(WS(k) \geq S(k)\).\\
+	\pause 
+	\begin{center}
+	\begin{NiceTabular}{|*{4}{c|}}[standard-cline,hlines]
+		\CodeBefore
+			\cellcolor{red}{1-1}
+			\cellcolor{blue}{1-2}
+			\cellcolor{blue}{1-3}
+			\cellcolor{red}{1-4}
+		\Body
+			1 & 2 & 3 & 4 \\
+	\end{NiceTabular}
+
+	\begin{NiceTabular}{|*{8}{c|}}[standard-cline,hlines]
+		\CodeBefore
+			\cellcolor{red}{1-1}
+			\cellcolor{red}{1-2}
+			\cellcolor{blue}{1-3}
+			\cellcolor{red}{1-4}
+			\cellcolor{blue}{1-5}
+			\cellcolor{blue}{1-6}
+			\cellcolor{blue}{1-7}
+			\cellcolor{red}{1-8}
+		\Body
+			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+	\end{NiceTabular}
+	\end{center}
+	\(S(2) = 4\) mais \(WS(2) = 8\)
 \end{frame}
 
+\section{L'état de l'art}
+\subsection{Calculer ces nombres}
+
 \begin{frame}
-	Les différentes étapes d'un algorithme génétique sont :
 	\begin{itemize}
-		\item \textbf{évaluation} : attribuer un score à un individu selon l'objectif du problème
-		\item \textbf{sélection} : conserver certains individus via différentes méthodes (classement, tournoi...)
-		\item \textbf{croisement} : créer de nouveaux individus à partir de ceux sélectionnés (permet de creuser un minimum)
-		\item \textbf{mutation} : modifier aléatoirement certains individus (permet notamment de sortir d'un minimum local)
+	\item Pour montrer que \(S(k) = n\), il faut trouver un coloriage sans sommes de \([\![1,n]\!]\) à \(k\) couleurs
+	\textbf{et} montrer qu'on ne peut pas colorier \([\![1,n+1]\!]\). 
+	\pause
+	\item En pratique, on se contente de \textbf{minorer} \(S(k\). Si on exhibe un coloriage à \(k\) couleurs de 
+	\([\![1,n]\!]\), on a montré que \(S(k) \geq n\). 
+	\pause
+	\item Comment effectuer cette minoration ? On peut démontrer des inégalités récursives ou bien rechercher des coloriages
+	par ordinateur.
 	\end{itemize}
+\end{frame}
+
+\subsection{Approche numérique}
+
+\begin{frame}
+	Les recherches récentes sur le sujet se focalisent sur les méthodes numériques.
+	\begin{itemize}
+		\item On fixe \(k\) et on essaye de colorier le plus loin possible
+		\item Le problème peut s'encoder comme une exploration d'arbre, mais le nombre de coloriages possibles
+		explose très vite 
+		\item Plusieurs articles récents ont recourt à l'algorithme \textbf{Monte-Carlo Tree Search}, et ne considèrent 
+		que certains type de coloriages
+		\item On peut également encoder le problème avec un solveur \textbf{SAT} 
+	\end{itemize}
+	\pause
+	Ces méthodes ont permis d'améliorer les bornes inférieures pour \(k \geq 5\) mais peuvent prendre du temps :
+	récemment, le calcul exact de \(S(5)\) via un solveur SAT a demandé 20 années de calcul machine.
 \end{frame}
 
 \section{Découpage du code}
@@ -126,47 +203,9 @@ Pour contrôler la qualité de la trajectoire, on ajoute (en bleu) les deux prem
 
 \subsection{Classes} 
 
-\begin{frame}
 
-\begin{tabular}{| c |}
-	\hline
-	\mintinline{python}{AG} \\ \hline \hline
-	\mintinline{python}{population} \\
-	\mintinline{python}{pop_number}  \\ \hline
-	\mintinline{python}{tournament} \\
-	\mintinline{python}{reproduction} \\ \hline
-\end{tabular}
-\begin{tabular}{ | c | }
-	\hline
-	\mintinline{python}{Entity} \\ \hline \hline
-	\mintinline{python}{param}  \\  
-	\mintinline{python}{fitness}  \\ \hline
-	\mintinline{python}{fitness_calculation} \\
-	\mintinline{python}{mutation}  \\ \hline
-\end{tabular}
-\begin{tabular}{ | c | }
-	\hline
-	\mintinline{python}{RotTable} \\ \hline \hline
-	\mintinline{python}{OriginalRotTable}  \\ 
-	\mintinline{python}{interval}  \\ \hline
-	\mintinline{python}{getTwist}  \\ 
-	\mintinline{python}{rot_to_entity} \\ \hline
-\end{tabular}
-\vfill
-Les deux premières classes sont génériques, et \mintinline{python}{RotTable} est propre au problème du plasmide circulaire. \mintinline{python}{AG} et \mintinline{python}{RotTable} font appel à \mintinline{python}{Entity}.
-\end{frame}
-\subsection{Quelques fonctions essentielles}
 
-\begin{frame}
-	Voici les fonctions qui correspondent aux différentes étapes de l'algorithme :
-	\begin{itemize}
-		\item la méthode \mintinline{python}{fitness_calculation} estime l'erreur de distance $d$ et d'orientation $o$, et renvoie $(1+d) \times (1+o)$
-		\item pour la sélection, nous utilisons un tournoi probabiliste
-		\item la reproduction est assez simple : dans un premier temps nous avons fait la moyenne de deux tables
-		\item \mintinline{python}{mutation} modifie une des variables d'un individu 
-		\item enfin, \mintinline{python}{global_mutation} fais muter une partie de la population 
-	\end{itemize}
-\end{frame}
+
 
 \begin{frame}
 	L'étape de mutation s'est révélée très importante :
@@ -192,7 +231,7 @@ Nous avons choisi de faire muter une part importante de la population, mais pas 
 \end{frame}
 
 \begin{frame}
-	On peut modifier légèrement la fonction \mintinline{python}{fitness_calculation} afin de pénaliser davantage l'erreur sur l'angle.
+	On peut modifier légèrement la fonction  afin de pénaliser davantage l'erreur sur l'angle.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.25]{250gen200pop0.3_0.003_0.7_0.003alpha=10}
@@ -215,14 +254,14 @@ Nous avons choisi de faire muter une part importante de la population, mais pas 
 	\begin{itemize}
 		\item Le temps d'exécution est d'environ 3 minutes pour une chaîne de longueur 8000, une population de 100 et une centaine de générations
 		\item L'accumulation d'erreurs numériques rend les résultats pour la chaîne de 180k peu fiables
-		\item Difficile d'équilibrer la fonction \mintinline{python}{fitness_calculation} afin d'avoir une bonne distance et une bonne orientation
+		\item Difficile d'équilibrer la fonction  afin d'avoir une bonne distance et une bonne orientation
 	\end{itemize}
 \end{frame}
 
 \subsection{Ouverture}
 
 \begin{frame}
-Ici, l'optimisation est \textbf{multi-critère}. Nous nous sommes ramené à une fonction \mintinline{python}{fitness_calculation} scalaire, mais il peut être plus efficace de mesurer indépendamment les deux erreurs. \\
+Ici, l'optimisation est \textbf{multi-critère}. Nous nous sommes ramené à une fonction  scalaire, mais il peut être plus efficace de mesurer indépendamment les deux erreurs. \\
 On se prive alors de l'ordre sur $\mathbb{R}$, mais on peut pallier ce problème en utilisant par exemple des \textit{fronts de Pareto}.
 \begin{figure}[H]
 	\centering
