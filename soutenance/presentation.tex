@@ -16,6 +16,17 @@
 \usepackage{nicematrix}
 \captionsetup[figure]{labelformat=empty}
 
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
 
 
 \usetheme{Warsaw}
@@ -176,99 +187,184 @@
 	récemment, le calcul exact de \(S(5)\) via un solveur SAT a demandé 20 années de calcul machine.
 \end{frame}
 
-\section{Découpage du code}
-
-\subsection{Méthode d'évaluation}
-
+\section{Amélioration des nombres de Schur}
+\subsection{Un article fondateur : Abbott et Hanson}
 \begin{frame}
-	\begin{figure}[H]
-		\centering
-		\begin{subfigure}[b]{0.4\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{pb_angle}
-			\caption{Bonne distance mais mauvaise orientation}
-			\label{fig:y equals x}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.4\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{angle_oui}
-			\caption{Bonne distance et bonne orientation}
-			\label{fig:three sin x}
-		\end{subfigure}
-		\caption{Jonction pour une chaîne $GCT...CA$}
-		\label{fig:three graphs}
-	\end{figure}
-Pour contrôler la qualité de la trajectoire, on ajoute (en bleu) les deux premiers nucléotides à la fin de la chaîne. Ici, $G$, le premier nucléotide, est bien placé mais l'orientation de $GC$ n'est pas forcément valide.
+La borne inférieure établie par I. Schur est plutôt grossière :
+\[\forall n \in \mathbb{N}^*, S(n+1) \geqslant 3S(n) + 1 \Longrightarrow \forall n \in \mathbb{N}^*, S(n) \geqslant \frac{3^n - 1}{2}
+\]
+Une première piste pour améliorer cette borne est proposée par H. L. Abbott et D. Hanson en 1972. Ils prouvent :
+\[
+\forall (m,n) \in (\mathbb{N}^*)^2, S(n+m) \geqslant S(n) \left( 2S(m) + 1 \right) + S(m)
+\]
+Que font-ils concrètement ?
 \end{frame}
-
-\subsection{Classes} 
-
-
-
-
-
 \begin{frame}
-	L'étape de mutation s'est révélée très importante :
-	\begin{itemize}
-		\item elle permet d'explorer l'espace du problème 
-		\item des mutations trop limitées bloquent l'algorithme dans des minimums locaux
-		\item des mutations excessives risquent de gâcher des individus prometteurs
-	\end{itemize}
-Nous avons choisi de faire muter une part importante de la population, mais pas les individus ayant les meilleurs scores. La mutation modifie une des variables, aléatoirement dans l'intervalle associé.
-\end{frame}
-
-\section{Résultats}
-\subsection{Quelques images}
-
-\begin{frame}
-	La trajectoire totale est représentée à gauche, et la jonction à droite (un vecteur = un dinucléotide).
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.3]{8k_200gen_1000pop_tour0.3_mut0.7_1.038}
-		\caption{Une chaîne de longueur 8000, avec 200 générations et une population de 1000}
-	\end{figure}
-	Ici, l'erreur de position est faible mais celle d'orientation non négligeable.
-\end{frame}
-
-\begin{frame}
-	On peut modifier légèrement la fonction  afin de pénaliser davantage l'erreur sur l'angle.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.25]{250gen200pop0.3_0.003_0.7_0.003alpha=10}
-		\caption{Une chaîne de longueur 8000, avec 250 générations et une population de 200}
-	\end{figure}
-	Les dinucléotides réel et fictif sont ici parallèles, mais la distance est plus importante.
-\end{frame}
-
-\begin{frame}
-	Après une bonne heure de calcul, on obtient ceci pour une chaîne de 180000 nucléotides.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.25]{180}
-	\end{figure}
-\end{frame}
-
-\subsection{Commentaires}
+Un exemple pour \(n = m = 2\) :
+\renewcommand{\arraystretch}{1.7}
+\begin{center}
+\begin{NiceTabular}{|*{9}{c|}}[corners=SE,standard-cline,hlines]
+\CodeBefore
+	\cellcolor{red}{1-1}
+	\cellcolor{green}{1-2}
+	\cellcolor{green}{1-3}
+	\cellcolor{red}{1-4}
+	\cellcolor{cyan}{1-5}
+	\cellcolor{cyan}{1-6}
+	\cellcolor{cyan}{1-7}
+	\cellcolor{cyan}{1-8}
+	\cellcolor{cyan}{1-9}
+	\cellcolor{red}{2-1}
+	\cellcolor{green}{2-2}
+	\cellcolor{green}{2-3}
+	\cellcolor{red}{2-4}
+	\cellcolor{yellow}{2-5}
+	\cellcolor{yellow}{2-6}
+	\cellcolor{yellow}{2-7}
+	\cellcolor{yellow}{2-8}
+	\cellcolor{yellow}{2-9}
+	\cellcolor{red}{3-1}
+	\cellcolor{green}{3-2}
+	\cellcolor{green}{3-3}
+	\cellcolor{red}{3-4}
+	\cellcolor{yellow}{3-5}
+	\cellcolor{yellow}{3-6}
+	\cellcolor{yellow}{3-7}
+	\cellcolor{yellow}{3-8}
+	\cellcolor{yellow}{3-9}
+	\cellcolor{red}{4-1}
+	\cellcolor{green}{4-2}
+	\cellcolor{green}{4-3}
+	\cellcolor{red}{4-4}
+	\cellcolor{cyan}{4-5}
+	\cellcolor{cyan}{4-6}
+	\cellcolor{cyan}{4-7}
+	\cellcolor{cyan}{4-8}
+	\cellcolor{cyan}{4-9}
+	\cellcolor{red}{5-1}
+	\cellcolor{green}{5-2}
+	\cellcolor{green}{5-3}
+	\cellcolor{red}{5-4}
+\Body
+	1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+	10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 \\
+	19 & 20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 \\
+	28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36 \\
+	37 & 38 & 39 & 40 \\
 	
-\begin{frame}
-	\begin{itemize}
-		\item Le temps d'exécution est d'environ 3 minutes pour une chaîne de longueur 8000, une population de 100 et une centaine de générations
-		\item L'accumulation d'erreurs numériques rend les résultats pour la chaîne de 180k peu fiables
-		\item Difficile d'équilibrer la fonction  afin d'avoir une bonne distance et une bonne orientation
-	\end{itemize}
+\end{NiceTabular}
+\end{center}
+\[S(4) \geqslant S(2) \left( 2S(2) + 1 \right) + S(2) = 40
+\]
 \end{frame}
-
-\subsection{Ouverture}
-
+\subsection{Une extension par Rowley : les SF-templates}
 \begin{frame}
-Ici, l'optimisation est \textbf{multi-critère}. Nous nous sommes ramené à une fonction  scalaire, mais il peut être plus efficace de mesurer indépendamment les deux erreurs. \\
-On se prive alors de l'ordre sur $\mathbb{R}$, mais on peut pallier ce problème en utilisant par exemple des \textit{fronts de Pareto}.
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{pareto}
-\end{figure}
+\begin{itemize}
+\item F. Rowley améliore cette approche théorique en 2020.
+\item On conserve l'extension verticale est horizontale de "structures" intéressantes.
+\item Cependant, on ne considère plus la première ligne comme un assemblage mais comme une structure en elle même.
+\item On applique l'extension verticale à une structure plus générale : les SF-templates.
+\end{itemize}
+Recette : SF-template = Partition sans somme + condition suivante :
+\[
+\forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
+\Longrightarrow x+y-p \notin A_i
+\]
+\end{frame}
+\begin{frame}
+En fait, l'exemple précédent faisait déjà apparaître un SF-template, en voici un autre :
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{NiceTabular}{|*{9}{c|}}[corners=SE,standard-cline,hlines]
+\CodeBefore
+	\cellcolor{red}{1-1}
+	\cellcolor{green}{1-2}
+	\cellcolor{green}{1-3}
+	\cellcolor{red}{1-4}
+	\cellcolor{cyan}{1-5}
+	\cellcolor{cyan}{1-6}
+	\cellcolor{red}{1-7}
+	\cellcolor{cyan}{1-8}
+	\cellcolor{cyan}{1-9}
+	\cellcolor{red}{2-1}
+	\cellcolor{green}{2-2}
+	\cellcolor{green}{2-3}
+	\cellcolor{red}{2-4}
+	\cellcolor{yellow}{2-5}
+	\cellcolor{yellow}{2-6}
+	\cellcolor{red}{2-7}
+	\cellcolor{yellow}{2-8}
+	\cellcolor{yellow}{2-9}
+	\cellcolor{red}{3-1}
+	\cellcolor{green}{3-2}
+	\cellcolor{green}{3-3}
+	\cellcolor{red}{3-4}
+	\cellcolor{yellow}{3-5}
+	\cellcolor{yellow}{3-6}
+	\cellcolor{red}{3-7}
+	\cellcolor{yellow}{3-8}
+	\cellcolor{yellow}{3-9}
+	\cellcolor{red}{4-1}
+	\cellcolor{green}{4-2}
+	\cellcolor{green}{4-3}
+	\cellcolor{red}{4-4}
+	\cellcolor{cyan}{4-5}
+	\cellcolor{cyan}{4-6}
+	\cellcolor{red}{4-7}
+	\cellcolor{cyan}{4-8}
+	\cellcolor{cyan}{4-9}
+	\cellcolor{red}{5-1}
+	\cellcolor{green}{5-2}
+	\cellcolor{green}{5-3}
+	\cellcolor{red}{5-4}
+\Body
+	1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+	10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 \\
+	19 & 20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 \\
+	28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36 \\
+	37 & 38 & 39 & 40 \\
+\end{NiceTabular}
+\end{center}
+\end{frame}
+\subsection{Nouvelles bornes}
+\begin{frame}
+\begin{changemargin}{-0.7cm}{-0.7cm}
+\begin{center}
+Quelques résultats !
+\[
+\begin{array}{c}
+	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
+	\CodeBefore
+		\cellcolor{yellow}{2-2}
+		\cellcolor{yellow}{3-3}
+		\cellcolor{yellow}{4-4}
+		\cellcolor{yellow}{4-5}
+	\Body
+		n & 8 & 9 & 10 & 11 \\
+		33 \, S(n-3) + 6 & 5\,286 & 17\,694 & 55\,446 & 174\,444 \\
+		111 \, S(n-4) + 43 & 4927 & 17\,803 & 59\,539 & 186\,523 \\
+		380 \, S(n-5) + 148 & 5\,088 & 16\,868 & 60\,948 & 203\,828 \\
+		1\,140 \, S(n-6) + 528 & 5\,088 & 15\,348 & 50\,688 & 182\,928 \\
+	\end{NiceArray}
+	\\ \\
+	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
+	\CodeBefore
+		\cellcolor{yellow}{2-3}
+		\cellcolor{yellow}{4-2}
+		\cellcolor{yellow}{4-4}
+		\cellcolor{yellow}{4-5}
+	\Body
+		n & 12 & 13 & 14 & 15 \\
+		33 \, S(n-3) + 6 & 587\,505 & 2\,011\,290 & 6\,726\,330 & 21\,072\,090 \\
+		111 \, S(n-4) + 43 & 586\,789 & 1\,976\,176 & 6\,765\,271 & 22\,624\,951 \\
+		380 \, S(n-5) + 148 & 638\,548 & 2\,008\,828 & 6\,765\,288 & 23\,160\,388 \\
+		1\,140 \, S(n-6) + 528 & 611\,568 & 1\,915\,728 & 6\,026\,568 & 20\,295\,948 \\
+	\end{NiceArray}
+\end{array}
+\]
 
-Une autre idée serait de faire une fonction de mutation dynamique (par exemple plus de mutation lorsque l'algorithme stagne).
+\end{center}
+\end{changemargin}
 \end{frame}
 
 \end{document}
