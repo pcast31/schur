@@ -169,16 +169,32 @@
 	par ordinateur.
 	\end{itemize}
 \end{frame}
+\subsection{Approche numérique}
+
+\begin{frame}
+	Les recherches récentes sur le sujet se focalisent sur les méthodes numériques.
+	\begin{itemize}
+		\item On fixe \(k\) et on essaye de colorier le plus loin possible
+		\item Le problème peut s'encoder comme une exploration d'arbre, mais le nombre de coloriages possibles
+		explose très vite 
+		\item Plusieurs articles récents ont recourt à l'algorithme \textbf{Monte-Carlo Tree Search}, et ne considèrent 
+		que certains type de coloriages
+		\item On peut également encoder le problème avec un solveur \textbf{SAT} 
+	\end{itemize}
+	\pause
+	Ces méthodes ont permis d'améliorer les bornes inférieures pour \(k \geq 5\) mais peuvent prendre du temps :
+	récemment, le calcul exact de \(S(5)\) via un solveur SAT a demandé 20 années de calcul machine.
+\end{frame}
 
 \section{Amélioration des nombres de Schur}
 \subsection{Un article fondateur : Abbott et Hanson}
 \begin{frame}
-La borne inférieure établie par I. Schur est plutôt grossière :
-\[\forall n \in \mathbb{N}^*, S(n+1) \geqslant 3S(n) + 1 \Longrightarrow \forall n \in \mathbb{N}^*, S(n) \geqslant \frac{3^n - 1}{2}
+La borne inférieure établie par I. Schur est :
+\[S(n+1) \geqslant 3S(n) + 1 \Longrightarrow S(n) \geqslant \frac{3^n - 1}{2}
 \]
 Une première piste pour améliorer cette borne est proposée par H. L. Abbott et D. Hanson en 1972. Ils prouvent :
 \[
-\forall (m,n) \in (\mathbb{N}^*)^2, S(n+m) \geqslant S(n) \left( 2S(m) + 1 \right) + S(m)
+S(n+m) \geqslant S(n) \left( 2S(m) + 1 \right) + S(m)
 \]
 Que font-ils concrètement ?
 \end{frame}
@@ -244,9 +260,8 @@ Un exemple pour \(n = m = 2\) :
 \begin{frame}
 \begin{itemize}
 \item F. Rowley améliore cette approche théorique en 2020.
-\item On conserve l'extension verticale et horizontale de "structures" intéressantes.
-\item Cependant, on ne considère plus la première ligne comme un assemblage mais comme une structure en elle même.
-\item On applique l'extension verticale à une structure plus générale : les SF-templates.
+\item Extension verticale des structures plus générales : les SF-templates.
+\item Notre contribution : recherche de SF-templates intéressants
 \end{itemize}
 Recette : SF-template = Partition sans somme + condition suivante :
 \[
