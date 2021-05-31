@@ -71,8 +71,8 @@
 	En 1917, le russe \textbf{Issai Schur} pose le problème suivant :
 	\pause
 	\begin{itemize}
-		\item On se donne \(n \geq 1\) un entier
-		\item \(k \geq 1\) un autre entier, qui correspond au nombre de \textbf{couleurs}
+		\item Pour \(n \geq 1\) un entier
+		\item Et \(k \geq 1\) un autre entier ( = nombre de \textbf{couleurs})
 	\end{itemize}
 	\pause
 	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Question]
@@ -89,17 +89,17 @@
 	\begin{NiceTabular}{|*{13}{c|}}[standard-cline,hlines]
 		\CodeBefore
 			\cellcolor{red}{1-1}
-			\cellcolor{blue}{1-2}
-			\cellcolor{blue}{1-3}
+			\cellcolor{cyan}{1-2}
+			\cellcolor{cyan}{1-3}
 			\cellcolor{red}{1-4}
 			\cellcolor{green}{1-5}
 			\cellcolor{green}{1-6}
-			\cellcolor{blue}{1-7}
+			\cellcolor{cyan}{1-7}
 			\cellcolor{green}{1-8}
 			\cellcolor{green}{1-9}
 			\cellcolor{red}{1-10}
-			\cellcolor{blue}{1-11}
-			\cellcolor{blue}{1-12}
+			\cellcolor{cyan}{1-11}
+			\cellcolor{cyan}{1-12}
 			\cellcolor{red}{1-13}
 		\Body
 			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13\\
@@ -120,8 +120,8 @@
 \begin{frame}
 	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Définition]
 		Un coloriage est dit \textbf{faiblement sans sommes} lorsque pour deux nombres \textbf{différents} de même couleur,
-		leur somme n'est pas de la même couleur. On définit de même \(WS(k)\) le plus grand entier \(n\) tel qu'on puisse colorier les entiers de
-		\(1\) à \(n\) en vérifiant cette propriété plus faible.
+		leur somme n'est pas de la même couleur. On définit avec cette propriété \(WS(k)\), le \(k\)-ième 
+		\textbf{nombre de Schur faible}.
 	\end{tcolorbox}
 	\pause
 	Un coloriage sans sommes et en particulier faiblement sans somme, donc on a toujours \(WS(k) \geq S(k)\).\\
@@ -130,8 +130,8 @@
 	\begin{NiceTabular}{|*{4}{c|}}[standard-cline,hlines]
 		\CodeBefore
 			\cellcolor{red}{1-1}
-			\cellcolor{blue}{1-2}
-			\cellcolor{blue}{1-3}
+			\cellcolor{cyan}{1-2}
+			\cellcolor{cyan}{1-3}
 			\cellcolor{red}{1-4}
 		\Body
 			1 & 2 & 3 & 4 \\
@@ -141,11 +141,11 @@
 		\CodeBefore
 			\cellcolor{red}{1-1}
 			\cellcolor{red}{1-2}
-			\cellcolor{blue}{1-3}
+			\cellcolor{cyan}{1-3}
 			\cellcolor{red}{1-4}
-			\cellcolor{blue}{1-5}
-			\cellcolor{blue}{1-6}
-			\cellcolor{blue}{1-7}
+			\cellcolor{cyan}{1-5}
+			\cellcolor{cyan}{1-6}
+			\cellcolor{cyan}{1-7}
 			\cellcolor{red}{1-8}
 		\Body
 			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
@@ -159,31 +159,36 @@
 
 \begin{frame}
 	\begin{itemize}
-	\item Pour montrer que \(S(k) = n\), il faut trouver un coloriage sans sommes de \([\![1,n]\!]\) à \(k\) couleurs
-	\textbf{et} montrer qu'on ne peut pas colorier \([\![1,n+1]\!]\). 
+	\item Pour montrer que \(S(k) = n\), il faut : 
+	\begin{itemize} 
+		\item trouver un coloriage sans sommes de \([\![1,n]\!]\) à \(k\) couleurs
+		\item montrer qu'on ne peut pas colorier \([\![1,n+1]\!]\). 
+	\end{itemize}
 	\pause
-	\item En pratique, on se contente de \textbf{minorer} \(S(k\). Si on exhibe un coloriage à \(k\) couleurs de 
-	\([\![1,n]\!]\), on a montré que \(S(k) \geq n\). 
-	\pause
-	\item Comment effectuer cette minoration ? On peut démontrer des inégalités récursives ou bien rechercher des coloriages
-	par ordinateur.
+	\item En pratique, on se contente de \textbf{minorer} \(S(k)\) :
+	\begin{itemize}
+	\item inégalités récursives 
+	\item recherche de coloriages par ordinateur
+	\end{itemize}
 	\end{itemize}
 \end{frame}
+
 \subsection{Approche~numérique}
 
 \begin{frame}
 	Les recherches récentes sur le sujet se focalisent sur les méthodes numériques.
 	\begin{itemize}
 		\item On fixe \(k\) et on essaye de colorier le plus loin possible
-		\item Le problème peut s'encoder comme une exploration d'arbre, mais le nombre de coloriages possibles
-		explose très vite 
-		\item Plusieurs articles récents ont recourt à l'algorithme \textbf{Monte-Carlo Tree Search}, et ne considèrent 
-		que certains type de coloriages
-		\item On peut également encoder le problème avec un solveur \textbf{SAT} 
+		\item Plusieurs façon d'encoder le problème :
+		\begin{itemize}
+		\item arbre \(\rightarrow\) \textbf{Monte-Carlo Tree Search} sur un espace de recherche restreint
+		\item formules booléennes \(\rightarrow\) solveur \textbf{SAT} 
+		\end{itemize}
+		\pause
+		\item Améliorations des bornes inférieures pour \(k \geq 5\) 
+		\item Temps de calcul : le calcul exact de \(S(5)\) via un solveur SAT a demandé 20 années de calcul machine !
 	\end{itemize}
-	\pause
-	Ces méthodes ont permis d'améliorer les bornes inférieures pour \(k \geq 5\) mais peuvent prendre du temps :
-	récemment, le calcul exact de \(S(5)\) via un solveur SAT a demandé 20 années de calcul machine.
+	
 \end{frame}
 
 \section{Amélioration~des~nombres~de~Schur}
