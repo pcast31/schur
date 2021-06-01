@@ -56,6 +56,13 @@
 	\endgroup
 }
 
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
 \begin{document}
 
 \begin{frame}
@@ -119,12 +126,10 @@
 
 \begin{frame}
 	\begin{tcolorbox}[colback=red!5,colframe=red!40!black,title=Définition]
-		Un coloriage est dit \textbf{faiblement sans sommes} lorsque pour deux nombres \textbf{différents} de même couleur,
+		Un coloriage est dit \textbf{faiblement sans sommes} lorsque pour deux nombres \underline{\textbf{différents}} de même couleur,
 		leur somme n'est pas de la même couleur. On définit avec cette propriété \(WS(k)\), le \(k\)-ième 
 		\textbf{nombre de Schur faible}.
 	\end{tcolorbox}
-	\pause
-	Un coloriage sans sommes et en particulier faiblement sans somme, donc on a toujours \(WS(k) \geq S(k)\).\\
 	\pause 
 	\begin{center}
 	\begin{NiceTabular}{|*{4}{c|}}[standard-cline,hlines]
@@ -158,6 +163,8 @@
 \subsection{Calculer~ces~nombres}
 
 \begin{frame}
+	On connaît exactement \(S(k)\) pour \(k \leqslant 5\), et \(WS(k)\) pour \(k \leqslant 4\).
+	\pause
 	\begin{itemize}
 	\item Pour montrer que \(S(k) = n\), il faut : 
 	\begin{itemize} 

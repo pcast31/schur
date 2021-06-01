@@ -3,12 +3,12 @@
 \beamer@subsectionintoc {1}{1}{Un~problème~de~partition}{2}{0}{1}
 \beamer@subsectionintoc {1}{2}{Les nombres de Schur}{5}{0}{1}
 \beamer@subsectionintoc {1}{3}{Weak Schur}{8}{0}{1}
-\beamer@sectionintoc {2}{L'état de l'art}{11}{0}{2}
-\beamer@subsectionintoc {2}{1}{Calculer ces nombres}{11}{0}{2}
+\beamer@sectionintoc {2}{L'état de l'art}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Calculer ces nombres}{10}{0}{2}
 \beamer@subsectionintoc {2}{2}{Approche numérique}{13}{0}{2}
 \beamer@sectionintoc {3}{Amélioration des nombres de Schur}{15}{0}{3}
 \beamer@subsectionintoc {3}{1}{Un article fondateur : Abbott et Hanson}{15}{0}{3}
-\beamer@subsectionintoc {3}{2}{Une~extension~par~Rowley~:~les~SF-templates}{17}{0}{3}
+\beamer@subsectionintoc {3}{2}{Une~extension~:~les~SF-templates}{17}{0}{3}
 \beamer@subsectionintoc {3}{3}{Nouvelles bornes}{22}{0}{3}
 \beamer@sectionintoc {4}{Template pour les nombres de Weak Schur}{23}{0}{4}
 \beamer@subsectionintoc {4}{1}{Inégalités entre les nombres de Schur et de Weak Schur}{23}{0}{4}
