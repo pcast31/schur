@@ -477,10 +477,62 @@ $WS (n+k) \geqslant S(k) \left (WS (n) +\left \lceil \displaystyle \frac{WS (n)}
 \end{frame}
 
 \subsection{De~nouvelles~bornes~inférieures}
+
 \begin{frame}
 	\begin{center}
-		Nouvelles bornes inférieures pour \(S(n)\) et \(WS(n)\), \(\forall n \geqslant 9\)
+		\small
+		\textbf{Comparaison des bornes inférieures pour les nombres de Schur}
+
+		\vspace{2ex}
+		\footnotesize
+		\setlength{\tabcolsep}{2pt}
+		\renewcommand{\arraystretch}{1.6}
+
+		\begin{tabular}{|*{13}{c|}}
+		    \hline
+		    \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+		    \hline
+		    Avant Rowley & 1* & 4* & 13* & 44* & 160* & 536 & 1\,680 & 5\,041 & 15\,124 & 51\,120 & 172\,216 & 575\,664 \\
+		    \hline
+		    Rowley & & & & & & & & 5\,286 & 17\,694 & 60\,320 & 201\,696 & 631\,840 \\
+		    \hline
+		    \textbf{Nos résultats} & & & & & & & & & \textbf{17\,803} & \textbf{60\,948} & \textbf{203\,828} & \textbf{638\,548} \\
+		    \hline
+		\end{tabular}
+		
+		\vspace{2ex}
+		* désigne une valeur exacte
 	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\small	
+		\textbf{Comparaison des bornes inférieures pour les nombres de Schur faibles}
+
+		\vspace{2ex}
+		\footnotesize
+		\setlength{\tabcolsep}{1.8pt}
+		\renewcommand{\arraystretch}{1.6}
+		
+		\begin{tabular}{|*{13}{c|}}
+		    \hline
+		    \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+		    \hline
+		    Before Rowley & 2* & 8* & 23* & 66* & 196 & 582 & 1\,740 & 5\,201 & 15\,596 & 51\,520 & 172\,216 & 575\,664 \\
+		    \hline
+		    Rowley & & & & & & 642 & 2\,146 & 6\,976 & 21\,848 & 70\,778 & 241\,282 & 806\,786 \\
+		    \hline
+		    \textbf{Nos résultats} & & & & & & & & & \textbf{22\,536} & \textbf{71\,214} & \textbf{243\,794} & \textbf{815\,314} \\
+		    \hline
+		\end{tabular}
+		
+		\vspace{2ex}
+		* désigne une valeur exacte
+	\end{center}
+\end{frame}
+
+\begin{frame}
 	\begin{figure}
 	        \includegraphics[scale=0.4]{augmentation.png}
 	        \caption{Augmentation relative pour \(WS(n)\) (\%)}
