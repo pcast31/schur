@@ -12,4 +12,10 @@ rapport/*
 !rapport/*.sty
 !rapport/rapport_push.pdf
 
+soutenance/*
+!soutenance/*.tex
+!soutenance/*.png
+!soutenance/*.pdf
+!soutenance/_minted-presentation/*
+
 __pycache__
