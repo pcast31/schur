@@ -34,7 +34,7 @@
 
 \title[Weak Schur numbers]{Weak Schur numbers}
 \subtitle{P05 - Formation à la recherche 1A}
-\author[R. Ageron, P. Castéras, T. Pellerin, Y. Portella]{Romain Ageron, Paul Castéras, Thibaut Pellerin, Yann Portella}
+\author[R. Ageron, P. Castéras, T. Pellerin, Y. Portella]{Romain Ageron, Paul Castéras, Thibaut Pellerin, Yann Portella\\Encadrants : Arpad Rimmel, Joanna Tomasik}
 \titlegraphic{\centering
 	\includegraphics[scale=.08]{cs}
 }
@@ -81,6 +81,8 @@
 		\item Pour \(n \geq 1\) un entier
 		\item Et \(k \geq 1\) un autre entier ( = nombre de \textbf{couleurs})
 	\end{itemize}
+	
+	\vspace{2ex}
 	\pause
 	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Question]
 		Peut-on colorier les entiers de \(1\) à \(n\) de sorte que si deux nombres ont la même couleur,
@@ -168,14 +170,14 @@
 	\begin{itemize}
 	\item Pour montrer que \(S(k) = n\), il faut : 
 	\begin{itemize} 
-		\item trouver un coloriage sans sommes de \([\![1,n]\!]\) à \(k\) couleurs
-		\item montrer qu'on ne peut pas colorier \([\![1,n+1]\!]\). 
+		\item Trouver un coloriage sans sommes de \([\![1,n]\!]\) à \(k\) couleurs
+		\item Montrer qu'on ne peut pas colorier \([\![1,n+1]\!]\). 
 	\end{itemize}
 	\pause
 	\item En pratique, on se contente de \textbf{minorer} \(S(k)\) :
 	\begin{itemize}
-	\item inégalités récursives 
-	\item recherche de coloriages par ordinateur
+	\item Inégalités récursives 
+	\item Recherche de coloriages par ordinateur
 	\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -188,8 +190,8 @@
 		\item On fixe \(k\) et on essaye de colorier le plus loin possible
 		\item Plusieurs façon d'encoder le problème :
 		\begin{itemize}
-		\item arbre \(\rightarrow\) \textbf{Monte-Carlo Tree Search} sur un espace de recherche restreint
-		\item formules booléennes \(\rightarrow\) solveur \textbf{SAT} 
+		\item Arbre \(\rightarrow\) \textbf{Monte-Carlo Tree Search} sur un espace de recherche restreint
+		\item Formules booléennes \(\rightarrow\) solveur \textbf{SAT} 
 		\end{itemize}
 		\pause
 		\item Améliorations des bornes inférieures pour \(k \geq 5\) 
@@ -413,10 +415,13 @@ Quelques résultats !
 			\item $WS(n+2) \geqslant 13S(n)+8$
 			\end{itemize}
 		\vspace{5 mm}
-		\item \textbf{Notre inégalité généralisée:} 
-		\vspace{5 mm} Soit $(n,k) \in \mathbb{N}^2$,
-			\fbox{$WS (n+k) \geqslant S(k) \left (WS (n) + \left \lceil 					\displaystyle \frac{WS (n)}{2}
-			\right \rceil +1 \right) + WS (n)$}
+		\item \textbf{Notre inégalité généralisée:}
+ 
+			\vspace{2ex}
+			\begin{center}
+				\fbox{$WS (n+k) \geqslant S(k) \left (WS (n) + \left \lceil \displaystyle \frac{WS (n)}{2}
+				\right \rceil +1 \right) + WS (n)$}
+			\end{center}
 	\end{itemize}
 \end{frame}
 
@@ -456,6 +461,47 @@ $WS (n+k) \geqslant S(k) \left (WS (n) +\left \lceil \displaystyle \frac{WS (n)}
         \centering
         \includegraphics[scale=0.30]{tableau_resultat.png}
 \end{figure}
-
 \end{frame}
+
+
+\section{Conclusion}
+
+\subsection{Une~nouvelle~famille~de~partitions}
+\begin{frame}
+	\begin{itemize}
+		\setlength\itemsep{2.5ex}
+		\item Approche par template : répétition d'un motif
+		\item Nouveaux templates pour les nombres de Schur
+		\item Généralisation des templates aux nombres de Schur faibles
+	\end{itemize}
+\end{frame}
+
+\subsection{De~nouvelles~bornes~inférieures}
+\begin{frame}
+	\begin{center}
+		Nouvelles bornes inférieures pour \(S(n)\) et \(WS(n)\), \(\forall n \geqslant 9\)
+	\end{center}
+	\begin{figure}
+	        \includegraphics[scale=0.4]{augmentation.png}
+	        \caption{Augmentation relative pour \(WS(n)\) (\%)}
+	\end{figure}
+\end{frame}
+
+\subsection{Suites~pour~l'an~prochain}
+\begin{frame}
+	\begin{itemize}
+		\setlength\itemsep{2.5ex}
+		\item Publication d'un article sur nos résultats
+		\item Recherche de meilleurs templates
+		\item Étude des bornes supérieures
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\begin{center}
+		\Huge Merci pour votre attention
+	\end{center}
+\end{frame}
+
 \end{document}
