@@ -1,0 +1,142 @@
+\section{Introduction}
+
+\qquad We are interested in partioning the set of integers \(\{1, ..., p\}\) into \(n\) subsets such that there is no 
+subset containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\). We say these subsets are 
+\textit{sum-free}. If we add the hypothesis \(x \neq y\), we say the subsets are \textit{weakly sum-free}. The 
+greatest \(p\) for which there exists a partition into \(n\) sum-free subsets is called the \(n^{\text{th}}\) Schur 
+number and is denoted \(S(n)\) \cite{Schur1917}. Likewise for weakly sum-free partitions we define \(\WS(n)\) 
+the \(n^{\text{th}}\) weak Schur number \cite{Irving1973}. Only the first values of these sequences are known. 
+This article focuses on the lower bounds for these numbers.
+
+
+\subsection{State of the art}
+
+\qquad Before Rowley's "template"-based approach for Schur and Ramsey numbers \cite{RowleyRamsey}, the 
+previous generic construction for Schur numbers was given by Abbott and Hanson \cite{AbbottHanson} in 1972 
+with a recursive construction. It used to give the best lower bounds for all sufficiently large numbers. No equivalent 
+was known for weak Schur numbers and as a result the best known partitions for large weak Schur numbers 
+did not utilize the weakly sum-free hypothesis. 
+
+\par
+As for smaller weak Schur numbers, the best lower bounds were obtained by conducting a computer search. Eliahou 
+\cite{EliahouBook}, Bouzy \cite{Bouzy2015AnAP} and Rafilipojaona \cite{Rafilipojaona} improved the lower 
+bounds with Monte-Carlo methods. This was the main approach during the past decade. This search for weakly 
+sum-free partitions relied on the recursive assumption that a good weakly sum-free partition into \(n+1\) colors 
+starts with a good weakly sum-free partition into \(n\) colors. 
+However, we show in the \hyperref[SearchSpace]{last section} that this search space may not contain the optimal 
+solutions. Thus further works using similar methods might need to put that assumption aside and find a different 
+search space.
+
+\par
+In 2020, Rowley introduced the notion of template for Schur and Ramsey numbers \cite{RowleyRamsey} which 
+generalizes Abbott and Hanson's construction and gives new lower bounds (and inequalties) for Schur numbers. 
+Rowley also gives two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements 
+over previous lower bounds which besides do utilize the \textit{weakly} sum-free hypothesis.
+
+\setlength{\tabcolsep}{4pt}
+
+\begin{center}
+
+\textbf{Table 1 - Comparison of lower bounds for Schur numbers}
+
+\begin{tabular}{|*{13}{c|}}
+    \hline
+    \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    \hline
+    \multirow{2}{*}{Before Rowley} & 1* & 4* & 13* & 44* & 160* & 536 & 1\,680 & 5\,041 & 15\,124 & 51\,120 & 172\,216 & 575\,664 \\
+      & & & & & \cite{Heule2017} & \cite{Fredricksen} & \cite{Fredricksen} & \cite{AbbottHanson} & 
+    \cite{AbbottHanson} & \cite{AbbottHanson} & \cite{AbbottHanson} & \cite{AbbottHanson} \\
+    \hline
+    \begin{tabular}{@{}c@{}}Rowley \\ \cite{RowleyRamsey}\end{tabular} & & & & & & & & 5\,286 & 17\,694 & 
+    60\,320 & 201\,696 & 631\,840 \\
+    \hline
+    \hyperref[Schur]{\textbf{Our results}}  & & & & & & & & & \textbf{17\,803} & \textbf{60\,948} & \textbf{203\,828} & \textbf{638\,548} \\
+    \hline
+\end{tabular}
+
+\vspace{2.5ex}
+
+\textbf{Table 2 - Comparison of lower bounds for weak Schur numbers}
+
+\begin{tabular}{|*{13}{c|}}
+    \hline
+    \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    \hline
+    \multirow{2}{*}{Before Rowley} & 2* & 8* & 23* & 66* & 196 & 582 & 1\,740 & 5\,201 & 15\,596 & 51\,520 & 172\,216 & 575\,664 \\
+      & & & & & \cite{ELIAHOU2012175} &\cite{EliahouBook} & \cite{Rafilipojaona} & \cite{Rafilipojaona} & 
+    \cite{Rafilipojaona} & \cite{AbbottHanson} & \cite{AbbottHanson} & \cite{AbbottHanson} \\
+    \hline
+    \begin{tabular}{@{}c@{}}Rowley \\ \cite{RowleyWS}\end{tabular} & & & & & & 642 & 2\,146 & 6\,976 & 21\,848 
+    & 70\,778 & 241\,282 & 806\,786 \\
+    \hline
+    \hyperref[WeakSchur]{\textbf{Our results}} & & & & & & & & & \textbf{22\,536} & \textbf{71\,214} & \textbf{243\,794} & \textbf{815\,314} \\
+    \hline
+\end{tabular}
+
+\vspace{1.5ex}
+* denotes an exact value, not just a lower bound
+\end{center}
+
+\subsection{Structure of this article}
+
+\qquad The main contribution of this article is a generalization of the concept of template to weak Schur numbers. 
+It gives new lower bounds (and inequalities) for weak Schur numbers. This construction also includes as a special 
+case an analogous for weak Schur numbers of Abbott and Hanson's construction for Schur numbers.
+
+\par
+In the \hyperref[Schur]{first section}, we explain Rowley's template-based construction in the context of 
+Schur numbers and then give new templates, thus providing new lowers bounds and inequalities as well as 
+showing that the growth rates for both Schur and Ramsey numbers \(R_n(3)\) exceed 3.28. 
+
+\par
+Then, in the \hyperref[WeakSchur]{second section}, we generalize the concept of templates to weak Schur numbers 
+and provide new lower bounds for weak Schur numbers. 
+
+\par
+Finally, in the \hyperref[SearchSpace]{third section}, we analyze the significant difference between new lower 
+bounds obtained with templates and the former lower bounds obtained by computer search and we provide 
+evidence which indicate that the main assumption made in those articles removes the optimal partitions from the 
+search space.
+
+\par
+We now introduce notations and definitions we use throughout this article.
+
+\subsection{Definitions and notations}
+
+\qquad We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers.
+
+\begin{definition}
+A subset \(A\) of \(\mathbb{N}\) is said to be \textit{sum-free} if
+\[ \forall (a,b) \in A^2 \text{, } a+b \notin A\]
+\end{definition}
+
+\begin{definition}
+A subset \(B\) of \(\mathbb{N}\) is said to be \textit{weakly sum-free} if
+\[ \forall (a,b) \in B^2 \text{, } a \neq b \Longrightarrow a+b \notin B\]
+\end{definition}
+
+Let us notice that a sum-free subset is also weakly sum-free, hence justifying the name of \textit{weakly} sum-free
+subsets. Given \(p\) and \(n\) two integers, we are interested in partitioning the set of integers \(\{1, 2, ..., p\}\), 
+denoted by \([\![1,p]\!]\), into \(n\) (weakly) sum-free subsets.
+
+\par
+Schur proved in \cite{Schur1917} that given a number of subsets \(n\), there exists a value of \(p\)
+such that there exists no partition of \([\![1,q]\!]\) into \(n\) sum-free subsets for any \(q \geqslant p\). A similar
+property holds for weakly sum-free subsets \cite{Irving1973}. These observations lead to the following definitions.
+
+\begin{definition}
+Let \(n \in \mathbb{N}^*\). There exists a greatest integer denoted by \(S(n)\) (\textit{resp. \(\WS (n)\)}) such that
+\([\![1,S(n)]\!]\) (resp. \([\![1, \WS (n)]\!]\)) can be partitioned into \(n\) sum-free subsets (resp. weakly sum-free
+subsets). \(S(n)\) is called the \textit{\(n\)\textsuperscript{th} Schur number} and \textit{\(\WS (n)\) the
+\(n\)\textsuperscript{th} weak Schur number}.
+\end{definition}
+
+Given a partition of \([\![1, p]\!]\) into \(n\) subsets, we generally denote these subsets \(A_1, ..., A_n\). We also denote
+\(m_i = \min(A_i)\). By ordering the subsets, we mean assuming that \(m_1 < ... < m_n\). However, if not specified we do 
+not make this hypothesis since we do not always consider partitions in which every subset plays a symmetric role.
+
+\begin{definition}
+We sometimes refer to a partitition as a coloring. The coloring associated to a partition \(A_1, ..., A_n\) of 
+\([\![1, p]\!]\) is the function \(f\) such that \(\forall x \in [\![1, p]\!], x \in A_{f(x)}\). Likewise, the partition associated to
+a coloring \(f\) of \([\![1, p]\!]\) with \(n\) colors is \(\forall c \in [\![1, n]\!], A_c = f^{-1}(c)\).
+\end{definition}

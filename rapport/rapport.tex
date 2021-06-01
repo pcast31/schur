@@ -1,0 +1,98 @@
+\documentclass{article}
+\title{New lower bounds for Schur and weak Schur numbers}
+\author{Romain Ageron, Paul Casteras, Thibaut Pellerin, Yann Portella}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{MyMnSymbol}
+
+\usepackage[english]{babel}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{nicematrix}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\renewcommand{\qedsymbol}{\(\square\)}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{computational theorem}[definition]{Computational Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newcommand{\WS}{\mathit{WS}}
+\newcommand{\docarraystretch}{1.2}
+\newcommand{\resetarraystretch}{\renewcommand{\arraystretch}{\docarraystretch}}
+\resetarraystretch
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+This article provides new lower bounds for both Schur and weak Schur numbers. These results were obtained by 
+continuing on Rowley's "template"-based approach for Schur and Ramsey numbers. Finding templates allows us to 
+get explicit partitions improving lower bounds as well as the growth rate for both Schur numbers and Ramsey 
+numbers \(R_n(3)\). We also developed a new method to improve lower bounds for weak Schur numbers. 
+Furthermore, this paper tries to analyze former works on weak Schur numbers based on the principle that good 
+partitions into \(n+1\) weakly sum-free subsets start with a good partition into \(n\) weakly sum-free subsets. 
+We show that exceeding the previous lower bound \(\WS (6) \geqslant 582\) is impossible with such an assumption 
+upon imposing certain conditions on the good 5-subsets partitions. The new lower bounds include 
+\(S(9) \geqslant 17\,803\), \(S(10) \geqslant 60\,948\), \(\WS (9) \geqslant 22\,536\) and 
+\(\WS (10) \geqslant 71\,214 \).
+
+\end{abstract}
+
+
+\input{introduction.tex}
+
+\input{schur.tex}
+
+\input{weakschur.tex}
+
+\input{search_space.tex}
+
+
+\section{Conclusions and future work}
+
+\qquad These new results come from an extension of Rowley's template-based approach for Ramsey graphs and 
+Schur numbers which is relatively new. Therefore, we will not be surprised if lower bounds are later improved 
+using better templates. Moreover, studying specifically \(S^+(n)\) and \(\WS^+(n)\) might be of interest as they
+ are closely related to Schur and weak Schur numbers. In order to find new templates, algorithms based on 
+randomness such as Monte-Carlo algorithms may prove to be very useful. This could be the subject of a future work.
+
+\par
+The fourth section gives new insight on the method that was formerly used to achieve new lower bounds for weak 
+Schur numbers. The assumption behind it might have removed the optimal partitions from the search space and thus 
+lowered the highest value that can be reached within it. However, the methods used to explore this search space 
+are efficient as the optimum was found. Thereby Monte-Carlo algorithms may prove to be very useful if used in a 
+search space with more potential. Finding a weakly sum-free partition which is better than previous lower bounds 
+and which is not as regular as those obtained with templates would be extremely interesting (even if it does not 
+improve current lower bounds) since it could suggest a new search space which could then be explored with the 
+above mentioned methods.
+
+
+\section{Acknowledgments}
+
+\qquad We would first like to thank our professors, Joanna Tomasik and Arpad Rimmel, who guided and advised
+us during the whole research and writing. Last but not least, we would like to address warm thanks
+to Fred Rowley who kindly answered our many questions and with who it was a pleasure to exchange.
+
+
+\bibliography{biblio}
+\bibliographystyle{IEEEtran}
+
+\include{appendix.tex}
+
+\end{document}

@@ -5,4 +5,11 @@ article/*
 !article/*.sty
 !article/article_push.pdf
 
+rapport/*
+!rapport/*.cls
+!rapport/*.bib
+!rapport/*.tex
+!rapport/*.sty
+!rapport/rapport_push.pdf
+
 __pycache__
