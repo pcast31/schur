@@ -75,11 +75,15 @@
 \section{Présentation}
 \subsection{Un~problème~de~partition}
 \begin{frame}
+	\begin{minipage}{0.3\textwidth}
+		\includegraphics[height=1\textwidth]{schurbg}
+	\end{minipage}
+	\begin{minipage}{0.65\textwidth}
 	En 1917, le russe \textbf{Issai Schur} pose le problème suivant :
 	\pause
 	\begin{itemize}
-		\item Pour \(n \geq 1\) un entier
-		\item Et \(k \geq 1\) un autre entier ( = nombre de \textbf{couleurs})
+		\item Pour \(n \geqslant 1\) un entier
+		\item Et \(k \geqslant 1\) un autre entier ( = nombre de \textbf{couleurs})
 	\end{itemize}
 	
 	\vspace{2ex}
@@ -88,6 +92,7 @@
 		Peut-on colorier les entiers de \(1\) à \(n\) de sorte que si deux nombres ont la même couleur,
 		leur somme n'est pas de cette couleur ? Si oui, un tel coloriage est dit \textbf{sans sommes}.
 	\end{tcolorbox}
+\end{minipage}
 \end{frame}
 
 \subsection{Les~nombres~de~Schur}
@@ -121,7 +126,7 @@
 		\(1\) à \(n\) en vérifiant cette propriété. C'est le \(k\)-ième \textbf{nombre de Schur}.
 	\end{tcolorbox}
 	\pause
-	Sur l'exemple, on peut vérifier que \(S(3) = 13\) : on ne peut colorier \([\![1,14]\!]\) avec trois couleurs.
+	Sur l'exemple, on ne peut rajouter \(14\) : en fait, on \(S(3) = 13\).
 \end{frame}
 
 \subsection{Weak~Schur}
