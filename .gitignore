@@ -17,5 +17,6 @@ soutenance/*
 !soutenance/*.png
 !soutenance/*.pdf
 !soutenance/_minted-presentation/*
+!soutenance/*.jpeg
 
 __pycache__
