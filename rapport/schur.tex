@@ -48,7 +48,7 @@ in the explicit construction of a sum-free partition using a SF-template and a s
 \begin{theorem}
 	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with width \(q\) and \(n+1\) colors 
 	and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets then there exists a partition of \([\![1,pq+m_{n+1}
-	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{n+1}\) is the minimum of the special subset in the \(SF\)-template.
+	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{n+1}\) denotes the minimum element in the special subset in the \(SF\)-template.
 \end{theorem}
 
 Setting \(q = S^+(n+1)\) and \(p = S(k)\) yields the following corollary.
@@ -259,13 +259,13 @@ We now proceed to prove the above mentioned theorem.
 	\(g : [\![1,p]\!] \longrightarrow [\![1,k]\!]\).
 	
 	\par
-	NB: In the following 3 predicates, the conditions \(x + y \leqslant q\)  and \(x + y \leqslant p\) are omitted for readability.
+	NB: In the following three predicates, the conditions \(x + y \leqslant q\)  and \(x + y \leqslant p\) are omitted for readability.
 	\par
-	The sum-free condition is expressed as
-	\[\forall (x,y) \in [\![1,q]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)\]
-	\[\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)\]
+	The sum-free condition is expressed as:
+	\[\forall (x,y) \in [\![1,q]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)\],
+	\[\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)\].
 	
-	The additionnal constraint for the SF-template is
+	The additionnal constraint for the SF-template is:
 	\[
 	\forall (x,y) \in [\![1,q]\!]^2, \left\{
 	\begin{array}{l}
@@ -273,48 +273,48 @@ We now proceed to prove the above mentioned theorem.
 		x + y > q
 	\end{array}
 	\right. \Longrightarrow f(x+y-q) \neq f(x)
-	\]
+	\].
 	
-	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), write \(x = (\alpha - 1) + u\) for some integers \(\alpha \in \mathbb{Z}\) and 
+	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), write \(x = (\alpha - 1) + u\) for certain integers \(\alpha \in \mathbb{Z}\) and 
 	\(u \in [\![1,q]\!]\). This decomposition is of course unique. \(\alpha\) (resp. \(u\)) can be interpreted as the row 
-	(resp. column) number of \(x\). Define a new coloring \(h\) as follows
+	(resp. column) number of \(x\). A new coloring \(h\) is defined as follows:
 	\[
 	\begin{array}{c c c l}
-		h : & [\![1,pq+m_{n+1}-1]\!] & \longrightarrow & [\![1,n+k]\!] \\
+		h : & [\![1,pq+m_{n+1}-1]\!] & \longrightarrow & [\![1,n+k]\!], \\
 		& x & \longmapsto & 
 		\left\{ \begin{array}{l l}
-			f(u) & \text{if}~f(u) \leqslant n \\
-			n + g(\alpha) & \text{if}~f(u) = n + 1 \\
+			f(u), & \text{if}~f(u) \leqslant n, \\
+			n + g(\alpha), & \text{if}~f(u) = n + 1. \\
 		\end{array} \right.
 	\end{array}
 	\]
 	
-	\(h\) is well-defined since, by definition of \(m_{n+1}\), \(\forall x \in [\![p q + 1, p q + m_{n + 1} - 1 ]\!], f(u) 
+	Function \(h\) is well-defined since, by definition of \(m_{n+1}\), \(\forall x \in [\![p q + 1, p q + m_{n + 1} - 1 ]\!], f(u) 
 	\leqslant n\) and therefore \(\forall x \in [\![1,pq+m_{n+1}-1]\!], f(u) = n + 1 \implies \alpha \in [\![1, p]\!]\).
 	
 	\par
 	We now prove that \(h\) is a sum-free coloring. Let \(x,y \in [\![1,pq + m_{n+1}-1]\!]\) such that \(h(x) = h(y)\) 
-	and \(x+y \leqslant pq+m_{n+1}-1\). We claim that \(h(x+y) \neq h(x)\). Write \(x = (\alpha - 1) q + u\) and 
-	\(y = (\beta - 1) q + v\) where \(\alpha, \beta \in \mathbb{Z}\) and \(u, v \in [\![1,q]\!]\). Distinguish between 
-	two cases according to the value of \(h(x)\). \\
+	and \(x+y \leqslant pq+m_{n+1}-1\). We claim that \(h(x+y) \neq h(x)\). We write \(x = (\alpha - 1) q + u\) and 
+	\(y = (\beta - 1) q + v\) where \(\alpha, \beta \in \mathbb{Z}\) and \(u, v \in [\![1,q]\!]\). Two cases are to be
+	distinguished according to the value of \(h(x)\). \\
 	
 	\noindent \underline{\textbf{Case 1:} \(h(x) \leqslant n\)}
 	\par
-	Assume that \(h(x+y) \leqslant n\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of \(h\) 
-	and given that \(h(u) = h(v)\), \(f(u) = f(v)\). Distinguish between two cases according to the value of \(x + y\).
+	Let us assume that \(h(x+y) \leqslant n\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of function 
+	\(h\) and given that \(h(u) = h(v)\), we conclude \(f(u) = f(v)\). Two cases are to b distinguished according to the value of \(x + y\).
 	
 	\begin{itemize}
-	\item If \(u + v > q\), write \(w = u + v - q \in [\![1, q]\!]\). Then \(x + y = (\alpha + \beta - 1) q + w\). By definition, 
+	\item If \(u + v > q\), we write \(w = u + v - q \in [\![1, q]\!]\). Consequentely \(x + y = (\alpha + \beta - 1) q + w\). By definition, 
 		\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant n\), the additionnal constraint on \(f\) implies \(f(w) 
 		\neq f(u)\), that is \(h(x + y) \neq h(x)\).
-	\item If \(u + v \leqslant p\), write \(w = u + v \in [\![1, q]\!]\). Then \(x+y = (\alpha + \beta- 2) q + w\). By definition, 
+	\item If \(u + v \leqslant p\), we write \(w = u + v \in [\![1, q]\!]\). Consequentely \(x+y = (\alpha + \beta- 2) q + w\). By definition, 
 		\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant n\), the sum-free property of \(f\) implies \(f(w) \neq f(u)\), 
 		that is \(h(x + y) \neq h(x)\).
 	\end{itemize} 
 	  
 	\noindent \underline{\textbf{Case 2:} \(h(x) \geqslant n + 1\)}
 	\par
-	\(h(x) = n + g(\alpha) = 
+	Now we have \(h(x) = n + g(\alpha) = 
 	k + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). As in the first case, distinguish between two cases according 
 	to the value of \(x + y\).
 	
@@ -331,14 +331,14 @@ We now proceed to prove the above mentioned theorem.
 	\end{itemize}
 \end{proof}
 
-The following proposition can help improve the additive constant of a SF-template. Although it does not allow us to 
+The following proposition may improve the additive constant of a SF-template. Although it does not allow us to 
 improve the SF-templates we have found, the analogous of this proposition for WSF-templates (see next section) 
 allows us to improve one of them.
 
 \begin{proposition}
 Let \((q, n) \in \mathbb{N}^*)^2\) and let \(f\) be a coloring associated to a SF-template with width \(q\) and \(n+1\) 
-colors. Let \(b \in \mathbb{N}\) (\(b = m_{n+1} - 1\) works) and assume there there exists a coloring \(g\) of 
-\([\![1, b]\!]\) with \(n+1\) colors such that
+colors. Let \(b \in \mathbb{N}\) and assume there is a coloring \(g\) of 
+\([\![1, b]\!]\) with \(n+1\) colors such that:
 	
 \begin{itemize}
 \item \(\forall (x, y) \in [\![1, q]\!]^2, \left\{
@@ -346,17 +346,17 @@ colors. Let \(b \in \mathbb{N}\) (\(b = m_{n+1} - 1\) works) and assume there th
 		f(x) = f(y) \\
 		(x + y) \mod q \leqslant b
 	\end{array}
-	\right. \implies g((x + y) \mod q) \neq f(x)\)
+	\right. \implies g((x + y) \mod q) \neq f(x)\),
 \item \(\forall (x, y) \in [\![1, q]\!] \times  [\![1, b]\!],  \left\{
 	\begin{array}{l}
 		f(x) = g(y) \\
 		x + y \leqslant b
 	\end{array}
-	\right. \implies g(x + y) \neq f(x)\)
+	\right. \implies g(x + y) \neq f(x)\).
 \end{itemize}
 	
 Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(x \longmapsto g(x - p S(n))\), we have
-\[ S(n+k) \geqslant S^+(n+1)S(k) + b\]
+\[ S(n+k) \geqslant S^+(n+1)S(k) + b\].
 \end{proposition}
 
 This proposition corresponds to the fact that sometimes a column is not the sum of two columns of a given color, but 
@@ -367,16 +367,16 @@ made on the coloring of the last row can be weakened.
 There is a construction theorem for SF-templates as well.
 
 \begin{theorem}
-	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a SF-template with width \(q\) and \(n+1\) colors,
-	and a SF-template with width \(p\) and \(k\) colors, then there exists SF-template with width \(pq\) and \((n+k)\) 
+	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there is a SF-template with width \(q\) and \(n+1\) colors,
+	and a SF-template with width \(p\) and \(k\) colors, then there also is a SF-template with width \(pq\) and \((n+k)\) 
 	colors.
 	\end{theorem}
 	
-	And the associated inequality
+	The inequality associated with this theorme is given by:
 	
 \begin{corollary}
 	Let \(n, k \in \mathbb{N}^*\). Then
-	\[ S^+(n+k) \geqslant S^+(n+1)S^+(k) \]
+	\[ S^+(n+k) \geqslant S^+(n+1)S^+(k) \].
 \end{corollary}
 
 \begin{proof}[\textsc{Proof.}]
@@ -395,9 +395,9 @@ A SF-template with \(n\) colors is said to be symmetric if the partition into \(
 from this template by applying the extension procedure with a sum-free partition of length 1 is symmetric. 
 \end{definition}
 
-We exhibited SF-templates using a SAT solver, hence providing lower bound on \(S^+\) and inequalities 
-of the type \(S(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
-\((a, b)\) (for the lexicographic order). When the number of colors excceeded 5, in order to reduce the search space we 
+We produced SF-templates using a SAT solver, hence providing lower bound on \(S^+\) and inequalities 
+of the type \(S(n+k) \geqslant a S(n) + b\). We sought templates providing the largest value of 
+\((a, b)\) (in the lexicographic order). When the number of colors excceeded five, in order to reduce the search space we 
 only looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
 the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
 
@@ -417,14 +417,14 @@ the third, fourth and fifth inequalities can be found in the appendix).
 
 The first inequality comes from  Schur's original article\cite{Schur1917}. The second one is due to
 Abott \cite{AbbottHanson}
-and the third one to Rowley \cite{RowleyRamsey}. The other ones are new.
+and the third one to Rowley \cite{RowleyRamsey}. The three last inequalies are our result.
 
 \par
-The first 3 inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
+The first three inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
 the last in the order of apparition (and with a multiplicative factor less than or equal to 118). The fifth one is most 
 likely not optimal but should not be too far from the optimum. 
 Finally, the sixth one is obtained by combining a SF-template with width 380 and one with width 3. 
-Although we could not find a better SF-template with 7 colors, the last inequality is definitely very far from the 
+Although we could not find a better SF-template with seven colors, the last inequality is definitely very far from the 
 optimal value. One may try to seek better templates by constraining less the search space and by using 
 Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the subject of a future work.
 

@@ -407,9 +407,9 @@ that the sum-free coloring of \([\![1, p]\!]\) is ordered.
 \end{sloppypar}
 
 \par
-NB: In the following 5 predicates, the conditions \(x + y \leqslant p\)  and \(x + y \leqslant a + b\) are omitted for readability.
+NB: To keep the notation short, the conditions \(x + y \leqslant p\)  and \(x + y \leqslant a + b\) are omitted in the following five predicates.
 \par
-The (weakly) sum-free conditions are expressed as 
+The (weakly) sum-free conditions are expressed as:
 \[
 \forall (x,y) \in [\![1,a + b]\!]^2, \left\{
 \begin{array}{l}
@@ -419,20 +419,20 @@ The (weakly) sum-free conditions are expressed as
 \right. \Longrightarrow f(x+y) \neq f(x)
 \]
 \[
-\forall (x,y) \in [\![b+1,a + b]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)
+\forall (x,y) \in [\![b+1,a + b]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x),
 \]
 \[
-\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)
+\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x).
 \]
 
-The additionnal constraints for the WSF-template are
+The additionnal constraints for the WSF-template are:
 \[
 \forall (x,y) \in [\![1,a + b]\!]^2, \left\{
 \begin{array}{l}
 	f(x) = f(y) \leqslant n \\
 	x + y > a + b
 \end{array}
-\right. \Longrightarrow f(\pi(x+y)) \neq f(x)
+\right. \Longrightarrow f(\pi(x+y)) \neq f(x),
 \]
 \[
 \forall (x,y) \in [\![1,a + b]\!]^2, \left\{
@@ -440,11 +440,11 @@ The additionnal constraints for the WSF-template are
 	f(x) = f(y) = n + 1 \\
 	x + y > 2 a + b
 \end{array}
-\right. \Longrightarrow f(x+y - 2 a) \neq f(x)
+\right. \Longrightarrow f(x+y - 2 a) \neq f(x).
 \]
 
-Here, we consider \(\pi\) defined in the previous subsection as an application defined on \([\![b + 1, p a + b]\!]\). 
-Split \([\![1, p a + b]\!]\) into 3 subsets.
+Here, we consider \(\pi\) defined in subsection 3.2 \textbf{LABEL NECESSAIRE} as an application defined on \([\![b + 1, p a + b]\!]\). 
+Split \([\![1, p a + b]\!]\) into three subsets.
 
 \begin{itemize}
 	\item \(\mathcal{T} = [\![1, b]\!]\)
@@ -452,7 +452,7 @@ Split \([\![1, p a + b]\!]\) into 3 subsets.
 	\item \(\mathcal{R} = \pi^{-1}(f^{-1}(\{n + 1\}))\)
 \end{itemize}
 
-Define a new coloring \(h\) as follows
+A new coloring \(h\) is defined as follows:
 \[
 \begin{array}{c c c l}
 	h : & [\![1, p a + b]\!] & \longrightarrow & [\![1,n+k]\!] \\
@@ -465,9 +465,9 @@ Define a new coloring \(h\) as follows
 \end{array}
 \]
 
-\(h\) is well defined since \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) is a partition of  \([\![1, p a + b]\!]\). 
-We now prove that \(h\) is a weakly sum-free coloring. Let \(x,y \in [\![1, p a + b]\!]\) such that \(x \neq y\), 
-\(h(x) = h(y)\) and \(x+y \leqslant p a+ b\). We claim that \(h(x+y) \neq h(x)\). Distinguish between six cases 
+Function \(h\) is well defined since \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) is a partition of  \([\![1, p a + b]\!]\). 
+We now prove that \(h\) is a weakly sum-free coloring. Let \(x,y \in [\![1, p a + b]\!]\) be such that \(x \neq y\), 
+\(h(x) = h(y)\) and \(x+y \leqslant p a+ b\). We claim that \(h(x+y) \neq h(x)\). We distinguish between six cases 
 according to the subsets \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) to which \(x\) and \(y\) belong. It is 
 sufficient to check only six cases out of nine since \(x\) and \(y\) play symmetric roles. \\
 
