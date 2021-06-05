@@ -14,7 +14,7 @@ regular and weak Schur numbers. The following theorem, inspired by Rowley's ineq
 \(\WS (n+2)\), was found and proved by Romain Ageron.
 
 \begin{theorem}
-\label{theorem}
+\label{Theorem3.1}
 \begin{sloppypar}
 Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free
@@ -23,9 +23,10 @@ weakly sum-free subsets.
 \end{sloppypar}
 \end{theorem}
 
-In particular, by setting \(q = \WS (n)\) and \(p = S(k)\) in the above theorem, one obtains the following corollary.
+In particular, by setting \(q = \WS (n)\) and \(p = S(k)\) in \hyperref[Theorem3.1]{Theorem 3.1}, one obtains the following corollary.
 
 \begin{corollary}
+\label{Corollary3.2}
 \( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } \WS (n+k) \geqslant S(k) \left (\WS (n) + \left \lceil \displaystyle \frac{\WS (n)}{2}
 \right \rceil +1 \right) + \WS (n)\)
 \end{corollary}
@@ -34,20 +35,20 @@ This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's c
 the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give new lower bounds.
 
 \begin{remark}
-The above inequality can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
+The inequality from \hyperref[Corollary3.2]{Corollary 3.2} can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
 odd in the theorem). However, it makes the proof less clear and it is never useful in practice.
 \end{remark}
 
-Given that this theorem will appear as a particular case of a more general theorem after the introduction of
-templates for weak Schur numbers, we only give here an intuitive explanation of the above theorem; a formal
+Given that \hyperref[Theorem3.1]{Theorem 3.1} will appear as a particular case of a more general theorem after the introduction of
+templates for weak Schur numbers, we only give here an intuitive explanation of the demonstration; a formal
 \hyperref[proof_theorem]{proof} can be found in the appendix.
 
 Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\)
-and let's try to build a coloring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let
+and let us try to build a coloring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let
 \(l = a - b - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = b - r\).
 
-First, put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) 
+First, we put the integers of \([\![1, ap + q]\!]\) in the following table (with \(a\) columns and \(p + 1\) lines) 
 and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)).
 
 \begin{itemize}
@@ -183,20 +184,23 @@ In particular, taking \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rce
 As in the previous section, we now introduce WSF-templates and the sequence \(\WS^+\) in order to generalize the above construction.
 
 \subsection{Definition of \(\WS^+\)}
+\label{DefinitionWS+}
 
 \qquad In this subsection, we introduce WSF-templates and prove calculative results for the general construction 
 theorem on templates for weak Schur numbers.
 
 \begin{definition}
-Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
-\[ \pi_{a,b}:x \longmapsto (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x \mod a)\]
+Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). We define :
+\[ \pi_{a,b}:x \longmapsto (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x \mod a).\]
 \end{definition}
 
-If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\). Notice that 
-\({\forall x \in \mathbb{Z}, \pi(x) = x \mod a}\) and \({\forall x \in [\![b + 1, a + b]\!], b + 1 \leqslant \pi(x) \leqslant a + b}\).
+If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\). Notice that for all
+\(x \in \mathbb{Z}, \pi(x) = x \mod a\) and for all \(x \in [\![b + 1, a + b]\!], b + 1 \leqslant \pi(x) \leqslant a + b\).
 
 \begin{sloppypar}
-\(\pi\) is the projection on the first line mentioned in the intuitive explanation. 
+\(\pi\) is the projection on the first line mentioned in the intuitive explanation. The following four propositions are
+calculative properties on \(\pi\) reflecting the behaviour of an element's column number in Table 3.1 and that we will use later
+when we introduce WSF-templates.
 \end{sloppypar}
 
 \begin{proposition}
@@ -237,8 +241,8 @@ Let x \(\in [\![1,b]\!]\) and \(y \in \mathbb{N}^*\) such that \(x+\pi(y) \leqsl
 \(\pi(y) \geqslant b + 1\) and thus \(b + 1 \leqslant x + \pi(y) \leqslant a + b\).
 \[
 \begin{array}{l l l l}
-	\pi(x + y) & = & \pi(x + \pi(y)) & proposition \ref{prop2} \\
-	 & = & x + \pi(y) & proposition \ref{prop1}
+	\pi(x + y) & = & \pi(x + \pi(y)) & \text{by \hyperref[prop2]{Proposition 3.6}} \\
+	 & = & x + \pi(y) & \text{by \hyperref[prop1]{Proposition 3.5}}
 \end{array}
 \]
 \end{proof}
@@ -255,6 +259,9 @@ Let \((x,y)\in (\mathbb{N}^*)^2\). Then
 It is a direct consequence of \(\pi(x) = x \mod a\). \\
 \end{proof}
 
+After defining the function related to the column number of each element in Table 3.1,
+we introduce the function related to its line number.
+
 \begin{definition}
 Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
 \[ \lambda_{a,b}:x \longmapsto 1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor\]
@@ -262,7 +269,9 @@ Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
 
 If there is no confusion on the \(a\) and \(b\) to use, \(\lambda_{a, b}\) is denoted by \(\lambda\).
 
-\(\lambda\) is the function which maps an element \(x\) to its line number as mentioned in the intuitive explanation.
+Function \(\lambda\) maps an element \(x\) to its line number as mentioned in the intuitive explanation.
+As we just did with \(\pi\), we proove three more results on both \(\pi\) and \(\lambda\) that will appear useful in
+\hyperref[ConstructionWSF]{Subsection 3.3}.
 
 \begin{proposition}
 \label{prop5}
@@ -291,8 +300,8 @@ Let \(x, y \in \mathbb{Z}\) such that \(\lambda(x + y) = \lambda(y)\). Then
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-By applying twice proposition \ref{prop5}, \(a \lambda(x + y) + \pi(x + y) - a = x + y = x + a \lambda(y) + \pi(y) - a\). 
-The result is then obtained by symplying the equality. \\
+By applying \hyperref[prop5]{Proposition 3.10} twice, we get \(a \lambda(x + y) + \pi(x + y) - a = x + y = x + a \lambda(y) + \pi(y) - a\). 
+The result is then obtained by simplying the equality. \\
 \end{proof}
 
 \begin{proposition}
@@ -304,7 +313,7 @@ Let \(x, y \in \mathbb{Z}\) such that \(\pi(x) + \pi(y) \in [\![a + b + 1, 2 a +
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-By proposition \ref{prop5}, \(x + y = a (\lambda(x) + \lambda(y)) + \pi(x) + \pi(y) - 2 a\). Then
+By \hyperref[prop5]{Proposition 3.10}, \(x + y = a (\lambda(x) + \lambda(y)) + \pi(x) + \pi(y) - 2 a\). Then
 \[
 \begin{array}{l l l}
 	\lambda(x + y) & = & \left \lfloor \dfrac{x + y - b - 1}{a} \right \rfloor + 1 \vspace{1mm} \\
@@ -318,44 +327,47 @@ By proposition \ref{prop5}, \(x + y = a (\lambda(x) + \lambda(y)) + \pi(x) + \pi
 
 \begin{definition}
 Let \( (a,n,b) \in (\mathbb{N}^*)^3\) with \(a > b\). Let \((A_1,...,A_n)\) a partition of  \([\![1, a + b]\!]\).
-This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WSF-template) with width \(a\) and \(n\) colors if
+This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WSF-template) with width \(a\) and \(n\) colors when :
 
 \begin{itemize}
-\item \(\forall i \in [\![1, n]\!], A_i\) is weakly-sum-free
-\item \(\forall i \in [\![1, n]\!], A_i\backslash [\![1, b]\!]\) is sum-free
-\item For \(A_n\) (the special subset)
+\item \(\forall i \in [\![1, n]\!], A_i\) is weakly-sum-free,
+\item \(\forall i \in [\![1, n]\!], A_i\backslash [\![1, b]\!]\) is sum-free,
+\item For \(A_n\) (the special subset) :
 	\[
-	\forall (x,y) \in A_n^2, \,x+y>b+2a \implies x+y-2a\notin A_n
+	\forall (x,y) \in A_n^2, \,x+y>b+2a \implies x+y-2a\notin A_n,
 	\]
 \item For the others subsets
 	\[
-	\forall i \in [\![0,n-1]\!], \, \forall(x,y) \in A_i^2, \, x+y>a+b \implies \pi(x+y) \notin A_i
+	\forall i \in [\![0,n-1]\!], \, \forall(x,y) \in A_i^2, \, x+y>a+b \implies \pi(x+y) \notin A_i.
 	\]
 \end{itemize}
 \end{definition}
 
 Please note that the special color \(n\) is not necessarily the last color by order of appearance.
+We now introduce the number \(\WS^+(n)\) that plays the same role as \(\S^+(n)\) for SF-templates.
+However, WSF-templates being more sophisticated than SF-templates, the definition of \(\WS^+(n)\)
+is slighty more complicted. 
 
 \begin{definition}
 Let \( (n,b) \in (\mathbb{N}^*)^2\). If there exists \(a\) such that there exists a \(b\)-WSF-template with width \(a\) 
-and \(n\) colors, define
+and \(n\) colors, we define :
 \[
-\WS_b^+(n)= \max \{a \in \mathbb{N}^*/ \text{there exists a } b \text{-WSF-template with width } a \text{ and } n \text{ colors} \}
+\WS_b^+(n)= \max \{a \in \mathbb{N}^*/ \text{there exists a } b \text{-WSF-template with width } a \text{ and } n \text{ colors} \}.
 \]
-If no such \(a\) exists, set \(\WS_b^+(n) = 0\).
+If no such \(a\) exists, we set \(\WS_b^+(n) = 0\).
 \end{definition}
 
 \begin{definition}
-Let \( n \in \mathbb{N}^*\). Define 
+Let \( n \in \mathbb{N}^*\). We define :
 \[
-\WS^+(n)=\max_{b\in \mathbb{N}^*} \WS_b^+(n)
+\WS^+(n)=\max_{b\in \mathbb{N}^*} \WS_b^+(n).
 \]
 \end{definition}
-
+The following proposition briefly shows how \(\WS^+(n)\) compares to weak Schur numers.
 \begin{proposition}
-Let \(n \in [\![2, +\infty]\!]\). Then
+Let \(n \in [\![2, +\infty]\!]\). Then :
 \[
-\frac{3}{2} \WS (n-1)+1 \leqslant \WS^+(n) \leqslant \WS (n)
+\frac{3}{2} \WS (n-1)+1 \leqslant \WS^+(n) \leqslant \WS (n).
 \]
 \end{proposition}
 
@@ -373,20 +385,22 @@ We now proceed to state and prove the main result of this article.
 
 
 \subsection{Construction of weak Schur partitions using WSF-templates}
+\label{ConstructionWSF}
 
 \begin{theorem}
+\label{Theorem3.18}
 Let \((a,n,b) \in (\mathbb{N}^*)^3\) with \(a > b\) and \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,p]\!]\) 
 into \(k\) sum-free subsets and a \(b\)-WSF-template \((A_1,...,A_{n+1})\) with width \(a\) and \(n+1\) colors, 
 then there exists a partition of \([\![1, p a + b]\!]\) into \(k+n\) weakly sum-free subsets.
 \end{theorem}
 
-In particular, by setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in the last theorem, the next corollary follows.
+In particular, by setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in \hyperref[Theorem3.18]{Theorem 3.18}, the next corollary follows.
 
 \begin{corollary}
 Let \(n,k \in \mathbb{N}^*\) and set \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\).
-Then
+Then :
 \[
-\WS(n+k) \geqslant S(k) \WS^+(n+1)+b_{max}
+\WS(n+k) \geqslant S(k) \WS^+(n+1)+b_{max}.
 \]
 \end{corollary}
 
@@ -394,7 +408,7 @@ Then
 In the SF-template construction for Schur numbers, the additive constant comes from the fact that the special color does
 not necessarily appear right at the begining of the repeating pattern. Likewise, \(b_{max}\) can actually be replaced by
 \[
-\max_{b \in \mathbb{N}^*} \left\{\min (A_{n+1} \backslash [\![1, b ]\!]) - 1~|~ \WS_b^+(n+1) = \WS^+(n+1) \right\}
+\max_{b \in \mathbb{N}^*} \left\{\min (A_{n+1} \backslash [\![1, b ]\!]) - 1~|~ \WS_b^+(n+1) = \WS^+(n+1) \right\}.
 \]
 \end{remark}
 
@@ -410,40 +424,40 @@ that the sum-free coloring of \([\![1, p]\!]\) is ordered.
 NB: To keep the notation short, the conditions \(x + y \leqslant p\)  and \(x + y \leqslant a + b\) are omitted in the following five predicates.
 \par
 The (weakly) sum-free conditions are expressed as:
-\[
+\begin{equation}
 \forall (x,y) \in [\![1,a + b]\!]^2, \left\{
 \begin{array}{l}
 	f(x) = f(y) \\
 	x \neq y
 \end{array}
 \right. \Longrightarrow f(x+y) \neq f(x)
-\]
-\[
+\end{equation}
+\begin{equation}
 \forall (x,y) \in [\![b+1,a + b]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x),
-\]
-\[
+\end{equation}
+\begin{equation}
 \forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x).
-\]
+\end{equation}
 
 The additionnal constraints for the WSF-template are:
-\[
+\begin{equation}
 \forall (x,y) \in [\![1,a + b]\!]^2, \left\{
 \begin{array}{l}
 	f(x) = f(y) \leqslant n \\
 	x + y > a + b
 \end{array}
 \right. \Longrightarrow f(\pi(x+y)) \neq f(x),
-\]
-\[
+\end{equation}
+\begin{equation}
 \forall (x,y) \in [\![1,a + b]\!]^2, \left\{
 \begin{array}{l}
 	f(x) = f(y) = n + 1 \\
 	x + y > 2 a + b
 \end{array}
 \right. \Longrightarrow f(x+y - 2 a) \neq f(x).
-\]
+\end{equation}
 
-Here, we consider \(\pi\) defined in subsection 3.2 \textbf{LABEL NECESSAIRE} as an application defined on \([\![b + 1, p a + b]\!]\). 
+Here, we consider \(\pi\) defined in \hyperref[DefinitionWS+]{subsection 3.2} as an application defined on \([\![b + 1, p a + b]\!]\). 
 Split \([\![1, p a + b]\!]\) into three subsets.
 
 \begin{itemize}
@@ -467,7 +481,7 @@ A new coloring \(h\) is defined as follows:
 
 Function \(h\) is well defined since \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) is a partition of  \([\![1, p a + b]\!]\). 
 We now prove that \(h\) is a weakly sum-free coloring. Let \(x,y \in [\![1, p a + b]\!]\) be such that \(x \neq y\), 
-\(h(x) = h(y)\) and \(x+y \leqslant p a+ b\). We claim that \(h(x+y) \neq h(x)\). We distinguish between six cases 
+\(h(x) = h(y)\) and \(x+y \leqslant p a+ b\). We claim that \(h(x+y) \neq h(x)\). Nine cases are to be distinguished 
 according to the subsets \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) to which \(x\) and \(y\) belong. It is 
 sufficient to check only six cases out of nine since \(x\) and \(y\) play symmetric roles. \\
 
@@ -481,16 +495,16 @@ is \(h(x + y) \neq h(x)\). \\
 \noindent \underline{\textbf{Case 2:} \((x,y) \in \mathcal{T} \times \mathcal{C}\)}
 \par
 Given that \(h(x) = h(y)\) and by definition of \(h\), \(f(x) = f(\pi(y))\). Besides, \(f(\pi(y)) \leqslant n\) since 
-\(y \in \mathcal{C}\). Distinguish between two cases according to the value of \(x + \pi(y)\).
+\(y \in \mathcal{C}\). Two cases are to be distinguished according to the value of \(x + \pi(y)\).
 \begin{itemize}
 \item \begin{sloppypar}
-	If \(x + \pi(y) \leqslant a + b\) then \(f(x + \pi(y)) = f(\pi(x + y))\) (proposition \ref{prop3}). Given that \(f\) is 
+	If \(x + \pi(y) \leqslant a + b\) then \(f(x + \pi(y)) = f(\pi(x + y))\) (\hyperref[prop3]{Proposition 3.7}). Given that \(f\) is 
 	a weakly sum-free coloring, \(f(x+\pi(y)) \neq f(x)\) since \(f(x)=f(\pi(y))\) and \(x \neq \pi(y)\) since
 	\({x \leqslant b < \pi(y)}\).
 	\end{sloppypar}
 \item \begin{sloppypar}
 	If \(x+\pi(y)> a+b\) then given that \(f\) is a WSF-template and since \({f(x) = f(\pi(y)) \leqslant n}\), 
-	\({f(\pi(x+\pi(y))) \neq f(x)}\).~Furthermore \({f(\pi(x+\pi(y))) = f(\pi(x+y))}\) (proposition \ref{prop2}), such that 
+	\({f(\pi(x+\pi(y))) \neq f(x)}\).~Furthermore \({f(\pi(x+\pi(y))) = f(\pi(x+y))}\) (\hyperref[prop2]{Proposition 3.6}), such that 
 	\({f(\pi(x+ y)) \neq f(x)}\).
 	\end{sloppypar}
 \end{itemize}
@@ -501,9 +515,9 @@ Hence in both cases \(f(\pi(x+y)) \neq f(x)\). If  \(f(\pi(x+y)) \leqslant n\) t
 
 \noindent \underline{\textbf{Case 3:} \((x,y) \in \mathcal{T} \times \mathcal{R}\)}
 \par
-Necessarily \(h(x) = h(y) = n + 1\). Distinguish between two cases according to the value of \(\lambda(x+y)\).
+Necessarily \(h(x) = h(y) = n + 1\). Two cases are to be distinguished according to the value of \(\lambda(x+y)\).
 \begin{itemize}
-\item If \(\lambda(y)=\lambda(x+y)\) then \(\pi(x + y) = x + \pi(y)\) (proposition \ref{prop6}). By definition of 
+\item If \(\lambda(y)=\lambda(x+y)\) then \(\pi(x + y) = x + \pi(y)\) (\hyperref[prop6]{Proposition 3.11}). By definition of 
 	\(h\), \(f(x) = f(\pi(y))\). Given that \(f\) is a weakly sum-free coloring, \(f(x + \pi(y)) \neq f(x)\) since 
 	\(f(x) = f(\pi(y))\) and \(x \neq \pi(y)\) since \({x \leqslant b < \pi(y)}\). Hence \(h(x + y) \neq h(x)\).
 \item If \(\lambda(y) \neq \lambda(x + y)\) then \(\lambda(x + y) = \lambda(y) + 1\) since \(x \leqslant b < a\). 
@@ -515,14 +529,14 @@ Necessarily \(h(x) = h(y) = n + 1\). Distinguish between two cases according to 
 
 \noindent \underline{\textbf{Case 4:} \((x,y) \in \mathcal{C}^2\)}
 \par
-By definition of \(h\) and since \(h(x)=h(y)\), \(f(\pi(x)) = f(\pi(y))\). Distinguish between two cases according 
+By definition of \(h\) and since \(h(x)=h(y)\), \(f(\pi(x)) = f(\pi(y))\). Two cases are to be distinguished according 
 to the value of \(\pi(x)+\pi(y)\).
 \begin{itemize}
 \item If \(\pi(x) + \pi(y) \leqslant a+b\) then \(\pi(x)+\pi(y) = \pi(x + y)\). Hence \(f(\pi(x + y)) \neq f(\pi(x))\) since 
 	\(f\) is sum-free for \(x>b\)
 \item \begin{sloppypar} 
 	If \(\pi(x)+\pi(y)>a+b\) then given that \(f\) is a WSF-template, \({f(\pi(\pi(x)+\pi(y))) \neq f(\pi(x))}\) since 
-	\({f(\pi(x)) = f(\pi(y))}\). Besides,  \({f(\pi(\pi(x)+\pi(y))) = f(\pi(x + y))}\) (proposition \ref{prop4}). Hence \({f(\pi(x + y)) 
+	\({f(\pi(x)) = f(\pi(y))}\). Besides,  \({f(\pi(\pi(x)+\pi(y))) = f(\pi(x + y))}\) (\hyperref[prop4]{Proposition 3.8}). Hence \({f(\pi(x + y)) 
 	\neq  f(\pi(x))}\).
 	\end{sloppypar}
 \end{itemize}
@@ -537,18 +551,18 @@ By definition of \(h\), \(h(x) \neq h(y)\).\\
 
 \noindent \underline{\textbf{Case 6:} \((x,y) \in \mathcal{R}^2\)}
 \par
-In particular \(f(\pi(x)) = f(\pi(y))=n + 1\). Distinguish between three cases according to the value of \(\pi(x) + \pi(y)\).
+In particular \(f(\pi(x)) = f(\pi(y))=n + 1\). Three cases are to be distinguished according to the value of \(\pi(x) + \pi(y)\).
 \begin{itemize}
 \item If \(\pi(x) + \pi(y) \in [\![a + b + 1, 2 a + b]\!]\) then \(\lambda(x + y) = \lambda(x) + \lambda(y)\) 
-	(proposition \ref{prop7}). By definition of \(h\) and since \(h(x) = h(y)\), \(g(\lambda(x)) = g(\lambda(y))\).
+	(\hyperref[prop7]{Proposition 3.12}). By definition of \(h\) and since \(h(x) = h(y)\), \(g(\lambda(x)) = g(\lambda(y))\).
 	Hence, \(h(\lambda(x + y)) \neq h(\lambda(x))\) since \(h\) is a sum-free coloring. If \(f(x+y) \geqslant n + 1\) 
 	then \(h(x + y) = n + g(\lambda(x + y))\). And \(h(x) = n + g(\lambda(x))\). Therefore, \(h(x + y)  \neq h(x)\). 
 	Otherwise \(h(x+y) \leqslant n < h(x)\). In particular \(h(x + y) \neq h(x)\).
 \item If \(\pi(x)+\pi(y)>2a+b\) then \(f(\pi(\pi(x)+\pi(y))) \neq f(\pi(x)) = n + 1\) since \(f\) is a \(b\)-WSF template and 
-	\(f(\pi(x)) = f(\pi(y))\). Given that \(\pi(\pi(x)+\pi(y)) = \pi(x+y)\) (proposition \ref{prop4}), \(f(\pi(x+y)) \neq n + 1\).
+	\(f(\pi(x)) = f(\pi(y))\). Given that \(\pi(\pi(x)+\pi(y)) = \pi(x+y)\) (\hyperref[prop4]{Proposition 3.8}), \(f(\pi(x+y)) \neq n + 1\).
 \item \begin{sloppypar}
 	If \(\pi(x)+\pi(y)\leqslant b+a\) then, given that \(\pi(x)+\pi(y) \geqslant b\) and \(f_{| [\![b, a + b ]\!]}\) is 
-	sum-free, \({f(\pi(x) + \pi(y)) \neq f(\pi(x)) = n + 1}\). That is \({f(\pi(x + y)) \neq n + 1}\) (proposition \ref{prop1}).
+	sum-free, \({f(\pi(x) + \pi(y)) \neq f(\pi(x)) = n + 1}\). That is \({f(\pi(x + y)) \neq n + 1}\) (\hyperref[prop1]{Proposition 3.5}).
 	\end{sloppypar}
 \end{itemize}
 \par
@@ -587,7 +601,7 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(
 
 The WSF-templates can actually be fine-tuned further. However, it gives only minor improvements (most likely only an additive
 constant) at the cost of dramatically increasing the size of the search space. Therefore, it does not seem relevant to
-use this sophistications given that we could not even find good WSF-templates with 5 colors using a computer (here good
+use this sophistications given that we could not even find good WSF-templates with five colors using a computer (here good
 means better than those obtain by combining smaller templates).
 
 \par These modifications work as follows. One may notice that the first row (excluding the "tail") has constraints that other rows
@@ -608,12 +622,13 @@ constant of WSF-templates).
 We also have a similar theorem where only \(\WS^+\) is involved.
 
 \begin{theorem}
+\label{Theorem3.22}
 Let \((k,p) \in (\mathbb{N}^*)^2\) and \((a, n, b) \in (\mathbb{N}^*)^3\) . If there exists a SF-template with width 
 \(p\) and \(k+1\) colors and a \(b\)-WSF-template with width \(a\) and \(n\) colors, then there exists \(pb\)-WSF-template 
 with width \(pq\) and \((n+k)\) colors.
 \end{theorem}
 
-And the associated inequality
+\hyperref[Theorem3.22]{Theorem 3.22} yields the following corollary.
 
 \begin{corollary}
 Let \(n, k \in \mathbb{N}^*\). Then
@@ -633,7 +648,7 @@ from the WSF-template. \\
 
 \qquad We exhibited WSF-templates using a SAT solver, hence providing lower bound on \(WS^+\) and inequalities 
 of the type \(WS(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
-\((a, b)\) (for the lexicographic order).
+\((a, b)\) (in the lexicographic order).
 
 \[
 \begin{array}{r r r r r}
