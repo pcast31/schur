@@ -10,7 +10,7 @@ the entire article. We then find new templates and use them to provide new lower
 \subsection{Definition of \(S^+\)}
 
 \begin{definition}
-Let \((p,n) \in (\mathbb{N}^*)^2\). A SF-template with width \(p\) and \(n\) colors is defined as a partition of 
+Let \((p,n) \in (\mathbb{N}^*)^2\). A S-template with width \(p\) and \(n\) colors is defined as a partition of 
 \([\![1,p]\!]\) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) verifying
 \[
 \forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
@@ -18,12 +18,12 @@ Let \((p,n) \in (\mathbb{N}^*)^2\). A SF-template with width \(p\) and \(n\) col
 \]
 \end{definition}
 
-Here \(n\) is the "special" color: it has less constraints than the other colors. However, please note that \(n\) 
-is not necessarily the last color by order of appearance. \(SF\)-templates include Abbott and Hanson's construction \cite{AbbottHanson}
-as a special case.
+Here \(n\) is the "special" color: the numbers colored in the special color has less constraints than the other colors. However, please note that \(n\) 
+is not necessarily the last color by order of appearance. 
+
 
 \begin{proposition}
-	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the maximal width of a SF-template with \(n\) colors. 
+	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the greatest integer such that \( [\![1, S^+(n)]\!]\) is a S-template with \(n\) colors. 
 	\(S^+(n)\) is well defined and verifies
 	\[
 	2S(n-1)+1 \leqslant S^+(n) \leqslant S(n)
@@ -32,7 +32,7 @@ as a special case.
 
 \begin{proof}[\textsc{Proof.}]
 The lower bound comes from Abbott and Hanson's construction. The upper bound comes from the 
-fact that a SF-template with width \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets. \\
+fact that a S-template with width \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) into \(n\) sum-free subsets. \\
 \end{proof}
 
 \begin{remark}
@@ -40,15 +40,14 @@ fact that a SF-template with width \(p\) and \(n\) colors is also a partition of
 \end{remark}
 
 
-\subsection{Construction of Schur partitions using SF-templates}
+\subsection{Construction of Schur partitions using S-templates}
 
-\qquad Here we state the main result on SF-templates stated by Rowley in the context of Ramsey numbers. It consists 
-in the explicit construction of a sum-free partition using a SF-template and a sum-free partition.
+\qquad We start by reminding the explicite construction of a sum-free partition with the use of a S-template and another sum free partition. We apply this contruction stated by Rowley in the context of Ramsey numbers to the Schur numbers.
 
 \begin{theorem}
-	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a \(SF\)-template with width \(q\) and \(n+1\) colors 
+	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a \(S\)-template with width \(q\) and \(n+1\) colors 
 	and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets then there exists a partition of \([\![1,pq+m_{n+1}
-	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{n+1}\) denotes the minimum element in the special subset in the \(SF\)-template.
+	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{n+1}\) denotes the minimum element colored with the special color in the \(S\)-template.
 \end{theorem}
 
 Setting \(q = S^+(n+1)\) and \(p = S(k)\) yields the following corollary.
@@ -62,7 +61,7 @@ The idea lying beneath this theorem is similar to Abbott and Hanson's contructio
 extend a sum-free partition by repeating it and they use an other sum-free partition to color the other half according 
 to the line number. This way the "blocks" act as safe areas for each other. We give here an example for \(p = 4\), 
 \(q = 9\), \(n = 2\) and \(k = 2\) showing that \(S(2 + 2) \geqslant S(2) (2 S(2) + 1) + S(2)\), both with Abbott and 
-Hanson's construction and with a SF-template which is not included in Abbott and Hanson's construction. In both cases, 
+Hanson's construction and with a S-template which is not included in Abbott and Hanson's construction. In both cases, 
 the special color is grey.
 
 \renewcommand{\arraystretch}{1.7}
@@ -127,7 +126,7 @@ the special color is grey.
 \setlength{\tabcolsep}{2ex}
 
 \begin{tabular}{c c}
-	\textbf{Corresponding SF-template} & \textbf{Corresponding sum-free partition} \\
+	\textbf{Corresponding S-template} & \textbf{Corresponding sum-free partition} \\
 	\begin{NiceTabular}{|*{9}{c|}}[standard-cline,hlines]
 	\CodeBefore 
 		\cellcolor{red}{1-1}
@@ -156,14 +155,14 @@ the special color is grey.
 \setlength{\tabcolsep}{6pt}
 \end{center}
 
-In the general construction with SF-templates, the special color no longer necessarily contains consecutive 
+In the general construction with S-templates, the special color no longer necessarily contains consecutive 
 numbers. However, the special color is still replaced by the colors of the sum-free partition according to the 
 line number and the other colors are still vertically extended.
 
 \begin{center}
 \setlength{\tabcolsep}{1.5ex}
 
-\textbf{SF-template construction}
+\textbf{S-template construction}
 \vspace{1.7ex}
 
 \begin{NiceTabular}{|*{9}{c|}}[corners=SE,standard-cline,hlines]
@@ -220,7 +219,7 @@ line number and the other colors are still vertically extended.
 \setlength{\tabcolsep}{2ex}
 
 \begin{tabular}{c c}
-	\textbf{Corresponding SF-template} & \textbf{Corresponding sum-free partition} \\
+	\textbf{Corresponding S-template} & \textbf{Corresponding sum-free partition} \\
 	\begin{NiceTabular}{|*{9}{c|}}[standard-cline,hlines]
 	\CodeBefore 
 		\cellcolor{red}{1-1}
@@ -254,7 +253,7 @@ line number and the other colors are still vertically extended.
 We now proceed to prove the above mentioned theorem.
 
 \begin{proof}[\textsc{Proof.}]
-	Denote by \(f\) the coloring associated to the \(SF\)-template with width \(q\) and \(g\) the one associated 
+	Denote by \(f\) the coloring associated to the \(S\)-template with width \(q\) and \(g\) the one associated 
 	to the sum-free partition of \([\![1,p]\!]\); where \(f : [\![1,q]\!] \longrightarrow [\![1,n+1]\!]\) and 
 	\(g : [\![1,p]\!] \longrightarrow [\![1,k]\!]\).
 	
@@ -265,7 +264,7 @@ We now proceed to prove the above mentioned theorem.
 	\[\forall (x,y) \in [\![1,q]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)\],
 	\[\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)\].
 	
-	The additionnal constraint for the SF-template is:
+	The additionnal constraint for the S-template is:
 	\[
 	\forall (x,y) \in [\![1,q]\!]^2, \left\{
 	\begin{array}{l}
@@ -275,9 +274,8 @@ We now proceed to prove the above mentioned theorem.
 	\right. \Longrightarrow f(x+y-q) \neq f(x)
 	\].
 	
-	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), write \(x = (\alpha - 1) + u\) for certain integers \(\alpha \in \mathbb{Z}\) and 
-	\(u \in [\![1,q]\!]\). This decomposition is of course unique. \(\alpha\) (resp. \(u\)) can be interpreted as the row 
-	(resp. column) number of \(x\). A new coloring \(h\) is defined as follows:
+	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), we write \(x = (\alpha - 1) + u\) for certain integers \(\alpha \in \mathbb{Z}\) and 
+	\(u \in [\![1,q]\!]\). This decomposition is of course unique. \(\alpha\)  can be interpreted as the row number of \(x\) and \(u\) as the collumn number of \(x\). A new coloring is define as follows:
 	\[
 	\begin{array}{c c c l}
 		h : & [\![1,pq+m_{n+1}-1]\!] & \longrightarrow & [\![1,n+k]\!], \\
@@ -331,12 +329,10 @@ We now proceed to prove the above mentioned theorem.
 	\end{itemize}
 \end{proof}
 
-The following proposition may improve the additive constant of a SF-template. Although it does not allow us to 
-improve the SF-templates we have found, the analogous of this proposition for WSF-templates (see next section) 
-allows us to improve one of them.
+The following proposition may improve the additive constant of a S-template.
 
 \begin{proposition}
-Let \((q, n) \in \mathbb{N}^*)^2\) and let \(f\) be a coloring associated to a SF-template with width \(q\) and \(n+1\) 
+Let \((q, n) \in \mathbb{N}^*)^2\) and let \(f\) be a coloring associated to a S-template with width \(q\) and \(n+1\) 
 colors. Let \(b \in \mathbb{N}\) and assume there is a coloring \(g\) of 
 \([\![1, b]\!]\) with \(n+1\) colors such that:
 	
@@ -364,15 +360,15 @@ adding this column to the color would create sums in the color when applying the
 last row does not intereact with the right-most columns when it comes to creating new sums. As a result, the hypotheses 
 made on the coloring of the last row can be weakened.
 
-There is a construction theorem for SF-templates as well.
+There is a construction theorem for S-templates as well.
 
 \begin{theorem}
-	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there is a SF-template with width \(q\) and \(n+1\) colors,
-	and a SF-template with width \(p\) and \(k\) colors, then there also is a SF-template with width \(pq\) and \((n+k)\) 
+	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there is a S-template with width \(q\) and \(n+1\) colors,
+	and a S-template with width \(p\) and \(k\) colors, then there also is a S-template with width \(pq\) and \((n+k)\) 
 	colors.
 	\end{theorem}
 	
-	The inequality associated with this theorme is given by:
+	The inequality associated with this theorem is given by:
 	
 \begin{corollary}
 	Let \(n, k \in \mathbb{N}^*\). Then
@@ -380,8 +376,8 @@ There is a construction theorem for SF-templates as well.
 \end{corollary}
 
 \begin{proof}[\textsc{Proof.}]
-The idea is the same as in the previous theorem. The only difference is the SF-template property inherited 
-from the second SF-template. \\
+The idea is the same as in the previous theorem. The only difference is the S-template property inherited 
+from the second S-template. \\
 \end{proof}
 
 
@@ -391,18 +387,18 @@ from the second SF-template. \\
 A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), 
 \(x\) and \(p + 1 - x\) belong to the same subset (except if \(x = p + 1 - x\)).
 
-A SF-template with \(n\) colors is said to be symmetric if the partition into \(n\) sum-free subsets derived 
+A S-template with \(n\) colors is said to be symmetric if the partition into \(n\) sum-free subsets derived 
 from this template by applying the extension procedure with a sum-free partition of length 1 is symmetric. 
 \end{definition}
 
-We produced SF-templates using a SAT solver, hence providing lower bound on \(S^+\) and inequalities 
+We produced S-templates using a SAT solver, hence providing lower bound on \(S^+\) and inequalities 
 of the type \(S(n+k) \geqslant a S(n) + b\). We sought templates providing the largest value of 
 \((a, b)\) (in the lexicographic order). When the number of colors excceeded five, in order to reduce the search space we 
-only looked for symmetric SF-templates, we assumed that the special color was the last color to appear and we constrained 
+only looked for symmetric S-templates, we assumed that the special color was the last color to appear and we constrained 
 the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
 
 \par
-Here are the best inequalities on Schur numbers so far (the \hyperref[SF-templates]{templates} corresponding to 
+Here are the best inequalities on Schur numbers so far (the \hyperref[S-templates]{templates} corresponding to 
 the third, fourth and fifth inequalities can be found in the appendix).
 \[
 \begin{array}{r r r r r}
@@ -420,11 +416,11 @@ Abott \cite{AbbottHanson}
 and the third one to Rowley \cite{RowleyRamsey}. The three last inequalies are our result.
 
 \par
-The first three inequalities are optimal. The fourth one is optimal among symmetric SF-templates whose special color is 
+The first three inequalities are optimal. The fourth one is optimal among symmetric S-templates whose special color is 
 the last in the order of apparition (and with a multiplicative factor less than or equal to 118). The fifth one is most 
 likely not optimal but should not be too far from the optimum. 
-Finally, the sixth one is obtained by combining a SF-template with width 380 and one with width 3. 
-Although we could not find a better SF-template with seven colors, the last inequality is definitely very far from the 
+Finally, the sixth one is obtained by combining a S-template with width 380 and one with width 3. 
+Although we could not find a better S-template with seven colors, the last inequality is definitely very far from the 
 optimal value. One may try to seek better templates by constraining less the search space and by using 
 Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the subject of a future work.
 
@@ -489,14 +485,14 @@ numbers, the following inequality holds \(S(n) \leqslant R_n(3) - 2\) (see \cite
 \end{proof}
 
 
-\subsection{Conclusion on SF-templates}
+\subsection{Conclusion on S-templates}
 
 \qquad In this section, we first formalized Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur numbers 
-by introducing SF-templates as well as a new sequence, \(S^+\). We provided relations between \(S^+\) and \(S\) then 
-stated Rowley's construction method in the context of Schur numbers. We found new SF-templates allowing us to obtain 
+by introducing S-templates as well as a new sequence, \(S^+\). We provided relations between \(S^+\) and \(S\) then 
+stated Rowley's construction method in the context of Schur numbers. We found new S-templates allowing us to obtain 
 new lower bounds for schur numbers. One may notice that we mostly gave only lower bounds for \(S^+\). It should be possible to 
-find better SF-templates by making different assumptions or using a different method (Monte-Carlo methods for instance).
+find better S-templates by making different assumptions or using a different method (Monte-Carlo methods for instance).
 
 \par
-In the next section, we provide similar results for weak Schur numbers. We introduce WSF-templates and a corresponding sequence, 
+In the next section, we provide similar results for weak Schur numbers. We introduce WS-templates and a corresponding sequence, 
 \(\WS^+\). We then derive similar relations and a construction method allowing us to find new lower bounds for weak Schur numbers.
