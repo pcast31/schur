@@ -6,7 +6,7 @@ subset containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\).
 greatest \(p\) for which there exists a partition into \(n\) sum-free subsets is called the \(n^{\text{th}}\) Schur 
 number and is denoted \(S(n)\) \cite{Schur1917}. Likewise for weakly sum-free partitions we define \(\WS(n)\) 
 the \(n^{\text{th}}\) weak Schur number \cite{Irving1973}. Only the first values of these sequences are known. 
-This article focuses on the lower bounds for these numbers.
+In this study, we improve the lower bounds on these numbers.
 
 
 \subsection{State of the art}
@@ -15,30 +15,26 @@ This article focuses on the lower bounds for these numbers.
 previous generic construction for Schur numbers was given by Abbott and Hanson \cite{AbbottHanson} in 1972 
 with a recursive construction. It used to give the best lower bounds for all sufficiently large numbers. No equivalent 
 was known for weak Schur numbers and as a result the best known partitions for large weak Schur numbers 
-did not utilize the weakly sum-free hypothesis. 
+did not use the weakly sum-free hypothesis. 
 
 \par
 As for smaller weak Schur numbers, the best lower bounds were obtained by conducting a computer search. Eliahou 
 \cite{EliahouBook}, Bouzy \cite{Bouzy2015AnAP} and Rafilipojaona \cite{Rafilipojaona} improved the lower 
 bounds with Monte-Carlo methods. This was the main approach during the past decade. This search for weakly 
-sum-free partitions relied on the recursive assumption that a good weakly sum-free partition into \(n+1\) colors 
-starts with a good weakly sum-free partition into \(n\) colors. 
-However, we show in the \hyperref[SearchSpace]{last section} that this search space may not contain the optimal 
-solutions. Thus further works using similar methods might need to put that assumption aside and find a different 
-search space.
+sum-free partitions relied on the recursive assumption that a good weakly sum-free partition into \(n+1\) subsets 
+starts with a good weakly sum-free partition into \(n\) subsets. 
 
 \par
-In 2020, Rowley introduced the notion of template for Schur and Ramsey numbers \cite{RowleyRamsey} which 
-generalizes Abbott and Hanson's construction and gives new lower bounds (and inequalties) for Schur numbers. 
-Rowley also gives two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements 
-over previous lower bounds which besides do utilize the \textit{weakly} sum-free hypothesis.
+In 2020, Rowley introduced the notion of templates for Schur and Ramsey numbers \cite{RowleyRamsey} which 
+generalizes Abbott and Hanson's construction and produces new lower bounds (and inequalties) for Schur numbers. 
+He also provides two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements 
+over previous lower bounds, and besides do utilize the \textit{weakly} sum-free hypothesis.
 
 \setlength{\tabcolsep}{4pt}
 
-\begin{center}
 
-\textbf{Table 1 - Comparison of lower bounds for Schur numbers}
-
+\begin{table}
+  \centering
 \begin{tabular}{|*{13}{c|}}
     \hline
     \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
@@ -53,11 +49,13 @@ over previous lower bounds which besides do utilize the \textit{weakly} sum-free
     \hyperref[Schur]{\textbf{Our results}}  & & & & & & & & & \textbf{17\,803} & \textbf{60\,948} & \textbf{203\,828} & \textbf{638\,548} \\
     \hline
 \end{tabular}
-
+\caption{Comparison of lower bounds for Schur numbers}
+\label{table:1}
+\end{table}
 \vspace{2.5ex}
 
-\textbf{Table 2 - Comparison of lower bounds for weak Schur numbers}
-
+\begin{table}
+  \centering
 \begin{tabular}{|*{13}{c|}}
     \hline
     \(n\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
@@ -74,29 +72,26 @@ over previous lower bounds which besides do utilize the \textit{weakly} sum-free
 \end{tabular}
 
 \vspace{1.5ex}
-* denotes an exact value, not just a lower bound
-\end{center}
+* denotes the exact value
+\caption{Comparison of lower bounds for weak Schur numbers}
+\label{table:2}
+\end{table}
 
 \subsection{Structure of this article}
 
-\qquad The main contribution of this article is a generalization of the concept of template to weak Schur numbers. 
-It gives new lower bounds (and inequalities) for weak Schur numbers. This construction also includes as a special 
-case an analogous for weak Schur numbers of Abbott and Hanson's construction for Schur numbers.
+\qquad Our main contribution is a generalization of the concept of template to weak Schur numbers. 
+Our templates provide new lower bounds (and inequalities) for weak Schur numbers. This construction also includes, 
+as a special case, a construction similar to Abbott and Hanson's \cite{AbbottHanson}, but this time with 
+\textit{weak} Schur numbers.
 
 \par
-In the \hyperref[Schur]{first section}, we explain Rowley's template-based construction in the context of 
-Schur numbers and then give new templates, thus providing new lowers bounds and inequalities as well as 
+In the \hyperref[Schur]{section 2}, we explain Rowley's template-based construction in the context of 
+Schur numbers. Then, we give new templates, thus providing new lowers bounds and inequalities as well as 
 showing that the growth rates for both Schur and Ramsey numbers \(R_n(3)\) exceed 3.28. 
 
 \par
-Then, in the \hyperref[WeakSchur]{second section}, we generalize the concept of templates to weak Schur numbers 
+Then, in the \hyperref[WeakSchur]{section 3}, we generalize the concept of templates to weak Schur numbers 
 and provide new lower bounds for weak Schur numbers. 
-
-\par
-Finally, in the \hyperref[SearchSpace]{third section}, we analyze the significant difference between new lower 
-bounds obtained with templates and the former lower bounds obtained by computer search and we provide 
-evidence which indicate that the main assumption made in those articles removes the optimal partitions from the 
-search space.
 
 \par
 We now introduce notations and definitions we use throughout this article.
