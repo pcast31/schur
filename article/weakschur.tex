@@ -64,6 +64,9 @@ sum of the columns modulo \(a\).
 \renewcommand{\arraystretch}{1.7}
 \setlength{\arraycolsep}{3pt}
 
+\begin{figure}[H]
+\caption{Construction of the weakly sum-free coloring}
+\label{SchemaWS}
 \[
 \begin{NiceArray}{*{13}{c}}[corners={NW,SW},hvlines,first-row,last-row,first-col]
 \CodeBefore
@@ -143,6 +146,7 @@ sum of the columns modulo \(a\).
 	& & & & & & & & & & \Block{1-4}{\underbrace{\hphantom{--------------}}_{\mathcal{C}}} \\
 \end{NiceArray}
 \]
+\end{figure}
 
 \resetarraystretch
 \setlength{\arraycolsep}{6pt}
@@ -199,8 +203,8 @@ If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denote
 
 \begin{sloppypar}
 \(\pi\) is the projection on the first line mentioned in the intuitive explanation. The following four propositions are
-calculative properties on \(\pi\) reflecting the behaviour of an element's column number in Table 3.1 and that we will use later
-when we introduce WSF-templates.
+calculative properties on \(\pi\) reflecting the behaviour of an element's column number in \hyperref[SchemaWS]{Figure \ref{SchemaWS}} and
+that we will use later when we introduce WSF-templates.
 \end{sloppypar}
 
 \begin{proposition}
@@ -259,7 +263,7 @@ Let \((x,y)\in (\mathbb{N}^*)^2\). Then
 It is a direct consequence of \(\pi(x) = x \mod a\). \\
 \end{proof}
 
-After defining the function related to the column number of each element in Table 3.1,
+After defining the function related to the column number of each element in \hyperref[SchemaWS]{Figure \ref{SchemaWS}},
 we introduce the function related to its line number.
 
 \begin{definition}
@@ -644,38 +648,41 @@ from the WSF-template. \\
 
 
 
-\subsection{Inequalities and new lower bounds for Weak Schur numbers}
+\subsection{New lower bounds for Weak Schur numbers}
 
 \qquad We exhibited WSF-templates using a SAT solver, hence providing lower bound on \(WS^+\) and inequalities 
 of the type \(WS(n+k) \geqslant a S(n) + b\). We have sought templates providing the greatest value of 
-\((a, b)\) (in the lexicographic order).
+\((a, b)\) (in the lexicographic order). As we will see, this way of computing lower bounds is not necessarily the best
+we can do. In the following, we give the strongest inequalities we have so far and further insight about how they were produced.
 
-\[
-\begin{array}{r r r r r}
-	WS(n + 1) & \geqslant & 4 S(n) & + & 2 \\
-	WS(n + 2) & \geqslant & 13 S(n) & + & 8 \\
-	WS(n + 3) & \geqslant & 42 S(n) & + & 24 \\
-	WS(n + 4) & \geqslant & 132 S(n) & + & 26 \\
-\end{array}
-\]
+\begin{align}
+	WS(n + 1) &\geqslant  4 S(n)  +  2 \label{WS(n+1)} \\
+	WS(n + 2) &\geqslant  13 S(n)  +  8 \label{WS(n+2)} \\
+	WS(n + 3) &\geqslant  42 S(n)  +  24 \label{WS(n+3)} \\
+	WS(n + 4) &\geqslant  132 S(n)  +  26 \label{WS(n+4)}
+\end{align}
 
-The first two inequalities were found by Rowley, they are detailed in \cite{RowleyWS}. The third inequality is optimal 
-and was found with a SAT solver. It uses the first sophistication explained in the previous subsection in order to add 
+\hyperref[WS(n+1)]{(\ref{WS(n+1)})} and \hyperref[WS(n+2)]{(\ref{WS(n+2)})} were already found by Rowley, they are detailed in \cite{RowleyWS}. \hyperref[WS(n+3)]{(\ref{WS(n+3)})} is optimal 
+and was found with a SAT solver. It uses the first sophistication explained in the \hyperref[ConstructionWSF]{Subsection 3.3} in order to add 
 the last number in the first color. The \hyperref[WSF-templates]{corresponding template} can be found in the appendix.
-As for the fourth inequality, it was obtained by combining an optimal SF-template with width 33 with a WSF-template with width 4.
+As for \hyperref[WS(n+4)]{(\ref{WS(n+4)})}, it was obtained by combining an optimal SF-template with width 33 with a WSF-template with width 4.
 The best template we could get with a computer search gives the inequality \(\WS(n+4) \geqslant 127 S(n) + 68\).
 It was also found with the SAT solver. In order to reduce the search space, we only looked for WSF-templates of
-5 colors which start with a good \(\WS(4)\) partition and we assumed that the special color was the last by order of 
+five colors which start with a good \(\WS(4)\) partition and we assumed that the special color was the last by order of 
 appearance. However, this approach most likely prevents us from finding the best WSF-templates
 as we explain in the next subsection for weakly sum-free partitions. We highly suspect that there exists more efficient WSF-templates
 with \(n \geqslant 5\) colors. One may try to go over a different search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}.
 This could be the suject of a future work. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
 
-Like in 3.3, we compute the lower bounds given by the previous inequalities for \( n \in [\![8,15]\!] \). The best lower bound
+Like in Subsection 2.3 \textbf{LABEL NECESSAIRE}, we compute the lower bounds given by \hyperref[WS(n+1)]{(\ref{WS(n+1)})}, 
+\hyperref[WS(n+2)]{(\ref{WS(n+2)})} and \hyperref[WS(n+3)]{(\ref{WS(n+3)})} for \( n \in [\![8,15]\!] \). The best lower bound
 for each integer is highlighted.
 
 \renewcommand{\arraystretch}{0.2}
 
+\begin{table}[H]
+\caption{New lower bounds for \( n \in [\![8,15]\!] \)}
+\label{LowerBoundsWS}
 \[
 \begin{array}{c}
 	\resetarraystretch
@@ -707,17 +714,19 @@ for each integer is highlighted.
 	\end{NiceArray}
 \end{array}
 \]
+\end{table}
 
 \resetarraystretch
 
-With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using Rowley's inequality.
-Moreover, the third inequality gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
+With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using \hyperref[WS(n+1)]{(\ref{WS(n+1)})}.
+Moreover, \hyperref[WS(n+3]{(\ref{WS(n+3)})} gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
 
 
 \subsection{Conclusion on WSF-templates}
 
 \qquad In this section, we first gave a new construction which can be seen as an equivalent for weakly sum-free partitions of Abott
 and Hanson's construction for sum-free partitions. We then  introduced WSF-templates and generalized this construction. This
-allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant difference
+allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant gap
 between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds
-obtained with WSF-templates (including Rowley's two inequalities). In the next section, we try to analyze this phenomenon.
+obtained with WSF-templates (including \hyperref[WS(n+1)]{(\ref{WS(n+1)})} and \hyperref[WS(n+2]{(\ref{WS(n+2)})}).
+
