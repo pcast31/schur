@@ -204,7 +204,7 @@ If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denote
 
 \begin{sloppypar}
 \(\pi\) is the projection on the first line mentioned in the intuitive explanation. The following four propositions are
-calculative properties on \(\pi\) reflecting the behaviour of an element's column number in \hyperref[SchemaWS]{Figure \ref{SchemaWS}} and
+calculative properties on \(\pi\) reflecting the behaviour of an element's column number in Figure \ref{SchemaWS} and
 that we will use later when we introduce WSF-templates.
 \end{sloppypar}
 
@@ -264,7 +264,7 @@ Let \((x,y)\in (\mathbb{N}^*)^2\). Then
 It is a direct consequence of \(\pi(x) = x \mod a\). \\
 \end{proof}
 
-After defining the function related to the column number of each element in \hyperref[SchemaWS]{Figure \ref{SchemaWS}},
+After defining the function related to the column number of each element in Figure \ref{SchemaWS},
 we introduce the function related to its line number.
 
 \begin{definition}
@@ -582,8 +582,7 @@ the last row. The principle behind it is the same as in the analogous propositio
 
 \begin{proposition}
 Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to a \(b\)-WSF-template with width \(p\) and \(k\) colors. Let
-\(c \in \mathbb{N}\) (\(c = \min (A_{k+1} \backslash [\![1, b ]\!]) - 1\) works) and assume there there exists a coloring \(g\) of
-\([\![b + 1, b + c]\!]\) with \(k\) colors such that for all \(c \in [\![1, k]\!]\),
+\(c \in \mathbb{N}\) and assume there there exists a coloring \(g\) of \([\![b + 1, b + c]\!]\) with \(k\) colors such that for all \(c \in [\![1, k]\!]\),
 
 \begin{itemize}
 \item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!],  \left\{
@@ -629,7 +628,7 @@ We also have a similar theorem where only \(\WS^+\) is involved.
 \begin{theorem}
 \label{Theorem3.22}
 Let \((k,p) \in (\mathbb{N}^*)^2\) and \((a, n, b) \in (\mathbb{N}^*)^3\) . If there exists a SF-template with width 
-\(p\) and \(k+1\) colors and a \(b\)-WSF-template with width \(a\) and \(n\) colors, then there exists \(pb\)-WSF-template 
+\(p\) and \(k+1\) colors and a \(b\)-WSF-template with width \(a\) and \(n\) colors, then there exists a \(pb\)-WSF-template 
 with width \(pq\) and \((n+k)\) colors.
 \end{theorem}
 
@@ -657,16 +656,16 @@ of the type \(WS(n+k) \geqslant a S(n) + b\). We have sought templates providing
 we can do. In the following, we give the strongest inequalities we have so far and further insight about how they were produced.
 
 \begin{align}
-	WS(n + 1) &\geqslant  4 S(n)  +  2 \label{WS(n+1)} \\
-	WS(n + 2) &\geqslant  13 S(n)  +  8 \label{WS(n+2)} \\
-	WS(n + 3) &\geqslant  42 S(n)  +  24 \label{WS(n+3)} \\
-	WS(n + 4) &\geqslant  132 S(n)  +  26 \label{WS(n+4)}
+	WS(n + 1) &\geqslant  4\,S(n)  +  2 \label{WS(n+1)} \\
+	WS(n + 2) &\geqslant  13\,S(n)  +  8 \label{WS(n+2)} \\
+	WS(n + 3) &\geqslant  42\,S(n)  +  24 \label{WS(n+3)} \\
+	WS(n + 4) &\geqslant  132\,S(n)  +  26 \label{WS(n+4)}
 \end{align}
 
-\hyperref[WS(n+1)]{(\ref{WS(n+1)})} and \hyperref[WS(n+2)]{(\ref{WS(n+2)})} were already found by Rowley, they are detailed in \cite{RowleyWS}. \hyperref[WS(n+3)]{(\ref{WS(n+3)})} is optimal 
+(\ref{WS(n+1)}) and (\ref{WS(n+2)}) were already found by Rowley, they are detailed in \cite{RowleyWS}. (\ref{WS(n+3)}) is optimal 
 and was found with a SAT solver. It uses the first sophistication explained in the \hyperref[ConstructionWSF]{Subsection 3.3} in order to add 
 the last number in the first color. The \hyperref[WSF-templates]{corresponding template} can be found in the appendix.
-As for \hyperref[WS(n+4)]{(\ref{WS(n+4)})}, it was obtained by combining an optimal SF-template with width 33 with a WSF-template with width 4.
+As for (\ref{WS(n+4)}), it was obtained by combining an optimal SF-template with width 33 with a WSF-template with width 4.
 The best template we could get with a computer search gives the inequality \(\WS(n+4) \geqslant 127 S(n) + 68\).
 It was also found with the SAT solver. In order to reduce the search space, we only looked for WSF-templates of
 five colors which start with a good \(\WS(4)\) partition and we assumed that the special color was the last by order of 
@@ -675,8 +674,8 @@ as we explain in the next subsection for weakly sum-free partitions. We highly s
 with \(n \geqslant 5\) colors. One may try to go over a different search space using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}.
 This could be the suject of a future work. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
 
-Like in Subsection 2.3 \textbf{LABEL NECESSAIRE}, we compute the lower bounds given by \hyperref[WS(n+1)]{(\ref{WS(n+1)})}, 
-\hyperref[WS(n+2)]{(\ref{WS(n+2)})} and \hyperref[WS(n+3)]{(\ref{WS(n+3)})} for \( n \in [\![8,15]\!] \). The best lower bound
+Like in Subsection 2.3 \textbf{LABEL NECESSAIRE}, we compute the lower bounds given by (\ref{WS(n+1)}), 
+(\ref{WS(n+2)}) and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound
 for each integer is highlighted.
 
 \renewcommand{\arraystretch}{0.2}
@@ -720,8 +719,8 @@ for each integer is highlighted.
 
 \resetarraystretch
 
-With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using \hyperref[WS(n+1)]{(\ref{WS(n+1)})}.
-Moreover, \hyperref[WS(n+3]{(\ref{WS(n+3)})} gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
+With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using (\ref{WS(n+1)}).
+Moreover, (\ref{WS(n+3)}) gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
 
 
 \subsection{Conclusion on WSF-templates}
@@ -730,5 +729,5 @@ Moreover, \hyperref[WS(n+3]{(\ref{WS(n+3)})} gives new lower bounds for \(\WS(9)
 and Hanson's construction for sum-free partitions. We then  introduced WSF-templates and generalized this construction. This
 allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant gap
 between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds
-obtained with WSF-templates (including \hyperref[WS(n+1)]{(\ref{WS(n+1)})} and \hyperref[WS(n+2]{(\ref{WS(n+2)})}).
+obtained with WSF-templates (including (\ref{WS(n+1)}) and (\ref{WS(n+2)}).
 
