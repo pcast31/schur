@@ -2,9 +2,9 @@
 \label{Schur}
 
 \qquad In this section, we use Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur 
-numbers. In order to improve lower bounds for Schur and Ramsey numbers, Rowley introduces special sum-free 
+numbers. In order to improve lower bounds for Schur and Ramsey numbers, he introduces special sum-free 
 partitions verifying some additional properties which can be extended using a method generalizing Abbott and 
-Hanson's construction \cite{AbbottHanson}. Rowley named these partitions "templates", and we keep this name in 
+Hanson's construction \cite{AbbottHanson}. He named these partitions "templates", and we keep this name in 
 the entire article. We then find new templates and use them to provide new lower bounds for Schur numbers.
 
 \subsection{Definition of \(S^+\)}
@@ -16,15 +16,15 @@ table.
 
 \begin{definition}
 Let \((p,n) \in (\mathbb{N}^*)^2\). A S-template with width \(p\) and \(n\) colors is defined as a partition of 
-\([\![1,p]\!]\) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) verifying
+\([\![1,p]\!]\) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) verifying for all subsets but \(A_n\)
 \[
 \forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
 \Longrightarrow x+y-p \notin A_i
 \]
 \end{definition}
 
-Here \(n\) is the "special" color: the numbers colored in the special color has less constraints than the other colors. However, please note that \(n\) 
-is not necessarily the last color by order of appearance. 
+Here \(n\) can be seen as a "special" color in the sense that we do not impose this above additionnal constraint on this color. 
+However, please note that \(n\) is not necessarily the last color by order of appearance.
 
 
 \begin{proposition}
@@ -275,8 +275,8 @@ We now proceed to prove \hyperref[Theorem2.4]{Theorem 2.4}
 	NB: In the following three predicates, the conditions \(x + y \leqslant q\)  and \(x + y \leqslant p\) are omitted for readability.
 	\par
 	The sum-free condition is expressed as:
-	\[\forall (x,y) \in [\![1,q]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x)\],
-	\[\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x)\].
+	\[\forall (x,y) \in [\![1,q]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x),\]
+	\[\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x).\]
 	
 	The additionnal constraint for the S-template is:
 	\[
@@ -285,8 +285,8 @@ We now proceed to prove \hyperref[Theorem2.4]{Theorem 2.4}
 		f(x) = f(y) \leqslant n \\
 		x + y > q
 	\end{array}
-	\right. \Longrightarrow f(x+y-q) \neq f(x)
-	\].
+	\right. \Longrightarrow f(x+y-q) \neq f(x).
+	\]
 	
 	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), we write \(x = (\alpha - 1) + u\) for certain integers \(\alpha \in \mathbb{Z}\) and 
 	\(u \in [\![1,q]\!]\). This decomposition is of course unique. \(\alpha\)  can be interpreted as the row number of \(x\) and \(u\) as the collumn number of \(x\). A new coloring is define as follows:
@@ -343,9 +343,10 @@ We now proceed to prove \hyperref[Theorem2.4]{Theorem 2.4}
 	\end{itemize}
 \end{proof}
 
-The following proposition may improve the additive constant of \hyperref[Corollary2.5]{Corollary 2.5}
+The following proposition may improve the additive constant of \hyperref[Corollary2.5]{Corollary 2.5}.
 
 \begin{proposition}
+\label{Proposition2.6}
 Let \((q, n) \in \mathbb{N}^*)^2\) and let \(f\) be a coloring associated to a S-template with width \(q\) and \(n+1\) 
 colors. Let \(b \in \mathbb{N}\) and assume there is a coloring \(g\) of 
 \([\![1, b]\!]\) with \(n+1\) colors such that:
@@ -393,7 +394,8 @@ from the second S-template. \\
 
 
 \subsection{New lower bounds for Schur numbers}
-In the following, we give the strongest inequalities we have so far and further insight about how they were produced.
+\label{Subsection2.3}
+We now give the inequalities correspondng to the current  best S-templates (to our knowledge).
 
 \begin{definition}
 A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), 
@@ -407,11 +409,11 @@ We produced S-templates using a SAT solver, hence providing lower bound on \(S^+
 of the type \(S(n+k) \geqslant a S(n) + b\). We sought templates providing the largest value of 
 \((a, b)\) (in the lexicographic order). When the number of colors excceeded five, in order to reduce the search space we 
 only looked for symmetric S-templates, we assumed that the special color was the last color to appear and we constrained 
-the \(m_c\)'s out of being too small. Further details about the encoding as a SAT problem can be found in \cite{Heule2017}.
+the \(m_c\)'s out of being too small. Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
 
 \par
-Here are the best inequalities on Schur numbers so far (the \hyperref[S-templates]{templates} corresponding to 
-the third, fourth and fifth inequalities can be found in the appendix).
+Here are the inequalities given by the current best S-templates (to our knowledge). The \hyperref[S-templates]{templates} 
+corresponding to the third, fourth and fifth inequalities can be found in the appendix.
 
 \begin{align}
 	S(n + 1) \geqslant &~3\,S(n)  + 1 \label{S(n+1)}\\
@@ -428,13 +430,14 @@ Abott and Hanson \cite{AbbottHanson} and inequality (\ref{S(n+3)}) to Rowley \ci
 (\ref{S(n+4)}), (\ref{S(n+5)}) and (\ref{S(n+6)}) are our results.
 
 \par
-Inequalities (\ref{S(n+1)}), (\ref{S(n+2)}) and (\ref{S(n+3)}) are optimal. Inequality (\ref{S(n+4)}) is optimal 
-among symmetric S-templates whose special color is the last in the order of apparition (and with a multiplicative 
-factor less than or equal to 118). Inequality (\ref{S(n+5)}) is most likely not optimal but should not be too far 
-from the optimum. Finally, inequality (\ref{S(n+6)}) is obtained by combining a S-template with width 380 and 
-one with width three. Although we could not find a better S-template with seven colors, inequality (\ref{S(n+6)}) 
-is definitely very far from the optimal value. One may try to seek better templates by constraining less the search 
-space and by using Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the subject of a future work.
+Inequalities (\ref{S(n+1)}), (\ref{S(n+2)}) and (\ref{S(n+3)}) cannot be further improved (with this definition of S-template). 
+Inequality (\ref{S(n+4)}) cannot be further improved by only searching for symmetric S-templates whose special color is the 
+last in the order of apparition (and with a multiplicative factor less than or equal to 118). Inequality (\ref{S(n+5)}) can most 
+likely be further improved but the improvement proabably will not be substantial. Finally, inequality (\ref{S(n+6)}) is obtained 
+by combining a S-template with width 380 and one with width three. Although we could not find a better S-template with seven 
+colors, inequality (\ref{S(n+6)}) can definitely be improved by a wide margin. One may try to seek better templates by 
+constraining less the search space and by using Monte-Carlo methods, as in \cite{Bouzy2015AnAP}. This could be the subject 
+of a future work.
 
 \par
 The previous inequalities give new lower bounds for \(S(n)\) for
@@ -482,8 +485,8 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities, pleas
 \end{table}
 \resetarraystretch
 
-Except for 8, 9 and 13, the best lower bounds are obtained thanks to
-the third inequality \( S(n+5) \geqslant 380S(n) + 148\). The table
+Except for\(S(8)\), \(S(9)\) and \(S(13)\), the best lower bounds are obtained thanks to
+the third inequality \( S(n+5) \geqslant 380 \, S(n) + 148\). The table
 doesn't go any further, but the same inequality allows to improve the
 lower bounds for every \( n \geqslant 15 \).
 
