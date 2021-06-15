@@ -65,8 +65,6 @@ sum of the columns modulo \(a\).
 \setlength{\arraycolsep}{3pt}
 
 \begin{figure}[H]
-
-\label{SchemaWS}
 \[
 \begin{NiceArray}{*{13}{c}}[corners={NW,SW},hvlines,first-row,last-row,first-col]
 \CodeBefore
@@ -146,6 +144,7 @@ sum of the columns modulo \(a\).
 	& & & & & & & & & & \Block{1-4}{\underbrace{\hphantom{--------------}}_{\mathcal{C}}} \\
 \end{NiceArray}
 \]
+\label{SchemaWS}
 \caption{Construction of the weakly sum-free coloring}
 \end{figure}
 
@@ -199,12 +198,14 @@ Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). We define :
 \[ \pi_{a,b}:x \longmapsto (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x \mod a).\]
 \end{definition}
 
-If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\). Notice that for all
-\(x \in \mathbb{Z}, \pi(x) = x \mod a\) and for all \(x \in [\![b + 1, a + b]\!], b + 1 \leqslant \pi(x) \leqslant a + b\).
+\begin{sloppypar}
+If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denoted by \(\pi\). Notice that for all \(x \in \mathbb{Z}\), 
+\({\pi(x) = x \mod a}\) and for all \(x \in [\![b + 1, a + b]\!], b + 1 \leqslant \pi(x) \leqslant a + b\).
+\end{sloppypar}
 
 \begin{sloppypar}
 \(\pi\) is the projection on the first line mentioned in the intuitive explanation. The following four propositions are
-calculative properties on \(\pi\) reflecting the behaviour of an element's column number in Figure \ref{SchemaWS} and
+calculative properties on \(\pi\) reflecting the behaviour of an element's column number in \hyperref[SchemaWS]{Figure 3} and
 that we will use later when we introduce WS-templates.
 \end{sloppypar}
 
@@ -264,7 +265,7 @@ Let \((x,y)\in (\mathbb{N}^*)^2\). Then
 It is a direct consequence of \(\pi(x) = x \mod a\). \\
 \end{proof}
 
-After defining the function related to the column number of each element in Figure \ref{SchemaWS},
+After defining the function related to the column number of each element in \hyperref[SchemaWS]{Figure 3},
 we introduce the function related to its line number.
 
 \begin{definition}
