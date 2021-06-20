@@ -36,7 +36,7 @@ the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formu
 
 \begin{remark}
 The inequality from \hyperref[Corollary3.2]{Corollary 3.2} can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
-odd in the theorem). However, it makes the proof less clear and it is never useful in practice.
+odd in the theorem). However, it lengthens the proof and it is never useful in practice.
 \end{remark}
 
 Given that \hyperref[Theorem3.1]{Theorem 3.1} will appear as a particular case of a more general theorem after the introduction of
@@ -344,7 +344,7 @@ This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WS-template
 	\]
 \item For the others subsets
 	\[
-	\forall i \in [\![0,n-1]\!], \, \forall(x,y) \in A_i^2, \, x+y>a+b \implies \pi(x+y) \notin A_i.
+	\forall i \in [\![1,n-1]\!], \, \forall(x,y) \in A_i^2, \, x+y>a+b \implies \pi(x+y) \notin A_i.
 	\]
 \end{itemize}
 \end{definition}
@@ -577,7 +577,7 @@ In both of the last two cases, \({f(\pi(x + y)) \neq n + 1}\) that is \(x+y \in 
 In particular, \(h(x + y) \neq h(x)\). \\
 \end{proof}
 
-There is a construction theorem for S-templates as well.
+There is a construction theorem for WS-templates as well.
 
 \begin{theorem}
 \label{Theorem3.21}
@@ -605,7 +605,47 @@ construction can be seen as a particular case of S-template.
 
 \begin{proof}[\textsc{Proof of \hyperref[Theorem3.1]{Theorem 3.1}.}]
 \label{PreuveThm}
-\textbf{REFORMULER LA PREUVE EN TERMES DE WS-TEMPLATES.} \\
+Let \((q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1, q]\!]\) into n weakly sum-free subsets. 
+Let \(f: [\![1, q]\!] \rightarrow [\!]1, n]\!]\) a weakly sum-free colouring.
+Let \(b=q\) and \(a = q + \left \lceil \dfrac{q}{2} \right \rceil + 1\). A new colouring \(g\) is defined as follows:
+
+\[
+\begin{array}{c c c l}
+	g : & [\![1, a + b]\!] & \longrightarrow & [\![1, n + 1]\!] \\
+	& x & \longmapsto &
+		\left\{ \begin{array}{l l}
+			f(x) & \text{if}~x \in [\![1, b]\!]  \\
+			n + 1 & \text{if}~x \in [\![b + 1, 2 b + 1]\!] \\
+			f(x - a) & \text{if}~x \in  [\![2 b + 2, a + b]\!]
+		\end{array} \right.
+\end{array}
+\]
+
+We claim that \(g\) is a \(b\)-WSF-template with width \(a\) and \(n + 1\) colours.
+
+\begin{itemize}
+\item Function \(g_{|[\![b + 1, a + b]\!]}\) is a sum-free colouring. Indeed, let \((x, y) \in 
+	[\![b + 1, a + b]\!]^2\) such that \(g(x) = g(y)\). If \(g(x) = n + 1\) then \(z = x + y > 2 b + 1\) 
+	and therefore, either \(z > a + b\) or \(f(z) \neq n + 1\). Otherwise, \(x + y > a + b\).
+\item Function \(g\) is a weakly sum-free colouring. Indeed, let \((x, y) \in [\![1, a + b]\!]^2\) such that 
+	\(z = x + y \leqslant a + b\) and \(g(x) = g(y)\). Given that \(x\) and \(y\) have symmetric roles, 
+	we can assume that \(x \leqslant y\). If \(x > b\) then \(g(z) \neq g(x)\) as seen above. If \(y \leqslant b\) then 
+	\(f(x) = g(x) = g(y) = f(y) \leqslant n\) and either \(z \leqslant a + b\) and \(f(z) \neq f(x)\) since \(f\) is a weakly 
+	sun-free colouring or \(a + b + 1 \leqslant z \leqslant 2 b\) and \(g(z) = n + 1\); therefore \(g(z) \neq g(x)\). If 
+	\(x \leqslant b\) and \(y > b\) then \(g(x) = f(x)\), \(g(y) = f(y - a)\) and \(g(z) = f(z - a)\).We have \(x \neq y - a\) 
+	(otherwise, we would have \(a + b \geqslant z = 2 y  - a \geqslant 4 b + 4 - a > a + b\)) and thus \(f(x + y - a) \neq f(x)\),
+	that is \(g(z) \neq g(x)\).
+\item Colour \(n + 1\) verifies the additionnal constraints for the special colour. Indeed, \(b + 2 a \geqslant 4 b + 2\). 
+	Hence, \(\forall (x, y) \in g^{-1}(\{n + 1\}), x + y \leqslant b + 2 a\).
+\item Colours \(1, ..., n\) verify the additionnal constraints for the regular colours. Indeed, let 
+	\((x, y) \in g^{-1}([\![1, n]\!])\) such that \(x + y > a + b\). Given that \(x\) and \(y\) have symmetric roles, 
+	we can assume that \(x \leqslant y\). Necessarily \(y \geqslant 2 b + 2\). If \(x \leqslant b\) then 
+	\(z = x + y \in [\![a + b + 1, a + 2 b]\!]\) and therefore \(\pi(z) \in [\![b + 1, 2 b]\!]\). Otherwise, 
+	\(z = x + y \in [\![4 b + 4, 2 a + 2 b]\!]\) and therefore \(\pi(z) \in [\![b + 1, 2 b]\!]\). Hence, in both cases, 
+	\(g(\pi(z)) \neq g(x)\).
+\end{itemize}
+
+The result is then obtained by applying \hyperref[Theorem3.18]{Theorem 3.18}. \\
 \end{proof}
 
 As in \hyperref[Corollary2.5]{Corollary 2.5}, the additive constant \hyperref[Theorem3.18]{Theorem 3.18} can be improved 
