@@ -1,0 +1,6 @@
+dimacs_files/*
+solvers/*
+
+!*/.gitkeep
+
+__pycache__
