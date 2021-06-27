@@ -631,7 +631,7 @@ We claim that \(g\) is a \(b\)-WSF-template with width \(a\) and \(n + 1\) colou
 	\(z = x + y \leqslant a + b\) and \(g(x) = g(y)\). Given that \(x\) and \(y\) have symmetric roles, 
 	we can assume that \(x \leqslant y\). If \(x > b\) then \(g(z) \neq g(x)\) as seen above. If \(y \leqslant b\) then 
 	\(f(x) = g(x) = g(y) = f(y) \leqslant n\) and either \(z \leqslant a + b\) and \(f(z) \neq f(x)\) since \(f\) is a weakly 
-	sun-free colouring or \(a + b + 1 \leqslant z \leqslant 2 b\) and \(g(z) = n + 1\); therefore \(g(z) \neq g(x)\). If 
+	sum-free colouring or \(a + b + 1 \leqslant z \leqslant 2 b\) and \(g(z) = n + 1\); therefore \(g(z) \neq g(x)\). If 
 	\(x \leqslant b\) and \(y > b\) then \(g(x) = f(x)\), \(g(y) = f(y - a)\) and \(g(z) = f(z - a)\).We have \(x \neq y - a\) 
 	(otherwise, we would have \(a + b \geqslant z = 2 y  - a \geqslant 4 b + 4 - a > a + b\)) and thus \(f(x + y - a) \neq f(x)\),
 	that is \(g(z) \neq g(x)\).
@@ -649,7 +649,7 @@ The result is then obtained by applying \hyperref[Theorem3.18]{Theorem 3.18}. \\
 \end{proof}
 
 As in \hyperref[Corollary2.5]{Corollary 2.5}, the additive constant \hyperref[Theorem3.18]{Theorem 3.18} can be improved 
-by weakening the hypotheses made on the last row. The principle behind it is the same as in \hyperref[Proposition2.6]{Proposition2.6}.
+by weakening the hypotheses made on the last row. The principle behind it is the same as in \hyperref[Proposition2.6]{Proposition 2.6}.
 
 \begin{proposition}
 Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to a \(b\)-WS-template with width \(p\) and \(k\) colors. Let
@@ -715,7 +715,7 @@ corresponding to the third inequality can be found in the appendix.
 \end{align}
 
 Inequalities (\ref{WS(n+1)}) and (\ref{WS(n+2)}) were found by Rowley, they are detailed in \cite{RowleyWS}. 
-Inequality (\ref{WS(n+3)}) is cannot be further improved and was found with a SAT solver. It uses the first 
+Inequality (\ref{WS(n+3)}) cannot be further improved and was found with a SAT solver. It uses the first 
 sophistication explained in the \hyperref[ConstructionWS]{Subsection 3.3} in order to add
 the last number in the first color. As for inequality (\ref{WS(n+4)}), it was obtained by combining a S-template with 
 width 33 with a WS-template with width 4. The best template we could find with a computer search gives the 
