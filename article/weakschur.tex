@@ -4,7 +4,9 @@
 \qquad In this section, we generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS} and give an analogous
 for weak Schur numbers of Abbott and Hanson's construction for Schur numbers. By analogy with the previous section,
 we then introduce WS-templates as well as an associated sequence \(\WS^+(n)\). We find templates and use them to
-provide new lower bounds for weak Schur numbers.
+provide new lower bounds for weak Schur numbers. Finally, we give a short explanation for the new lower bound 
+\(\WS(6) \geqslant 646\) which was not directly obtained with a template contrary to the other lower bounds given in this 
+paper.
 
 \subsection{Inequality for weak Schur numbers using Schur and weak Schur numbers}
 
@@ -403,6 +405,7 @@ then there exists a partition of \([\![1, p a + b]\!]\) into \(k+n\) weakly sum-
 In particular, by setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in \hyperref[Theorem3.18]{Theorem 3.18}, the next corollary follows.
 
 \begin{corollary}
+\label{Corollary3.19}
 Let \(n,k \in \mathbb{N}^*\) and set \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\).
 Then :
 \[
@@ -771,6 +774,22 @@ Like in \hyperref[Subsection2.3]{Subsection 2.3}, we compute the lower bounds gi
 
 With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using (\ref{WS(n+1)}).
 Moreover, inequality (\ref{WS(n+3)}) gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
+
+
+\subsection{\(\WS(6) \geqslant 646\)}
+\qquad When applying the inequality \(\WS(n+1) \geqslant 4 \, S(n) + 2\), one may realize that it is possible to build a weakly 
+sum-free partition of length \(4 \, S(n) + 3\) for small values of \(n\) (\(n \leqslant 4\)) by using the contruction of 
+\hyperref[Corollary3.19]{Corollary 3.19} for the integers 1, 2, \(4i\) and \(4i+1\) for \(i \in [\![1, S(n)]\!]\) but not 
+constraining the other integers. We did the same for the Schur partitions corresponding to Schur number five. More precisely, 
+we imposed these constraints only for \(i \leqslant 50\) in order to have more degrees of freedom. The number 50 was chosen 
+arbitrarly so that all of the Schur number five partitions could tested in a few hours.
+
+However, trying out all of the 2\,447\,113\,088 Schur number five partitions (\cite{Heule2017}) one by one would not result in a 
+reasonable computation time: it is necessary to test the construction on several partitions at once. We encoded the problem as a 
+satisfiability problem and used the 1616 backdoors that were used in \cite{Heule2017} in order to encode a group of partitions in 
+a compact and efficient way. Among all of the 1616 backdoors, only the 911\textsuperscript{th} backdoor gave a weakly sum-free 
+partition of length 643. This backdoor gave a weakly sum-free partition of length 646 and cannot give a weakly sum-free 
+partition of length 647. A weakly sum-free partition of length 646 can be found in the \hyperref[WS(6)]{appendix}.
 
 
 \subsection{Conclusion on WS-templates}
