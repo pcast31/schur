@@ -741,29 +741,29 @@ Like in \hyperref[Subsection2.3]{Subsection 2.3}, we compute the lower bounds gi
 	\resetarraystretch
 	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
 	\CodeBefore
-		\cellcolor{yellow}{2-4}
 		\cellcolor{yellow}{2-5}
 		\cellcolor{yellow}{3-2}
 		\cellcolor{yellow}{4-3}
+		\cellcolor{yellow}{4-4}
 	\Body
 		n & 8 & 9 & 10 & 11 \\
-		4 \, S(n-1) + 2 & 6\,722 & 21\,146 & 71\,214 & 243\,794 \\
-		13 \, S(n-2) + 8 & 6\,976 & 21\,848 & 68\,726 & 231\,447 \\
-		42 \, S(n-3) + 24 & 6\,744 & 22\,536 & 70\,584 & 222\,036 \\
+		4 \, S(n-1) + 2 & 6\,786 & 21\,146 & 71\,214 & 243\,794 \\
+		13 \, S(n-2) + 8 & 6\,976 & 22\,056 & 68\,726 & 231\,447 \\
+		42 \, S(n-3) + 24 & 6\,744 & 22\,536 & 71\,256 & 222\,036 \\
 	\end{NiceArray}
 	\\ \\
 	\resetarraystretch
 	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
 	\CodeBefore
 		\cellcolor{yellow}{2-2}
-		\cellcolor{yellow}{2-5}
 		\cellcolor{yellow}{3-3}
 		\cellcolor{yellow}{4-4}
+		\cellcolor{yellow}{4-5}
 	\Body
 		n & 12 & 13 & 14 & 15 \\
-		4 \, S(n-1) + 2 & 815\,314 & 2\,554\,194 & 8\,045\,162 & 27\,061\,154 \\
-		13 \, S(n-2) + 8 & 792\,332 & 2\,649\,772 & 8\,301\,132 & 26\,146\,778 \\
-		42 \, S(n-3) + 24 & 747\,750 & 2\,559\,840 & 8\,560\,800 &  25\,886\,224 \\
+		4 \, S(n-1) + 2 & 815\,314 & 2\,578\,514 & 8\,045\,162 & 27\,061\,154 \\
+		13 \, S(n-2) + 8 & 792\,332 & 2\,649\,772 & 8\,380\,172 & 26\,146\,778 \\
+		42 \, S(n-3) + 24 & 747\,750 & 2\,559\,840 & 8\,560\,800 &  27\,074\,400 \\
 	\end{NiceArray}
 \end{array}
 \]
@@ -773,7 +773,7 @@ Like in \hyperref[Subsection2.3]{Subsection 2.3}, we compute the lower bounds gi
 \resetarraystretch
 
 With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using (\ref{WS(n+1)}).
-Moreover, inequality (\ref{WS(n+3)}) gives new lower bounds for \(\WS(9)\) and \(WS(14)\).
+Moreover, inequality (\ref{WS(n+3)}) gives new lower bounds for \(\WS(9)\), \(\WS(10)\), \(\WS(14)\) and \(\WS(15)\).
 
 
 \subsection{\(\WS(6) \geqslant 646\)}
