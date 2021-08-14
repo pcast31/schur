@@ -189,7 +189,7 @@ In particular, taking \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rce
 \par
 As in the previous section, we now introduce WS-templates and the sequence \(\WS^+\) in order to generalize the above construction.
 
-\subsection{Definition of \(\WS^+\)}
+\subsection{Definition of \([\![ 1, \WS^+ ]\!]\)}
 \label{DefinitionWS+}
 
 \qquad In this subsection, we introduce WS-templates and prove calculative results for the general construction
@@ -351,7 +351,7 @@ This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WS-template
 \end{itemize}
 \end{definition}
 
-Please note that the special color \(n\) is not necessarily the last color by order of appearance.
+Note that the special color \(n\) is not necessarily the last color by order of appearance, any color can play this role.
 We now introduce the number \(\WS^+(n)\) that plays the same role as \(S^+(n)\) for S-templates.
 However, WS-templates being more sophisticated than S-templates, the definition of \(\WS^+(n)\)
 is slighty more complicted.
@@ -719,7 +719,7 @@ corresponding to the third inequality can be found in the appendix.
 
 Inequalities (\ref{WS(n+1)}) and (\ref{WS(n+2)}) were found by Rowley, they are detailed in \cite{RowleyWS}. 
 Inequality (\ref{WS(n+3)}) cannot be further improved and was found with a SAT solver. It uses the first 
-sophistication explained in the \hyperref[ConstructionWS]{Subsection 3.3} in order to add
+sophistication explained in \hyperref[ConstructionWS]{Subsection 3.3} in order to add
 the last number in the first color. As for inequality (\ref{WS(n+4)}), it was obtained by combining a S-template with 
 width 33 with a WS-template with width 4. The best template we could find with a computer search gives the 
 inequality \(\WS(n+4) \geqslant 127 S(n) + 68\). It was also found with the SAT solver. In order to reduce the search space, 
@@ -782,9 +782,9 @@ sum-free partition of length \(4 \, S(n) + 3\) for small values of \(n\) (\(n \l
 \hyperref[Corollary3.19]{Corollary 3.19} for the integers 1, 2, \(4i\) and \(4i+1\) for \(i \in [\![1, S(n)]\!]\) but not 
 constraining the other integers. We did the same for the Schur partitions corresponding to Schur number five. More precisely, 
 we imposed these constraints only for \(i \leqslant 50\) in order to have more degrees of freedom. The number 50 was chosen 
-arbitrarly so that all of the Schur number five partitions could tested in a few hours.
+arbitrarly so that all of the Schur number 5-partitions could be tested in a few hours.
 
-However, trying out all of the 2\,447\,113\,088 Schur number five partitions (\cite{Heule2017}) one by one would not result in a 
+However, trying out all of the 2\,447\,113\,088 Schur number 5-partitions (\cite{Heule2017}) one by one would not result in a 
 reasonable computation time: it is necessary to test the construction on several partitions at once. We encoded the problem as a 
 satisfiability problem and used the 1616 backdoors that were used in \cite{Heule2017} in order to encode a group of partitions in 
 a compact and efficient way. Among all of the 1616 backdoors, only the 911\textsuperscript{th} backdoor gave a weakly sum-free 
