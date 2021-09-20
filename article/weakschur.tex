@@ -724,7 +724,7 @@ the last number in the first color. As for inequality (\ref{WS(n+4)}), it was ob
 width 33 with a WS-template with width 4. The best template we could find with a computer search gives the 
 inequality \(\WS(n+4) \geqslant 127 S(n) + 68\). It was also found with the SAT solver. In order to reduce the search space, 
 we only looked for WS-templates of five colors which start with a near-optimal \(\WS(4)\) partition and we assumed that the 
-special color was the last by order of appearance. We highly suspect that bettert WS-templates with \(n \geqslant 5\) 
+special color was the last by order of appearance. We highly suspect that better WS-templates with \(n \geqslant 5\) 
 colors can be found but one would have not to use the above assumptions. One may try to go over a different search space 
 using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.
 
@@ -776,8 +776,12 @@ With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) us
 Moreover, inequality (\ref{WS(n+3)}) gives new lower bounds for \(\WS(9)\), \(\WS(10)\), \(\WS(14)\) and \(\WS(15)\).
 
 
-\subsection{\(\WS(6) \geqslant 646\)}
-\qquad When applying the inequality \(\WS(n+1) \geqslant 4 \, S(n) + 2\), one may realize that it is possible to build a weakly 
+\subsection{Another approach: \(\WS(6) \geqslant 646\)}
+\qquad The weak Schur partitions obtained with WS-templates have an extremely regular structure. Therefore, one may 
+expect to find larger partitions by allowing more freedom in the structure of the partition while still preserving a structure 
+somewhat close to a template-based partition thus reducing the search space to a manageable size.
+
+When applying the inequality \(\WS(n+1) \geqslant 4 \, S(n) + 2\), one may realize that it is possible to build a weakly 
 sum-free partition of length \(4 \, S(n) + 3\) for small values of \(n\) (\(n \leqslant 4\)) by using the contruction of 
 \hyperref[Corollary3.19]{Corollary 3.19} for the integers 1, 2, \(4i\) and \(4i+1\) for \(i \in [\![1, S(n)]\!]\) but not 
 constraining the other integers. We did the same for the Schur partitions corresponding to Schur number five. More precisely, 
