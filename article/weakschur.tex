@@ -2,7 +2,7 @@
 \label{WeakSchur}
 
 \qquad In this section, we generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS} and give an analogous
-for weak Schur numbers of Abbott and Hanson's construction for Schur numbers. By analogy with the previous section,
+for weak Schur numbers of Abbott and Hanson's construction for Schur numbers \cite{AbbottHanson}. By analogy with the previous section,
 we then introduce WS-templates, standing for \textit{"weak Schur templates"}, as well as an associated sequence \(\WS^+(n)\). 
 We find templates and use them to provide new lower bounds for weak Schur numbers. Finally, we give a short explanation for 
 the new lower bound \(\WS(6) \geqslant 646\) which was not directly obtained with a template contrary to the other lower bounds 
@@ -12,11 +12,10 @@ given in this paper.
 
 \qquad Up to now, no equivalent for weak Schur numbers of Abbott and Hanson's construction for Schur numbers
 \cite{AbbottHanson} was known. Here we give a general lower bound for weak Schur numbers as a function of both
-regular and weak Schur numbers. The following theorem, inspired by Rowley's inequalities for \(\WS (n+1)\) and
-\(\WS (n+2)\), was found and proved by Romain Ageron.
+regular and weak Schur numbers.
 
 \begin{theorem}
-\label{Theorem3.1}
+\label{thm:WS-ab}
 \begin{sloppypar}
 Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free
@@ -25,10 +24,10 @@ weakly sum-free subsets.
 \end{sloppypar}
 \end{theorem}
 
-In particular, by setting \(q = \WS (n)\) and \(p = S(k)\) in \hyperref[Theorem3.1]{Theorem 3.1}, one obtains the following corollary.
+In particular, by setting \(q = \WS (n)\) and \(p = S(k)\) in Theorem \ref{thm:WS-ab}, one obtains the following corollary.
 
 \begin{corollary}
-\label{Corollary3.2}
+\label{cor:ineqWS-S}
 \( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } \WS (n+k) \geqslant S(k) \left (\WS (n) + \left \lceil \displaystyle \frac{\WS (n)}{2}
 \right \rceil +1 \right) + \WS (n)\)
 \end{corollary}
@@ -37,13 +36,13 @@ This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's c
 the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give new lower bounds.
 
 \begin{remark}
-The inequality from \hyperref[Corollary3.2]{Corollary 3.2} can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
-odd in the theorem). However, it lengthens the proof and it is never useful in practice.
+The inequality from Corollary \ref{cor:ineqWS-S} can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
+odd in Theorem \ref{thm:WS-ab}). However, it lengthens the proof and it is never useful in practice.
 \end{remark}
 
-Given that \hyperref[Theorem3.1]{Theorem 3.1} will appear as a particular case of a more general theorem after the introduction of
+Given that Theorem \ref{thm:WS-ab} will appear as a particular case of a more general theorem after the introduction of
 templates for weak Schur numbers, we only give here an intuitive explanation of the demonstration; a formal
-\hyperref[PreuveThm]{proof} using templates for weak Schur numbers is provided.
+\hyperref[PreuveThm]{proof} using templates for weak Schur numbers is provided in Subsection \ref{ConstructionWS}.
 
 Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\)
@@ -249,8 +248,8 @@ Let x \(\in [\![1,b]\!]\) and \(y \in \mathbb{N}^*\) such that \(x+\pi(y) \leqsl
 \(\pi(y) \geqslant b + 1\) and thus \(b + 1 \leqslant x + \pi(y) \leqslant a + b\).
 \[
 \begin{array}{l l l l}
-	\pi(x + y) & = & \pi(x + \pi(y)) & \text{by \hyperref[prop2]{Proposition 3.6}} \\
-	 & = & x + \pi(y) & \text{by \hyperref[prop1]{Proposition 3.5}}
+	\pi(x + y) & = & \pi(x + \pi(y)) & \text{by Proposition \ref{prop2}} \\
+	 & = & x + \pi(y) & \text{by Proposition \ref{prop1}}
 \end{array}
 \]
 \end{proof}
@@ -278,8 +277,8 @@ Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
 If there is no confusion on the \(a\) and \(b\) to use, \(\lambda_{a, b}\) is denoted by \(\lambda\).
 
 Function \(\lambda\) maps an element \(x\) to its line number as mentioned in the intuitive explanation.
-As we just did with \(\pi\), we proove three more results on both \(\pi\) and \(\lambda\) that will appear useful in
-\hyperref[ConstructionWS]{Subsection 3.3}.
+As we just did with \(\pi\), we prove three more calculative results on both \(\pi\) and \(\lambda\) that are used in
+Subsection \ref{ConstructionWS}.
 
 \begin{proposition}
 \label{prop5}
@@ -308,7 +307,7 @@ Let \(x, y \in \mathbb{Z}\) such that \(\lambda(x + y) = \lambda(y)\). Then
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-By applying \hyperref[prop5]{Proposition 3.10} twice, we get \(a \lambda(x + y) + \pi(x + y) - a = x + y = x + a \lambda(y) + \pi(y) - a\).
+By applying Proposition \ref{prop5} twice, we get \(a \lambda(x + y) + \pi(x + y) - a = x + y = x + a \lambda(y) + \pi(y) - a\).
 The result is then obtained by simplying the equality. \\
 \end{proof}
 
@@ -321,7 +320,7 @@ Let \(x, y \in \mathbb{Z}\) such that \(\pi(x) + \pi(y) \in [\![a + b + 1, 2 a +
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-By \hyperref[prop5]{Proposition 3.10}, \(x + y = a (\lambda(x) + \lambda(y)) + \pi(x) + \pi(y) - 2 a\). Then
+By Proposition \ref{prop5}, \(x + y = a (\lambda(x) + \lambda(y)) + \pi(x) + \pi(y) - 2 a\). Then
 \[
 \begin{array}{l l l}
 	\lambda(x + y) & = & \left \lfloor \dfrac{x + y - b - 1}{a} \right \rfloor + 1 \vspace{1mm} \\
@@ -380,9 +379,9 @@ Let \(n \in [\![2, +\infty]\!]\). Then :
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-The lower bound comes from the analogous of Abott and Hanson's construction for weak Schur numbers.
-The upper bound comes from the fact that a WS-template with width \(a\) and \(n\) colors contains a partition of
-\([\![1, a]\!]\) into \(n\) sum-free subsets. \\
+The lower bound comes from Corollary \ref{cor:ineqWS-S}.
+The upper bound comes from the fact that a WS-template with width \(a\) and \(n\) colors is in particular a partition of
+\([\![1, a]\!]\) into \(n\) weakly sum-free subsets. \\
 \end{proof}
 
 We now proceed to state and prove the main result of this article.
@@ -391,20 +390,20 @@ We now proceed to state and prove the main result of this article.
 \subsection{Construction of weak Schur partitions using WS-templates}
 \label{ConstructionWS}
 
-Theorem provides a way to extend a S-template into a larger Schur partitions using other Schur partitions. Likewise, a WS-template can 
-be extended into larger weak Schur partitions in using Schur partitions. This is the object of the following theorem.
+Theorem \ref{thm:Stemp} provides a way to extend a S-template into a larger Schur partitions using other Schur partitions. Likewise, a WS-template can 
+be extended into larger weak Schur partitions by using Schur partitions. This is the object of the following theorem.
 
 \begin{theorem}
-\label{Theorem3.18}
+\label{thm:WStemp}
 Let \((a,n,b) \in (\mathbb{N}^*)^3\) with \(a > b\) and \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,p]\!]\)
 into \(k\) sum-free subsets and a \(b\)-WS-template \((A_1,...,A_{n+1})\) with width \(a\) and \(n+1\) colors,
 then there exists a partition of \([\![1, p a + b]\!]\) into \(k+n\) weakly sum-free subsets.
 \end{theorem}
 
-In particular, by setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in \hyperref[Theorem3.18]{Theorem 3.18}, the next corollary follows.
+In particular, by setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in Theorem \ref{thm:WStemp}, the next corollary follows.
 
 \begin{corollary}
-\label{Corollary3.19}
+\label{cor:ineqWS+}
 Let \(n,k \in \mathbb{N}^*\) and set \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\).
 Then :
 \[
@@ -466,8 +465,8 @@ The additionnal constraints for the WS-template are:
 \end{equation}
 
 Split \([\![1, p a + b]\!]\) into three subsets. \\
-NB: To keep the notation short, the restriction to \([\![b + 1, p a + b]\!]\) of \(\pi\) defined in \hyperref[DefinitionWS+]{Subsection 3.2}
-is denoted by \(pi\) in the hereunder equations.
+NB: To keep the notation short, the restriction to \([\![b + 1, p a + b]\!]\) of \(\pi\) defined in Subsection \ref{DefinitionWS+}
+is denoted by \(\pi\) in the hereunder equations.
 
 \begin{itemize}
 	\item \(\mathcal{T} = [\![1, b]\!]\)
@@ -497,7 +496,7 @@ sufficient to check only six cases out of nine since \(x\) and \(y\) play symmet
 \noindent \underline{\textbf{Case 1:} \((x,y) \in \mathcal{T}^2\)}
 \par
 If \(x + y \leqslant b\) then \(h(x+y)=f(x+y)\). Otherwise, \(b < x+y < a+b\) since \(b < a\) and
-therefore \(\pi(x + y) = x +y\) (\hyperref[prop1]{Proposition 3.5}). Hence in both cases \(h(x+y)=f(x+y)\). Given that
+therefore \(\pi(x + y) = x +y\) (Proposition \ref{prop1}). Hence in both cases \(h(x+y)=f(x+y)\). Given that
 \(f\) is a weakly sum-free coloring, \(f(x + y) \neq f(x)\) since \(f(x)=h(x)=h(y)=f(y)\) and \(x \neq y \). That
 is \(h(x + y) \neq h(x)\). \\
 
@@ -507,13 +506,13 @@ Given that \(h(x) = h(y)\) and by definition of \(h\), \(f(x) = f(\pi(y))\). Bes
 \(y \in \mathcal{C}\). Two cases are to be distinguished according to the value of \(x + \pi(y)\).
 \begin{itemize}
 \item \begin{sloppypar}
-	If \(x + \pi(y) \leqslant a + b\) then \(f(x + \pi(y)) = f(\pi(x + y))\) (\hyperref[prop3]{Proposition 3.7}). Given that \(f\) is
+	If \(x + \pi(y) \leqslant a + b\) then \(f(x + \pi(y)) = f(\pi(x + y))\) (Proposition \ref{prop3}). Given that \(f\) is
 	a weakly sum-free coloring, \(f(x+\pi(y)) \neq f(x)\) since \(f(x)=f(\pi(y))\) and \(x \neq \pi(y)\) since
 	\({x \leqslant b < \pi(y)}\).
 	\end{sloppypar}
 \item \begin{sloppypar}
 	If \(x+\pi(y)> a+b\) then given that \(f\) is a WS-template and since \({f(x) = f(\pi(y)) \leqslant n}\),
-	\({f(\pi(x+\pi(y))) \neq f(x)}\).~Furthermore \({f(\pi(x+\pi(y))) = f(\pi(x+y))}\) (\hyperref[prop2]{Proposition 3.6}), such that
+	\({f(\pi(x+\pi(y))) \neq f(x)}\).~Furthermore \({f(\pi(x+\pi(y))) = f(\pi(x+y))}\) (Proposition \ref{prop2}), such that
 	\({f(\pi(x+ y)) \neq f(x)}\).
 	\end{sloppypar}
 \end{itemize}
@@ -526,7 +525,7 @@ Hence in both cases \(f(\pi(x+y)) \neq f(x)\). If  \(f(\pi(x+y)) \leqslant n\) t
 \par
 Necessarily \(h(x) = h(y) = n + 1\). Two cases are to be distinguished according to the value of \(\lambda(x+y)\).
 \begin{itemize}
-\item If \(\lambda(y)=\lambda(x+y)\) then \(\pi(x + y) = x + \pi(y)\) (\hyperref[prop6]{Proposition 3.11}). By definition of
+\item If \(\lambda(y)=\lambda(x+y)\) then \(\pi(x + y) = x + \pi(y)\) (Proposition \ref{prop6}). By definition of
 	\(h\), \(f(x) = f(\pi(y))\). Given that \(f\) is a weakly sum-free coloring, \(f(x + \pi(y)) \neq f(x)\) since
 	\(f(x) = f(\pi(y))\) and \(x \neq \pi(y)\) since \({x \leqslant b < \pi(y)}\). Hence \(h(x + y) \neq h(x)\).
 \item If \(\lambda(y) \neq \lambda(x + y)\) then \(\lambda(x + y) = \lambda(y) + 1\) since \(x \leqslant b < a\).
@@ -545,7 +544,7 @@ to the value of \(\pi(x)+\pi(y)\).
 	\(f\) is sum-free for \(x>b\)
 \item \begin{sloppypar}
 	If \(\pi(x)+\pi(y)>a+b\) then given that \(f\) is a WS-template, \({f(\pi(\pi(x)+\pi(y))) \neq f(\pi(x))}\) since
-	\({f(\pi(x)) = f(\pi(y))}\). Besides,  \({f(\pi(\pi(x)+\pi(y))) = f(\pi(x + y))}\) (\hyperref[prop4]{Proposition 3.8}). Hence \({f(\pi(x + y))
+	\({f(\pi(x)) = f(\pi(y))}\). Besides,  \({f(\pi(\pi(x)+\pi(y))) = f(\pi(x + y))}\) (Proposition \ref{prop4}). Hence \({f(\pi(x + y))
 	\neq  f(\pi(x))}\).
 	\end{sloppypar}
 \end{itemize}
@@ -563,15 +562,15 @@ By definition of \(h\), \(h(x) \neq h(y)\).\\
 In particular \(f(\pi(x)) = f(\pi(y))=n + 1\). Three cases are to be distinguished according to the value of \(\pi(x) + \pi(y)\).
 \begin{itemize}
 \item If \(\pi(x) + \pi(y) \in [\![a + b + 1, 2 a + b]\!]\) then \(\lambda(x + y) = \lambda(x) + \lambda(y)\)
-	(\hyperref[prop7]{Proposition 3.12}). By definition of \(h\) and since \(h(x) = h(y)\), \(g(\lambda(x)) = g(\lambda(y))\).
+	(Proposition \ref{prop7}). By definition of \(h\) and since \(h(x) = h(y)\), \(g(\lambda(x)) = g(\lambda(y))\).
 	Hence, \(h(\lambda(x + y)) \neq h(\lambda(x))\) since \(h\) is a sum-free coloring. If \(f(x+y) \geqslant n + 1\)
 	then \(h(x + y) = n + g(\lambda(x + y))\). And \(h(x) = n + g(\lambda(x))\). Therefore, \(h(x + y)  \neq h(x)\).
 	Otherwise \(h(x+y) \leqslant n < h(x)\). In particular \(h(x + y) \neq h(x)\).
 \item If \(\pi(x)+\pi(y)>2a+b\) then \(f(\pi(\pi(x)+\pi(y))) \neq f(\pi(x)) = n + 1\) since \(f\) is a \(b\)-WS template and
-	\(f(\pi(x)) = f(\pi(y))\). Given that \(\pi(\pi(x)+\pi(y)) = \pi(x+y)\) (\hyperref[prop4]{Proposition 3.8}), \(f(\pi(x+y)) \neq n + 1\).
+	\(f(\pi(x)) = f(\pi(y))\). Given that \(\pi(\pi(x)+\pi(y)) = \pi(x+y)\) (Proposition \ref{prop4}), \(f(\pi(x+y)) \neq n + 1\).
 \item \begin{sloppypar}
 	If \(\pi(x)+\pi(y)\leqslant b+a\) then, given that \(\pi(x)+\pi(y) \geqslant b\) and \(f_{| [\![b, a + b ]\!]}\) is
-	sum-free, \({f(\pi(x) + \pi(y)) \neq f(\pi(x)) = n + 1}\). That is \({f(\pi(x + y)) \neq n + 1}\) (\hyperref[prop1]{Proposition 3.5}).
+	sum-free, \({f(\pi(x) + \pi(y)) \neq f(\pi(x)) = n + 1}\). That is \({f(\pi(x + y)) \neq n + 1}\) (Proposition \ref{prop1}).
 	\end{sloppypar}
 \end{itemize}
 \par
@@ -582,13 +581,13 @@ In particular, \(h(x + y) \neq h(x)\). \\
 There is a construction theorem for WS-templates as well.
 
 \begin{theorem}
-\label{Theorem3.21}
+\label{thm:compWStemp}
 Let \((k,p) \in (\mathbb{N}^*)^2\) and \((a, n, b) \in (\mathbb{N}^*)^3\). If there exists a S-template with width
 \(p\) and \(k+1\) colors and a \(b\)-WS-template with width \(a\) and \(n\) colors, then there exists a \(pb\)-WS-template
 with width \(pq\) and \((n+k)\) colors.
 \end{theorem}
 
-\hyperref[Theorem3.21]{Theorem 3.21} yields the following corollary.
+Theorem \ref{thm:compWStemp} yields the following corollary.
 
 \begin{corollary}
 Let \(n, k \in \mathbb{N}^*\). Then
@@ -599,13 +598,13 @@ Let \(n, k \in \mathbb{N}^*\). Then
 
 \begin{proof}[\textsc{Proof.}]
 The idea is the same as in the previous theorem. The only difference is the WS property inherited
-from the WS-template. \\
+from both the S-template and the WS-template. \\
 \end{proof}
 
-\hyperref[Theorem3.1]{Theorem 3.1} can be seen as a particular case of WS-template in the same way Abott and Hanson's 
-construction can be seen as a particular case of S-template.
+Theorem \ref{thm:WS-ab} can be seen as a particular case of WS-template in the same way Abott and Hanson's 
+construction \cite{AbbottHanson} can be seen as a particular case of S-template.
 
-\begin{proof}[\textsc{Proof of \hyperref[Theorem3.1]{Theorem 3.1}.}]
+\begin{proof}[\textsc{Proof of Theorem \ref{thm:WS-ab}.}]
 \label{PreuveThm}
 Let \((q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1, q]\!]\) into n weakly sum-free subsets. 
 Let \(f: [\![1, q]\!] \rightarrow [\!]1, n]\!]\) a weakly sum-free colouring.
@@ -647,11 +646,11 @@ We claim that \(g\) is a \(b\)-WSF-template with width \(a\) and \(n + 1\) colou
 	\(g(\pi(z)) \neq g(x)\).
 \end{itemize}
 
-The result is then obtained by applying \hyperref[Theorem3.18]{Theorem 3.18}. \\
+The result is then obtained by applying Theorem \ref{thm:WStemp}. \\
 \end{proof}
 
-As in \hyperref[Corollary2.5]{Corollary 2.5}, the additive constant \hyperref[Theorem3.18]{Theorem 3.18} can be improved 
-by weakening the hypotheses made on the last row. The principle behind it is the same as in \hyperref[Proposition2.6]{Proposition 2.6}.
+As in Corollary \ref{cor:ineqS}, the additive constant Theorem \ref{thm:WStemp} can be improved 
+by weakening the hypotheses made on the last row. The principle behind it is the same as in Proposition \ref{prop:rafStemp}.
 
 \begin{proposition}
 Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to a \(b\)-WS-template with width \(p\) and \(k\) colors. Let
@@ -696,9 +695,6 @@ coloring dedicated to the rows whose number is not 1 but is in the first color i
 the other rows and a special coloring for the last numbers (as previously explained for the improvement of the additive
 constant of WS-templates).
 
-We also have a similar theorem where only \(\WS^+\) is involved.
-
-
 \subsection{New lower bounds for Weak Schur numbers}
 
 \qquad We produced WS-templates using a SAT solver, hence providing lower bound on \(WS^+\) and inequalities
@@ -706,7 +702,7 @@ of the type \(WS(n+k) \geqslant a S(n) + b\). We sought templates providing the 
 lexicographic order). Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
 
 \par
-Here are the inequalities given by the current best WS-templates (to our knowledge). The \hyperref[WS-templates]{templates} 
+Here are the inequalities given by the current best WS-templates. The \hyperref[WS-templates]{templates} 
 corresponding to the third inequality can be found in the appendix.
 
 \begin{align}
@@ -718,7 +714,7 @@ corresponding to the third inequality can be found in the appendix.
 
 Inequalities (\ref{WS(n+1)}) and (\ref{WS(n+2)}) were found by Rowley, they are detailed in \cite{RowleyWS}. 
 Inequality (\ref{WS(n+3)}) cannot be further improved and was found with a SAT solver. It uses the first 
-sophistication explained in \hyperref[ConstructionWS]{Subsection 3.3} in order to add
+sophistication explained in Subsection \ref{ConstructionWS} in order to add
 the last number in the first color. As for inequality (\ref{WS(n+4)}), it was obtained by combining a S-template with 
 width 33 with a WS-template with width 4. The best template we could find with a computer search gives the 
 inequality \(\WS(n+4) \geqslant 127 S(n) + 68\). It was also found with the SAT solver. In order to reduce the search space, 
@@ -727,7 +723,7 @@ special color was the last by order of appearance. We highly suspect that better
 colors can be found but one would have not to use the above assumptions. One may try to go over a different search space 
 using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.
 
-Like in \hyperref[Subsection2.3]{Subsection 2.3}, we compute the lower bounds given by inequalities (\ref{WS(n+1)}),
+Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by inequalities (\ref{WS(n+1)}),
 (\ref{WS(n+2)}) and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound for each value of \(n\) is highlighted.
 
 \renewcommand{\arraystretch}{0.2}
@@ -782,7 +778,7 @@ somewhat close to a template-based partition thus reducing the search space to a
 
 When applying the inequality \(\WS(n+1) \geqslant 4 \, S(n) + 2\), one may realize that it is possible to build a weakly 
 sum-free partition of length \(4 \, S(n) + 3\) for small values of \(n\) (\(n \leqslant 4\)) by using the contruction of 
-\hyperref[Corollary3.19]{Corollary 3.19} for the integers 1, 2, \(4i\) and \(4i+1\) for \(i \in [\![1, S(n)]\!]\) but not 
+Corollary \ref{cor:ineqWS+} for the integers 1, 2, \(4i\) and \(4i+1\) for \(i \in [\![1, S(n)]\!]\) but not 
 constraining the other integers. We did the same for the Schur partitions corresponding to Schur number five. More precisely, 
 we imposed these constraints only for \(i \leqslant 50\) in order to have more degrees of freedom. The number 50 was chosen 
 arbitrarly so that all of the Schur number 5-partitions could be tested in a few hours.
@@ -801,4 +797,5 @@ partition of length 647. A weakly sum-free partition of length 646 can be found 
 and Hanson's construction for sum-free partitions. We then generalized this construction by introducing WS-templates. This
 allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant gap
 between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds
-obtained with WS-templates.
+obtained with WS-templates. We reckon better WS-templates with \(n \geqslant 5\) colors can be found by making different assumptions 
+and using a different method (Monte-Carlo methods for instance).
