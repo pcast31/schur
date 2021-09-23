@@ -19,7 +19,7 @@ Let \((p,n) \in (\mathbb{N}^*)^2\). A S-template with width \(p\) and \(n\) colo
 \([\![1,p]\!]\) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) verifying for all subsets but \(A_n\)
 \[
 \forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
-\Longrightarrow x+y-p \notin A_i
+\Longrightarrow x+y-p \notin A_i.
 \]
 \end{definition}
 
@@ -31,7 +31,7 @@ However, note that \(n\) is not necessarily the last color by order of appearanc
 	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the greatest integer such that \( [\![1, S^+(n)]\!]\) is a S-template with \(n\) colors. 
 	\(S^+(n)\) is well defined and verifies
 	\[
-	2S(n-1)+1 \leqslant S^+(n) \leqslant S(n)
+	2S(n-1)+1 \leqslant S^+(n) \leqslant S(n).
 	\]
 \end{proposition}
 
@@ -57,7 +57,7 @@ Setting \(q = S^+(n+1)\) and \(p = S(k)\) yields the following corollary.
 \begin{corollary}
 \label{cor:ineqS}
 	Let \(n, k \in \mathbb{N}^*\). Then
-	\[ S(n+k) \geqslant S^+(n+1)S(k) + m_{n+1} - 1 \]
+	\[ S(n+k) \geqslant S^+(n+1)S(k) + m_{n+1} - 1.\]
 \end{corollary}
 
 The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. They vertically 
@@ -364,7 +364,7 @@ colors. Let \(b \in \mathbb{N}\) and assume there is a coloring \(g\) of
 \end{itemize}
 	
 Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(x \longmapsto g(x - p S(n))\), we have
-\[ S(n+k) \geqslant S^+(n+1)S(k) + b\].
+\[ S(n+k) \geqslant S^+(n+1)S(k) + b.\]
 \end{proposition}
 This proposition corresponds to the fact that the hypotheses made on the coloring of the last row can be weakened and as a result, we can change the coloring on the last row to extend the previous partitions.
 \newline
@@ -381,7 +381,7 @@ There is a construction theorem for S-templates as well.
 	
 \begin{corollary}
 	Let \(n, k \in \mathbb{N}^*\). Then
-	\[ S^+(n+k) \geqslant S^+(n+1)S^+(k) \].
+	\[ S^+(n+k) \geqslant S^+(n+1)S^+(k).\]
 \end{corollary}
 
 \begin{proof}[\textsc{Proof.}]
@@ -410,13 +410,12 @@ only looked for symmetric S-templates, we assumed that the special color was the
 the \(m_c\)'s out of being too small. Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
 
 \par
-Here are the inequalities given by the current best S-templates. The \hyperref[S-templates]{templates} 
-corresponding to the third, fourth and fifth inequalities can be found in the appendix.
+Here are the inequalities given by the current best S-templates.
 
 \begin{align}
 	S(n + 1) \geqslant &~3\,S(n)  + 1 \label{S(n+1)}\\
 	S(n + 2) \geqslant &~9\,S(n)  + 4 \label{S(n+2)}\\
-	S(n + 3) \geqslant &~33\,S(n) + 6 \label{S(n+3)}\\
+	S(n + 3) \geqslant &~33\,S(n) + 6 \label{S(n+3)}
 \end{align}
 
 Inequality (\ref{S(n+1)}) comes from  Schur's original article\cite{Schur1917}. Inequality (\ref{S(n+2)}) is due to
@@ -428,6 +427,8 @@ The three following inequalities are our result.
 	S(n + 5) \geqslant &~380\,S(n) + 148 \label{S(n+5)}\\
 	S(n + 6) \geqslant &~1\,160\,S(n) + 536 \label{S(n+6)}
 \end{align}
+
+\par The \hyperref[S-templates]{templates} corresponding to these three inequalities can be found in the appendix.
 
 \par
 Inequalities (\ref{S(n+1)}), (\ref{S(n+2)}) and (\ref{S(n+3)}) cannot be further improved (with this definition of S-template). 

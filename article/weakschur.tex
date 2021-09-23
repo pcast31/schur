@@ -213,7 +213,7 @@ that we will use later when we introduce WS-templates.
 \begin{proposition}
 \label{prop1}
 \[
-\forall x \in [\![b + 1, a + b]\!], \pi(x) = x
+\forall x \in [\![b + 1, a + b]\!], \pi(x) = x.
 \]
 \end{proposition}
 
@@ -228,7 +228,7 @@ Otherwise, \({x \mod a = x - a \in [\![1, b]\!]}\). Hence \({\pi(x) = x - a + a 
 \label{prop2}
 Let x \(\in [\![1,b]\!]\) and \(y \in \mathbb{N}^*\). Then
 \[
-\pi(x+\pi(y)) = \pi(x+y)
+\pi(x+\pi(y)) = \pi(x+y).
 \]
 \end{proposition}
 
@@ -240,7 +240,7 @@ It is a direct consequence of \(\pi(x) = x \mod a\). \\
 \label{prop3}
 Let x \(\in [\![1,b]\!]\) and \(y \in \mathbb{N}^*\) such that \(x+\pi(y) \leqslant a+b\). Then
 \[
-\pi(x+y)=x+\pi(y)
+\pi(x+y)=x+\pi(y).
 \]
 \end{proposition}
 
@@ -258,7 +258,7 @@ Let x \(\in [\![1,b]\!]\) and \(y \in \mathbb{N}^*\) such that \(x+\pi(y) \leqsl
 \label{prop4}
 Let \((x,y)\in (\mathbb{N}^*)^2\). Then
 \[
-\pi(\pi(x)+\pi(y))=\pi(x+y)
+\pi(\pi(x)+\pi(y))=\pi(x+y).
 \]
 \end{proposition}
 
@@ -271,7 +271,7 @@ we introduce the function related to its line number.
 
 \begin{definition}
 Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
-\[ \lambda_{a,b}:x \longmapsto 1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor\]
+\[ \lambda_{a,b}:x \longmapsto 1+ \left\lfloor\dfrac{x-b-1}{a}\right\rfloor.\]
 \end{definition}
 
 If there is no confusion on the \(a\) and \(b\) to use, \(\lambda_{a, b}\) is denoted by \(\lambda\).
@@ -284,17 +284,17 @@ Subsection \ref{ConstructionWS}.
 \label{prop5}
 Let \(x\in \mathbb{N}^*\). Then
 \[
-x=a\lambda(x)+\pi(x)-a
+x=a\lambda(x)+\pi(x)-a.
 \]
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
 Let \((a,b)\in (\mathbb{N}^*)^2\) such that \(a>b\) and let \(x\in \mathbb{N}^*\). \\
-\(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(x \mod a)+ a \mathds{1}_{ [\![0,b]\!]}(x \mod a)\)
+We have \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x-b-1}{a}\right\rfloor+(x \mod a)+ a \mathds{1}_{ [\![0,b]\!]}(x \mod a)\).
 
 \begin{itemize}
-\item if \(x \mod a>b\) then \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\)
-\item if \(x \mod a \leqslant b\) then \(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+x \mod a +a=x\)
+\item If \(x \mod a>b\) then \(a\lambda(x)+\pi(x)-a=a\left\lfloor\dfrac{x}{a}\right\rfloor+x \mod a=x\).
+\item If \(x \mod a \leqslant b\) then \(a\lambda(x)+\pi(x)-a=a \left( \left \lfloor \dfrac{x}{a} \right \rfloor - 1 \right)+x \mod a +a=x\).
 \end{itemize}
 \end{proof}
 
@@ -302,7 +302,7 @@ Let \((a,b)\in (\mathbb{N}^*)^2\) such that \(a>b\) and let \(x\in \mathbb{N}^*\
 \label{prop6}
 Let \(x, y \in \mathbb{Z}\) such that \(\lambda(x + y) = \lambda(y)\). Then
 \[
-\pi(x + y) = x + \pi(y)
+\pi(x + y) = x + \pi(y).
 \]
 \end{proposition}
 
@@ -592,7 +592,7 @@ Theorem \ref{thm:compWStemp} yields the following corollary.
 \begin{corollary}
 Let \(n, k \in \mathbb{N}^*\). Then
 \[
-\WS^+(n+k) \geqslant S^+(k+1) \WS^+(n)
+\WS^+(n+k) \geqslant S^+(k+1) \WS^+(n).
 \]
 \end{corollary}
 
@@ -662,17 +662,17 @@ Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to
 		f(x) = f(y) \\
 		\pi(x + y) \leqslant b + c
 	\end{array}
-	\right. \implies g(\pi(x + y)) \neq f(x)\)
+	\right. \implies g(\pi(x + y)) \neq f(x)\),
 \item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, b + c]\!], \left\{
 	\begin{array}{l}
 		f(x) = g(y) \\
 		\pi(x + y) \leqslant b + c
 	\end{array}
-	\right. \implies g(\pi(x + y)) \neq f(x)\)
+	\right. \implies g(\pi(x + y)) \neq f(x)\).
 \end{itemize}
 
 Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(x \longmapsto g(x - p S(n))\), we have\\
-\[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c\]
+\[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c.\]
 \end{proposition}
 
 The WS-templates can actually be fine-tuned further. However, it only gives minor improvements (most likely only an additive
@@ -702,7 +702,7 @@ of the type \(WS(n+k) \geqslant a S(n) + b\). We sought templates providing the 
 lexicographic order). Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
 
 \par
-Here are the inequalities given by the current best WS-templates. The \hyperref[WS-templates]{templates} 
+Here are the inequalities given by the current best WS-templates. The \hyperref[WS-templates]{template} 
 corresponding to the third inequality can be found in the appendix.
 
 \begin{align}
