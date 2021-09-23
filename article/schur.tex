@@ -1,7 +1,7 @@
 \section{Templates for Schur numbers}
 \label{Schur}
 
-\qquad In this section, we use Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur 
+In this section, we use Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur 
 numbers. In order to improve lower bounds for Schur and Ramsey numbers, he introduces special sum-free 
 partitions verifying some additional properties which can be extended using a method generalizing Abbott and 
 Hanson's construction \cite{AbbottHanson}. He named these partitions "templates", and we keep this name in 
@@ -43,7 +43,7 @@ fact that a S-template with width \(p\) and \(n\) colors is also a partition of 
 
 \subsection{Construction of Schur partitions using S-templates}
 
-\qquad We start by reminding the explicit construction of a sum-free partition with the use of a S-template and another sum free partition. We apply this contruction stated by Rowley in the context of Ramsey numbers to the Schur numbers.
+We start by reminding the explicit construction of a sum-free partition with the use of a S-template and another sum free partition. We apply this contruction stated by Rowley in the context of Ramsey numbers to the Schur numbers.
 
 \begin{theorem}
 \label{thm:Stemp}
@@ -392,6 +392,7 @@ from the second S-template. \\
 
 \subsection{New lower bounds for Schur numbers}
 \label{subsec:lowS}
+
 We now give the inequalities corresponding to the current  best S-templates.
 
 \begin{definition}
@@ -416,15 +417,17 @@ corresponding to the third, fourth and fifth inequalities can be found in the ap
 	S(n + 1) \geqslant &~3\,S(n)  + 1 \label{S(n+1)}\\
 	S(n + 2) \geqslant &~9\,S(n)  + 4 \label{S(n+2)}\\
 	S(n + 3) \geqslant &~33\,S(n) + 6 \label{S(n+3)}\\
+\end{align}
+
+Inequality (\ref{S(n+1)}) comes from  Schur's original article\cite{Schur1917}. Inequality (\ref{S(n+2)}) is due to
+Abott and Hanson \cite{AbbottHanson} and inequality (\ref{S(n+3)}) to Rowley \cite{RowleyRamsey}. 
+The three following inequalities are our result.
+
+\begin{align}
 	S(n + 4) \geqslant &~111\,S(n) + 43 \label{S(n+4)}\\
 	S(n + 5) \geqslant &~380\,S(n) + 148 \label{S(n+5)}\\
 	S(n + 6) \geqslant &~1\,160\,S(n) + 536 \label{S(n+6)}
 \end{align}
-
-
-Inequality (\ref{S(n+1)}) comes from  Schur's original article\cite{Schur1917}. Inequality (\ref{S(n+2)}) is due to
-Abott and Hanson \cite{AbbottHanson} and inequality (\ref{S(n+3)}) to Rowley \cite{RowleyRamsey}. Inequalities 
-(\ref{S(n+4)}), (\ref{S(n+5)}) and (\ref{S(n+6)}) are our results.
 
 \par
 Inequalities (\ref{S(n+1)}), (\ref{S(n+2)}) and (\ref{S(n+3)}) cannot be further improved (with this definition of S-template). 
@@ -501,7 +504,7 @@ numbers, the following inequality holds \(S(n) \leqslant R_n(3) - 2\) (see \cite
 
 \subsection{Conclusion on S-templates}
 
-\qquad In this section, we first formalized Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur numbers 
+In this section, we first formalized Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur numbers 
 by introducing S-templates as well as a new sequence, \(S^+\). We provided relations between \(S^+\) and \(S\) then 
 stated Rowley's construction method in the context of Schur numbers. We found new S-templates allowing us to obtain 
 new lower bounds for schur numbers. One may notice that we mostly gave only lower bounds for \(S^+\). It should be possible to 

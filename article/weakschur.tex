@@ -1,7 +1,7 @@
 \section{Templates for weak Schur numbers}
 \label{WeakSchur}
 
-\qquad In this section, we generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS} and give an analogous
+In this section, we generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS} and give an analogous
 for weak Schur numbers of Abbott and Hanson's construction for Schur numbers \cite{AbbottHanson}. By analogy with the previous section,
 we then introduce WS-templates, standing for \textit{"weak Schur templates"}, as well as an associated sequence \(\WS^+(n)\). 
 We find templates and use them to provide new lower bounds for weak Schur numbers. Finally, we give a short explanation for 
@@ -10,7 +10,7 @@ given in this paper.
 
 \subsection{Inequality for weak Schur numbers using Schur and weak Schur numbers}
 
-\qquad Up to now, no equivalent for weak Schur numbers of Abbott and Hanson's construction for Schur numbers
+Up to now, no equivalent for weak Schur numbers of Abbott and Hanson's construction for Schur numbers
 \cite{AbbottHanson} was known. Here we give a general lower bound for weak Schur numbers as a function of both
 regular and weak Schur numbers.
 
@@ -191,7 +191,7 @@ As in the previous section, we now introduce WS-templates and the sequence \(\WS
 \subsection{Definition of \([\![ 1, \WS^+ ]\!]\)}
 \label{DefinitionWS+}
 
-\qquad In this subsection, we introduce WS-templates and prove calculative results for the general construction
+In this subsection, we introduce WS-templates and prove calculative results for the general construction
 theorem on templates for weak Schur numbers.
 
 \begin{definition}
@@ -308,7 +308,7 @@ Let \(x, y \in \mathbb{Z}\) such that \(\lambda(x + y) = \lambda(y)\). Then
 
 \begin{proof}[\textsc{Proof.}]
 By applying Proposition \ref{prop5} twice, we get \(a \lambda(x + y) + \pi(x + y) - a = x + y = x + a \lambda(y) + \pi(y) - a\).
-The result is then obtained by simplying the equality. \\
+The result is then obtained by simplifying the equality. \\
 \end{proof}
 
 \begin{proposition}
@@ -384,8 +384,8 @@ The upper bound comes from the fact that a WS-template with width \(a\) and \(n\
 \([\![1, a]\!]\) into \(n\) weakly sum-free subsets. \\
 \end{proof}
 
-We now proceed to state and prove the main result of this article.
-
+Having established these properties, we now have everything we need to state and prove our main result. We proceed to do so
+in the next subsection.
 
 \subsection{Construction of weak Schur partitions using WS-templates}
 \label{ConstructionWS}
@@ -697,7 +697,7 @@ constant of WS-templates).
 
 \subsection{New lower bounds for Weak Schur numbers}
 
-\qquad We produced WS-templates using a SAT solver, hence providing lower bound on \(WS^+\) and inequalities
+We produced WS-templates using a SAT solver, hence providing lower bound on \(WS^+\) and inequalities
 of the type \(WS(n+k) \geqslant a S(n) + b\). We sought templates providing the greatest value of \((a, b)\) (in the 
 lexicographic order). Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
 
@@ -707,12 +707,16 @@ corresponding to the third inequality can be found in the appendix.
 
 \begin{align}
 	WS(n + 1) &\geqslant  4\,S(n)  +  2 \label{WS(n+1)} \\
-	WS(n + 2) &\geqslant  13\,S(n)  +  8 \label{WS(n+2)} \\
+	WS(n + 2) &\geqslant  13\,S(n)  +  8 \label{WS(n+2)} 
+\end{align}
+
+Inequalities (\ref{WS(n+1)}) and (\ref{WS(n+2)}) were found by Rowley, they are detailed in \cite{RowleyWS}.
+
+\begin{align}
 	WS(n + 3) &\geqslant  42\,S(n)  +  24 \label{WS(n+3)} \\
 	WS(n + 4) &\geqslant  132\,S(n)  +  26 \label{WS(n+4)}
 \end{align}
 
-Inequalities (\ref{WS(n+1)}) and (\ref{WS(n+2)}) were found by Rowley, they are detailed in \cite{RowleyWS}. 
 Inequality (\ref{WS(n+3)}) cannot be further improved and was found with a SAT solver. It uses the first 
 sophistication explained in Subsection \ref{ConstructionWS} in order to add
 the last number in the first color. As for inequality (\ref{WS(n+4)}), it was obtained by combining a S-template with 
@@ -772,7 +776,8 @@ Moreover, inequality (\ref{WS(n+3)}) gives new lower bounds for \(\WS(9)\), \(\W
 
 
 \subsection{Another approach: \(\WS(6) \geqslant 646\)}
-\qquad The weak Schur partitions obtained with WS-templates have an extremely regular structure. Therefore, one may 
+
+The weak Schur partitions obtained with WS-templates have an extremely regular structure. Therefore, one may 
 expect to find larger partitions by allowing more freedom in the structure of the partition while still preserving a structure 
 somewhat close to a template-based partition thus reducing the search space to a manageable size.
 
@@ -793,7 +798,7 @@ partition of length 647. A weakly sum-free partition of length 646 can be found 
 
 \subsection{Conclusion on WS-templates}
 
-\qquad We started by giving a new construction which can be seen as an equivalent for weakly sum-free partitions of Abott
+We started by giving a new construction which can be seen as an equivalent for weakly sum-free partitions of Abott
 and Hanson's construction for sum-free partitions. We then generalized this construction by introducing WS-templates. This
 allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant gap
 between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds
