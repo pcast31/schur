@@ -1,6 +1,6 @@
 \section{Introduction}
 
-\qquad We are interested in partioning the set of integers \(\{1, ..., p\}\) into \(n\) subsets such that there is no 
+We are interested in partioning the set of integers \(\{1, ..., p\}\) into \(n\) subsets such that there is no 
 subset containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\). We say these subsets are 
 \textit{sum-free}. If we add the hypothesis \(x \neq y\), we say the subsets are \textit{weakly sum-free}. The 
 greatest \(p\) for which there exists a partition into \(n\) sum-free subsets is called the \(n^{\text{th}}\) Schur 
@@ -10,7 +10,7 @@ the \(n^{\text{th}}\) weak Schur number \cite{Irving1973}. Values of \(S(n)\) an
 
 \subsection{State of the art}
 
-\qquad Up to recently, the most efficient generic construction for Schur numbers was given by Abbott and Hanson 
+Up to recently, the most efficient generic construction for Schur numbers was given by Abbott and Hanson 
 \cite{AbbottHanson} in 1972 with a recursive construction. It gave the best lower bounds for all sufficiently large 
 numbers. No equivalent was known for weak Schur numbers and as a result the best known partitions for large 
 weak Schur numbers did not use the weakly sum-free hypothesis. 
@@ -23,7 +23,7 @@ bounds with Monte-Carlo methods. This was the main approach during the past deca
 \par
 In 2020, Rowley introduced the notion of templates for Schur and Ramsey numbers \cite{RowleyRamsey} which 
 generalizes Abbott and Hanson's construction and produces new lower bounds (and inequalties) for Schur numbers. 
-He also provides two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements 
+He also provided two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements 
 over previous lower bounds. Besides, these two inequalities do use the \textit{weakly} sum-free hypothesis.
 
 \par The hereunder tables recap the lower bounds respectively for Schur and weak Schur numbers. Gray cells 
@@ -80,7 +80,7 @@ indicate the exact values.
 	& & & & & \cite{ELIAHOU2012175} &\cite{RowleyWS} & \cite{RowleyWS} & \cite{RowleyWS} & \cite{RowleyWS} & 
 		\cite{RowleyWS} & \cite{RowleyWS} & \cite{RowleyWS} \\
 	\hline
-	\hyperref[Schur]{\textbf{Our results}}  & & & & & & \textbf{646} & & & \textbf{22\,536} & \textbf{71\,256} & \textbf{243\,794} & \textbf{815\,314} \\
+	\hyperref[WeakSchur]{\textbf{Our results}}  & & & & & & \textbf{646} & & & \textbf{22\,536} & \textbf{71\,256} & \textbf{243\,794} & \textbf{815\,314} \\
 	\hline
 \end{NiceTabular}
 \caption{Comparison of lower bounds for weak Schur numbers}
@@ -90,7 +90,7 @@ indicate the exact values.
 
 \subsection{Structure of this article}
 
-\qquad Our main contribution is a generalization of the concept of template to weak Schur numbers. Our templates 
+Our main contribution is a generalization of the concept of template to weak Schur numbers. Our templates 
 provide new lower bounds (and inequalities) for weak Schur numbers. This construction also includes as a special case 
 a construction similar to Abbott and Hanson's \cite{AbbottHanson}, but this time for \textit{weak} Schur numbers.
 
@@ -100,7 +100,7 @@ Schur numbers. Then, we give new templates, thus providing new lowers bounds and
 showing that the growth rates for both Schur and Ramsey numbers \(R_n(3)\) exceed 3.28. 
 
 \par
-In Section \ref{WeakSchur}, we generalize the concept of templates to weak Schur numbers 
+In Section \ref{WeakSchur}, we generalize the concept of template to weak Schur numbers 
 and provide new lower bounds for weak Schur numbers. We then use a different approach and give a new 
 lower bound for \(\WS(6)\).
 
@@ -109,7 +109,7 @@ We now introduce notations and definitions we use throughout this article.
 
 \subsection{Definitions and notations}
 
-\qquad We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers. 
+We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers. 
 We denote \(\mathbb{N} = \{0, 1, 2, ...\}\) and \(\mathbb{N}^* =\mathbb{N} \backslash \{0\}\).
 
 \begin{definition}
