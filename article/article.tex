@@ -89,26 +89,27 @@ Schur number \sep Weak Schur number \sep Ramsey theory \sep Sumfree partition
 
 \section{Conclusion and future work}
 
-The new results we provide come from an extension of a template-based approach for Ramsey graphs
-and Schur numbers. Our theoretical work allowed to improve the lower bounds on Schur and Weak Schur numbers and have
-a better understanding of this relatively new approach. Furthermore we introduced the new quantities \(S^+(n)\) and
-\(\WS^+(n)\), which may have an interest as they are closely related to the problem at hand. 
+We exhibit new templates for Schur and Ramsey numbers. We also generalize the concept of template to weak Schur numbers. 
+These templates provide new general inequalities of the form \(S(n+k) \geqslant a S(n) + b\) and \(\WS(n+k) \geqslant a S(n) + b\) 
+as well as new lower bounds for both Schur and weak Schur numbers. We also give a new lower bound \(\WS(6) \geqslant 646\) with 
+a method that can yield slight improvements for fixed values of \(n\) over lower bounds obtained with the inequality 
+\(\WS(n+1) \geqslant 4 S(n) + 2\).
 
 Given that the introduction of templates is quite recent, we expect the bounds to be improved as this special type of partition 
-becomes better understood and larger templates are found. For example, one may try to use
-algorithms based on randomness such as Monte-Carlo algorithms to find better templates.
+becomes better understood and larger templates are found. One may try to find better templates by using heuristics or 
+approximation algorithms, such as Monte-Carlo algorithms for instance.
 
 The best lower bound \(\WS(6) \geqslant 583\) achieved with a computer search using Monte-Carlo methods 
 \cite{EliahouBook} is significantly lower than those obtained with a template-like structure (\(\WS(6) \geqslant 642\) \cite{RowleyWS}, 
 \(\WS(6) \geqslant 646\) in the present article). We have evidence that 583 is the maximal value in the search space considered by 
 \cite{EliahouBook,Bouzy2015AnAP,Rafilipojaona}. Therefore, it questions the assumption that large partitions for \(\WS(n+1)\) 
 start with large partitions for \(\WS(n)\). It also indicates that \(\WS(5)\) might need further investigation since the current lower 
-bound \(\WS(5) \geqslant 196\) \cite{ELIAHOU2012175} it was obtained by considering the same type of search space.
+bound \(\WS(5) \geqslant 196\) \cite{ELIAHOU2012175} was obtained by considering the same type of search space.
 
 
 \section{Acknowledgments}
 
-\qquad We would first like to thank our school \textit{CentraleSupélec} and its pole "Formation \`a la recherche" which allowed us to work
+\qquad First we would like to thank our school \textit{CentraleSupélec} and its pole "Formation \`a la recherche" which allowed us to work
 on this project during our studies. We also would like to address warm thanks to Fred Rowley who kindly answered our many questions
 and with who it was a pleasure to exchange. Last but not least, we would like to thank Marijn Heule for providing the backdoors
 used in the computation of the new lower bound for \(\WS(6)\).
