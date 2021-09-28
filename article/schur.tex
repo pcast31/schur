@@ -65,7 +65,7 @@ Setting \(q = S^+(n+1)\) and \(p = S(k)\) yields the following corollary.
 The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. They vertically 
 extend a sum-free partition by repeating it and they use an other sum-free partition to color the other half according 
 to the line number. This way the "blocks" act as safe areas for each other. We give here an example for \(p = 4\), 
-\(q = 9\), \(n = 2\) and \(k = 2\) showing that \(S(2 + 2) \geqslant S(2) (2 S(2) + 1) + S(2)\), both with Abbott and 
+\(q = 9\), \(n = 2\) and \(k = 2\) showing that \(S(2 + 2) \geqslant S(2) \left(2 S(2) + 1\right) + S(2)\), both with Abbott and 
 Hanson's construction and with a S-template which is not included in Abbott and Hanson's construction. In both cases, 
 the special color is grey.
 
@@ -286,7 +286,7 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 	\right. \Longrightarrow f(x+y-q) \neq f(x).
 	\]
 	
-	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), we write \(x = (\alpha - 1) q + u\) for certain integers \(\alpha \in \mathbb{Z}\) and 
+	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), we write \(x = (\alpha - 1) q + u\) for certain integers \(\alpha \in \mathbb{N}^*\) and 
 	\(u \in [\![1,q]\!]\). This decomposition is of course unique. \(\alpha\)  can be interpreted as the row number of \(x\) and 
 	\(u\) as the collumn number of \(x\). A new coloring is define as follows:
 	\[
@@ -312,13 +312,13 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 	\noindent \underline{\textbf{Case 1:} \(h(x) \leqslant n\)}
 	\par
 	Let us assume that \(h(x+y) \leqslant n\), otherwise \(h(x + y) \neq h(x)\) obviously holds. By definition of function 
-	\(h\) and given that \(h(u) = h(v)\), we conclude \(f(u) = f(v)\). Two cases are to b distinguished according to the value of \(x + y\).
+	\(h\) and given that \(h(u) = h(v)\), we conclude \(f(u) = f(v)\). Two cases are to be distinguished according to the value of \(x + y\).
 	
 	\begin{itemize}
 	\item If \(u + v > q\), we write \(w = u + v - q \in [\![1, q]\!]\). Consequentely \(x + y = (\alpha + \beta - 1) q + w\). By definition, 
 		\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant n\), the additionnal constraint on \(f\) implies \(f(w) 
 		\neq f(u)\), that is \(h(x + y) \neq h(x)\).
-	\item If \(u + v \leqslant p\), we write \(w = u + v \in [\![1, q]\!]\). Consequentely \(x+y = (\alpha + \beta- 2) q + w\). By definition, 
+	\item If \(u + v \leqslant q\), we write \(w = u + v \in [\![1, q]\!]\). Consequentely \(x+y = (\alpha + \beta- 2) q + w\). By definition, 
 		\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant n\), the sum-free property of \(f\) implies \(f(w) \neq f(u)\), 
 		that is \(h(x + y) \neq h(x)\).
 	\end{itemize} 
@@ -326,7 +326,7 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 	\noindent \underline{\textbf{Case 2:} \(h(x) \geqslant n + 1\)}
 	\par
 	Now we have \(h(x) = n + g(\alpha) = 
-	k + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). As in the first case, distinguish between two cases according 
+	n + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). As in the first case, distinguish between two cases according 
 	to the value of \(x + y\).
 	
 	\begin{itemize}
@@ -337,7 +337,7 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 		\neq g(\alpha)\) that is \(h(x + y) \neq h(x)\).
 		\end{sloppypar}
 	\item  If \(u + v \leqslant q\), write \(w = u + v \in [\![1, q]\!]\). Then \(x+y = (\alpha + \beta- 2) q + w\). The sum-free 
-		property of \(f\) implies \(f(w) \neq f(u)\). Therefore \(f(w) \leqslant k\) and thus \(h(x + y) \leqslant n\). In particular,
+		property of \(f\) implies \(f(w) \neq f(u)\). Therefore \(f(w) \leqslant n\) and thus \(h(x + y) \leqslant n\). In particular,
 		given that \(h(x) \geqslant n + 1\), \(h(x + y) \neq h(x)\).
 	\end{itemize}
 \end{proof}
@@ -346,7 +346,7 @@ The following proposition may improve the additive constant of Corollary \ref{co
 
 \begin{proposition}
 \label{prop:rafStemp}
-Let \((q, n) \in \mathbb{N}^*)^2\) and let \(f\) be a coloring associated to a S-template with width \(q\) and \(n+1\) 
+Let \((q, n) \in \left(\mathbb{N}^* \right)^2\) and let \(f\) be a coloring associated to a S-template with width \(q\) and \(n+1\) 
 colors. Let \(b \in \mathbb{N}\) and assume there is a coloring \(g\) of 
 \([\![1, b]\!]\) with \(n+1\) colors such that:
 	
@@ -441,8 +441,7 @@ likely be further improved but the improvement probably will not be substantial.
 (\ref{S(n+6)}) was found by extending into a S-template the Schur 6 partition used in \cite{rowley2021improved} (owing to the 
 size of this template, its interest is limited and since it can easily be derived from above mentioned partition, it is not given in 
 the appendix). Although we could not find a better S-template with seven colors, inequality (\ref{S(n+6)}) can definitely be 
-improved by a wide margin. One may try to seek better templates by constraining less the search space and by using Monte-Carlo 
-methods, as in \cite{Bouzy2015AnAP}. This could be the subject of a future work.
+improved by a wide margin.
 
 \par
 The previous inequalities give new lower bounds for \(S(n)\) for
