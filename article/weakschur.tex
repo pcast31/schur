@@ -315,7 +315,7 @@ The result is then obtained by simplifying the equality. \\
 \label{prop7}
 Let \(x, y \in \mathbb{Z}\) such that \(\pi(x) + \pi(y) \in [\![a + b + 1, 2 a + b]\!]\). Then
 \[
-\lambda(x + y) = \lambda(x) + \lambda(y)
+\lambda(x + y) = \lambda(x) + \lambda(y).
 \]
 \end{proposition}
 
@@ -327,7 +327,7 @@ By Proposition \ref{prop5}, \(x + y = a (\lambda(x) + \lambda(y)) + \pi(x) + \pi
 	 & = & \left \lfloor \dfrac{a (\lambda(x) + \lambda(y)) + \pi(x) + \pi(y) - 2 a - b - 1}{a} \right \rfloor + 1 \vspace{1mm} \\
 	 & = & \lambda(x) + \lambda(y) - 1 \left \lfloor \dfrac{\pi(x) + \pi(y) - b - 1}{a}\right\rfloor \\
 	 & = & \lambda(x)+\lambda(y) -1 +1 ~~~~\text{since } \pi(x) + \pi(y) \in [\![a + b + 1, 2 a + b]\!] \\
-	 & =& \lambda(x)+\lambda(y)
+	 & =& \lambda(x)+\lambda(y).
 \end{array}
 \]
 \end{proof}
@@ -722,10 +722,11 @@ sophistication explained in Subsection \ref{ConstructionWS} in order to add
 the last number in the first color. As for inequality (\ref{WS(n+4)}), it was obtained by combining a S-template with 
 width 33 with a WS-template with width 4. The best template we could find with a computer search gives the 
 inequality \(\WS(n+4) \geqslant 127 S(n) + 68\). It was also found with the SAT solver. In order to reduce the search space, 
-we only looked for WS-templates of five colors which start with a near-optimal \(\WS(4)\) partition and we assumed that the 
+we only looked for WS-templates with five colors which start with a near-optimal \(\WS(4)\) partition and we assumed that the 
 special color was the last by order of appearance. We highly suspect that better WS-templates with \(n \geqslant 5\) 
 colors can be found but one would have not to use the above assumptions. One may try to go over a different search space 
-using a Monte-Carlo method, as in \cite{Bouzy2015AnAP}. This could be the suject of a future work.
+with a different method,for instance with Monte-Carlo methods as in \cite{Bouzy2015AnAP}. This could be the suject of a 
+future work.
 
 Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by inequalities (\ref{WS(n+1)}),
 (\ref{WS(n+2)}) and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound for each value of \(n\) is highlighted.
@@ -771,14 +772,11 @@ Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by ineq
 
 \resetarraystretch
 
-With \( S(9) \geqslant 17\,803 \), we found a new lower bound for \(\WS(10)\) using (\ref{WS(n+1)}).
-Moreover, inequality (\ref{WS(n+3)}) gives new lower bounds for \(\WS(9)\), \(\WS(10)\), \(\WS(14)\) and \(\WS(15)\).
-
 
 \subsection{Another approach: \(\WS(6) \geqslant 646\)}
 
 The weak Schur partitions obtained with WS-templates have an extremely regular structure. Therefore, one may 
-expect to find larger partitions by allowing more freedom in the structure of the partition while still preserving a structure 
+expect to find larger partitions by allowing more freedom in the structure of the partitions while still preserving a structure 
 somewhat close to a template-based partition thus reducing the search space to a manageable size.
 
 When applying the inequality \(\WS(n+1) \geqslant 4 \, S(n) + 2\), one may realize that it is possible to build a weakly 
@@ -788,7 +786,7 @@ constraining the other integers. We did the same for the Schur partitions corres
 we imposed these constraints only for \(i \leqslant 50\) in order to have more degrees of freedom. The number 50 was chosen 
 arbitrarly so that all of the Schur number 5-partitions could be tested in a few hours.
 
-However, trying out all of the 2\,447\,113\,088 Schur number 5-partitions (\cite{Heule2017}) one by one would not result in a 
+However, trying out all of the 2\,447\,113\,088 Schur number 5-partitions \cite{Heule2017} one by one would not result in a 
 reasonable computation time: it is necessary to test the construction on several partitions at once. We encoded the problem as a 
 satisfiability problem and used the 1616 backdoors that were used in \cite{Heule2017} in order to encode a group of partitions in 
 a compact and efficient way. Among all of the 1616 backdoors, only the 911\textsuperscript{th} backdoor gave a weakly sum-free 
@@ -802,5 +800,6 @@ We started by giving a new construction which can be seen as an equivalent for w
 and Hanson's construction for sum-free partitions. We then generalized this construction by introducing WS-templates. This
 allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant gap
 between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds
-obtained with WS-templates. We reckon better WS-templates with \(n \geqslant 5\) colors can be found by making different assumptions 
+obtained with WS-templates; thus questionning the methods used and the assumptions made when obtaining these former lower 
+bounds. We reckon better WS-templates with \(n \geqslant 5\) colors can be found by making different assumptions 
 and using a different method (Monte-Carlo methods for instance).

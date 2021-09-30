@@ -365,10 +365,13 @@ colors. Let \(b \in \mathbb{N}\) and assume there is a coloring \(g\) of
 	\right. \implies g(x + y) \neq f(x)\).
 \end{itemize}
 	
-Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(x \longmapsto g(x - p S(n))\), we have
-\[ S(n+k) \geqslant S^+(n+1)S(k) + b.\]
+Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(x \longmapsto g(x - q S(n))\), we have
+\[ S(n+k) \geqslant q S(k) + b.\]
 \end{proposition}
-This proposition corresponds to the fact that the hypotheses made on the coloring of the last row can be weakened and as a result, we can change the coloring on the last row to extend the previous partitions.
+This proposition corresponds to the fact that the hypotheses made on the coloring of the last row can be weakened because 
+the constraints in the definition of a S-template prevent a number from both being the sum of two of numbers of its own color 
+as well as creating a sum in its own color, the later of which is not always relevant on the last row given that it is not completely filled.
+As a result, we can change the coloring on \([\![ q S(k) + 1,  q S(k) + b]\!]\) (the last row) to extend the previous partitions.
 \newline
 
 There is a construction theorem for S-templates as well.
