@@ -6,7 +6,7 @@ for weak Schur numbers of Abbott and Hanson's construction for Schur numbers \ci
 we then introduce \textit{WS-templates}, standing for \textit{"weak Schur templates"}, as well as an associated sequence \(\WS^+(n)\). 
 We find templates and use them to provide new lower bounds for weak Schur numbers. Finally, we give a short explanation for 
 the new lower bound \(\WS(6) \geqslant 646\) which was not directly obtained with a template contrary to the other lower bounds 
-given in this paper.
+given in this article.
 
 \subsection{Inequality for weak Schur numbers using Schur and weak Schur numbers}
 
@@ -180,7 +180,7 @@ Let \((x, y) \in \mathcal{R}^2\). The cases are twofold.
 \par
 In this block,  we use colors \(1, ..., n\). We color an integer \(x\) according to its column number, denoted by \(\tilde{\pi}(x)\). It is linked to the
 projection on the first line, denoted by \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\). A simple solution is to color \(x\) with the same color
-as \(\tilde{\pi}(x)\) in the weakly sum-free coloring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there
+as \(\tilde{\pi}(x)\) in the weakly sum-free coloring of \([\![1,q]\!]\). As long as \(2q \leqslant a + r\) (not going two far to the right) and there
 is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when
 taking two numbers in the same column), the colors \(1, ..., n\) are sum-free.
 
@@ -555,7 +555,7 @@ Hence in both cases \(f(\pi(x+y)) \neq f(x)\). If  \(f(\pi(x+y)) \leqslant n\) t
 
 \noindent \underline{\textbf{Case 5:} \((x,y) \in \mathcal{C} \times \mathcal{R}\)}
 \par
-By definition of \(h\), \(h(x) \neq h(y)\).\\
+By definition of function \(h\), \(h(x) \neq h(y)\).\\
 
 \noindent \underline{\textbf{Case 6:} \((x,y) \in \mathcal{R}^2\)}
 \par
@@ -682,7 +682,7 @@ means better than those obtain by combining smaller templates).
 
 \par These modifications work as follows. One may notice that the first row (excluding the "tail") has constraints that other rows
 do not have because of the tail, especially if the special color appears in the tail as well. Thus allowing to have a coloring on the
-first row different from the coloring of the other rows would weaken the constraints. Acutally, one may even go further by
+first row different from the coloring of the other rows would weaken the constraints. Actually, one may even go further by
 noticing that on the one hand the first (ordered) color of the sum-free partition used for the extension procedure has more
 more constraints than the other colors of the sum-free partition since the first row is of this color and is more constrained than
 the other rows, but that on the other hand it has more degrees of freedom than the other colors of the sum-free partition since in
@@ -724,9 +724,7 @@ width 33 with a WS-template with width 4. The best template we could find with a
 inequality \(\WS(n+4) \geqslant 127 S(n) + 68\). It was also found with the SAT solver. In order to reduce the search space, 
 we only looked for WS-templates with five colors which start with a near-optimal \(\WS(4)\) partition and we assumed that the 
 special color was the last by order of appearance. We highly suspect that better WS-templates with \(n \geqslant 5\) 
-colors can be found but one would have not to use the above assumptions. One may try to go over a different search space 
-with a different method,for instance with Monte-Carlo methods as in \cite{Bouzy2015AnAP}. This could be the suject of a 
-future work.
+colors can be found but one would have not to use the above assumptions.
 
 Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by inequalities (\ref{WS(n+1)}),
 (\ref{WS(n+2)}) and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound for each value of \(n\) is highlighted.
