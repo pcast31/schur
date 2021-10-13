@@ -17,10 +17,9 @@ regular and weak Schur numbers.
 \begin{theorem}
 \label{thm:WS-ab}
 \begin{sloppypar}
-Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
-subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free
-subsets then there exists a partition of \({[\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]}\) into \(n+k\)
-weakly sum-free subsets.
+Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there exists a weakly sum-free \(n\)-partition of \([\![1,q]\!]\)
+and a sum-free \(k\)-partition of \([\![1,p]\!]\) then there exists a partition of
+\({[\![1,p(q+\left \lceil \frac{q}{2} \right \rceil + 1)+q]\!]}\) into \(n+k\) weakly sum-free subsets.
 \end{sloppypar}
 \end{theorem}
 
@@ -44,8 +43,8 @@ Given that Theorem \ref{thm:WS-ab} will appear as a particular case of a more ge
 templates for weak Schur numbers, we only give here an intuitive explanation of the demonstration; a formal
 \hyperref[PreuveThm]{proof} using templates for weak Schur numbers is provided in Subsection \ref{ConstructionWS}.
 
-Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
-subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\)
+Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there exists a weakly sum-free \(n\)-partition of \([\![1,q]\!]\) 
+and a sum-free \(k\)-partition of \([\![1,p]\!]\). Let \(a \in \mathbb{N}\) with \(a > q\)
 and let us try to build a coloring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let
 \(l = a - q - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = q - r\).
 
@@ -395,8 +394,8 @@ be extended into larger weak Schur partitions by using Schur partitions. This is
 
 \begin{theorem}
 \label{thm:WStemp}
-Let \((a,n,b) \in (\mathbb{N}^*)^3\) with \(a > b\) and \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a partition of \([\![1,p]\!]\)
-into \(k\) sum-free subsets and a \(b\)-WS-template \((A_1,...,A_{n+1})\) with width \(a\) and \(n+1\) colors,
+Let \((a,n,b) \in (\mathbb{N}^*)^3\) with \(a > b\) and \( (p,k) \in (\mathbb{N}^*)^2\). If there exists a sum-free \(k\)-partition of
+\([\![1,p]\!]\) and a \(b\)-WS-template \((A_1,...,A_{n+1})\) with width \(a\) and \(n+1\) colors,
 then there exists a partition of \([\![1, p a + b]\!]\) into \(k+n\) weakly sum-free subsets.
 \end{theorem}
 
