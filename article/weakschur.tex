@@ -26,7 +26,7 @@ Given that Theorem \ref{thm:WS-ab} will appear as a particular case of a more ge
 templates for weak Schur numbers, we only outline the demonstration; a \hyperref[PreuveThm]{proof} using templates 
 for weak Schur numbers is in Subsection \ref{ConstructionWS}.
 
-Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
+Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there are a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
 subsets and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets. Let \(a \in \mathbb{N}\) with \(a > q\)
 and let us try to build a coloring of \([\![1, ap + q]\!]\) into \(n + k\) weakly sum-free subsets. Let
 \(l = a - q - 1\), \(r \in [\![1,q]\!]\) and \(w = a - l - r - 1 = q - r\).
@@ -353,12 +353,12 @@ Note that the special color \(n\) is not necessarily the last color by order of 
 Now, we introduce the number \(\WS^+(n)\) that plays the same role as \(S^+(n)\) for S-templates. 
 
 \begin{definition}
-Let \( (n,b) \in (\mathbb{N}^*)^2\). If there exists \(a\) such that there exists a \(b\)-WS-template with width \(a\)
+Let \( (n,b) \in (\mathbb{N}^*)^2\). If there is \(a\) such that there is a \(b\)-WS-template with width \(a\)
 and \(n\) colors, we define :
 \[
-\WS_b^+(n)= \max \{a \in \mathbb{N}^*/ \text{there exists a } b \text{-WS-template with width } a \text{ and } n \text{ colors} \}.
+\WS_b^+(n)= \max \{a \in \mathbb{N}^*/ \text{there is a } b \text{-WS-template with width } a \text{ and } n \text{ colors} \}.
 \]
-If no such \(a\) exists, we set \(\WS_b^+(n) = 0\).
+If there is no such \(a\), we set \(\WS_b^+(n) = 0\).
 \end{definition}
 
 \begin{definition}
@@ -562,7 +562,7 @@ construction \cite{AbbottHanson} can be seen as a particular case of theorem \re
 
 \begin{proof}[\textsc{Proof of Theorem \ref{thm:WS-ab}.}]
 \label{PreuveThm}
-Let \((q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1, q]\!]\) into n weakly sum-free subsets. 
+Let \((q, n) \in (\mathbb{N}^*)^2\) such that there is a partition of \([\![1, q]\!]\) into n weakly sum-free subsets. 
 Let \(f: [\![1, q]\!] \rightarrow [\!]1, n]\!]\) a weakly sum-free colouring.
 Let \(b=q\) and \(a = q + \left \lceil \dfrac{q}{2} \right \rceil + 1\). A new colouring \(g\) is defined as follows:
 
@@ -630,7 +630,7 @@ by weakening the hypotheses made on the last row. The principle behind it is the
 \begin{proposition}
 \label{prop:tunelastrow}
 Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to a \(b\)-WS-template with width \(p\) and \(k\) colors. Let
-\(c \in \mathbb{N}\) and assume there there exists a coloring \(g\) of \([\![b + 1, b + c]\!]\) with \(k\) colors such that for all \(c \in [\![1, k]\!]\),
+\(c \in \mathbb{N}\) and assume there is a coloring \(g\) of \([\![b + 1, b + c]\!]\) with \(k\) colors such that for all \(c \in [\![1, k]\!]\),
 
 \begin{itemize}
 \item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!],  \left\{
@@ -673,8 +673,8 @@ There is a construction theorem for WS-templates as well.
 
 \begin{theorem}
 \label{thm:compWStemp}
-Let \((k,p) \in (\mathbb{N}^*)^2\) and \((a, n, b) \in (\mathbb{N}^*)^3\). If there exists a S-template with width
-\(p\) and \(k+1\) colors and a \(b\)-WS-template with width \(a\) and \(n\) colors, then there exists a \(pb\)-WS-template
+Let \((k,p) \in (\mathbb{N}^*)^2\) and \((a, n, b) \in (\mathbb{N}^*)^3\). If there are a S-template with width
+\(p\) and \(k+1\) colors and a \(b\)-WS-template with width \(a\) and \(n\) colors, then there is a \(pb\)-WS-template
 with width \(pq\) and \((n+k)\) colors.
 \end{theorem}
 
