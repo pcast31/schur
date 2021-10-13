@@ -1,34 +1,36 @@
 \section{Templates for Schur numbers}
 \label{Schur}
 
-In this section, we use Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur 
-numbers. In order to improve lower bounds for Schur and Ramsey numbers, he introduces special sum-free 
+We use Rowley's template-based constructions \cite{RowleyRamsey} for Schur 
+numbers. To improve lower bounds for Schur and Ramsey numbers, he has introduced special sum-free 
 partitions verifying some additional properties which can be extended using a method generalizing Abbott and 
-Hanson's construction \cite{AbbottHanson}. He named these partitions "templates", and we keep this name in 
-the entire article. We then find new templates and use them to provide new lower bounds for Schur numbers.
+Hanson's construction \cite{AbbottHanson}. He called these partitions "templates", and we keep this nomination. 
+Then, we propose new templates and use them to produce new lower bounds for Schur numbers.
 
 \subsection{Definition of \( [\![ 1, S^+ ]\!] \)}
 
 We begin by introducing \textit{S-templates}, standing for \textit{"Schur templates"}. The idea is to consider the first line
-of \hyperref[figure:1]{Figure 1} not as a combination of two blocs anymore but as a whole, single construction. A S-template 
-is then defined as a new object filling the role of the first line but with less, yet sufficient, constraints which allow for an 
-expansion of the partition using a sum-free partition.
+of \hyperref[figure:1]{Figure 1} not as a combination of two blocs, like in \cite{AbbottHanson} but as a whole, single construction. 
+An S-template is then defined as a new object playing the role of the first line but with less, yet sufficient, 
+constraints which allow for an expansion of the partition using a sum-free partition.
 
 \begin{definition}
-Let \((p,n) \in (\mathbb{N}^*)^2\). A S-template with width \(p\) and \(n\) colors is defined as a partition of 
+Let \((p,n) \in (\mathbb{N}^*)^2\). An S-template with \(n\) colors is defined as a partition of 
 \([\![1,p]\!]\) into \(n\) sum-free subsets \(A_1, A_2, ..., A_n\) verifying for all subsets but \(A_n\)
-\[
-\forall i \in [\![1, n-1]\!], \forall (x,y) \in A_i^2, x+y > p
+\begin{equation}
+\label{eq:constemp}
+\forall (x,y) \in A_i^2, x+y > p
 \Longrightarrow x+y-p \notin A_i.
-\]
+\end{equation}
+The integer \(p\) is called the \textit{width} of the template.
 \end{definition}
 
-Here \(n\) can be seen as a "special" color in the sense that we do not impose this above additionnal constraint on this color. 
+Here \(n\) can be seen as a "special" color in the sense that it is no constrained by \ref{eq:constemp}.
 However, note that \(n\) is not necessarily the last color by order of appearance, any color can play this role.
 
 
 \begin{proposition}
-	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the greatest integer \(w\) such that there exists a S-template with 
+	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the greatest integer \(w\) such that there is a S-template with 
 	width \(w\) and \(n\) colors. 
 	\(S^+(n)\) is well defined and verifies
 	\[
@@ -37,14 +39,14 @@ However, note that \(n\) is not necessarily the last color by order of appearanc
 \end{proposition}
 
 \begin{proof}[\textsc{Proof.}]
-The upper bound comes from the fact that a S-template with width \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) 
+The upper bound comes from the fact that an S-template with width \(p\) and \(n\) colors is also a partition of \([\![1, p]\!]\) 
 into \(n\) sum-free subsets. The lower bound comes from Abbott and Hanson's construction \cite{AbbottHanson}. \\
 \end{proof}
 
 
 \subsection{Construction of Schur partitions using S-templates}
 
-We start by reminding the explicit construction of a sum-free partition with the use of a S-template and another sum free partition. 
+We start by reminding the explicit construction of a sum-free partition with the use of an S-template and another sum free partition. 
 We rephrase in terms of Schur numbers this contruction stated by Rowley in the context of Ramsey numbers \cite{RowleyRamsey}.
 
 \begin{theorem}
@@ -54,20 +56,12 @@ We rephrase in terms of Schur numbers this contruction stated by Rowley in the c
 	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{n+1}\) denotes the minimum element colored with the special color in the \(S\)-template.
 \end{theorem}
 
-Setting \(q = S^+(n+1)\) and \(p = S(k)\) yields the following corollary.
-
-\begin{corollary}
-\label{cor:ineqS}
-	Let \(n, k \in \mathbb{N}^*\). Then
-	\[ S(n+k) \geqslant S^+(n+1)S(k) + m_{n+1} - 1.\]
-\end{corollary}
-
-The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. They vertically 
-extend a sum-free partition by repeating it and they use an other sum-free partition to color the other half according 
-to the line number. This way the "blocks" act as safe areas for each other. We give here an example for \(p = 4\), 
+The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. They 
+extended a sum-free partition vertically by repeating it. Next, they used another sum-free partition to color the other half according 
+to the line number, as in \hyperref[figure:1]{Figure 1}. We give an example for \(p = 4\), 
 \(q = 9\), \(n = 2\) and \(k = 2\) showing that \(S(2 + 2) \geqslant S(2) \left(2 S(2) + 1\right) + S(2)\), both with Abbott and 
-Hanson's construction and with a S-template which is not included in Abbott and Hanson's construction. In both cases, 
-the special color is grey.
+Hanson's construction (\hyperref[figure:1]{Figure 1}) and with an S-template which is not included in Abbott and Hanson's construction 
+(\hyperref[figure:2]{Figure 2}). In both cases, the special color is grey.
 
 \renewcommand{\arraystretch}{1.7}
 \begin{figure}[H]
@@ -162,13 +156,14 @@ the special color is grey.
 \caption{Visualisation of an Abbott and Hanson construction}
 \end{center}
 \end{figure}
-In the general construction with S-templates, the special color no longer necessarily contains consecutive 
-numbers. However, the special color is still replaced by the colors of the sum-free partition according to the 
+In the general construction with S-templates, the special color may not paint consecutive 
+numbers any longer. However, the special color is still replaced by the colors of the sum-free partition according to the 
 line number and the other colors are still vertically extended.
 
 \begin{figure}[H]
 \begin{center}
 \textbf{S-template construction}
+\label{figure:2}
 \setlength{\tabcolsep}{1.5ex}
 
 \vspace{1.7ex}
@@ -255,18 +250,17 @@ line number and the other colors are still vertically extended.
 
 \setlength{\tabcolsep}{6pt}
 \caption{Visualisation of a template-based construction}
-\label{figure:2}
 
 \end{center}
 \end{figure}
 
 \resetarraystretch
 
-We now proceed to prove Theorem \ref{thm:Stemp}.
+Now, we prove Theorem \ref{thm:Stemp}.
 
 \begin{proof}[\textsc{Proof.}]
-	Denote by \(f\) the coloring associated to the \(S\)-template with width \(q\) and \(g\) the one associated 
-	to the sum-free partition of \([\![1,p]\!]\); where \(f : [\![1,q]\!] \longrightarrow [\![1,n+1]\!]\) and 
+	Let \(f\) and \(g\) be colorings associated to the S-template with width \(q\) and the sum-free partition of 
+	\([\![1,p]\!]\), respectively: \(f : [\![1,q]\!] \longrightarrow [\![1,n+1]\!]\) and 
 	\(g : [\![1,p]\!] \longrightarrow [\![1,k]\!]\).
 	
 	\par
@@ -286,9 +280,9 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 	\right. \Longrightarrow f(x+y-q) \neq f(x).
 	\]
 	
-	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), we write \(x = (\alpha - 1) q + u\) for certain integers \(\alpha \in \mathbb{N}^*\) and 
-	\(u \in [\![1,q]\!]\). This decomposition is of course unique. \(\alpha\)  can be interpreted as the row number of \(x\) and 
-	\(u\) as the collumn number of \(x\). A new coloring is define as follows:
+	For \(x \in [\![1,pq+m_{n+1}-1]\!]\), we write \(x = (\alpha - 1) q + u\) for certain integers \(\alpha \in \mathbb{N}^*\) 
+	and \(u \in [\![1,q]\!]\). Obviously, this decomposition unique. Coefficients \(\alpha\) and \(u\) may be interpreted as line 
+	and column coordinates of \(x\) in the template. We define a coloring \(h\) of \([\![1,pq+m_{n+1}-1]\!]\) using \( [\![1,n+k]\!]\) colors:
 	\[
 	\begin{array}{c c c l}
 		h : & [\![1,pq+m_{n+1}-1]\!] & \longrightarrow & [\![1,n+k]\!], \\
@@ -304,7 +298,7 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 	\leqslant n\) and therefore \(\forall x \in [\![1,pq+m_{n+1}-1]\!], f(u) = n + 1 \implies \alpha \in [\![1, p]\!]\).
 	
 	\par
-	We now prove that \(h\) is a sum-free coloring. Let \(x,y \in [\![1,pq + m_{n+1}-1]\!]\) such that \(h(x) = h(y)\) 
+	Now, we prove that \(h\) is a sum-free coloring. Let \(x,y \in [\![1,pq + m_{n+1}-1]\!]\) such that \(h(x) = h(y)\) 
 	and \(x+y \leqslant pq+m_{n+1}-1\). We claim that \(h(x+y) \neq h(x)\). We write \(x = (\alpha - 1) q + u\) and 
 	\(y = (\beta - 1) q + v\) where \(\alpha, \beta \in \mathbb{Z}\) and \(u, v \in [\![1,q]\!]\). Two cases are to be
 	distinguished according to the value of \(h(x)\). \\
@@ -326,7 +320,7 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 	\noindent \underline{\textbf{Case 2:} \(h(x) \geqslant n + 1\)}
 	\par
 	Now we have \(h(x) = n + g(\alpha) = 
-	n + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). As in the first case, distinguish between two cases according 
+	n + g(\beta) = h(y)\), hence \(g(\alpha) = g(\beta)\). As above, we distinguish between two cases according 
 	to the value of \(x + y\).
 	
 	\begin{itemize}
@@ -341,6 +335,14 @@ We now proceed to prove Theorem \ref{thm:Stemp}.
 		given that \(h(x) \geqslant n + 1\), \(h(x + y) \neq h(x)\).
 	\end{itemize}
 \end{proof}
+
+Setting \(q = S^+(n+1)\) and \(p = S(k)\) in theorem \ref{thm:Stemp} yields the following corollary.
+
+\begin{corollary}
+\label{cor:ineqS}
+	Let \(n, k \in \mathbb{N}^*\). Then
+	\[ S(n+k) \geqslant S^+(n+1)S(k) + m_{n+1} - 1.\]
+\end{corollary}
 
 The following proposition may improve the additive constant of Corollary \ref{cor:ineqS}.
 
@@ -369,8 +371,12 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(
 \[ S(n+k) \geqslant q S(k) + b.\]
 \end{proposition}
 This proposition corresponds to the fact that the hypotheses made on the coloring of the last row can be weakened because 
-the constraints in the definition of a S-template prevent a number from both being the sum of two of numbers of its own color 
-as well as creating a sum in its own color, the later of which is not always relevant on the last row given that it is not completely filled.
+the constraints in the definition of a S-template prevent a number from: 
+\begin{itemize}
+\item being the sum of two of numbers of its own color. 
+\item creating a sum in its own color. 
+\end{itemize}
+The later is not always relevant on the last row given that it is not completely filled.
 As a result, we can change the coloring on \([\![ q S(k) + 1,  q S(k) + b]\!]\) (the last row) to extend the previous partitions.
 \newline
 
@@ -380,19 +386,19 @@ There is a construction theorem for S-templates as well.
 	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there is a S-template with width \(q\) and \(n+1\) colors,
 	and a S-template with width \(p\) and \(k\) colors, then there also is a S-template with width \(pq\) and \((n+k)\) 
 	colors.
-	\end{theorem}
-	
-	The inequality associated with this theorem is given by:
-	
-\begin{corollary}
-	Let \(n, k \in \mathbb{N}^*\). Then
-	\[ S^+(n+k) \geqslant S^+(n+1)S^+(k).\]
-\end{corollary}
+\end{theorem}
 
 \begin{proof}[\textsc{Proof.}]
 The idea is the same as in the Theorem \ref{thm:Stemp}. The only difference is the S-template property inherited 
 from the second S-template. \\
 \end{proof}
+	
+The inequality associated with this theorem is given by:
+	
+\begin{corollary}
+	Let \(n, k \in \mathbb{N}^*\). Then
+	\[ S^+(n+k) \geqslant S^+(n+1)S^+(k).\]
+\end{corollary}
 
 
 \subsection{New lower bounds for Schur numbers}
@@ -408,15 +414,15 @@ A S-template with \(n\) colors is said to be symmetric if the sum-free \(n\)-par
 from this template by applying the extension procedure with a sum-free partition of length 1 is symmetric. 
 \end{definition}
 
-We produced S-templates using a SAT solver, hence providing lower bound on \(S^+\) and inequalities 
-of the type \(S(n+k) \geqslant a S(n) + b\). We sought templates providing the largest value of 
-\((a, b)\) (in the lexicographic order). When the number of colors exceeded five, in order to reduce the search space we 
-only looked for symmetric S-templates, we assumed that the special color was the last color to appear and we constrained 
-the \(m_c\)'s out of being too small. Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
+We produced S-templates using the lingeling SAT solver \cite{Lingeling2017}, hence providing lower bound on 
+\(S^+\) and inequalities of the type \(S(n+k) \geqslant a S(n) + b\). We sought templates providing us with 
+the largest value of \((a, b)\) (in the lexicographic order). In order to reduce the search space when the number 
+of colors exceeded five we only looked for symmetric S-templates, we assumed that the special color was the last 
+color to appear and we constrained the \(m_c\)'s out of being too small. Details concerning the encoding as a SAT 
+problem can be found in \cite{Heule2017}.
 
 \par
 The following six inequalities are given by the current best S-templates with \(n \leqslant 7\) colors.
-
 \begin{align}
 	S(n + 1) \geqslant &~3\,S(n)  + 1 \label{S(n+1)}\\
 	S(n + 2) \geqslant &~9\,S(n)  + 4 \label{S(n+2)}\\
@@ -434,7 +440,7 @@ The three following inequalities are our result.
 \end{align}
 
 \par The \hyperref[S-templates]{templates} corresponding to inequalities (\ref{S(n+3)}), (\ref{S(n+4)}) and 
-(\ref{S(n+5)}) can be found in the appendix.
+(\ref{S(n+5)}) are listed in \ref{S-templates}.
 
 \par
 Inequalities (\ref{S(n+1)}), (\ref{S(n+2)}) and (\ref{S(n+3)}) cannot be further improved (with this definition of S-template). 
@@ -443,7 +449,7 @@ last in the order of apparition (and with a multiplicative factor less than or e
 likely be further improved but the improvement probably will not be substantial. Finally, a S-template corresponding to inequality 
 (\ref{S(n+6)}) was found by extending into a S-template the Schur 6 partition used in \cite{rowley2021improved} (owing to the 
 size of this template, its interest is limited and since it can easily be derived from above mentioned partition, it is not given in 
-the appendix). Although we could not find a better S-template with seven colors, inequality (\ref{S(n+6)}) can definitely be 
+\ref{S-templates}). Although we could not find a better S-template with seven colors, inequality (\ref{S(n+6)}) can definitely be 
 improved by a wide margin.
 
 \par
@@ -493,8 +499,8 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities. The b
 
 Except for \(S(8)\), \(S(9)\) and \(S(13)\), the best lower bounds are obtained thanks to
 the fifth inequality \( S(n+5) \geqslant 380 \, S(n) + 148\). The table
-doesn't go any further, but the same inequality allows to improve the
-lower bounds for every \( n \geqslant 15 \).
+does not go any further, but the same inequality allows one to improve the
+lower bounds for \( n \geqslant 15 \).
 
 \begin{corollary}
 \begin{sloppypar}
@@ -510,12 +516,11 @@ numbers, the following inequality holds \(S(n) \leqslant R_n(3) - 2\) (see \cite
 
 \subsection{Conclusion on S-templates}
 
-In this section, we first formalized Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur numbers 
-by introducing S-templates as well as a new sequence, \(S^+\). We provided relations between \(S^+\) and \(S\) then 
-stated Rowley's construction method in the context of Schur numbers. We found new S-templates allowing us to obtain 
+First, we formalized Rowley's template-based constructions \cite{RowleyRamsey} in the context of Schur numbers 
+by introducing S-templates as well as a new sequence, \(S^+\). We found new S-templates allowing us to obtain 
 new lower bounds for schur numbers. One may notice that we mostly gave only lower bounds for \(S^+\). It should be possible to 
-find better S-templates by making different assumptions or using a different method (Monte-Carlo methods for instance).
+find better S-templates by making different assumptions or using a different method (Monte-Carlo methods, for instance).
 
 \par
 In the next section, we provide similar results for weak Schur numbers. We introduce WS-templates and a corresponding sequence, 
-\(\WS^+\). We then derive similar relations and a construction method allowing us to find new lower bounds for weak Schur numbers.
+\(\WS^+\). Then, we derive similar relations and a construction method allowing us to find new lower bounds for weak Schur numbers.

@@ -1,12 +1,11 @@
 \section{Templates for weak Schur numbers}
 \label{WeakSchur}
 
-In this section, we generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS} and give an analogous
-for weak Schur numbers of Abbott and Hanson's construction for Schur numbers \cite{AbbottHanson}. By analogy with the previous section,
-we then introduce \textit{WS-templates}, standing for \textit{"weak Schur templates"}, as well as an associated sequence \(\WS^+(n)\). 
-We find templates and use them to provide new lower bounds for weak Schur numbers. Finally, we give a short explanation for 
-the new lower bound \(\WS(6) \geqslant 646\) which was not directly obtained with a template contrary to the other lower bounds 
-given in this paper.
+We generalize Rowley's constructions for weak Schur numbers \cite{RowleyWS}. We give an analogous for weak Schur numbers of Abbott 
+and Hanson's construction for Schur numbers \cite{AbbottHanson}. Then, as in the previous section, we introduce \textit{WS-templates}, 
+standing for \textit{"weak Schur templates"}, as well as an associated sequence \(\WS^+(n)\). We find templates and use them to provide 
+new lower bounds for weak Schur numbers. Finally, we give a short explanation for the new lower bound \(\WS(6) \geqslant 646\) which 
+was not directly obtained with a template, contrary to the other lower bounds given in this article.
 
 \subsection{Inequality for weak Schur numbers using Schur and weak Schur numbers}
 
@@ -23,25 +22,9 @@ and a sum-free \(k\)-partition of \([\![1,p]\!]\) then there exists a partition 
 \end{sloppypar}
 \end{theorem}
 
-In particular, by setting \(q = \WS (n)\) and \(p = S(k)\) in Theorem \ref{thm:WS-ab}, one obtains the following corollary.
-
-\begin{corollary}
-\label{cor:ineqWS-S}
-\( \forall (n,k) \in (\mathbb{N}^*)^2 \text{, } \WS (n+k) \geqslant S(k) \left (\WS (n) + \left \lceil \displaystyle \frac{\WS (n)}{2}
-\right \rceil +1 \right) + \WS (n)\)
-\end{corollary}
-
-This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers. This formula includes
-the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), this formula does not give new lower bounds.
-
-\begin{remark}
-The inequality from Corollary \ref{cor:ineqWS-S} can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
-odd in Theorem \ref{thm:WS-ab}). However, it lengthens the proof and it is never useful in practice.
-\end{remark}
-
 Given that Theorem \ref{thm:WS-ab} will appear as a particular case of a more general theorem after the introduction of
-templates for weak Schur numbers, we only give here an intuitive explanation of the demonstration; a formal
-\hyperref[PreuveThm]{proof} using templates for weak Schur numbers is provided in Subsection \ref{ConstructionWS}.
+templates for weak Schur numbers, we only outline the demonstration; a \hyperref[PreuveThm]{proof} using templates 
+for weak Schur numbers is in Subsection \ref{ConstructionWS}.
 
 Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there exists a weakly sum-free \(n\)-partition of \([\![1,q]\!]\) 
 and a sum-free \(k\)-partition of \([\![1,p]\!]\). Let \(a \in \mathbb{N}\) with \(a > q\)
@@ -52,13 +35,12 @@ First, we put the integers of \([\![1, ap + q]\!]\) in the following table (with
 and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)).
 
 \begin{itemize}
-	\item \(\mathcal{T}\) (the "tail"): the integers from 1 to \(q\). NB: this is line number 0.
-	\item \(\mathcal{R}\) (the "rows"): the integers in columns \(-l\) to \(+r\) (excluding  \(\mathcal{T}\)).
-	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns (excluding  \(\mathcal{T}\)).
+	\item \(\mathcal{T}\) (the "tail"): In the row indexed by 0: numbers from \([\![1,q]\!]\).
+	\item \(\mathcal{R}\) (the "rows"): the integers in columns \(-l\) to \(+r\).
+	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns.
 \end{itemize}
 
-Like S-templates, \(\mathcal{R}\) and \(\mathcal{C}\) play the role of security zones for each other. Note that with
-this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to two the
+Note that with this numbering of columns, the column of the sum of two numbers is the only integer in \([\![-l,q]\!]\) equal to the
 sum of the columns modulo \(a\).
 
 \renewcommand{\arraystretch}{1.7}
@@ -157,35 +139,53 @@ We color this block using the weakly sum-free coloring of \([\![1,q]\!]\) with c
 
 \noindent \underline{\textbf{\(\mathcal{R}\) block}}
 \par
-In this block,  we use the colors \(n + 1, ..., n + k\). We color an integer \(x\) according to its line number (written \(\lambda(x)\)).
-For every \(x \in \mathcal{R}\), we color \(x\) with \(n + c\) where \(c\) is the color of \(\lambda(x)\) in the sum-free coloring of  \([\![1,p]\!]\).
+We use the colors \(n + 1, ..., n + k\) in this block. We color an integer \(x\) according to its line number \(\lambda(x)\).
+For any \(x \in \mathcal{R}\), we color \(x\) with \(n + c\) where \(c\) is the color of \(\lambda(x)\) in the sum-free coloring of  \([\![1,p]\!]\).
 Let \((x, y) \in \mathcal{R}^2\). The cases are twofold.
 
 \begin{itemize}
 	\item \underline{\(\lambda(x+y) = \lambda(x) + \lambda(y)\)} \\
-	In this case, we use the sum-free property of the coloring of \([\![1,p]\!]\) (in block \(\mathcal{C}\), we only
-	use colors \(1, ..., n\)).
+	If \(x + y\in \mathcal{R}\), we use the sum-free property of the coloring of \([\![1,p]\!]\). Otherwise, \(x + y\in \mathcal{C}\) which 
+	is fine because we only use colors \(1, ..., n\) in block \(\mathcal{C}\).
 	\item \underline{\(\lambda(x+y) \neq \lambda(x) + \lambda(y)\)} \\
 	In this case, we do not have information about the color of \(\lambda(x+y)\). Thereby, we want to have
-	\(x+y \in \mathcal{C}\). A simple solution is to limit the horizontal movement made by summing the two integers.
-	That is, when the sum's line number is different from \(\lambda(x) + \lambda(y)\), not to move too far from \((\lambda(x)
-	+ \lambda(y)) a\) so that \(x+y\) stays in \(\mathcal{C}\). There, the maximal displacement to the left (resp.
-	to the right) is \(2l\) (resp. \(2r\)). Not crossing entirely \(\mathcal{C}\) by going to the left is then expressed
-	as \(-2l > -a + r\). Likewise, not going to far to the right is expressed as \(2r < a - l\). It can then be written
+	\(x+y \in \mathcal{C}\). A simple solution is to limit the horizontal displacement made by summing the two integers.
+	That is, when the sum's row number is different from \(\lambda(x) + \lambda(y)\), to upper bound 
+	\(|x + y - (\lambda(x) + \lambda(y)) a|\) so that \(x+y\) stays in \(\mathcal{C}\). There, the maximal displacement 
+	to the left (resp. to the right) is \(2l\) (resp. \(2r\)). Not crossing entirely \(\mathcal{C}\) by going to the left is then 
+	expressed as \(-2l > -a + r\). Likewise, not going to far to the right is expressed as \(2r < a - l\). It can then be written
 	as \(\max(l, r) \leqslant w\).
 \end{itemize}
 
 \noindent \underline{\textbf{\(\mathcal{C}\) block}}
 \par
-In this block,  we use colors \(1, ..., n\). We color an integer \(x\) according to its column number, denoted by \(\tilde{\pi}(x)\). It is linked to the
-projection on the first line, denoted by \(\pi\), by the relation \(\tilde{\pi}(x) = \pi(x) - a\). A simple solution is to color \(x\) with the same color
-as \(\tilde{\pi}(x)\) in the weakly sum-free coloring of \([\![1,q]\!]\). As long as \(2b \leqslant a + r\) (not going two far to the right) and there
-is no \(x \in \tilde{\pi}(\mathcal{C})\) such that \(2x \in \tilde{\pi}(\mathcal{C})\) (so that we do not have a sum in \(\mathcal{C}\) when
-taking two numbers in the same column), the colors \(1, ..., n\) are sum-free.
+In this block, we use colors \(1, ..., n\). We color an integer \(x\) according to its projection on the first row \(\pi(x)\) offeset by \(a\), 
+that is its column number. A simple solution is to color \(x\) with the same color as \(\pi(x) - a\) in the weakly sum-free coloring of 
+\([\![1,q]\!]\). As long as \(2q \leqslant a + r\) (not going two far to the right) and there is no \(x \in \pi(\mathcal{C}) - a\) such that 
+\(2x \in \pi(\mathcal{C}) - a\) (so that we do not have a sum in \(\mathcal{C}\) when taking two numbers in the same column), 
+the colors \(1, ..., n\) are sum-free.
 
-In particular, taking \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rceil\) and \(r = \left\lfloor \displaystyle \frac{q}{2} \right\rfloor\) works, thus obtaining the above theorem.\\
+Setting \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rceil\) and \(r = \left\lfloor \displaystyle \frac{q}{2} \right\rfloor\) satsfies these 
+constraints: this is the construction corresponding to Theorem \ref{thm:WS-ab}. \\
+
+By setting \(q = \WS (n)\) and \(p = S(k)\) in Theorem \ref{thm:WS-ab}, one obtains the following corollary.
+
+\begin{corollary}
+\label{cor:ineqWS-S}
+\(\WS (n+k) \geqslant S(k) \left (\WS (n) + \left \lceil \displaystyle \frac{\WS (n)}{2} \right \rceil +1 \right) + \WS (n)\)
+for all \((n,k) \in (\mathbb{N}^*)^2\).
+\end{corollary}
+
+This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers 
+\cite{AbbottHanson}. This formula also includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), 
+the formula from corollary \ref{cor:ineqWS-S} does not give new lower bounds.
+
+\begin{remark}
+The inequality from Corollary \ref{cor:ineqWS-S} can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
+odd in Theorem \ref{thm:WS-ab}). However, it lengthens the proof and it is never useful in practice.
+\end{remark}
 \par
-As in the previous section, we now introduce WS-templates and the sequence \(\WS^+\) in order to generalize the above construction.
+Now, we introduce WS-templates and the sequence \(\WS^+\) in order to generalize the above construction.
 
 \subsection{Definition of \([\![ 1, \WS^+ ]\!]\)}
 \label{DefinitionWS+}
@@ -350,17 +350,15 @@ This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WS-template
 \end{definition}
 
 Note that the special color \(n\) is not necessarily the last color by order of appearance, any color can play this role.
-We now introduce the number \(\WS^+(n)\) that plays the same role as \(S^+(n)\) for S-templates.
-However, WS-templates being more sophisticated than S-templates, the definition of \(\WS^+(n)\)
-is slighty more complicated.
+Now, we introduce the number \(\WS^+(n)\) that plays the same role as \(S^+(n)\) for S-templates. 
 
 \begin{definition}
-Let \( (n,b) \in (\mathbb{N}^*)^2\). If there exists \(a\) such that there exists a \(b\)-WS-template with width \(a\)
+Let \( (n,b) \in (\mathbb{N}^*)^2\). If there is \(a\) such that there is a \(b\)-WS-template with width \(a\)
 and \(n\) colors, we define :
 \[
-\WS_b^+(n)= \max \{a \in \mathbb{N}^*/ \text{there exists a } b \text{-WS-template with width } a \text{ and } n \text{ colors} \}.
+\WS_b^+(n)= \max \{a \in \mathbb{N}^*/ \text{there is a } b \text{-WS-template with width } a \text{ and } n \text{ colors} \}.
 \]
-If no such \(a\) exists, we set \(\WS_b^+(n) = 0\).
+If there is no such \(a\), we set \(\WS_b^+(n) = 0\).
 \end{definition}
 
 \begin{definition}
@@ -383,14 +381,14 @@ The upper bound comes from the fact that a WS-template with width \(a\) and \(n\
 \([\![1, a]\!]\) into \(n\) weakly sum-free subsets. \\
 \end{proof}
 
-Having established these properties, we now have everything we need to state and prove our main result. We proceed to do so
-in the next subsection.
+Having established these properties, we prove our main result.
 
 \subsection{Construction of weak Schur partitions using WS-templates}
 \label{ConstructionWS}
 
-Theorem \ref{thm:Stemp} provides a way to extend a S-template into a larger Schur partitions using other Schur partitions. Likewise, a WS-template can 
-be extended into larger weak Schur partitions by using Schur partitions. This is the object of the following theorem.
+Theorem \ref{thm:Stemp} describes a manner to extend a S-template into a larger Schur partitions using other Schur 
+partitions. Likewise, a WS-template can be extended into larger weak Schur partitions by using Schur partitions. This 
+is the object of the following theorem.
 
 \begin{theorem}
 \label{thm:WStemp}
@@ -399,31 +397,12 @@ Let \((a,n,b) \in (\mathbb{N}^*)^3\) with \(a > b\) and \( (p,k) \in (\mathbb{N}
 then there exists a partition of \([\![1, p a + b]\!]\) into \(k+n\) weakly sum-free subsets.
 \end{theorem}
 
-In particular, by setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in Theorem \ref{thm:WStemp}, the next corollary follows.
-
-\begin{corollary}
-\label{cor:ineqWS+}
-Let \(n,k \in \mathbb{N}^*\) and set \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\).
-Then :
-\[
-\WS(n+k) \geqslant S(k) \WS^+(n+1)+b_{max}.
-\]
-\end{corollary}
-
-\begin{remark}
-In the S-template construction for Schur numbers, the additive constant comes from the fact that the special color does
-not necessarily appear right at the begining of the repeating pattern. Likewise, \(b_{max}\) can actually be replaced by
-\[
-\max_{b \in \mathbb{N}^*} \left\{\min (A_{n+1} \backslash [\![1, b ]\!]) - 1~|~ \WS_b^+(n+1) = \WS^+(n+1) \right\}.
-\]
-\end{remark}
-
 \begin{proof}[\textsc{Proof.}]
 \begin{sloppypar}
-Let \((a,n,b) \in (\mathbb{N}^*)^3\) and \((p,k) \in (\mathbb{N}^*)^2\). Denote by \(f\) the coloring
-associated to the \(b\)-WS-template  and \(g\) the one associated to the sum-free partition of \([\![1,p]\!]\); where
-\({f : [\![1, a + b]\!] \longrightarrow [\![1,n+1]\!]}\) and \({g : [\![1, p]\!]  \longrightarrow [\![1, k]\!]}\). Moreover, assume
-that the sum-free coloring of \([\![1, p]\!]\) is ordered.
+Let \((a,n,b) \in (\mathbb{N}^*)^3\) and \((p,k) \in (\mathbb{N}^*)^2\). Let \(f\) and \(g\) be colorings associated 
+to the \(b\)-WS-template and to the sum-free partition of \([\![1,p]\!]\), respectively: 
+\({f : [\![1, a + b]\!] \longrightarrow [\![1,n+1]\!]}\) and \({g : [\![1, p]\!]  \longrightarrow [\![1, k]\!]}\). Moreover, 
+we assume that the sum-free coloring of \([\![1, p]\!]\) is ordered.
 \end{sloppypar}
 
 \par
@@ -463,7 +442,7 @@ The additionnal constraints for the WS-template are:
 \right. \Longrightarrow f(x+y - 2 a) \neq f(x).
 \end{equation}
 
-Split \([\![1, p a + b]\!]\) into three subsets. \\
+We split \([\![1, p a + b]\!]\) into three subsets. \\
 NB: To keep the notation short, the restriction to \([\![b + 1, p a + b]\!]\) of \(\pi\) defined in Subsection \ref{DefinitionWS+}
 is denoted by \(\pi\) in the hereunder equations.
 
@@ -473,7 +452,7 @@ is denoted by \(\pi\) in the hereunder equations.
 	\item \(\mathcal{R} = \pi^{-1}(f^{-1}(\{n + 1\}))\)
 \end{itemize}
 
-A new coloring \(h\) is defined as follows:
+We define a coloring \(h\) of \([\![1, p a + b]\!]\) using \( [\![1,n+k]\!]\) colors:
 \[
 \begin{array}{c c c l}
 	h : & [\![1, p a + b]\!] & \longrightarrow & [\![1,n+k]\!] \\
@@ -486,10 +465,10 @@ A new coloring \(h\) is defined as follows:
 \end{array}
 \]
 
-Function \(h\) is well defined since \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) is a partition of  \([\![1, p a + b]\!]\).
-We now prove that \(h\) is a weakly sum-free coloring. Let \(x,y \in [\![1, p a + b]\!]\) be such that \(x \neq y\),
-\(h(x) = h(y)\) and \(x+y \leqslant p a+ b\). We claim that \(h(x+y) \neq h(x)\). Nine cases are to be distinguished
-according to the subsets \((\mathcal{T}, \mathcal{C}, \mathcal{R})\) to which \(x\) and \(y\) belong. It is
+Function \(h\) is well defined since sets \(\mathcal{T}, \mathcal{C}, \mathcal{R}\) partition \([\![1, p a + b]\!]\).
+Now, we prove that \(h\) is a weakly sum-free coloring. Let \(x,y \in [\![1, p a + b]\!]\) be such that \(x \neq y\),
+\(h(x) = h(y)\), and \(x+y \leqslant p a+ b\). We claim that \(h(x+y) \neq h(x)\). Nine cases are to be distinguished
+according to which of the sets \(\mathcal{T}, \mathcal{C}, \mathcal{R}\) \(x\) and \(y\) belong to. It is
 sufficient to check only six cases out of nine since \(x\) and \(y\) play symmetric roles. \\
 
 \noindent \underline{\textbf{Case 1:} \((x,y) \in \mathcal{T}^2\)}
@@ -516,7 +495,7 @@ Given that \(h(x) = h(y)\) and by definition of \(h\), \(f(x) = f(\pi(y))\). Bes
 	\end{sloppypar}
 \end{itemize}
 \par
-Hence in both cases \(f(\pi(x+y)) \neq f(x)\). If  \(f(\pi(x+y)) \leqslant n\) then \(h(x+y) = f(\pi(x+y))\). Therefore
+In both cases \(f(\pi(x+y)) \neq f(x)\). If  \(f(\pi(x+y)) \leqslant n\) then \(h(x+y) = f(\pi(x+y))\). Therefore
 \(h(x+y) \neq h(x)\) since \(f(x) = h(x)\). Otherwise, \(f(\pi(x+y)) = n + 1\) and thus \(h(x+y) > n\). In particular,
 \(h(x + y) \neq h(x)\) since \(h(x) = h(y) \leqslant n\). \\
 
@@ -530,9 +509,10 @@ Necessarily \(h(x) = h(y) = n + 1\). Two cases are to be distinguished according
 \item If \(\lambda(y) \neq \lambda(x + y)\) then \(\lambda(x + y) = \lambda(y) + 1\) since \(x \leqslant b < a\).
 	Besides, \(n + 1 = h(y) = n +  g(\lambda(y))\). Hence \(g(\lambda(y)) = 1\). Moreover \(g(1) = 1\) since \(g\)
 	is an ordered coloring. Therefore, given that \(g\) is sum-free, \(g(\lambda(y) + 1) \neq 1\). If \(\pi(x + y) \in
-	A_{n + 1}\) then \(h(x + y) = n + g(\lambda(x + y)) \neq n + 1\). Otherwise, \(h(x + y) \leqslant n\). Hence
-	in both cases \(h(x + y) \neq h(x)\).
+	A_{n + 1}\) then \(h(x + y) = n + g(\lambda(x + y)) \neq n + 1\). Otherwise, \(h(x + y) \leqslant n\).
 \end{itemize}
+\par
+In both cases \(h(x + y) \neq h(x)\).
 
 \noindent \underline{\textbf{Case 4:} \((x,y) \in \mathcal{C}^2\)}
 \par
@@ -548,13 +528,13 @@ to the value of \(\pi(x)+\pi(y)\).
 	\end{sloppypar}
 \end{itemize}
 \par
-Hence in both cases \(f(\pi(x+y)) \neq f(x)\). If  \(f(\pi(x+y)) \leqslant n\) then \(h(x+y) = f(\pi(x+y))\). Therefore
+In both cases \(f(\pi(x+y)) \neq f(x)\). If  \(f(\pi(x+y)) \leqslant n\) then \(h(x+y) = f(\pi(x+y))\). Therefore
 \(h(x+y) \neq h(x)\) since \(f(x) = h(x)\). Otherwise, \(f(\pi(x+y)) = n + 1\) and thus \(h(x+y) > n\). In particular,
 \(h(x + y) \neq h(x)\) since \(h(x) = h(y) \leqslant n\). \\
 
 \noindent \underline{\textbf{Case 5:} \((x,y) \in \mathcal{C} \times \mathcal{R}\)}
 \par
-By definition of \(h\), \(h(x) \neq h(y)\).\\
+By definition of function \(h\), \(h(x) \neq h(y)\).\\
 
 \noindent \underline{\textbf{Case 6:} \((x,y) \in \mathcal{R}^2\)}
 \par
@@ -577,35 +557,12 @@ In both of the last two cases, \({f(\pi(x + y)) \neq n + 1}\) that is \(x+y \in 
 In particular, \(h(x + y) \neq h(x)\). \\
 \end{proof}
 
-There is a construction theorem for WS-templates as well.
-
-\begin{theorem}
-\label{thm:compWStemp}
-Let \((k,p) \in (\mathbb{N}^*)^2\) and \((a, n, b) \in (\mathbb{N}^*)^3\). If there exists a S-template with width
-\(p\) and \(k+1\) colors and a \(b\)-WS-template with width \(a\) and \(n\) colors, then there exists a \(pb\)-WS-template
-with width \(pq\) and \((n+k)\) colors.
-\end{theorem}
-
-Theorem \ref{thm:compWStemp} yields the following corollary.
-
-\begin{corollary}
-Let \(n, k \in \mathbb{N}^*\). Then
-\[
-\WS^+(n+k) \geqslant S^+(k+1) \WS^+(n).
-\]
-\end{corollary}
-
-\begin{proof}[\textsc{Proof.}]
-The idea is the same as in the previous theorem. The only difference is the WS property inherited
-from both the S-template and the WS-template. \\
-\end{proof}
-
-Theorem \ref{thm:WS-ab} can be seen as a particular case of WS-template in the same way Abott and Hanson's 
-construction \cite{AbbottHanson} can be seen as a particular case of S-template.
+Theorem \ref{thm:WS-ab} can be seen as a particular case of Theorem \ref{thm:WStemp} in the same way Abott and Hanson's 
+construction \cite{AbbottHanson} can be seen as a particular case of theorem \ref{thm:Stemp}.
 
 \begin{proof}[\textsc{Proof of Theorem \ref{thm:WS-ab}.}]
 \label{PreuveThm}
-Let \((q, n) \in (\mathbb{N}^*)^2\) such that there exists a partition of \([\![1, q]\!]\) into n weakly sum-free subsets. 
+Let \((q, n) \in (\mathbb{N}^*)^2\) such that there is a partition of \([\![1, q]\!]\) into n weakly sum-free subsets. 
 Let \(f: [\![1, q]\!] \rightarrow [\!]1, n]\!]\) a weakly sum-free colouring.
 Let \(b=q\) and \(a = q + \left \lceil \dfrac{q}{2} \right \rceil + 1\). A new colouring \(g\) is defined as follows:
 
@@ -648,12 +605,32 @@ We claim that \(g\) is a \(b\)-WSF-template with width \(a\) and \(n + 1\) colou
 The result is then obtained by applying Theorem \ref{thm:WStemp}. \\
 \end{proof}
 
+By setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in Theorem \ref{thm:WStemp}, one obtains:
+
+\begin{corollary}
+\label{cor:ineqWS+}
+Let \(n,k \in \mathbb{N}^*\) and set \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\).
+Then :
+\[
+\WS(n+k) \geqslant S(k) \WS^+(n+1)+b_{max}.
+\]
+\end{corollary}
+
+\begin{remark}
+In the S-template construction for Schur numbers, the additive constant comes from the fact that the special color does
+not necessarily appear at the very begining of the repeating pattern. Likewise, \(b_{max}\) can actually be replaced by
+\[
+\max_{b \in \mathbb{N}^*} \left\{\min (A_{n+1} \backslash [\![1, b ]\!]) - 1~|~ \WS_b^+(n+1) = \WS^+(n+1) \right\}.
+\]
+\end{remark}
+
 As in Corollary \ref{cor:ineqS}, the additive constant Theorem \ref{thm:WStemp} can be improved 
 by weakening the hypotheses made on the last row. The principle behind it is the same as in Proposition \ref{prop:rafStemp}.
 
 \begin{proposition}
+\label{prop:tunelastrow}
 Let \((b, k, a) \in (\mathbb{N}^*)^3\) and let \(f\) be a coloring associated to a \(b\)-WS-template with width \(p\) and \(k\) colors. Let
-\(c \in \mathbb{N}\) and assume there there exists a coloring \(g\) of \([\![b + 1, b + c]\!]\) with \(k\) colors such that for all \(c \in [\![1, k]\!]\),
+\(c \in \mathbb{N}\) and assume there is a coloring \(g\) of \([\![b + 1, b + c]\!]\) with \(k\) colors such that for all \(c \in [\![1, k]\!]\),
 
 \begin{itemize}
 \item \(\forall (x, y) \in  [\![1, a + b]\!] \times  [\![b + 1, a + b]\!],  \left\{
@@ -674,35 +651,56 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(
 \[ \WS(n+k) \geqslant \WS^+(k+1) S(n) + b + c.\]
 \end{proposition}
 
-The WS-templates can actually be fine-tuned further. However, it only gives minor improvements (most likely only an additive
-constant) at the cost of dramatically increasing the size of the search space. Therefore, it does not seem relevant to
-use this sophistications given that we could not even find good WS-templates with five colors using a computer (here good
-means better than those obtain by combining smaller templates).
-
-\par These modifications work as follows. One may notice that the first row (excluding the "tail") has constraints that other rows
-do not have because of the tail, especially if the special color appears in the tail as well. Thus allowing to have a coloring on the
-first row different from the coloring of the other rows would weaken the constraints. Acutally, one may even go further by
-noticing that on the one hand the first (ordered) color of the sum-free partition used for the extension procedure has more
-more constraints than the other colors of the sum-free partition since the first row is of this color and is more constrained than
-the other rows, but that on the other hand it has more degrees of freedom than the other colors of the sum-free partition since in
-the sum-free partition there cannot be two consecutive numbers of this color. As a result, it removes  some constraints imposed
- by the first row on the other rows.
+The WS-templates can actually be fine-tuned further. However, it only gives minor improvements (most likely only an 
+additive constant) while increasing the size of the search space. 
 
 \par
-To sum up, one can look for a generalised WS-template that uses a special coloring for the tail and the first row, a
-coloring dedicated to the rows whose number is not 1 but is in the first color in the sum-free partition, a coloring for all
-the other rows and a special coloring for the last numbers (as previously explained for the improvement of the additive
-constant of WS-templates).
+These modifications rely on one main observation: the first row (excluding the "tail") has constraints that other rows do not 
+have because of the tail, especially if the special color appears in the tail as well. Therefore, having a coloring dedicated to 
+the first row and another coloring dedicated to the repeating pattern would weaken the constraints on the repeating pattern. 
+
+\par
+These additionnal constraints on the first row imply additionnal constraints on the rows of the its color (compared to other 
+colors). However, one may notice that there are never two consecutive rows of this color. Moreover these additionnal constraints 
+mostly concern two consecutive rows. Having a special coloring for rows of this color as well as another color dedicated to the 
+first row avoids enforcing these constraints specific to one color on the other colors and thus on the main repeating pattern.
+
+\par
+Finally, given that the color of the first row is different from the special color of the main repeating pattern, coloring \(g\) in
+Proposition \ref{prop:tunelastrow} can exploit this difference. \\
+
+There is a construction theorem for WS-templates as well.
+
+\begin{theorem}
+\label{thm:compWStemp}
+Let \((k,p) \in (\mathbb{N}^*)^2\) and \((a, n, b) \in (\mathbb{N}^*)^3\). If there are a S-template with width
+\(p\) and \(k+1\) colors and a \(b\)-WS-template with width \(a\) and \(n\) colors, then there is a \(pb\)-WS-template
+with width \(pq\) and \((n+k)\) colors.
+\end{theorem}
+
+\begin{proof}[\textsc{Proof.}]
+The idea is the same as in theorem \ref{thm:WStemp}. The properties specific to WS-templates are inherited 
+from both the S-template and the WS-template. \\
+\end{proof}
+
+Theorem \ref{thm:compWStemp} yields the following corollary.
+
+\begin{corollary}
+Let \(n, k \in \mathbb{N}^*\). Then
+\[
+\WS^+(n+k) \geqslant S^+(k+1) \WS^+(n).
+\]
+\end{corollary}
 
 \subsection{New lower bounds for Weak Schur numbers}
 
-We produced WS-templates using a SAT solver, hence providing lower bound on \(WS^+\) and inequalities
-of the type \(WS(n+k) \geqslant a S(n) + b\). We sought templates providing the greatest value of \((a, b)\) (in the 
-lexicographic order). Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
+We produced WS-templates using the lingeling SAT solver \cite{Lingeling2017}, hence providing lower bound on \(WS^+\) 
+and inequalities of the type \(WS(n+k) \geqslant a S(n) + b\). We sought templates providing the greatest value of \((a, b)\) 
+(in the lexicographic order). Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
 
 \par
 Here are the inequalities given by the current best WS-templates. The \hyperref[WS-templates]{template} 
-corresponding to the third inequality can be found in the appendix.
+corresponding to the third inequality can be found in the \ref{WS-templates}.
 
 \begin{align}
 	WS(n + 1) &\geqslant  4\,S(n)  +  2 \label{WS(n+1)} \\
@@ -723,9 +721,7 @@ width 33 with a WS-template with width 4. The best template we could find with a
 inequality \(\WS(n+4) \geqslant 127 S(n) + 68\). It was also found with the SAT solver. In order to reduce the search space, 
 we only looked for WS-templates with five colors which start with a near-optimal \(\WS(4)\) partition and we assumed that the 
 special color was the last by order of appearance. We highly suspect that better WS-templates with \(n \geqslant 5\) 
-colors can be found but one would have not to use the above assumptions. One may try to go over a different search space 
-with a different method,for instance with Monte-Carlo methods as in \cite{Bouzy2015AnAP}. This could be the suject of a 
-future work.
+colors can be found but one would have not to use the above assumptions.
 
 Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by inequalities (\ref{WS(n+1)}),
 (\ref{WS(n+2)}) and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound for each value of \(n\) is highlighted.
@@ -790,7 +786,7 @@ reasonable computation time: it is necessary to test the construction on several
 satisfiability problem and used the 1616 backdoors that were used in \cite{Heule2017} in order to encode a group of partitions in 
 a compact and efficient way. Among all of the 1616 backdoors, only the 911\textsuperscript{th} backdoor gave a weakly sum-free 
 partition of length 643. This backdoor gave a weakly sum-free partition of length 646 and cannot give a weakly sum-free 
-partition of length 647. A weakly sum-free partition of length 646 can be found in the \hyperref[WS(6)]{appendix}.
+partition of length 647. A weakly sum-free partition of length 646 can be found in the \ref{WS(6)}.
 
 
 \subsection{Conclusion on WS-templates}

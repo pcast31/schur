@@ -2,8 +2,8 @@
 
 We are interested in partioning the set of integers \(\{1, ..., p\}\) into \(n\) subsets such that there is no 
 subset containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\). We say these subsets are 
-\textit{sum-free}. If we add the hypothesis \(x \neq y\), we say the subsets are \textit{weakly sum-free}. The 
-greatest \(p\) for which there exists a partition into \(n\) sum-free subsets is called the \(n^{\text{th}}\) Schur 
+\textit{sum-free}. If we lessen the above constraint by only considering integers \(x,y\) such that \(x \neq y\), we say the subsets are \textit{weakly sum-free}. The 
+greatest \(p\) for which there is a partition into \(n\) sum-free subsets is called the \(n^{\text{th}}\) Schur 
 number and is denoted \(S(n)\) \cite{Schur1917}. Likewise for weakly sum-free partitions we define \(\WS(n)\) 
 the \(n^{\text{th}}\) weak Schur number \cite{Irving1973}. Values of \(S(n)\) and \(\WS(n)\) are known for small \(n\) only.
 
@@ -12,21 +12,20 @@ the \(n^{\text{th}}\) weak Schur number \cite{Irving1973}. Values of \(S(n)\) an
 
 Up to recently, the most efficient generic construction for Schur numbers was given by Abbott and Hanson 
 \cite{AbbottHanson} in 1972 with a recursive construction. It gave the best lower bounds for all sufficiently large 
-numbers. No equivalent was known for weak Schur numbers and as a result the best known partitions for large 
-weak Schur numbers did not use the weakly sum-free hypothesis. 
+numbers. No equivalent was known for weak Schur numbers and, as a result, the best known partitions for large 
+weak Schur numbers did not use the \textit{weakly} sum-free property. 
 
 \par
-As for smaller weak Schur numbers, the best lower bounds were obtained by conducting a computer search. Eliahou 
+As for smaller weak Schur numbers, the best lower bounds were obtained by computations. Eliahou 
 \cite{EliahouBook}, Bouzy \cite{Bouzy2015AnAP} and Rafilipojaona \cite{Rafilipojaona} improved the lower 
 bounds with Monte-Carlo methods. This was the main approach during the past decade.
 
 \par
 In 2020, Rowley introduced the notion of templates for Schur and Ramsey numbers \cite{RowleyRamsey} which 
 generalizes Abbott and Hanson's construction and produces new lower bounds (and inequalties) for Schur numbers. 
-He also provided two inequalities for weak Schur numbers \cite{RowleyWS} that yield significant improvements 
-over previous lower bounds. Besides, these two inequalities do use the \textit{weakly} sum-free hypothesis.
+He also provided two inequalities for weak Schur numbers \cite{RowleyWS}. Besides, these two inequalities do use the \textit{weakly} sum-free property.
 
-\par The hereunder tables recap the lower bounds respectively for Schur and weak Schur numbers. Gray cells 
+\par The hereunder tables recap the lower bounds for Schur and weak Schur numbers, respectively. Gray cells 
 indicate the exact values.
 
 
@@ -91,26 +90,26 @@ indicate the exact values.
 \subsection{Structure of this article}
 
 Our main contribution is a generalization of the concept of template to weak Schur numbers. Our templates 
-provide new lower bounds (and inequalities) for weak Schur numbers. This construction also includes as a special case 
-a construction similar to Abbott and Hanson's \cite{AbbottHanson}, but this time for \textit{weak} Schur numbers.
+provide new lower bounds (and inequalities) for weak Schur numbers. As a special case, our construction also includes  
+a construction similar to Abbott and Hanson's \cite{AbbottHanson}, but for \textit{weak} Schur numbers this time.
 
 \par
-In Section \ref{Schur}, we explain Rowley's template-based construction in the context of 
+In Section \ref{Schur}, we explain Rowley's template-based construction for 
 Schur numbers. Then, we give new templates, thus providing new lowers bounds and inequalities as well as 
 showing that the growth rates for both Schur and Ramsey numbers \(R_n(3)\) exceed 3.28. 
 
 \par
 In Section \ref{WeakSchur}, we generalize the concept of template to weak Schur numbers 
-and provide new lower bounds for weak Schur numbers. We then use a different approach and give a new 
+and provide new lower bounds for weak Schur numbers. Then, we use a different approach and give a new 
 lower bound for \(\WS(6)\).
 
 \par
-We now introduce notations and definitions we use throughout this article.
+Now, we introduce notations and definitions used throughout this article.
 
 \subsection{Definitions and notations}
 
 We start by defining sum-free and weakly sum-free subsets to introduce regular and weak Schur numbers. 
-We denote \(\mathbb{N} = \{0, 1, 2, ...\}\) and \(\mathbb{N}^* =\mathbb{N} \backslash \{0\}\).
+The set of positive natural numbers is denoted by \(\mathbb{N}^* =\mathbb{N} \backslash \{0\}\).
 
 \begin{definition}
 A subset \(A\) of \(\mathbb{N}\) is said to be \textit{sum-free} if
@@ -127,27 +126,30 @@ subsets. Given \(p\) and \(n\) two integers, we are interested in partitioning t
 denoted by \([\![1,p]\!]\), into \(n\) (weakly) sum-free subsets.
 
 \par
-Schur proved in \cite{Schur1917} that given a number of subsets \(n\), there exists a value of \(p\)
-such that there exists no partition of \([\![1,q]\!]\) into \(n\) sum-free subsets for any \(q \geqslant p\). A similar
-property holds for weakly sum-free subsets \cite{Irving1973}. These observations lead to the following definitions.
+Schur proved \cite{Schur1917} that given a number of subsets \(n\), there is a value of \(p\)
+such that \([\![1,q]\!]\) cannot be partionned into \(n\) sum-free subsets for \(q \geqslant p\). A similar
+property holds for weakly sum-free subsets \cite{Irving1973}. These observations lead to the following definitions
+written for \(n \in \mathbb{N}^*\): 
 
 \begin{definition}
-Let \(n \in \mathbb{N}^*\). There exists a largest integer denoted by \(S(n)\) such that \([\![1, S(n)]\!]\) can be
+There is a largest integer denoted by \(S(n)\) such that \([\![1, S(n)]\!]\) can be
  partitioned into \(n\) sum-free subsets. \(S(n)\) is called the \textit{\(n\)\textsuperscript{th} Schur number}.
 \end{definition}
 
 \begin{definition}
-Let \(n \in \mathbb{N}^*\). There exists a largest integer denoted by \(\WS (n)\) such that \([\![1, \WS (n)]\!]\) 
+There is a largest integer denoted by \(\WS (n)\) such that \([\![1, \WS (n)]\!]\) 
 can be partitioned into \(n\) weakly sum-free subsets. \(\WS(n)\) is called the \(n\)\textsuperscript{th} weak Schur 
 number.
 \end{definition}
 
-Given a partition of \([\![1, p]\!]\) into \(n\) subsets, we generally denote these subsets \(A_1, ..., A_n\). We also denote
-\(m_i = \min(A_i)\). By ordering the subsets, we mean assuming that \(m_1 < ... < m_n\). However, if not specified we do 
-not make this hypothesis since we do not always consider partitions in which every subset plays a symmetric role.
+Subsets of an \(n\)-partition are denoted \(A_1, ..., A_n\). The smallest element of \(A_i\) is denoted  
+\(m_i = \min(A_i)\). By ordering the subsets, we mean assuming that \(m_1 < ... < m_n\). We will make clear in the text 
+when we use a subset ordering.
+
+A partition may be seen as a number coloring.
 
 \begin{definition}
-We sometimes refer to a partitition as a coloring. The coloring associated to a partition \(A_1, ..., A_n\) of 
+The coloring associated to a partition \(A_1, ..., A_n\) of 
 \([\![1, p]\!]\) is the function \(f\) such that \(\forall x \in [\![1, p]\!], x \in A_{f(x)}\). Likewise, the partition associated to
 a coloring \(f\) of \([\![1, p]\!]\) with \(n\) colors is \(\forall c \in [\![1, n]\!], A_c = f^{-1}(c)\).
 \end{definition}
