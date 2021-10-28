@@ -30,7 +30,7 @@ However, note that \(n\) is not necessarily the last color by order of appearanc
 
 
 \begin{proposition}
-	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the greatest integer \(w\) such that there is a S-template with 
+	Let \(n \in [\![2, +\infty[\![\). We define \(S^+(n)\) as the greatest integer \(w\) such that there is an S-template with 
 	width \(w\) and \(n\) colors. 
 	\(S^+(n)\) is well defined and verifies
 	\[
@@ -51,9 +51,9 @@ We rephrase in terms of Schur numbers this contruction stated by Rowley in the c
 
 \begin{theorem}
 \label{thm:Stemp}
-	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there is an S-template with width \(q\) and \(n+1\) colors 
-	and a partition of \([\![1,p]\!]\) into \(k\) sum-free subsets then there is a partition of \([\![1,pq+m_{n+1}
-	-1]\!]\) into \(n+k\) sum-free subsets. Number \(m_{n+1}\) denotes the minimum element colored with the special color in the \(S\)-template.
+	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there are an \(S\)-template with width \(q\) and \(n+1\) colors 
+	and a sum-free \(k\)-partition of \([\![1,p]\!]\) then there is a partition of \([\![1,pq+m_{n+1}
+	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{n+1}\) denotes the minimum element colored with the special color in the \(S\)-template.
 \end{theorem}
 
 The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. First, they
@@ -350,7 +350,7 @@ The following proposition may improve the additive constant of Corollary \ref{co
 
 \begin{proposition}
 \label{prop:rafStemp}
-Let \((q, n) \in \left(\mathbb{N}^* \right)^2\) and let \(f\) be a coloring associated to a S-template with width \(q\) and \(n+1\) 
+Let \((q, n) \in \left(\mathbb{N}^* \right)^2\) and let \(f\) be a coloring associated to an S-template with width \(q\) and \(n+1\) 
 colors. Let \(b \in \mathbb{N}\) and assume there is a coloring \(g\) of 
 \([\![1, b]\!]\) with \(n+1\) colors such that:
 	
@@ -373,7 +373,7 @@ Then, for every \(n \in \mathbb{N}^*\), by using on the last row the coloring \(
 \[ S(n+k) \geqslant q S(k) + b.\]
 \end{proposition}
 This proposition corresponds to the fact that the hypotheses made on the coloring of the last row can be weakened because 
-the constraints in the definition of a S-template prevent a number from: 
+the constraints in the definition of an S-template prevent a number from: 
 \begin{itemize}
 \item being the sum of two of numbers of its own color. 
 \item creating a sum in its own color. 
@@ -385,8 +385,8 @@ As a result, we can change the coloring on \([\![ q S(k) + 1,  q S(k) + b]\!]\) 
 There is a construction theorem for S-templates as well.
 
 \begin{theorem}
-	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there is a S-template with width \(q\) and \(n+1\) colors,
-	and a S-template with width \(p\) and \(k\) colors, then there also is a S-template with width \(pq\) and \((n+k)\) 
+	Let \((p,k), (q,n) \in (\mathbb{N}^*)^2\). If there are an S-template with width \(q\) and \(n+1\) colors,
+	and an S-template with width \(p\) and \(k\) colors, then there also is an S-template with width \(pq\) and \((n+k)\) 
 	colors.
 \end{theorem}
 
@@ -412,8 +412,9 @@ We now give the inequalities corresponding to the current  best S-templates.
 A sum-free partition \(A_1, ..., A_n\) of \([\![1, p]\!]\) is said to be symmetric if for all \( x \in [\![1, p]\!]\), 
 \(x\) and \(p + 1 - x\) belong to the same subset (except if \(x = p + 1 - x\)).
 
-A S-template with \(n\) colors is said to be symmetric if the partition into \(n\) sum-free subsets derived 
-from this template by applying the extension procedure of theorem \ref{thm:Stemp} with a sum-free partition of length 1 is symmetric. 
+An S-template with \(n\) colors is said to be symmetric if the sum-free \(n\)-partition derived 
+from this template by applying the extension procedure of Theorem \ref{thm:Stemp} with a sum-free 
+partition with length one is symmetric. 
 \end{definition}
 
 We produced S-templates using the lingeling SAT solver \cite{Lingeling2017}, hence providing lower bounds on 
@@ -448,7 +449,7 @@ The three following inequalities are our result:
 Inequalities (\ref{S(n+1)}), (\ref{S(n+2)}), and (\ref{S(n+3)}) cannot be further improved (with this definition of S-template). 
 Inequality (\ref{S(n+4)}) cannot be further improved by only searching for symmetric S-templates whose special color is the 
 last in the order of apparition (and with a multiplicative factor less than or equal to 118). Inequality (\ref{S(n+5)}) can most 
-likely be further improved but the improvement probably will not be substantial. Finally, a S-template corresponding to inequality 
+likely be further improved but the improvement probably will not be substantial. Finally, an S-template corresponding to inequality 
 (\ref{S(n+6)}) was found by extending into a S-template the Schur 6-partition used in \cite{rowley2021improved} (owing to the 
 size of this template, its interest is limited and since it can easily be derived from above mentioned partition, it is not given in 
 \ref{S-templates}). Although we could not find a better S-template with seven colors, inequality (\ref{S(n+6)}) can definitely be 
