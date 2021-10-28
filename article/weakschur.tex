@@ -22,8 +22,9 @@ a sum-frree \(k\)-partition of \([\![1,p]\!]\) then there is a partition of \({[
 \end{sloppypar}
 \end{theorem}
 
-Given that Theorem \ref{thm:WS-ab} will appear as a particular case of a more general theorem after the introduction of
-templates for weak Schur numbers, we only outline the demonstration; a \hyperref[PreuveThm]{proof} using templates 
+As Theorem \ref{thm:WS-ab} is actually a particular case of a more general theorem (Theorem \ref{thm:WStemp}) which will
+be formulated after the introduction of templates for weak Schur number,
+we only outline the demonstration. Its complete \hyperref[PreuveThm]{proof} using templates 
 for weak Schur numbers is in Subsection \ref{ConstructionWS}.
 
 Let \((p, k), (q, n) \in (\mathbb{N}^*)^2\) such that there are a partition of \([\![1,q]\!]\) into \(n\) weakly sum-free
@@ -35,8 +36,8 @@ First, we put the integers of \([\![1, ap + q]\!]\) in the following table (with
 and divide it into 3 blocks (the columns are numbered from \(-l\) to \(+q\)).
 
 \begin{itemize}
-	\item \(\mathcal{T}\) (the "tail"): In the row indexed by 0: numbers from \([\![1,q]\!]\).
-	\item \(\mathcal{R}\) (the "rows"): the integers in columns \(-l\) to \(+r\).
+	\item \(\mathcal{T}\) (the "tail"): in the row indexed by 0: numbers from \([\![1,q]\!]\).
+	\item \(\mathcal{R}\) (the "rows"): the integers in columns from \(-l\) to \(+r\).
 	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns.
 \end{itemize}
 
@@ -177,8 +178,8 @@ for all \((n,k) \in (\mathbb{N}^*)^2\).
 \end{corollary}
 
 This can be seen as an equivalent for weak Schur numbers of Abott and Hanson's construction for Schur numbers 
-\cite{AbbottHanson}. This formula also includes the results of Rowley \cite{RowleyWS} as a special case. For \(n>2\), 
-the formula from corollary \ref{cor:ineqWS-S} does not give new lower bounds.
+\cite{AbbottHanson}. This formula also includes the results from \cite{RowleyWS} as a special case. For \(n>2\), 
+the formula from Corollary \ref{cor:ineqWS-S} does not give new lower bounds.
 
 \begin{remark}
 The inequality from Corollary \ref{cor:ineqWS-S} can be improved by adding 1 to the lower bound if \(\WS (n)\) is odd (more generally if \(q\) is
@@ -194,7 +195,7 @@ In this subsection, we introduce WS-templates and prove calculative results for 
 theorem on templates for weak Schur numbers.
 
 \begin{definition}
-Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). We define :
+Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). We define:
 \[ \pi_{a,b}:x \longmapsto (\operatorname{Id}+a\mathds{1}_{ [\![0,b]\!]})(x \mod a).\]
 \end{definition}
 
@@ -204,7 +205,7 @@ If there is no confusion on the \(a\) and \(b\) to use, \(\pi_{a, b}\) is denote
 \end{sloppypar}
 
 \begin{sloppypar}
-\(\pi\) is the projection on the first line mentioned in the intuitive explanation. The following four propositions are
+Function \(\pi\) is the projection on the first line mentioned in the intuitive explanation. The following four propositions are
 calculative properties on \(\pi\) reflecting the behaviour of an element's column number in \hyperref[SchemaWS]{Figure 3} and
 that we will use later when we introduce WS-templates.
 \end{sloppypar}
@@ -276,7 +277,7 @@ Let \((a,b) \in (\mathbb{N}^*)^2\) such that \(a>b\). Define
 If there is no confusion on the \(a\) and \(b\) to use, \(\lambda_{a, b}\) is denoted by \(\lambda\).
 
 Function \(\lambda\) maps an element \(x\) to its line number as mentioned in the intuitive explanation.
-As we just did with \(\pi\), we prove three more calculative results on both \(\pi\) and \(\lambda\) that are used in
+As we have just done with \(\pi\), we prove three more calculative results on both \(\pi\) and \(\lambda\) that are used in
 Subsection \ref{ConstructionWS}.
 
 \begin{proposition}
@@ -333,12 +334,12 @@ By Proposition \ref{prop5}, \(x + y = a (\lambda(x) + \lambda(y)) + \pi(x) + \pi
 
 \begin{definition}
 Let \( (a,n,b) \in (\mathbb{N}^*)^3\) with \(a > b\). Let \((A_1,...,A_n)\) a partition of  \([\![1, a + b]\!]\).
-This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WS-template) with width \(a\) and \(n\) colors when :
+This partition is said to be a \(b\)-weakly-sum-free template (\(b\)-WS-template) with width \(a\) and \(n\) colors when:
 
 \begin{itemize}
 \item \(\forall i \in [\![1, n]\!], A_i\) is weakly-sum-free,
 \item \(\forall i \in [\![1, n]\!], A_i\backslash [\![1, b]\!]\) is sum-free,
-\item For \(A_n\) (the special subset) :
+\item For \(A_n\) (the special subset):
 	\[
 	\forall (x,y) \in A_n^2, \,x+y>b+2a \implies x+y-2a\notin A_n,
 	\]
@@ -354,7 +355,7 @@ Now, we introduce the number \(\WS^+(n)\) that plays the same role as \(S^+(n)\)
 
 \begin{definition}
 Let \( (n,b) \in (\mathbb{N}^*)^2\). If there is \(a\) such that there is a \(b\)-WS-template with width \(a\)
-and \(n\) colors, we define :
+and \(n\) colors, we define:
 \[
 \WS_b^+(n)= \max \{a \in \mathbb{N}^*/ \text{there is a } b \text{-WS-template with width } a \text{ and } n \text{ colors} \}.
 \]
@@ -362,14 +363,14 @@ If there is no such \(a\), we set \(\WS_b^+(n) = 0\).
 \end{definition}
 
 \begin{definition}
-Let \( n \in \mathbb{N}^*\). We define :
+Let \( n \in \mathbb{N}^*\). We define:
 \[
 \WS^+(n)=\max_{b\in \mathbb{N}^*} \WS_b^+(n).
 \]
 \end{definition}
 The following proposition briefly shows how \(\WS^+(n)\) compares to weak Schur numbers.
 \begin{proposition}
-Let \(n \in [\![2, +\infty]\!]\). Then :
+Let \(n \in [\![2, +\infty]\!]\). Then:
 \[
 \frac{3}{2} \WS (n-1)+1 \leqslant \WS^+(n) \leqslant \WS (n).
 \]
@@ -444,23 +445,23 @@ The additionnal constraints for the WS-template are:
 
 We split \([\![1, p a + b]\!]\) into three subsets. \\
 NB: To keep the notation short, the restriction to \([\![b + 1, p a + b]\!]\) of \(\pi\) defined in Subsection \ref{DefinitionWS+}
-is denoted by \(\pi\) in the hereunder equations.
+is denoted by \(\pi\) in the hereunder equations:
 
 \begin{itemize}
-	\item \(\mathcal{T} = [\![1, b]\!]\)
-	\item \(\mathcal{C} = \pi^{-1}(f^{-1}([\![1, n]\!]))\)
-	\item \(\mathcal{R} = \pi^{-1}(f^{-1}(\{n + 1\}))\)
+	\item \(\mathcal{T} = [\![1, b]\!]\),
+	\item \(\mathcal{C} = \pi^{-1}(f^{-1}([\![1, n]\!]))\),
+	\item \(\mathcal{R} = \pi^{-1}(f^{-1}(\{n + 1\}))\).
 \end{itemize}
 
 We define a coloring \(h\) of \([\![1, p a + b]\!]\) using \( [\![1,n+k]\!]\) colors:
 \[
 \begin{array}{c c c l}
-	h : & [\![1, p a + b]\!] & \longrightarrow & [\![1,n+k]\!] \\
+	h : & [\![1, p a + b]\!] & \longrightarrow & [\![1,n+k]\!],\\
 	& x & \longmapsto &
 	\left\{ \begin{array}{l l}
-		f(x) & \text{if}~x \in \mathcal{T} \\
-		f(\pi(x)) & \text{if}~x \in \mathcal{C} \\
-		n + g(\lambda(x)) & \text{if}~x \in \mathcal{R}
+		f(x), & \text{if}~x \in \mathcal{T}, \\
+		f(\pi(x)), & \text{if}~x \in \mathcal{C}, \\
+		n + g(\lambda(x)), & \text{if}~x \in \mathcal{R}.
 	\end{array} \right.
 \end{array}
 \]
@@ -557,8 +558,8 @@ In both of the last two cases, \({f(\pi(x + y)) \neq n + 1}\) that is \(x+y \in 
 In particular, \(h(x + y) \neq h(x)\). \\
 \end{proof}
 
-Theorem \ref{thm:WS-ab} can be seen as a particular case of Theorem \ref{thm:WStemp} in the same way Abott and Hanson's 
-construction \cite{AbbottHanson} can be seen as a particular case of theorem \ref{thm:Stemp}.
+We go back to Theorem \ref{thm:WS-ab} which can be seen as a particular case of Theorem \ref{thm:WStemp} in the same way Abott and Hanson's 
+construction \cite{AbbottHanson} can be seen as a particular case of Theorem \ref{thm:Stemp}. Its deferred proof is given below.
 
 \begin{proof}[\textsc{Proof of Theorem \ref{thm:WS-ab}.}]
 \label{PreuveThm}
@@ -568,12 +569,12 @@ Let \(b=q\) and \(a = q + \left \lceil \dfrac{q}{2} \right \rceil + 1\). A new c
 
 \[
 \begin{array}{c c c l}
-	g : & [\![1, a + b]\!] & \longrightarrow & [\![1, n + 1]\!] \\
+	g : & [\![1, a + b]\!] & \longrightarrow & [\![1, n + 1]\!], \\
 	& x & \longmapsto &
 		\left\{ \begin{array}{l l}
-			f(x) & \text{if}~x \in [\![1, b]\!]  \\
-			n + 1 & \text{if}~x \in [\![b + 1, 2 b + 1]\!] \\
-			f(x - a) & \text{if}~x \in  [\![2 b + 2, a + b]\!]
+			f(x), & \text{if}~x \in [\![1, b]\!],  \\
+			n + 1, & \text{if}~x \in [\![b + 1, 2 b + 1]\!], \\
+			f(x - a), & \text{if}~x \in  [\![2 b + 2, a + b]\!].
 		\end{array} \right.
 \end{array}
 \]
@@ -610,7 +611,7 @@ By setting \(p = S(k)\) and \(a = \WS^+(n + 1)\) in Theorem \ref{thm:WStemp}, on
 \begin{corollary}
 \label{cor:ineqWS+}
 Let \(n,k \in \mathbb{N}^*\) and set \( b_{max} = \max \{b\in \mathbb{N}^*/ \WS_b^+(n+1) = \WS^+(n+1)\}\).
-Then :
+Then:
 \[
 \WS(n+k) \geqslant S(k) \WS^+(n+1)+b_{max}.
 \]
@@ -656,7 +657,8 @@ additive constant) while increasing the size of the search space.
 
 \par
 These modifications rely on one main observation: the first row (excluding the "tail") has constraints that other rows do not 
-have because of the tail, especially if the special color appears in the tail as well. Therefore, having a coloring dedicated to 
+have because of the tail, especially if the special color appears in the tail as well. Indeed, the line number of the
+sum of two numbers in the tail is never greater than one. Therefore, having a coloring dedicated to 
 the first row and another coloring dedicated to the repeating pattern would weaken the constraints on the repeating pattern. 
 
 \par
@@ -694,7 +696,7 @@ Let \(n, k \in \mathbb{N}^*\). Then
 
 \subsection{New lower bounds for Weak Schur numbers}
 
-We produced WS-templates using the lingeling SAT solver \cite{Lingeling2017}, hence providing lower bound on \(WS^+\) 
+We produced WS-templates using the lingeling SAT solver \cite{Lingeling2017}, hence providing lower bounds on \(WS^+\) 
 and inequalities of the type \(WS(n+k) \geqslant a S(n) + b\). We sought templates providing the greatest value of \((a, b)\) 
 (in the lexicographic order). Details concerning the encoding as a SAT problem can be found in \cite{Heule2017}.
 
@@ -714,17 +716,18 @@ Inequalities (\ref{WS(n+1)}) and (\ref{WS(n+2)}) were found by Rowley, they are 
 	WS(n + 4) &\geqslant  132\,S(n)  +  26 \label{WS(n+4)}
 \end{align}
 
-Inequality (\ref{WS(n+3)}) cannot be further improved and was found with a SAT solver. It uses the first 
+Inequality (\ref{WS(n+3)}), found with a SAT solver \cite{Lingeling2017}, cannot be improved (with this 
+definition of WS-template). It uses the first 
 sophistication explained in Subsection \ref{ConstructionWS} in order to add
 the last number in the first color. As for inequality (\ref{WS(n+4)}), it was obtained by combining a S-template with 
 width 33 with a WS-template with width 4. The best template we could find with a computer search gives the 
 inequality \(\WS(n+4) \geqslant 127 S(n) + 68\). It was also found with the SAT solver. In order to reduce the search space, 
 we only looked for WS-templates with five colors which start with a near-optimal \(\WS(4)\) partition and we assumed that the 
-special color was the last by order of appearance. We highly suspect that better WS-templates with \(n \geqslant 5\) 
+special color was the last by order of appearance. We expect that better WS-templates with \(n \geqslant 5\) 
 colors can be found but one would have not to use the above assumptions.
 
-Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by inequalities (\ref{WS(n+1)}),
-(\ref{WS(n+2)}) and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound for each value of \(n\) is highlighted.
+Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by Inequalities (\ref{WS(n+1)}),
+(\ref{WS(n+2)}), and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound for each value of \(n\) is highlighted.
 
 \renewcommand{\arraystretch}{0.2}
 
