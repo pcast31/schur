@@ -65,15 +65,15 @@ to the line number, as in \hyperref[figure:1]{Figure 1}. We give an example for 
 Hanson's construction (\hyperref[figure:1]{Figure 1}) and with an S-template which is not included in Abbott and Hanson's construction 
 (\hyperref[figure:2]{Figure 2}). In both cases, the special color is grey.
 
-\renewcommand{\arraystretch}{1.7}
 \begin{figure}[H]
 \begin{center}
-\setlength{\tabcolsep}{1.5ex}
 
 \textbf{Abbott and Hanson's construction}
 \label{figure:1}
 \vspace{1.7ex}
 
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{1.2ex}
 \begin{NiceTabular}{|*{9}{c|}}[corners=SE,standard-cline,hlines]
 \CodeBefore
 	\cellcolor{red}{1-1}
@@ -129,6 +129,7 @@ Hanson's construction (\hyperref[figure:1]{Figure 1}) and with an S-template whi
 
 \begin{tabular}{c c}
 	\textbf{Corresponding S-template} & \textbf{Corresponding sum-free partition} \\
+	\setlength{\tabcolsep}{1.5ex}
 	\begin{NiceTabular}{|*{9}{c|}}[standard-cline,hlines]
 	\CodeBefore 
 		\cellcolor{red}{1-1}
@@ -143,6 +144,7 @@ Hanson's construction (\hyperref[figure:1]{Figure 1}) and with an S-template whi
 	\Body
 		1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
 	\end{NiceTabular} &
+	\setlength{\tabcolsep}{1.5ex}
 	\begin{NiceTabular}{|*{4}{c|}}[standard-cline,hlines]
 	\CodeBefore
 		\cellcolor{cyan}{1-1}
@@ -166,10 +168,10 @@ line number and the other colors are still vertically extended.
 \begin{center}
 \textbf{S-template construction}
 \label{figure:2}
-\setlength{\tabcolsep}{1.5ex}
+\setlength{\tabcolsep}{1.2ex}
+\renewcommand{\arraystretch}{1.5}
 
 \vspace{1.7ex}
-
 \begin{NiceTabular}{|*{9}{c|}}[corners=SE,standard-cline,hlines]
 \CodeBefore
 	\cellcolor{red}{1-1}
@@ -221,10 +223,11 @@ line number and the other colors are still vertically extended.
 \end{NiceTabular}
 
 \vspace{1ex}
-\setlength{\tabcolsep}{2ex}
+\setlength{\tabcolsep}{1.5ex}
 
 \begin{tabular}{c c}
 	\textbf{Corresponding S-template} & \textbf{Corresponding sum-free partition} \\
+	\setlength{\tabcolsep}{1.5ex}
 	\begin{NiceTabular}{|*{9}{c|}}[standard-cline,hlines]
 	\CodeBefore 
 		\cellcolor{red}{1-1}
@@ -239,6 +242,7 @@ line number and the other colors are still vertically extended.
 	\Body
 		1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
 	\end{NiceTabular} &
+	\setlength{\tabcolsep}{1.5ex}
 	\begin{NiceTabular}{|*{4}{c|}}[standard-cline,hlines]
 	\CodeBefore
 		\cellcolor{cyan}{1-1}
@@ -256,7 +260,6 @@ line number and the other colors are still vertically extended.
 \end{center}
 \end{figure}
 
-\resetarraystretch
 
 Now, we prove Theorem \ref{thm:Stemp}.
 
@@ -460,14 +463,12 @@ The previous inequalities give new lower bounds for \(S(n)\) for
 \( n \geqslant 9 \). We compute the lower
 bounds for \( n \in [\![8,15]\!] \) using the four different inequalities. The best lower bounds are highlighted.
 
-\renewcommand{\arraystretch}{0.2}
 
 \begin{table}[H]
 
-\label{LowerBoundsWS}
+\label{LowerBoundsS}
 \[
 \begin{array}{c}
-	\resetarraystretch
 	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
 	\CodeBefore
 		\cellcolor{yellow}{2-2}
@@ -481,7 +482,6 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities. The b
 		380 \, S(n-5) + 148 & 5\,088 & 16\,868 & 60\,948 & 203\,828 \\
 	\end{NiceArray}
 	\\ \\
-	\resetarraystretch
 	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
 	\CodeBefore
 		\cellcolor{yellow}{2-3}
@@ -498,7 +498,6 @@ bounds for \( n \in [\![8,15]\!] \) using the four different inequalities. The b
 \]
 \caption{New lower bounds for \( n \in [\![8,15]\!] \)}
 \end{table}
-\resetarraystretch
 
 Except for \(S(8)\), \(S(9)\), and \(S(13)\), the best lower bounds are obtained thanks to
 the fifth inequality \( S(n+5) \geqslant 380 \, S(n) + 148\). The table

@@ -41,10 +41,11 @@ The columns are numbered from \(-l\) to \(+q\). This table is made of three diff
 	\item \(\mathcal{C}\) (the "columns"): the integers in the last \(w\) columns.
 \end{itemize}
 
-\renewcommand{\arraystretch}{1.7}
-\setlength{\arraycolsep}{3pt}
+\setlength{\arraycolsep}{2pt}
 
 \begin{figure}[H]
+\renewcommand{\arraystretch}{1.5}
+\begin{small}
 \[
 \begin{NiceArray}{*{13}{c}}[corners={NW,SW},hvlines,first-row,last-row,first-col]
 \CodeBefore
@@ -115,7 +116,7 @@ The columns are numbered from \(-l\) to \(+q\). This table is made of three diff
 \Body
 	& & & & & & \Block{1-8}{\overbrace{\hphantom{---------------------------}}^{\mathcal{T}}} \\
 	& & & & & & 1 & 2 & ... & r & r + 1 & ... & q - 1 & q \\
-	\Block{5-1}{\mathcal{R} \left\{ \vphantom{\begin{array}{l} . \\ . \\ . \\ . \\ . \\ . \\ . \\ . \\ . \end{array}} \right.}
+	\Block{5-1}{\mathcal{R} \left\{ \vphantom{\begin{array}{l} . \\ . \\ . \\ . \\ . \\ . \\ . \\  . \end{array}} \right.}
 	& a - l & a - l + 1 & ... & a - 1 & a & a + 1 & ... & a + r - 1 & a + r & a + r + 1 & ... & a + q - 1 & a + q \\
 	& 2 a - l & ... & ... & ... & 2 a & ... & ... & ... & 2 a + r & ... & ... & ... & 2 a + q \\
 	& ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
@@ -124,11 +125,11 @@ The columns are numbered from \(-l\) to \(+q\). This table is made of three diff
 	& & & & & & & & & & \Block{1-4}{\underbrace{\hphantom{--------------}}_{\mathcal{C}}} \\
 \end{NiceArray}
 \]
+\end{small}
 \label{SchemaWS}
 \caption{Construction of the weakly sum-free coloring}
 \end{figure}
 
-\resetarraystretch
 \setlength{\arraycolsep}{6pt}
 
 \noindent \underline{\textbf{\(\mathcal{T}\) block}}
@@ -729,14 +730,12 @@ colors can be found but one would have not to use the above assumptions.
 Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by Inequalities (\ref{WS(n+1)}),
 (\ref{WS(n+2)}), and (\ref{WS(n+3)}) for \( n \in [\![8,15]\!] \). The best lower bound for each value of \(n\) is highlighted.
 
-\renewcommand{\arraystretch}{0.2}
 
 \begin{table}[H]
 
 \label{LowerBoundsWS}
 \[
 \begin{array}{c}
-	\resetarraystretch
 	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
 	\CodeBefore
 		\cellcolor{yellow}{2-5}
@@ -750,7 +749,6 @@ Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by Ineq
 		42 \, S(n-3) + 24 & 6\,744 & 22\,536 & 71\,256 & 222\,036 \\
 	\end{NiceArray}
 	\\ \\
-	\resetarraystretch
 	\begin{NiceArray}{cwc{8ex}wc{10ex}wc{10ex}wc{11ex}}[hvlines]
 	\CodeBefore
 		\cellcolor{yellow}{2-2}
@@ -768,7 +766,6 @@ Like in  Subsection \ref{subsec:lowS}, we compute the lower bounds given by Ineq
 \caption{New lower bounds for \( n \in [\![8,15]\!] \)}
 \end{table}
 
-\resetarraystretch
 
 
 \subsection{Another approach: \(\WS(6) \geqslant 646\)}

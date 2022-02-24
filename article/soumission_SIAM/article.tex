@@ -1,85 +1,55 @@
-\documentclass[3p]{elsarticle}
+\documentclass[final,onefignum,onetabnum]{siamart190516}
 
 
-\usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
 \usepackage{dsfont}
 \usepackage{MyMnSymbol}
 
-\usepackage[english]{babel}
-\usepackage[hyphens]{url}
-\usepackage[hidelinks]{hyperref}
-\usepackage[utf8]{inputenc}
-\usepackage{siunitx}
 \usepackage{float}
 
-\usepackage[table]{xcolor}
-\usepackage{multirow}
 \usepackage{nicematrix}
 
-\renewcommand{\qedsymbol}{\(\square\)}
-
-\newtheorem{definition}{Definition}[section]
-\newtheorem{notation}[definition]{Notation}
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{computational theorem}[definition]{Computational Theorem}
-\newtheorem{corollary}[definition]{Corollary}
-\newtheorem{remark}[definition]{Remark}
-\newtheorem{proposition}[definition]{Proposition}
+\newsiamremark{remark}{Remark}
 
 \newcommand{\WS}{\mathit{WS}}
-\newcommand{\docarraystretch}{1.2}
-\newcommand{\resetarraystretch}{\renewcommand{\arraystretch}{\docarraystretch}}
-\resetarraystretch
 
 
-\title{New lower bounds for Schur and weak Schur numbers}
 
-\author[1]{Romain Ageron\fnref{fn1}}
-\ead{romain.ageron@student-cs.fr}
+\title{New lower bounds for Schur and weak Schur numbers \thanks{Submitted to the editors 02/24/2022.}}
 
-\author[1]{Paul Casteras\fnref{fn1}}
-\ead{paul.casteras@student-cs.fr}
+\author{Romain Ageron\thanks{CentraleSup\'elec, Universit\'e{} Paris-Saclay, Gif-sur-Yvette, France
+	(\email{romain.ageron@student-cs.fr}, \email{paul.casteras@student-cs.fr},
+	\email{thibaut.pellerin@student-cs.fr}, \email{yann.portella@student-cs.fr}).}
+\and Paul Casteras\footnotemark[2]
+\and Thibaut Pellerin\footnotemark[2]
+\and Yann Portella\footnotemark[2]
+\and Arpad Rimmel\footnotemark[2]\ \thanks{LISN, CentraleSup\'elec, Universit\'e{} Paris-Saclay, Orsay, France
+	(\email{arpad.rimmel@centralesupelec.fr}).}
+\and Joanna Tomasik\footnotemark[2]\ \footnotemark[3]\ \thanks{Corresponding author
+	(\email{joanna.tomasik@centralesupelec.fr}).}}
 
-\author[1]{Thibaut Pellerin\fnref{fn1}}
-\ead{thibaut.pellerin@student-cs.fr}
-
-\author[1]{Yann Portella\fnref{fn1}}
-\ead{yann.portella@student-cs.fr}
-
-\author[2]{Arpad Rimmel\fnref{fn2}}
-\ead{arpad.rimmel@centralesupelec.fr}
-
-\author[2]{Joanna Tomasik\corref{cor1}\fnref{fn2}}
-\ead{joanna.tomasik@centralesupelec.fr}
-
-\cortext[cor1]{Corresponding author}
-\fntext[fn1]{These authors contributed equally.}
-\fntext[fn2]{These authors supervised the work of the main authors.}
-
-\address[1]{CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 190, Gif-sur-Yvette, France}
-\address[2]{LISN, CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 405, Orsay, France}
+\headers{New lower bounds for Schur and weak Schur numbers}{R. Ageron, P. Casteras,
+T. Pellerin, Y. Portella, A. Rimmel, J. Tomasik}
 
 
 \begin{document}
+\maketitle
 
 \begin{abstract}
-
 This article provides new lower bounds for both Schur and weak Schur numbers by exploiting a "template"-based approach. 
 The concept of "template" is also generalized to weak Schur numbers. Finding new templates leads to explicit partitions 
 improving lower bounds as well as the growth rate for Schur numbers, weak Schur numbers, and multicolor Ramsey numbers \(R_n(3)\). 
 The new lower bounds include \(S(9) \geqslant 17\,803\), \(S(10) \geqslant 60\,948\), \(\WS(6) \geqslant 646\), 
 \(\WS (9) \geqslant 22\,536\) and \(\WS (10) \geqslant 71\,256 \).
-
 \end{abstract}
 
-\begin{keyword}
-Schur number \sep Weak Schur number \sep Ramsey theory \sep Sum-free partition
-\MSC[2020]{05D10 \sep 11P81 \sep 05A17 \sep 11B75}
-\end{keyword}
+\begin{keywords}
+	Schur number, Weak Schur number, Ramsey theory, Sum-free partition
+\end{keywords}
 
-\maketitle
+\begin{AMS}
+	05D10, 11P81, 05A17, 11B75
+\end{AMS}
 
 \input{introduction.tex}
 
@@ -116,7 +86,7 @@ used in the computation of the new lower bound for \(\WS(6)\).
 
 
 \bibliography{biblio}
-\bibliographystyle{elsarticle-num.bst}
+\bibliographystyle{siamplain}
 
 \include{appendix.tex}
 
