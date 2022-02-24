@@ -4,6 +4,7 @@ article/*
 !article/*.tex
 !article/*.sty
 !article/article_push.pdf
+!article/soumission_SIAM
 
 rapport/*
 !rapport/*.cls
@@ -20,3 +21,5 @@ soutenance/*
 !soutenance/*.jpeg
 
 __pycache__
+
+.env
