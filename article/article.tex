@@ -9,7 +9,7 @@
 
 \usepackage[english]{babel}
 \usepackage[hyphens]{url}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage{siunitx}
 \usepackage{float}
@@ -58,7 +58,7 @@
 \fntext[fn1]{These authors contributed equally.}
 \fntext[fn2]{These authors supervised the work of the main authors.}
 
-\address[1]{CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 190 Gif-sur-Yvette, France}
+\address[1]{CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 190, Gif-sur-Yvette, France}
 \address[2]{LISN, CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 405, Orsay, France}
 
 
@@ -68,14 +68,14 @@
 
 This article provides new lower bounds for both Schur and weak Schur numbers by exploiting a "template"-based approach. 
 The concept of "template" is also generalized to weak Schur numbers. Finding new templates leads to explicit partitions 
-improving lower bounds as well as the growth rate for Schur numbers, weak Schur numbers and multicolor Ramsey numbers \(R_n(3)\). 
+improving lower bounds as well as the growth rate for Schur numbers, weak Schur numbers, and multicolor Ramsey numbers \(R_n(3)\). 
 The new lower bounds include \(S(9) \geqslant 17\,803\), \(S(10) \geqslant 60\,948\), \(\WS(6) \geqslant 646\), 
 \(\WS (9) \geqslant 22\,536\) and \(\WS (10) \geqslant 71\,256 \).
 
 \end{abstract}
 
 \begin{keyword}
-Schur number \sep Weak Schur number \sep Ramsey theory \sep Sumfree partition
+Schur number \sep Weak Schur number \sep Ramsey theory \sep Sum-free partition
 \MSC[2020]{05D10 \sep 05A17 \sep 11B75 \sep 11B81}
 \end{keyword}
 
@@ -89,19 +89,19 @@ Schur number \sep Weak Schur number \sep Ramsey theory \sep Sumfree partition
 
 \section{Conclusion and future work}
 
-We exhibit new templates for Schur and Ramsey numbers. We also generalize the concept of template to weak Schur numbers. 
+We have produced new templates for Schur and Ramsey numbers. We also have generalized the concept of template to weak Schur numbers. 
 These templates provide new general inequalities of the form \(S(n+k) \geqslant a S(n) + b\) and \(\WS(n+k) \geqslant a S(n) + b\) 
-as well as new lower bounds for both Schur and weak Schur numbers. We also give a new lower bound \(\WS(6) \geqslant 646\) with 
+as well as new lower bounds for both Schur and weak Schur numbers. We have given a new lower bound \(\WS(6) \geqslant 646\) with 
 a method that can yield slight improvements for fixed values of \(n\) over lower bounds obtained with the inequality 
 \(\WS(n+1) \geqslant 4 S(n) + 2\).
 
 Given that the introduction of templates is quite recent, we expect the bounds to be improved as this special type of partition 
-becomes better understood and larger templates are found. One may try to find better templates by using heuristics or 
+becomes better understood and larger templates are found. One may try to produce better templates by using heuristics or 
 approximation algorithms, such as Monte-Carlo algorithms for instance.
 
 The best lower bound \(\WS(6) \geqslant 583\) achieved with a computer search using Monte-Carlo methods 
-\cite{EliahouBook} is significantly lower than those obtained with a template-like structure (\(\WS(6) \geqslant 642\) \cite{RowleyWS}, 
-\(\WS(6) \geqslant 646\) in the present article). We have evidence that 583 is the maximal value in the search space considered by 
+\cite{EliahouBook} is significantly lower than those obtained with a template-like structure: \(\WS(6) \geqslant 642\) \cite{RowleyWS}, 
+\(\WS(6) \geqslant 646\). We have evidence that 583 is the maximal value in the search space considered by 
 \cite{EliahouBook,Bouzy2015AnAP,Rafilipojaona}. Therefore, it questions the assumption that large partitions for \(\WS(n+1)\) 
 start with large partitions for \(\WS(n)\). It also indicates that \(\WS(5)\) might need further investigation since the current lower 
 bound \(\WS(5) \geqslant 196\) \cite{ELIAHOU2012175} was obtained by considering the same type of search space.
