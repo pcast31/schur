@@ -1,32 +1,27 @@
-\documentclass[3p]{elsarticle}
+\documentclass[review,onefignum,onetabnum]{siamart190516}
 
 
-\usepackage{amsmath}
+%\usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
+%\usepackage{amsthm}
 \usepackage{dsfont}
 \usepackage{MyMnSymbol}
 
-\usepackage[english]{babel}
-\usepackage[hyphens]{url}
-\usepackage[hidelinks]{hyperref}
-\usepackage[utf8]{inputenc}
-\usepackage{siunitx}
+%\usepackage[english]{babel}
+%\usepackage[hyphens]{url}
+%\usepackage[hidelinks]{hyperref}
+%\usepackage[utf8]{inputenc}
+%\usepackage{siunitx}
 \usepackage{float}
 
-\usepackage[table]{xcolor}
+%\usepackage[table]{xcolor}
 \usepackage{multirow}
 \usepackage{nicematrix}
 
 \renewcommand{\qedsymbol}{\(\square\)}
 
-\newtheorem{definition}{Definition}[section]
-\newtheorem{notation}[definition]{Notation}
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{computational theorem}[definition]{Computational Theorem}
-\newtheorem{corollary}[definition]{Corollary}
-\newtheorem{remark}[definition]{Remark}
-\newtheorem{proposition}[definition]{Proposition}
+
+\newsiamremark{remark}{Remark}
 
 \newcommand{\WS}{\mathit{WS}}
 \newcommand{\docarraystretch}{1.2}
@@ -36,30 +31,30 @@
 
 \title{New lower bounds for Schur and weak Schur numbers}
 
-\author[1]{Romain Ageron\fnref{fn1}}
-\ead{romain.ageron@student-cs.fr}
+%\author[1]{Romain Ageron\fnref{fn1}}
+%\ead{romain.ageron@student-cs.fr}
 
-\author[1]{Paul Casteras\fnref{fn1}}
-\ead{paul.casteras@student-cs.fr}
+%\author[1]{Paul Casteras\fnref{fn1}}
+%\ead{paul.casteras@student-cs.fr}
 
-\author[1]{Thibaut Pellerin\fnref{fn1}}
-\ead{thibaut.pellerin@student-cs.fr}
+%\author[1]{Thibaut Pellerin\fnref{fn1}}
+%\ead{thibaut.pellerin@student-cs.fr}
 
-\author[1]{Yann Portella\fnref{fn1}}
-\ead{yann.portella@student-cs.fr}
+%\author[1]{Yann Portella\fnref{fn1}}
+%\ead{yann.portella@student-cs.fr}
 
-\author[2]{Arpad Rimmel\fnref{fn2}}
-\ead{arpad.rimmel@centralesupelec.fr}
+%\author[2]{Arpad Rimmel\fnref{fn2}}
+%\ead{arpad.rimmel@centralesupelec.fr}
 
-\author[2]{Joanna Tomasik\corref{cor1}\fnref{fn2}}
-\ead{joanna.tomasik@centralesupelec.fr}
+%\author[2]{Joanna Tomasik\corref{cor1}\fnref{fn2}}
+%\ead{joanna.tomasik@centralesupelec.fr}
 
-\cortext[cor1]{Corresponding author}
-\fntext[fn1]{These authors contributed equally.}
-\fntext[fn2]{These authors supervised the work of the main authors.}
+%\cortext[cor1]{Corresponding author}
+%\fntext[fn1]{These authors contributed equally.}
+%\fntext[fn2]{These authors supervised the work of the main authors.}
 
-\address[1]{CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 190, Gif-sur-Yvette, France}
-\address[2]{LISN, CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 405, Orsay, France}
+%\address[1]{CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 190, Gif-sur-Yvette, France}
+%\address[2]{LISN, CentraleSup\'elec, Universit\'e{} Paris-Saclay, 91 405, Orsay, France}
 
 
 \begin{document}
@@ -74,10 +69,10 @@ The new lower bounds include \(S(9) \geqslant 17\,803\), \(S(10) \geqslant 60\,9
 
 \end{abstract}
 
-\begin{keyword}
-Schur number \sep Weak Schur number \sep Ramsey theory \sep Sum-free partition
-\MSC[2020]{05D10 \sep 11P81 \sep 05A17 \sep 11B75}
-\end{keyword}
+%\begin{keyword}
+%Schur number \sep Weak Schur number \sep Ramsey theory \sep Sum-free %partition
+%\MSC[2020]{05D10 \sep 11P81 \sep 05A17 \sep 11B75}
+%\end{keyword}
 
 \maketitle
 
@@ -116,8 +111,7 @@ used in the computation of the new lower bound for \(\WS(6)\).
 
 
 \bibliography{biblio}
-\bibliographystyle{elsarticle-num.bst}
+\bibliographystyle{siamplain}
 
 \include{appendix.tex}
-
 \end{document}

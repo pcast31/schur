@@ -1,0 +1,27 @@
+\newcolumntype{R}{>{$}r<{$}}  %
+\newcolumntype{V}[1]{>{[\;}*{#1}{R@{\;\;}}R<{\;]}} %
+\begin{table}[tbhp]
+{\footnotesize
+ \captionsetup{position=top} %<- Needed for using subtables created with the subfig package
+  \caption{Example table adapted from Kolda and Mayo \rm{\cite{KoMa14}}.}\label{tab:KoMa14}
+\begin{center}
+  \subfloat[$\beta=1$]{
+    \begin{tabular}{|r|R|V{3}|c|r@{\,$\pm$\,}l|} \hline
+occ. & \multicolumn{1}{c|}{$\lambda$} & \multicolumn{4}{c|}{$\mathbf{x}$} &
+fevals &  \multicolumn{2}{c|}{time (sec.)}\\ \hline
+ 718 & 11.3476 &  0.5544 &  0.3155 &  1.2018 &  0.0977 &   45 & 0.17 & 0.06 \\ \hline
+ 134 &  3.7394 &  0.2642 & -1.1056 &  0.2657 & -0.3160 &   31 & 0.12 & 0.05 \\ \hline
+   4 & \multicolumn{6}{c|}{\emph{--- Failed to converge ---}} & 0.21 & 0.10 \\ \hline
+ \end{tabular}}
+
+  \subfloat[$\beta=-1$]{
+    \begin{tabular}{|r|R|V{3}|c|r@{\,$\pm$\,}l|} \hline
+occ. & \multicolumn{1}{c|}{$\lambda$} & \multicolumn{4}{c|}{$\mathbf{x}$} &
+fevals &  \multicolumn{2}{c|}{time (sec.)}\\ \hline
+  72 & -1.1507 &  0.2291 &  0.6444 &  0.3540 & -0.8990 &   34 & 0.14 & 0.06 \\ \hline
+ 624 & -6.3985 &  0.1003 &  0.1840 &  0.5305 &  1.2438 &   48 & 0.19 & 0.08 \\ \hline
+   2 & \multicolumn{6}{c|}{\emph{--- Failed to converge ---}} & 0.23 & 0.02 \\ \hline
+ \end{tabular}}
+\end{center}
+}
+\end{table}
