@@ -53,7 +53,7 @@ The new lower bounds include \(S(9) \geqslant 17\,803\), \(S(10) \geqslant 60\,9
 
 \section{Introduction}
 
-We are interested in partioning the set of integers \(\{1, ..., p\}\) into \(n\) subsets such that there is no
+We are interested in partitioning the set of integers \(\{1, ..., p\}\) into \(n\) subsets such that there is no
 subset containing three integers \(x\), \(y\) and \(z\) verifying \(x + y = z\). We say these subsets are
 \textit{sum-free}. If we lessen the above constraint by only considering integers \(x,y\) such that \(x \neq y\), we say the subsets are \textit{weakly sum-free}. The
 greatest \(p\) for which there is a partition into \(n\) sum-free subsets is called the \(n^{\text{th}}\) Schur
@@ -75,7 +75,7 @@ bounds with Monte-Carlo methods. This was the main approach during the past deca
 
 \par
 In 2020, Rowley introduced the notion of templates for Schur and Ramsey numbers \cite{RowleyRamsey} which
-generalizes Abbott and Hanson's construction and produces new lower bounds (and inequalties) for Schur numbers.
+generalizes Abbott and Hanson's construction and produces new lower bounds (and inequalities) for Schur numbers.
 He also provided two inequalities for weak Schur numbers \cite{RowleyWS}. Besides, these two inequalities do use the \textit{weakly} sum-free property.
 
 \par The hereunder tables recap the lower bounds for Schur and weak Schur numbers, respectively. Gray cells
@@ -192,7 +192,7 @@ denoted by \([\![1,p]\!]\), into \(n\) (weakly) sum-free subsets.
 
 \par
 Schur proved \cite{Schur1917} that given a number of subsets \(n\), there is a value of \(p\)
-such that \([\![1,q]\!]\) cannot be partionned into \(n\) sum-free subsets for \(q \geqslant p\). A similar
+such that \([\![1,q]\!]\) cannot be partioned into \(n\) sum-free subsets for \(q \geqslant p\). A similar
 property holds for weakly sum-free subsets \cite{Irving1973}. These observations lead to the following definitions
 written for \(n \in \mathbb{N}^*\):
 
@@ -269,7 +269,7 @@ of \([\![1, p]\!]\). The lower bound comes from Abbott and Hanson's construction
 \subsection{Construction of Schur partitions using S-templates}
 
 We start by reminding the explicit construction of a sum-free partition with the use of an S-template and a sum-free partition. 
-We rephrase in terms of Schur numbers this contruction stated by Rowley in the context of Ramsey numbers \cite{RowleyRamsey}.
+We rephrase in terms of Schur numbers this construction stated by Rowley in the context of Ramsey numbers \cite{RowleyRamsey}.
 
 \begin{theorem}
 \label{thm:Stemp}
@@ -278,7 +278,7 @@ We rephrase in terms of Schur numbers this contruction stated by Rowley in the c
 	-1]\!]\) into \(n+k\) sum-free subsets. \(m_{n+1}\) denotes the minimum element colored with the special color in the \(S\)-template.
 \end{theorem}
 
-The idea lying beneath this theorem is similar to Abbott and Hanson's contruction \cite{AbbottHanson}. First, they
+The idea lying beneath this theorem is similar to Abbott and Hanson's construction \cite{AbbottHanson}. First, they
 put the integers from \([\![1,S(k)(2S(n)+1)+S(n)]\!]\) in a table with width \(2S(n)+1\) and height \(S(k)+1\) and they 
 numbered both the rows and the columns, starting from one upwards. Then, they 
 extended a sum-free partition vertically by repeating it. Next, they used another sum-free partition to color the other half according 
@@ -292,7 +292,7 @@ Hanson's construction (\hyperref[figure:1]{Figure 1}) and with an S-template whi
 	\caption{Visualisation of an Abbott and Hanson construction}\label{figure:1}}
 \begin{center}
 
-\textbf{Abbott and Hanson's construction}
+{\footnotesize\textbf{Abbott and Hanson's construction}}
 \vspace{1.7ex}
 
 \renewcommand{\arraystretch}{1.5}
@@ -351,7 +351,7 @@ Hanson's construction (\hyperref[figure:1]{Figure 1}) and with an S-template whi
 \setlength{\tabcolsep}{2ex}
 
 \begin{tabular}{c c}
-	\textbf{Corresponding S-template} & \textbf{Corresponding sum-free partition} \\
+	{\footnotesize\textbf{Corresponding S-template}} & {\footnotesize\textbf{Corresponding sum-free partition}} \\
 	\setlength{\tabcolsep}{1.5ex}
 	\begin{NiceTabular}{|*{9}{c|}}[standard-cline,hlines]
 	\CodeBefore 
@@ -390,7 +390,7 @@ line number and the other colors are still vertically extended.
 {\footnotesize
 	\caption{Visualisation of a template-based construction}\label{figure:2}}
 \begin{center}
-\textbf{S-template construction}
+{\footnotesize\textbf{S-template construction}}
 \setlength{\tabcolsep}{1.2ex}
 \renewcommand{\arraystretch}{1.5}
 
@@ -449,7 +449,7 @@ line number and the other colors are still vertically extended.
 \setlength{\tabcolsep}{1.5ex}
 
 \begin{tabular}{c c}
-	\textbf{Corresponding S-template} & \textbf{Corresponding sum-free partition} \\
+	{\footnotesize\textbf{Corresponding S-template}} & {\footnotesize\textbf{Corresponding sum-free partition}} \\
 	\setlength{\tabcolsep}{1.5ex}
 	\begin{NiceTabular}{|*{9}{c|}}[standard-cline,hlines]
 	\CodeBefore 
@@ -496,7 +496,7 @@ Now, we prove Theorem \ref{thm:Stemp}.
 	\[\forall (x,y) \in [\![1,q]\!]^2, f(x) = f(y) \Longrightarrow f(x+y) \neq f(x),\]
 	\[\forall (x,y) \in [\![1,p]\!]^2, g(x) = g(y) \Longrightarrow g(x+y) \neq g(x).\]
 	
-	The additionnal constraint for the S-template is:
+	The  additional constraint for the S-template is:
 	\[
 	\forall (x,y) \in [\![1,q]\!]^2, \left\{
 	\begin{array}{l}
@@ -535,10 +535,10 @@ Now, we prove Theorem \ref{thm:Stemp}.
 	\(h\) and given that \(h(u) = h(v)\), we conclude \(f(u) = f(v)\). Two cases are to be distinguished according to the value of \(x + y\).
 	
 	\begin{itemize}
-	\item If \(u + v > q\), we write \(w = u + v - q \in [\![1, q]\!]\). Consequentely \(x + y = (\alpha + \beta - 1) q + w\). By definition, 
-		\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant n\), the additionnal constraint on \(f\) implies \(f(w) 
+	\item If \(u + v > q\), we write \(w = u + v - q \in [\![1, q]\!]\). Consequently \(x + y = (\alpha + \beta - 1) q + w\). By definition, 
+		\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant n\), the  additional constraint on \(f\) implies \(f(w) 
 		\neq f(u)\), that is \(h(x + y) \neq h(x)\).
-	\item If \(u + v \leqslant q\), we write \(w = u + v \in [\![1, q]\!]\). Consequentely \(x+y = (\alpha + \beta- 2) q + w\). By definition, 
+	\item If \(u + v \leqslant q\), we write \(w = u + v \in [\![1, q]\!]\). Consequently \(x+y = (\alpha + \beta- 2) q + w\). By definition, 
 		\(h(x + y) = f(w)\). Given that \(f(u) = f(v) \leqslant n\), the sum-free property of \(f\) implies \(f(w) \neq f(u)\), 
 		that is \(h(x + y) \neq h(x)\).
 	\end{itemize} 
@@ -919,7 +919,7 @@ that is its column number. A simple solution is to color \(x\) with the same col
 weakly sum-free property of the coloring of \([\![1,q]\!]\) guarantees that if \(x \in [\![1,r]\!]\) and \(y \in \mathcal{C}\) are colored 
 the same, then \(x + y\) is colored differently.
 
-Setting \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rceil\) and \(r = \left\lfloor \displaystyle \frac{q}{2} \right\rfloor\) satsfies these 
+Setting \(w = l = \left\lceil \displaystyle \frac{q}{2} \right\rceil\) and \(r = \left\lfloor \displaystyle \frac{q}{2} \right\rfloor\) satisfies these 
 constraints: it corresponds to Theorem \ref{thm:WS-ab}. \\
 
 By setting \(q = \WS (n)\) and \(p = S(k)\) in Theorem \ref{thm:WS-ab}, one obtains the following corollary.
@@ -1180,7 +1180,7 @@ The weakly sum-free condition is expressed as:
 \right. \Longrightarrow f(x+y) \neq f(x),
 \]
 
-The additionnal constraints for the WS-template are expressed as:
+The  additional constraints for the WS-template are expressed as:
 \[
 \forall (x,y) \in [\![1,a + b]\!]^2, \left\{
 \begin{array}{l}
@@ -1348,9 +1348,9 @@ We claim that \(g\) is a \(b\)-WSF-template with width \(a\) and \(n + 1\) colou
 	\(x \leqslant b\) and \(y > b\) then \(g(x) = f(x)\), \(g(y) = f(y - a)\) and \(g(z) = f(z - a)\).We have \(x \neq y - a\) 
 	(otherwise, we would have \(a + b \geqslant z = 2 y  - a \geqslant 4 b + 4 - a > a + b\)) and thus \(f(x + y - a) \neq f(x)\),
 	that is \(g(z) \neq g(x)\).
-\item Colour \(n + 1\) verifies the additionnal constraints for the special colour. Indeed, \(b + 2 a \geqslant 4 b + 2\). 
+\item Colour \(n + 1\) verifies the  additional constraints for the special colour. Indeed, \(b + 2 a \geqslant 4 b + 2\). 
 	Hence, \(\forall (x, y) \in g^{-1}(\{n + 1\}), x + y \leqslant b + 2 a\).
-\item Colours \(1, ..., n\) verify the additionnal constraints for the regular colours. Indeed, let 
+\item Colours \(1, ..., n\) verify the  additional constraints for the regular colours. Indeed, let 
 	\((x, y) \in g^{-1}([\![1, n]\!])\) such that \(x + y > a + b\). Given that \(x\) and \(y\) have symmetric roles, 
 	we can assume that \(x \leqslant y\). Necessarily \(y \geqslant 2 b + 2\). If \(x \leqslant b\) then 
 	\(z = x + y \in [\![a + b + 1, a + 2 b]\!]\) and therefore \(\pi(z) \in [\![b + 1, 2 b]\!]\). Otherwise, 
@@ -1417,8 +1417,8 @@ sum of two numbers in the tail is never greater than one. Therefore, having a co
 the first row and another coloring dedicated to the repeating pattern would weaken the constraints on the repeating pattern. 
 
 \par
-These additionnal constraints on the first row imply additionnal constraints on the rows of the its color (compared to other 
-colors). However, one may notice that there are never two consecutive rows of this color. Moreover these additionnal constraints 
+These  additional constraints on the first row imply  additional constraints on the rows of the its color (compared to other 
+colors). However, one may notice that there are never two consecutive rows of this color. Moreover these  additional constraints 
 mostly concern two consecutive rows. Having a special coloring for rows of this color as well as another color dedicated to the 
 first row avoids enforcing these constraints specific to one color on the other colors and thus on the main repeating pattern.
 
@@ -1530,7 +1530,7 @@ expect to find larger partitions by allowing more freedom in the structure of th
 somewhat close to a template-based partition thus reducing the search space to a manageable size.
 
 When applying the inequality \(\WS(n+1) \geqslant 4 \, S(n) + 2\), one may realize that it is possible to build a weakly 
-sum-free partition of length \(4 \, S(n) + 3\) for small values of \(n\) (\(n \leqslant 4\)) by using the contruction of 
+sum-free partition of length \(4 \, S(n) + 3\) for small values of \(n\) (\(n \leqslant 4\)) by using the construction of 
 Corollary \ref{cor:ineqWS+} for the integers 1, 2, \(4i\) and \(4i+1\) for \(i \in [\![1, S(n)]\!]\) but not 
 constraining the other integers. We did the same for the Schur partitions corresponding to Schur number five. More precisely, 
 we imposed these constraints only for \(i \leqslant 50\) in order to have more degrees of freedom. The number 50 was chosen 
@@ -1550,7 +1550,7 @@ We started by giving a new construction which can be seen as an equivalent for w
 and Hanson's construction for sum-free partitions. We then generalized this construction by introducing WS-templates. This
 allows us to find new lower bounds and new inequalities for weak Schur numbers. One may notice the significant gap
 between the former lower bounds for weak Schur numbers obtained by conducting a computer search and the new lower bounds
-obtained with WS-templates; thus questionning the methods used and the assumptions made when obtaining these former lower 
+obtained with WS-templates; thus questioning the methods used and the assumptions made when obtaining these former lower 
 bounds. We reckon better WS-templates with \(n \geqslant 5\) colors can be found by making different assumptions 
 and using a different method (Monte-Carlo methods for instance).
 
@@ -1575,7 +1575,7 @@ start with large partitions for \(\WS(n)\). It also indicates that \(\WS(5)\) mi
 bound \(\WS(5) \geqslant 196\) \cite{ELIAHOU2012175} was obtained by considering the same type of search space.
 
 
-\section{Acknowledgments}
+\section{Acknowledgements}
 
 This study results from a long-term project performed within the framework of the Project Cluster "Training for Research" of CentraleSupélec.
 We would like to address warm thanks to Fred Rowley who kindly answered our many questions
