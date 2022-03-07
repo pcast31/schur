@@ -8,7 +8,7 @@ Both algorithms are based on the same method of generating all unique pairs of n
 
 ![Performance](results/verify_partititon_times.png)
 
-In each case, the X-axis represents the total number of iterations used by `timeit`, and the time is in seconds. As expected, the total time taken is linear in the number of iterations, but time taken per iteration remains fairly constant (and quite low, to be fair :)). 
+In each case, the X-axis represents the total number of iterations used by `timeit`, and the time is in seconds. As expected, the total time taken is linear in the number of iterations, but time taken per iteration remains fairly constant. 
 
 `fitness` simply counts the number of pairs `a,b,c` such that they violate the sum-free property of the partition i.e. `a+b=c` for distinct `a,b,c`. Since the code isn't too different, the performance is not expected to be very different either. The specific times (in seconds) are in the following table.
 
@@ -18,15 +18,16 @@ In each case, the X-axis represents the total number of iterations used by `time
 
 ## `algorithm`
 
-The idea of this algorithm is to be simple, and parallellizable. The steps are as follows:
+<!-- The idea of this algorithm is to be simple, and parallellizable. The steps are as follows:
 
 - **Step 1** Select the numbers to allocate in this round - usually, this is a list of `n` consecutive integers, and send them to the Process.
 - **Step 2** The process will add one integer to each of the `n` partitions, and compute the fitness of each.
-- **Step 3** Once the results have been computed, the solutions are chosen in some manner, in this case, with `SimulatedAnnealing`. 
+- **Step 3** Once the results have been computed, the solutions are chosen in some manner, in this case, with `SimulatedAnnealing`.  -->
 
-<!-- ### Parallel Version 
+The idea of this algorithm is to be simple, and parallellizable. The steps are as follows:
+-**Step 1** Get the number to add for the current iteration
+-**Step 2** Sequentially add it to each subset in the partition, and evaluate the fitness 
+-**Step 3** Choose the solution that has the minimum fitness, or according to a choice algorithm like SimulatedAnnealing.
 
-- **Step 1** Select the numbers to allocate in this round - this is a list of `n` consecutive integers, and send them to the Process.
-- **Step 2** The process will add one integer to each of the `n` partitions, and compute the fitness of each, for `k` solutions at a time.
-- **Step 3** Once the results have been computed, the solutions are chosen in some manner, again, in this case, with `SimulatedAnnealing`.  -->
+The proposal for the algorithm, and its motivations, have been detailed in [Algorithm Proposal](WeakSchurAlgorithmProposal.pdf)
 
