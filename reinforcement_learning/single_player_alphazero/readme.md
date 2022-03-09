@@ -1,0 +1,5 @@
+-   vérifier la cohérence entre mcts et game
+-   vérifier les dtype (notamment les float32)
+-   rajouter un enregistrement / chargement des modèles
+-   rajouter un enregistrement des meilleures parties
+-   rajouter un mode pour jouer en mode "évaluation" (et non entraînement)
