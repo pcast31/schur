@@ -25,9 +25,9 @@ In each case, the X-axis represents the total number of iterations used by `time
 - **Step 3** Once the results have been computed, the solutions are chosen in some manner, in this case, with `SimulatedAnnealing`.  -->
 
 The idea of this algorithm is to be simple, and parallellizable. The steps are as follows:
--**Step 1** Get the number to add for the current iteration
--**Step 2** Sequentially add it to each subset in the partition, and evaluate the fitness 
--**Step 3** Choose the solution that has the minimum fitness, or according to a choice algorithm like SimulatedAnnealing.
+- **Step 1** Get the number to add for the current iteration
+- **Step 2** Sequentially add it to each subset in the partition, and evaluate the fitness 
+- **Step 3** Choose the solution that has the minimum fitness, or according to a choice algorithm like SimulatedAnnealing.
 
 The proposal for the algorithm, and its motivations, have been detailed in [Algorithm Proposal](WeakSchurAlgorithmProposal.pdf)
 
