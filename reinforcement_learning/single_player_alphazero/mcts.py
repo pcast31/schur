@@ -77,8 +77,8 @@ class MCTS:
     def __init__(
         self,
         num_simulations,
-        pb_c_init,
         pb_c_base,
+        pb_c_init,
         discount,
         dir_alpha,
         expl_frac,
@@ -86,8 +86,8 @@ class MCTS:
     ):
         self.root = Node(1)
         self.num_simulations = num_simulations
-        self.pb_c_init = pb_c_init
         self.pb_c_base = pb_c_base
+        self.pb_c_init = pb_c_init
         self.discount = discount
         self.dir_alpha = dir_alpha
         self.expl_frac = expl_frac
@@ -106,21 +106,14 @@ class MCTS:
     @classmethod
     def from_config(cls, config):
         num_simulations = config.num_simulations
-        pb_c_init = config.pb_c_init
         pb_c_base = config.pb_c_base
+        pb_c_init = config.pb_c_init
         discount = config.discount
         dir_alpha = config.dir_alpha
         expl_frac = config.expl_frac
         visit_softmax_temperature = config.visit_softmax_temperature
-        mcts = cls(
-            num_simulations,
-            pb_c_init,
-            pb_c_base,
-            discount,
-            dir_alpha,
-            expl_frac,
-            visit_softmax_temperature,
-        )
+        mcts = cls(num_simulations, pb_c_base, pb_c_init, discount, dir_alpha,
+            expl_frac, visit_softmax_temperature)
         return mcts
 
     def init_play(self, game, network):
@@ -155,7 +148,7 @@ class MCTS:
             else:
                 game = search_path[-2].game.copy()
                 reward, observation = game.apply(action)
-                torch.from_numpy(observation).to(self.device)
+                torch.from_numpy(observation).to(network.device)
                 legal_actions = game.legal_actions()
                 observation = network.observation_to_tensor(observation)
                 policy_logits, value = network(observation)

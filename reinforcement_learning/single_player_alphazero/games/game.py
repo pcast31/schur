@@ -1,9 +1,14 @@
+import numpy as np
+
+
 class Game:
     def __call__(self):
         raise NotImplementedError
 
-    def __init__(self, action_space):
-        self.action_space = action_space
+    def __init__(self, num_actions):
+        self.score = None
+        self._terminal = None
+        self.num_actions = num_actions
         self.history = []
         self.observations = []
         self.values = []
@@ -14,6 +19,7 @@ class Game:
 
     def apply(self, action, record=False):
         reward = self.step(action)
+        self.score += reward
         observation = self.get_observation()
         if record:
             self.history.append(action)
@@ -35,7 +41,7 @@ class Game:
         return self.history[index]
 
     def make_target(self, index):
-        raise NotImplementedError
+        value
 
     def step(self, action):
         raise NotImplementedError
@@ -44,9 +50,16 @@ class Game:
         value = node.value
         visit_counts = [0 for _ in range(self.action_space)]
         for action, child in node.children.values():
-            visits_counts[action] = child.visit_count / node.visit_count
+            visit_counts[action] = child.visit_count / node.visit_count
         self.values.append(value)
         self.visit_counts.append(np.array(visit_counts, dtype=np.float32))
 
+    @property
     def terminal(self):
-        return not self.legal_actions()
+        if self._terminal is None:
+            return not self.legal_actions()
+        return self._terminal
+
+    @terminal.setter
+    def terminal(self, value):
+        self._terminal = value
