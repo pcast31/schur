@@ -4,8 +4,8 @@ This code is to compute the weak schur numbers,
 with a view to parallelize it someday.
 """
 import json
-import numpy as np
 from copy import deepcopy
+import numpy as np
 
 
 def verify_partition(partition: list) -> bool:
@@ -69,9 +69,9 @@ def fitness(partition: list) -> int:
     return fitness_sum
 
 
-def generate_partition(num_colors: int, n: int, choice=np.argmin) -> tuple:
-    """Function to generate a weakly sum-free partition
-    of the first `n` numbers into `num_colors` colors
+def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> list:
+    """Greedy Function to generate weakly sum-free partitions
+    of the first `max_num` numbers into `num_colors` colors
 
     The function does not guarantee a true partition, but it
     does guarantee to choose the one that minimises fitness.
@@ -80,39 +80,46 @@ def generate_partition(num_colors: int, n: int, choice=np.argmin) -> tuple:
     ----------
     num_colors : int
         the number of colors to partition our numbers into
-    n : int
+    max_num    : int
         The maximum number of ints to add to the partition,
         starting from 1
-    choice: function
-        The default choice function to use when taking
-        the best solution from each iteration. It must have
-        the signature:
+    choice     : function
+        The choice function to use when taking the best
+        solution from each iteration. It must have the
+        signature:
             choice: list(int) -> int
+        If no option is specified, this defaults to
+        `numpy.argmin`
 
 
     Returns
     -------
-    (best_solution, fitness_score)
-        the tuple of the best solution and the associated fitness.
+    best_solution : list
+        the partition of `n` numbers into `num_colors` colors
+        that minimizes the given fitness function.
     """
     num = 0
     best_solution = [[] for _ in range(num_colors)]
     solutions = [[] for _ in range(num_colors)]
     fitness_solutions = np.zeros(shape=(num_colors, 1), dtype=int)
-    while num < n:
+
+    while num < max_num:
         # Add integers to partitions as long
         # as there are numbers to add.
         num = num + 1
         for idx in range(num_colors):
             # create the new candidate solution
+            # for this iteration
             temp = deepcopy(best_solution)
             temp[idx].append(num)
 
-            # add it to the list
+            # add it to the list,
+            # and evaluate its fitness
             solutions[idx] = temp
             fitness_solutions[idx] = fitness(temp)
 
         # Now, we choose the best one
+        # from the iteration that just finished.
         best_solution = solutions[choice(fitness_solutions)]
 
     print(f"Partition: {best_solution}")
@@ -123,6 +130,10 @@ def generate_partition(num_colors: int, n: int, choice=np.argmin) -> tuple:
 if __name__ == "__main__":
     with open("data/partition6.json", "r", encoding="utf-8") as fp:
         partition6 = json.loads(fp.read())
-    print(f"Fitness of the partition = {fitness(partition6)}")
-    result = generate_partition(num_colors=5, n=100)
+    print(f"Fitness of the 6-color partition = {fitness(partition6)}")
+
+    num, num_color = [
+        int(x) for x in input("Enter max. numbers and number of colors: ").split()
+    ]
+    result = generate_partition(num_colors=num_color, max_num=num)
     # print(f"Partition generated: {result}")
