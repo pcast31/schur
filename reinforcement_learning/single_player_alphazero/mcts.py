@@ -1,7 +1,6 @@
 import math
 
 import numpy as np
-import torch
 
 
 class Node:
@@ -45,7 +44,7 @@ class Node:
         return bool(self.children)
 
     def select_action(self, temperature):
-        actions, children = zip(*self.children.items())
+        actions, children = map(list, zip(*self.children.items()))
         visit_counts = (child.visit_count for child in children)
         distrib = np.fromiter(visit_counts, dtype=np.float32)
         if temperature == 0:
@@ -84,7 +83,7 @@ class MCTS:
         expl_frac,
         visit_softmax_temperature,
     ):
-        self.root = Node(1)
+        self.root = None
         self.num_simulations = num_simulations
         self.pb_c_base = pb_c_base
         self.pb_c_init = pb_c_init
@@ -102,6 +101,21 @@ class MCTS:
         for node in reversed(search_path):
             node.add_value(value)
             value = node.reward + self.discount * value
+
+    @staticmethod
+    def evaluate_leaf(game, action, network, node):
+        game = game.clone()
+        reward, observation = game.apply(action)
+        if game.terminal:
+            value = 0
+            legal_actions = []
+            policy_logits = []
+        else:
+            observation = network.preprocess_obs(observation)
+            legal_actions = game.legal_actions()
+            policy_logits, value = network(observation)
+        node.expand(game, reward, legal_actions, policy_logits)
+        return value
 
     @classmethod
     def from_config(cls, config):
@@ -122,16 +136,16 @@ class MCTS:
         observation = game.make_image()
         legal_actions = game.legal_actions()
         policy_logits, _ = network(observation)
-        self.root.expand(game.copy(), reward, legal_actions, policy_logits)
+        self.root.expand(game.clone(), reward, legal_actions, policy_logits)
 
     def play_game(self, game, network):
         game = game.new_game()
-        while not game.terminal():
+        while not game.terminal:
             self.init_play(game, network)
             self.add_exploration_noise()
             self.run(network)
             action = self.select_action(network)
-            game.apply(action, True)
+            game.apply(action, record=True)
             game.store_search_statistics(self.root)
             self.root = self.root[action]
         return game
@@ -146,17 +160,12 @@ class MCTS:
             if node.terminal():
                 value = 0
             else:
-                game = search_path[-2].game.copy()
-                reward, observation = game.apply(action)
-                torch.from_numpy(observation).to(network.device)
-                legal_actions = game.legal_actions()
-                observation = network.observation_to_tensor(observation)
-                policy_logits, value = network(observation)
-                node.expand(game, reward, legal_actions, policy_logits)
+                game = search_path[-2].game
+                value = self.evaluate_leaf(game, action, network, node)
             self.backpropagate(search_path, value)
 
     def select_action(self, network):
-        temperature = self.visit_softmax_temperature(network, self.root.game)
+        temperature = self.visit_softmax_temperature(network, network)
         action = self.root.select_action(temperature)
         return action
 

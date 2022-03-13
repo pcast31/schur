@@ -1,4 +1,4 @@
-from .alphazero_config import AlphaZeroConfig
+from .alpha_zero_config import AlphaZeroConfig
 
 
 def make_snake_config():

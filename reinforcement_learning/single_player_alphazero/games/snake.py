@@ -12,7 +12,7 @@ PRIME = 20_562_976_432_007
 GENERATOR = 7_217_281_349_873
 
 
-class Snake(Game):
+class Snake(Game, num_actions=4):
     MAP = [[], [1, 5, 11, 12], [2, 4, 8, 12, 13], [9, 13], [2, 4], [1, 5],
         [10, 12], [0, 1, 2, 3, 4], [10, 12], [0, 1, 3, 4], [1, 3, 9, 13],
         [1, 3, 9, 13], [6, 9, 13], [4, 5, 9, 10, 11, 12, 13], []]
@@ -26,7 +26,7 @@ class Snake(Game):
         return self.board[index]
 
     def __init__(self):
-        super().__init__(4)
+        super().__init__()
         self.board = np.empty((2, 15, 15), dtype=bool)
         self._seed = pow(GENERATOR, random.randrange(PRIME - 1), PRIME)
         self.apple = None
@@ -79,7 +79,7 @@ class Snake(Game):
             return i, (j + 1) % 15
         raise ValueError(f"Invalid action {action}.")
 
-    def get_observation(self):
+    def get_observation(self, _copy=True):
         i, j = self.head
         observation = np.zeros((3, 15, 15), dtype=np.float32)
         observation[:2] = self.board

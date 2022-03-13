@@ -14,6 +14,7 @@ class AlphaZeroConfig:
         training_device=None,
         window_size=400,
         batch_size=256,
+        td_steps=None,
         n_batchs_per_game=15,
         n_self_play_games=1000,
         optimizer=AdamW,
@@ -31,6 +32,7 @@ class AlphaZeroConfig:
         self.training_device = training_device
         self.window_size = window_size
         self.batch_size = batch_size
+        self.td_steps = td_steps
         self.n_batchs_per_game = n_batchs_per_game
         self.n_self_play_games = n_self_play_games
         self.optimizer = optimizer

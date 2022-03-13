@@ -62,6 +62,9 @@ class AlphaZero:
     def loss(pred_policy, pred_value, policy, value):
         return cross_entropy(pred_policy, policy) + mse_loss(pred_value, value)
 
+    def preprocess_obs(self, observation):
+        self.network.preprocess_obs(observation)
+
     def play_game(self):
         self.to(self.device)
         with torch.no_grad():
@@ -71,8 +74,7 @@ class AlphaZero:
     def sample_batch(self):
         batch = self.replay_buffer.sample_batch()
         batch = self.network.preprocess_batch(*batch, self.training_device)
-        for sample in batch:
-            yield map(lambda tensor: tensor.to(self.training_device), sample)
+        return batch
 
     def to(self, device):
         self.network.to(device)
