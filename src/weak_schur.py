@@ -69,7 +69,7 @@ def fitness(partition: list) -> int:
     return fitness_sum
 
 
-def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> list:
+def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> tuple:
     """Greedy Function to generate weakly sum-free partitions
     of the first `max_num` numbers into `num_colors` colors
 
@@ -94,9 +94,10 @@ def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> list:
 
     Returns
     -------
-    best_solution : list
+    best_solution, fitness_solutions[best_idx] : list
         the partition of `n` numbers into `num_colors` colors
-        that minimizes the given fitness function.
+        that minimizes the given fitness function, along with
+        its associated fitness score.
     """
     num = 0
     best_solution = [[] for _ in range(num_colors)]
@@ -120,18 +121,23 @@ def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> list:
 
         # Now, we choose the best one
         # from the iteration that just finished.
-        best_solution = solutions[choice(fitness_solutions)]
+        best_idx = choice(fitness_solutions)
+        best_solution = solutions[best_idx]
 
     print(f"Partition: {best_solution}")
-    print(f"Fitnesses: {fitness_solutions}")
-    return best_solution
+    print(f"Fitness: {fitness_solutions[best_idx]}")
+    return best_solution, fitness_solutions[best_idx]
 
 
 if __name__ == "__main__":
+
+    # Loading the 6-color partition, and testing it.
     with open("data/partition6.json", "r", encoding="utf-8") as fp:
         partition6 = json.loads(fp.read())
     print(f"Fitness of the 6-color partition = {fitness(partition6)}")
 
+    # Now test-driving the generate_partition function using
+    # user inputs.
     num, num_color = [
         int(x) for x in input("Enter max. numbers and number of colors: ").split()
     ]
