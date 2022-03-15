@@ -142,4 +142,3 @@ if __name__ == "__main__":
         int(x) for x in input("Enter max. numbers and number of colors: ").split()
     ]
     result = generate_partition(num_colors=num_color, max_num=num)
-    # print(f"Partition generated: {result}")
