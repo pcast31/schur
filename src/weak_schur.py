@@ -13,43 +13,43 @@ class Partition:
     its score, which can be updated automatically with
     each call to add_element.
     """
-    def __init__(self, partition = [[1,2], [3]], score = 0 ) -> None:
+    def __init__(self, partition = [[1,2], [3]] ) -> None:
         self._partition = deepcopy(partition)
         self._score = fitness(self._partition)
 
     @property
+    def partition(self):
+        """Getter method for the partition.
+        Prevents accidental modification.
+
+        Returns:
+            list: the partition
+        """
+        return self._partition
+
+    @property
     def score(self):
-        """Getter method for the score of the partition. Prevents
-        accidental modification.
+        """Getter method for the score of the partition.
+        Prevents accidental modification.
 
         Returns:
             int: the score of the partition
         """
         return self._score
 
-    @property
-    def partition(self):
-        """Getter method for the the partition. Prevents
-        accidental modification.
-
-        Returns:
-            int: the score of the partition
-        """
-        return self._partition
-
     @score.setter
-    def score(self, new_score: int) -> None: 
-        """Setter method for the score of the partition. Prevents
-        accidental modification.
+    def score(self, new_score: int) -> None:
+        """Setter method for the score of the partition.
+        Prevents accidental modification.
 
         Returns:
             int: the new score of the partition
         """
-        self._score = new_score 
+        self._score = new_score
 
 
     def single_add(self, elem : int, color : int) -> bool:
-        """Adds an element and automatically dynamically updates 
+        """Adds an element and automatically dynamically updates
         the fitness score of the partition.
 
         Args:
@@ -72,25 +72,23 @@ class Partition:
         self._partition[color].append(elem)
         # self._score = fitness(self._partition)
 
-        # We only need to verify the pairs that are 
+        # We only need to verify the pairs that are
         # created by the addition of `elem`. All prior
-        # information has already been stored in 
-        # self._score 
+        # information has already been stored in
+        # self._score.
 
         # First for pairs of the type a + elem = b \in partition_i
         # This works into a check of the type b - elem = a \in partition_i
-        check_lower = np.unique([x - elem for x in self._partition[color]])
-        print(f"Lower:{check_lower}")
-        self._score = self._score + np.sum(np.isin(check_lower, self._partition[color])) / 2
+        check = np.unique([x - elem for x in self._partition[color]])
+        self._score = self._score + np.sum(np.isin(check, self._partition[color])) / 2
 
         # then for pairs of the type a + b = elem \in partition_i
-        # which can be resolved as elem - b = a \in partition_i 
-        check_upper = - check_lower #np.unique([elem - x for x in self._partition[color]])
-        print(f"Upper:{check_upper}")
-        self._score = self._score + np.sum(np.isin(check_upper, self._partition[color])) / 2
+        # which can be resolved as elem - b = a \in partition_i
+        # but this is simply -check.
+        self._score = self._score + np.sum(np.isin(-1 * check, self._partition[color])) / 2
 
-        # Note: We divide by 2 because the count function will count each pair twice, 
-        #       once for each element in the pair that is increasing our fitness score. 
+        # Note: We divide by 2 because the count function will count each pair twice,
+        #       once for each element in the pair that is increasing our fitness score.
         return True
 
 

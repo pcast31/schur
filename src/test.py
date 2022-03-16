@@ -48,7 +48,10 @@ def test_verify_partition(profile=False):
     plt.title("Total time taken")
 
     plt.subplot(1, 2, 2)
-    plt.plot(result.keys(), [result[num_iter] / num_iter for num_iter in result])
+    plt.plot(
+        result.keys(),
+        [result[num_iter] / num_iter for num_iter in result.items()]
+    )
     plt.grid()
     plt.title("Time taken per iteration")
 
@@ -77,7 +80,7 @@ def test_verify_fitness():
 
     # This should fail ...
     assert verify_partition(partition=[[1, 2, 3, 5]]) is False
-    assert fitness([[1,2,3,5]]) == 2 
+    assert fitness([[1,2,3,5]]) == 2
     print(f"Fitness of the partition = {fitness([[1,2,3,5]])}")
 
     # One possible 2-partition
@@ -95,7 +98,7 @@ def test_verify_fitness():
     print(f"Fitness of the partition = {fitness(partition6)}")
 
 
-def test_Partition():
+def test_partition_class():
     """This function tests both the verify and the fitness functions
     for our weakly sum-free partitions
 
@@ -106,22 +109,23 @@ def test_Partition():
     (or is not) weakly sum-free.
     """
     # # The largest possible 2-partition
-    myPartition = Partition([[1, 2, 4, 8], [3, 5, 6, 7]])
+    my_partition = Partition([[1, 2, 4, 8], [3, 5, 6, 7]])
 
-    # assert verify_partition(partition=myPartition) is True
-    print(f"Fitness of the partition = { myPartition.score }")
+    # assert verify_partition(partition=my_partition) is True
+    print(f"Fitness of the partition = { my_partition.score }")
 
-    # adding an element to myPartition 
-    myPartition.single_add(elem=9, color=1)
+    # adding an element to my_partition
+    my_partition.single_add(elem=9, color=1)
 
-    # Now, this should fail 
-    # assert verify_partition(partition=myPartition) is False 
-    print(f"Partition is now: {myPartition.partition}" )
-    print(f"Fitness of the partition = { myPartition.score }; {fitness(myPartition.partition)}")
-    assert fitness(myPartition.partition) == myPartition.score
+    # Now, this should fail
+    # assert verify_partition(partition=my_partition) is False
+    print(f"Partition is now: {my_partition.partition}" )
+    print(f"Fitness of the partition = { my_partition.score }; {fitness(my_partition.partition)}")
+    assert fitness(my_partition.partition) == my_partition.score
 
 if __name__ == "__main__":
-    test_result = test_verify_fitness()
-    test_result = test_Partition()
+    TEST_RESULT = test_verify_partition()
+    test_verify_fitness()
+    test_partition_class()
     with open("results/test_results.json", "w", encoding="utf-8") as fp:
-        json.dump(test_result, fp)
+        json.dump(TEST_RESULT, fp)
