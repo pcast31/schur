@@ -20,6 +20,7 @@
 """
 import time
 from contextlib import redirect_stdout
+import cProfile, pstats, io 
 
 def timer(func):
     """This is a decorator that helps us time each function
@@ -88,7 +89,7 @@ def logger(func):
             results: the return values of `func`
         """
 
-        FILENAME = f"log_{func.__name__}.txt"
+        FILENAME = f"{func.__name__}.log"
         PREFIX = f"LOG {func.__name__}"
 
         # Here's the core loop.
@@ -120,14 +121,51 @@ def logger(func):
 
     return wrapper
 
+def profiler(func):
+    """
+	Decorator (function wrapper) that profiles a single function
+	@profiler()
+	def func(*args, **kwargs))
+            ...
+    Calls cProfile.Profile.runcall on func, and dumps the stats into 
+    func.pfl for future reference.
+    """
+    def wrapper(*args, **kwargs):
+        """
+        This is the wrapper function that our decorator will return.
+        This will itself return the results of the original function.
+
+        Returns:
+            results: the return values of `func`
+        """
+        FILENAME = f"{func.__name__}.pfl"
+        prof = cProfile.Profile()
+        
+        # Core logic here 
+        result = prof.runcall(func, *args, **kwargs)
+
+        # Here, we save the results of the profiling
+        # into func.pfl 
+        s = io.StringIO()
+        ps = pstats.Stats(prof, stream=s).sort_stats('tottime')
+        with open(FILENAME, 'a') as f:
+                f.write(s.getvalue())
+        
+        # And returning the result of the function 
+        return result
+
+    return wrapper
+
+
 if __name__ == "__main__": 
     # Example use-case
-    @logger
-    @timer
-    def add(n,m):
+    # @logger
+    # @timer
+    @profiler
+    def add(n=1,m=100_000):
         """ test function for our decorators."""
-        print(f"ADD adding {n} and {m}")
-        return n + m
+        print(f"ADD adding to {n}: 1 to {m}")
+        for b in range(1, m):
+            n += b
 
-
-    result = add(1, 2)
+    result = add(1)
