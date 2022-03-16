@@ -17,6 +17,9 @@
     is the best order. This saves all output of 
     `func`, with the logging information from `timer`
     into "log_func.txt".
+
+    3. profiler: runs cProfile's profiler on the function 
+    and dumps the stats into func.pfl
 """
 import time
 from contextlib import redirect_stdout

@@ -9,7 +9,7 @@ import cProfile
 import matplotlib.pyplot as plt
 
 
-from src.weak_schur import verify_partition, fitness
+from src.weak_schur import Partition, verify_partition, fitness
 
 # importing a 6-color weakly-sum free partition
 with open("data/partition6.json", "r", encoding="utf-8") as fp:
@@ -76,8 +76,9 @@ def test_verify_fitness():
     print(f"Fitness of the partition = {fitness([[1,2]])}")
 
     # This should fail ...
-    assert verify_partition(partition=[[1, 2, 3]]) is False
-    print(f"Fitness of the partition = {fitness([[1,2,3]])}")
+    assert verify_partition(partition=[[1, 2, 3, 5]]) is False
+    assert fitness([[1,2,3,5]]) == 2 
+    print(f"Fitness of the partition = {fitness([[1,2,3,5]])}")
 
     # One possible 2-partition
     assert verify_partition(partition=[[1, 2], [3, 4]]) is True
@@ -94,7 +95,33 @@ def test_verify_fitness():
     print(f"Fitness of the partition = {fitness(partition6)}")
 
 
+def test_Partition():
+    """This function tests both the verify and the fitness functions
+    for our weakly sum-free partitions
+
+    Fitness returns the number of pairs that violate the sum-free property
+    of our potential partition, so a fitness of 0 => our partition is weakly
+    sum-free.
+    On the other hand, verify_partition simply checks if the argument is
+    (or is not) weakly sum-free.
+    """
+    # # The largest possible 2-partition
+    myPartition = Partition([[1, 2, 4, 8], [3, 5, 6, 7]])
+
+    # assert verify_partition(partition=myPartition) is True
+    print(f"Fitness of the partition = { myPartition.score }")
+
+    # adding an element to myPartition 
+    myPartition.single_add(elem=9, color=1)
+
+    # Now, this should fail 
+    # assert verify_partition(partition=myPartition) is False 
+    print(f"Partition is now: {myPartition.partition}" )
+    print(f"Fitness of the partition = { myPartition.score }; {fitness(myPartition.partition)}")
+    assert fitness(myPartition.partition) == myPartition.score
+
 if __name__ == "__main__":
-    test_result = test_verify_partition()
+    test_result = test_verify_fitness()
+    test_result = test_Partition()
     with open("results/test_results.json", "w", encoding="utf-8") as fp:
         json.dump(test_result, fp)
