@@ -5,6 +5,7 @@ with a view to parallelize it someday.
 """
 import json
 from copy import deepcopy
+import bisect 
 import numpy as np
 
 class Partition:
@@ -69,8 +70,9 @@ class Partition:
             return False
 
         # Otherwise, add it and update self._score
-        self._partition[color].append(elem)
-        # self._score = fitness(self._partition)
+        # self._partition[color].append(elem)
+        # Optimisation: sorted insert each time
+        bisect.insort(self._partition[color], elem); 
 
         # We only need to verify the pairs that are
         # created by the addition of `elem`. All prior
@@ -78,17 +80,20 @@ class Partition:
         # self._score.
 
         # First for pairs of the type a + elem = b \in partition_i
-        # This works into a check of the type b - elem = a \in partition_i
-        check = np.unique([x - elem for x in self._partition[color]])
-        self._score = self._score + np.sum(np.isin(check, self._partition[color])) / 2
-
         # then for pairs of the type a + b = elem \in partition_i
-        # which can be resolved as elem - b = a \in partition_i
-        # but this is simply -check.
-        self._score = self._score + np.sum(np.isin(-1 * check, self._partition[color])) / 2
+        # Note: We need to count each such pair only once! 
+        #       So we use the or to do that job.  
+        required = {}
+        forward_count, reverse_count = 0, 0
+        for idx in range(len(self._partition[color])): 
+            if elem - self._partition[color][idx] in required: 
+                forward_count += 1
+            elif self._partition[color][idx] - elem in required: 
+                reverse_count += 1
+            else :
+                required[self._partition[color][idx]] = idx
+        self._score = (forward_count + reverse_count)
 
-        # Note: We divide by 2 because the count function will count each pair twice,
-        #       once for each element in the pair that is increasing our fitness score.
         return True
 
 

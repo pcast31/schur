@@ -167,9 +167,9 @@ def profiler(func):
 if __name__ == "__main__":
     # Example use-case ->
 
-    # @logger
-    # @timer
-    @profiler
+    @logger
+    @timer
+    # @profiler
     def add(num1=1,num2=100_000):
         """ test function for our decorators."""
         print(f"ADD adding to {num1}: 1 to {num2}")

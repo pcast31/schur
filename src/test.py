@@ -50,7 +50,7 @@ def test_verify_partition(profile=False):
     plt.subplot(1, 2, 2)
     plt.plot(
         result.keys(),
-        [result[num_iter] / num_iter for num_iter in result.items()]
+        [result[num_iter] / num_iter for num_iter in result]
     )
     plt.grid()
     plt.title("Time taken per iteration")
@@ -109,13 +109,13 @@ def test_partition_class():
     (or is not) weakly sum-free.
     """
     # # The largest possible 2-partition
-    my_partition = Partition([[1, 2, 4, 8], [3, 5, 6, 7]])
+    my_partition = Partition([[1, 2, 4, 8], [3, 5, 7, 9]])
 
     # assert verify_partition(partition=my_partition) is True
     print(f"Fitness of the partition = { my_partition.score }")
 
     # adding an element to my_partition
-    my_partition.single_add(elem=9, color=1)
+    my_partition.single_add(elem=6, color=1)
 
     # Now, this should fail
     # assert verify_partition(partition=my_partition) is False
