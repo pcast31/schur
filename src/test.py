@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 from src.weak_schur import Partition, verify_partition, fitness
 
-random.seed(12345)
+# random.seed(12345)
 
 # importing a 6-color weakly-sum free partition
 with open("data/partition6.json", "r", encoding="utf-8") as fp:

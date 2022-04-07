@@ -95,9 +95,8 @@ class Partition:
         # then for pairs of the type a + b = elem \in partition_i
         # Note: We need to count each such pair only once!
         #       So we use the or to do that job.
-        self.score += self.count_difference(elem=elem, color=color) + self.count_sum(
-            elem=elem, color=color
-        )
+        self.score += self.count_difference(elem=elem, color=color) \
+            + self.count_sum( elem=elem, color=color)
 
         return True
 
