@@ -7,6 +7,8 @@ import json
 from copy import deepcopy
 import bisect 
 import numpy as np
+from pyparsing import col
+
 
 class Partition:
     """
@@ -15,39 +17,57 @@ class Partition:
     each call to add_element.
     """
     def __init__(self, partition = [[1,2], [3]] ) -> None:
-        self._partition = deepcopy(partition)
-        self._score = fitness(self._partition)
+        self.partition = deepcopy(partition)
+        self.score = fitness(self.partition)
 
-    @property
-    def partition(self):
-        """Getter method for the partition.
-        Prevents accidental modification.
+    def count_difference(self, elem: int, color: int) -> int: 
+        """Function to count the number of pairs of the form
+                a+ elem = b, where a,b in self.partition[color] 
 
-        Returns:
-            list: the partition
-        """
-        return self._partition
-
-    @property
-    def score(self):
-        """Getter method for the score of the partition.
-        Prevents accidental modification.
+        Args:
+            elem (int): the element that was just added
+            color (int): the sub-set of the partition to which `elem` was added
 
         Returns:
-            int: the score of the partition
+            int: the number of pairs of the form a+elem=b
         """
-        return self._score
+        count = 0
+        hashList = dict.fromkeys(self.partition[color], 1)
+        # now counting the pairs with a difference   
+        for num in self.partition[color]: 
+            if num == elem: 
+                continue
+            if (num in hashList) and \
+                ((num + elem) in hashList):
+                count  = count + 1
+        return count
 
-    @score.setter
-    def score(self, new_score: int) -> None:
-        """Setter method for the score of the partition.
-        Prevents accidental modification.
+    def count_sum (self, elem: int, color: int) -> int: 
+        """Function to count the number of pairs of the form
+                a+b = elem, where a,b in self.partition[color]
+
+        Args:
+            elem (int): the element that was just added
+            color (int): the sub-set of the partition to which `elem` was added
 
         Returns:
-            int: the new score of the partition
+            int: the number of pairs of the form a+b=elem
         """
-        self._score = new_score
-
+        count = 0
+        hashList = {}
+        for idx in range(len(self.partition[color])): 
+            num = self.partition[color][idx]
+            if (elem - num) in hashList \
+                and (elem - num) != elem: 
+                count = count + 1
+            else:
+                hashList[num] = idx 
+        return count 
+        # then for pairs of the type a + b = elem \in partition_i
+        # which can be resolved as elem - b = a \in partition_i 
+        # check_upper = np.unique([elem - x for x in self.partition[color]])
+        # print(f"Upper:{check_upper}")
+        # return np.sum(np.isin(check_upper, self.partition[color])) // 2
 
     def single_add(self, elem : int, color : int) -> bool:
         """Adds an element and automatically dynamically updates
@@ -65,14 +85,14 @@ class Partition:
         # If the partition specified is outside the number
         # of partitions that we have, return False and
         # add nothing.
-        if color > len(self._partition):
+        if color > len(self.partition):
             print(f"Cannot add {elem} to subset {color}")
             return False
 
         # Otherwise, add it and update self._score
-        # self._partition[color].append(elem)
+        # self.partition[color].append(elem)
         # Optimisation: sorted insert each time
-        bisect.insort(self._partition[color], elem); 
+        bisect.insort(self.partition[color], elem); 
 
         # We only need to verify the pairs that are
         # created by the addition of `elem`. All prior
@@ -83,16 +103,9 @@ class Partition:
         # then for pairs of the type a + b = elem \in partition_i
         # Note: We need to count each such pair only once! 
         #       So we use the or to do that job.  
-        required = {}
-        forward_count, reverse_count = 0, 0
-        for idx in range(len(self._partition[color])): 
-            if elem - self._partition[color][idx] in required: 
-                forward_count += 1
-            elif self._partition[color][idx] - elem in required: 
-                reverse_count += 1
-            else :
-                required[self._partition[color][idx]] = idx
-        self._score = (forward_count + reverse_count)
+        self.score += \
+                self.count_difference(elem=elem, color=color) + \
+                self.count_sum(elem=elem, color=color)
 
         return True
 
@@ -146,16 +159,55 @@ def fitness(partition: list) -> int:
             violating the sum-free property.
     """
     fitness_sum = 0
-    for part in partition:
-        if len(part) < 3:
+    for subp in partition:
+        if len(subp) < 3:
             continue  # No point in iterating, when no sum is possible
 
         # Get the unique pairs from which we form the sum
-        check_upper = np.triu(np.meshgrid(part, part), k=1).T.reshape(-1, 2)
+        check_upper = np.triu(np.meshgrid(subp, subp), k=1).T.reshape(-1, 2)
 
         # Check if any of the sums are
-        fitness_sum = fitness_sum + np.sum(np.isin(np.sum(check_upper, axis=1), part))
+        fitness_sum = fitness_sum + np.sum(np.isin(np.sum(check_upper, axis=1), subp))
     return fitness_sum
+
+def fitness_iterative (part: Partition, elem: int, color: int) -> int: 
+    if color > len(part.partition):
+        print(f"Cannot add {elem} to subset {color}")
+        return False
+
+    # Otherwise, add it and update self._score
+    # self._partition[color].append(elem)
+    # Optimisation: sorted insert each time
+    bisect.insort(part.partition[color], elem); 
+
+    # We only need to verify the pairs that are
+    # created by the addition of `elem`. All prior
+    # information has already been stored in
+    # self._score.
+
+    # First for pairs of the type a + elem = b \in partition_i
+    # then for pairs of the type a + b = elem \in partition_i
+    # Note: We need to count each such pair only once! 
+    #       So we use the or to do that job.  
+    # required = {}
+    # count = 0
+    # for idx in range(len(part.partition[color])): 
+    #     check_num = elem - part.partition[color][idx]
+    #     if (abs(check_num) in required):# and elem != abs(check_num): 
+    #         count = count + 1
+    #     else :
+    #         required[part.partition[color][idx]] = idx
+    # part.score += count
+    count = 0
+    part.partition[color].sort()
+    hashList = dict.fromkeys(part.partition[color], 1)
+    for num in part.partition[color]: 
+        # to count the differences ...
+        if (num != elem) and ((num + elem) in hashList):
+            count  += 1
+    part.score += count 
+    
+    return part.score
 
 def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> tuple:
     """Greedy Function to generate weakly sum-free partitions
