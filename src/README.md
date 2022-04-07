@@ -6,11 +6,11 @@ This is a description of all the files in weak_schur.py, most notably, the `Part
   * [1. Structure of each partition](#1-structure-of-each-partition)
   * [2. Fitness and verify_partition](#2-fitness-and-verify-partition)
   * [3. class Partition](#3-class-partition)
-  * [4. `generate_partition`](#4--generate-partition-)
+  * [4. generate_partition](#4-generate-partition)
   * [5. Running the code](#5-running-the-code)
 
 
-## 1. Structure of each partition 
+## 1. Structure of each partition
 
 All partitions, even the instances of the `Partition` class have the same internal structure: `list[list[int]]`. `Partition` instances essentially combine a partition, its fitness and a method to calculate it.
 
@@ -51,7 +51,7 @@ This iterative addition is based on the observation that when we add `elem` to `
 
 These are both linear operations, as currently implemented using hashmaps. Both of these functions return the counts, BUT DO NOT UPDATE THE INTERNAL SCORE! This is left for any calling function to integrate on its own, making these methods fairly general and easy to use elsewhere. Currently, `single_add` does this, as it should.
 
-## 4. `generate_partition`
+## 4. generate_partition
 
 This currently implements the greedy, naive algorithm without any parallelisation. It works, and is reasonably fast, but still depends on the classical `fitness`. Future updates will address this, and add a testbench to measure its speed.
 
