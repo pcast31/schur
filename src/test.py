@@ -49,10 +49,7 @@ def test_verify_partition(profile=False):
     plt.title("Total time taken")
 
     plt.subplot(1, 2, 2)
-    plt.plot(
-        result.keys(),
-        [result[num_iter] / num_iter for num_iter in result]
-    )
+    plt.plot(result.keys(), [result[num_iter] / num_iter for num_iter in result])
     plt.grid()
     plt.title("Time taken per iteration")
 
@@ -81,7 +78,7 @@ def test_verify_fitness():
 
     # This should fail ...
     assert verify_partition(partition=[[1, 2, 3, 5]]) is False
-    assert fitness([[1,2,3,5]]) == 2
+    assert fitness([[1, 2, 3, 5]]) == 2
     print(f"Fitness of the partition = {fitness([[1,2,3,5]])}")
 
     # One possible 2-partition
@@ -100,55 +97,55 @@ def test_verify_fitness():
 
 
 def test_verify_fitness_iterative():
-    """This function tests the Partition class for our weakly 
+    """This function tests the Partition class for our weakly
     sum-free partitions
 
     First, it checks the initialisation of each instance is correct.
     Then, it takes random number to add and asserts that each insert
-    updates the score correctly, by measuring it against the 
+    updates the score correctly, by measuring it against the
     naive fitness function's results.
     """
 
     list_test_partitions = [
-        # partition  -- score 
-        [[1, 2]], # 0
-        [[1, 2, 3, 5]], # 2
-        [[1, 2], [3, 4]], # 0
-        [[1, 2, 4, 8], [3, 5, 6, 7]], # 0
+        # partition  -- score
+        [[1, 2]],  # 0
+        [[1, 2, 3, 5]],  # 2
+        [[1, 2], [3, 4]],  # 0
+        [[1, 2, 4, 8], [3, 5, 6, 7]],  # 0
     ]
-    list_test_scores = [0,2,0,0,0]; 
+    list_test_scores = [0, 2, 0, 0, 0]
     # The 1-partition, a trivial example.
-    for idx in range(len(list_test_partitions)): 
+    for idx in range(len(list_test_partitions)):
         # checking initialisation
         part = Partition(list_test_partitions[idx])
 
         assert part.score == list_test_scores[idx]
-        print('----------------------------------------')
-        print(f'Partition to test: {part.partition}')
+        print("----------------------------------------")
+        print(f"Partition to test: {part.partition}")
         print(f"Initial fitness of the partition = {part.score}")
 
         # now adding a number to check if it is correct.
-        # First finding out where to add numbers from 
+        # First finding out where to add numbers from
         curr_max = 0
-        for sub_l in part.partition: 
+        for sub_l in part.partition:
             curr_max = max(curr_max, max(sub_l))
-        
+
         colors = range(len(part.partition))
-        test_numbers = list(range(curr_max+1, curr_max + 10)) 
-        random.shuffle(test_numbers) # To change the order of addition 
-         
-        for number in test_numbers: 
-            # add part to a random color 
+        test_numbers = list(range(curr_max + 1, curr_max + 10))
+        random.shuffle(test_numbers)  # To change the order of addition
+
+        for number in test_numbers:
+            # add part to a random color
             part.single_add(elem=number, color=random.choice(colors))
 
-            # and assert it's giving the right score 
-            print(f'Partition is: {part.partition}')
-            print(f'Element added was :{number}')
-            print(f'Current score is: {part.score}')
-            print(f'Score supposed to be: {fitness(part.partition)}')
+            # and assert it's giving the right score
+            print(f"Partition is: {part.partition}")
+            print(f"Element added was :{number}")
+            print(f"Current score is: {part.score}")
+            print(f"Score supposed to be: {fitness(part.partition)}")
             assert part.score == fitness(part.partition)
-        
-    
+
+
 def test_partition_class():
     """This function tests both the verify and the fitness functions
     for our weakly sum-free partitions
@@ -170,9 +167,12 @@ def test_partition_class():
 
     # Now, this should fail
     # assert verify_partition(partition=my_partition) is False
-    print(f"Partition is now: {my_partition.partition}" )
-    print(f"Fitness of the partition = { my_partition.score }; {fitness(my_partition.partition)}")
+    print(f"Partition is now: {my_partition.partition}")
+    print(
+        f"Fitness of the partition = { my_partition.score }; {fitness(my_partition.partition)}"
+    )
     assert fitness(my_partition.partition) == my_partition.score
+
 
 if __name__ == "__main__":
     TEST_RESULT = test_verify_partition()

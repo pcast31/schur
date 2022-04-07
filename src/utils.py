@@ -27,6 +27,7 @@ import cProfile
 import pstats
 import io
 
+
 def timer(func):
     """This is a decorator that helps us time each function
     that it decorates. It will time function execution using
@@ -38,6 +39,7 @@ def timer(func):
             This part is not as important, since we plan to use
             timer as a decorator, not as a function.
     """
+
     def wrapper(*args, **kwargs):
         """
         This is the wrapper function that our decorator will return.
@@ -49,19 +51,19 @@ def timer(func):
         PREFIX = f"TIM {func.__name__}"
 
         # Some prints first ...
-        print("-"*30)
+        print("-" * 30)
         print(f"{PREFIX}: Starting execution ... ")
 
         # This is the core
         start = time.time()
-        result= func(*args, **kwargs)
+        result = func(*args, **kwargs)
         end = time.time()
 
         # Then we indicate that execution
         # has terminated ...
         print(f"{PREFIX}: Execution terminated ...")
         print(f"{PREFIX}: Time taken - {end-start}")
-        print("-"*30)
+        print("-" * 30)
 
         # And return the results of
         # the original funciton
@@ -71,6 +73,7 @@ def timer(func):
     wrapper.__name__ = func.__name__
 
     return wrapper
+
 
 def logger(func):
     """This is a decorator that helps us log the output of
@@ -85,6 +88,7 @@ def logger(func):
             This part is not as important, since we plan to use
             timer as a decorator, not as a function.
     """
+
     def wrapper(*args, **kwargs):
         """
         This is the wrapper function that our decorator will return.
@@ -99,19 +103,19 @@ def logger(func):
 
         # Here's the core loop.
         # First we open the logfile,
-        with open(FILENAME, 'a', encoding='utf-8') as file_handle:
+        with open(FILENAME, "a", encoding="utf-8") as file_handle:
             # Indicate that we're going to pass all
             # output to the logfile after this ...
             print(f"{PREFIX}: Redirecting output to {FILENAME} ...")
 
             # This is the core logic
-            file_handle.write("-"*30 + "\n")
+            file_handle.write("-" * 30 + "\n")
             with redirect_stdout(file_handle):
                 # Add some helpful logging before
                 print(f"{PREFIX}: {time.ctime()}")
 
                 # actually executing the function
-                result= func(*args, **kwargs)
+                result = func(*args, **kwargs)
 
             # Now, we get our output back, so print
             # is back to normal. Now, we save
@@ -126,15 +130,17 @@ def logger(func):
 
     return wrapper
 
+
 def profiler(func):
     """
-	Decorator (function wrapper) that profiles a single function
-	@profiler()
-	def func(*args, **kwargs))
+        Decorator (function wrapper) that profiles a single function
+        @profiler()
+        def func(*args, **kwargs))
             ...
     Calls cProfile.Profile.runcall on func, and dumps the stats into
     func.pfl for future reference.
     """
+
     def wrapper(*args, **kwargs):
         """
         This is the wrapper function that our decorator will return.
@@ -147,15 +153,15 @@ def profiler(func):
         prof = cProfile.Profile()
 
         # Core logic here
-        result= prof.runcall(func, *args, **kwargs)
+        result = prof.runcall(func, *args, **kwargs)
 
         # Here, we save the results of the profiling
         # into func.pfl
         string_stream = io.StringIO()
-        stats_value = pstats.Stats(prof, stream=string_stream).sort_stats('tottime')
+        stats_value = pstats.Stats(prof, stream=string_stream).sort_stats("tottime")
         stats_value.print_stats()
 
-        with open(FILENAME, 'a', encoding='utf-8') as file_handle:
+        with open(FILENAME, "a", encoding="utf-8") as file_handle:
             file_handle.write(string_stream.getvalue())
 
         # And returning the result of the function
@@ -170,8 +176,8 @@ if __name__ == "__main__":
     @logger
     @timer
     # @profiler
-    def add(num1=1,num2=100_000):
-        """ test function for our decorators."""
+    def add(num1=1, num2=100_000):
+        """test function for our decorators."""
         print(f"ADD adding to {num1}: 1 to {num2}")
         for num in range(1, num2):
             num1 += num
