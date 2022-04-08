@@ -2,11 +2,27 @@
 
 This is a description of all the files in weak_schur.py, most notably, the `Partition` class. 
 
+* [0. Running the code](#0-running-the-code)
 * [1. Structure of each partition](#1-structure-of-each-partition)
 * [2. Fitness and verify-partition](#2-fitness-and-verify-partition)
 * [3. class Partition](#3-class-partition)
 * [4. generate-partition](#4-generate-partition)
-* [5. Running the code](#5-running-the-code)
+
+## 0. Running the code 
+
+Running the test suite can be done using 
+```bash 
+$ pytest src/test.py
+```
+from the parent directory. Running the `test_compare_generate_partition` can be done using 
+```bash 
+$ pytest src/test.py::test_compare_generate_partition
+```
+
+Running [`weak_schur.py`](src/weak_schur.py) will currently prompt you for the number upto which we partition, and the number of colors to use. Then, the user can choose to use the naive or the iterative algorithms.
+
+__**Note**__ The iterative algorithm is quite a bit faster :)
+
 
 ## 1. Structure of each partition
 
@@ -54,15 +70,3 @@ These are both linear operations, as currently implemented using hashmaps. Both 
 This currently implements the greedy, naive algorithm without any parallelisation. It works, and is reasonably fast, but still depends on the classical `fitness`. 
 
 `generate_fitness_iterative` uses the iterative method and is considerably faster, since it represents an linear vs. quadratic buildup. Primitive results can be seen from the logfile [results/test_compare_generate_partition.txt](../results/test_compare_generate_partition.txt)
-
-## 5. Running the code 
-
-Running the test suite can be done using 
-```bash 
-$ pytest src/test.py
-```
-from the parent directory.
-
-Running [`weak_schur.py`](src/weak_schur.py) will currently prompt you for the number upto which we partition, and the number of colors to use. Then, the user can choose to use the naive or the iterative algorithms.
-
-**Note** The iterative algorithm is quite a bit faster :)
