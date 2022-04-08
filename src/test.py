@@ -8,7 +8,13 @@ import json
 import cProfile
 import matplotlib.pyplot as plt
 
-from src.weak_schur import Partition, verify_partition, fitness
+from src.weak_schur import (
+    Partition,
+    verify_partition,
+    fitness,
+    generate_partition,
+    generate_partition_iterative,
+)
 
 # random.seed(12345)
 
@@ -172,6 +178,55 @@ def test_partition_class():
         f"Fitness of the partition = { my_partition.score }; {fitness(my_partition.partition)}"
     )
     assert fitness(my_partition.partition) == my_partition.score
+
+
+def test_compare_generate_partition():
+    """This function tests the execution time of the naive and iterative-based algorithms.
+
+    Returns:
+        dict: Dictionary containing the naive and the iterative runtimes.
+    """
+    test_cases = [
+        (max_num, num_color)
+        for max_num in [200, 500, 1000]
+        for num_color in [4, 5, 6]
+    ]
+    print(test_cases)
+    iterative_results = []
+    naive_results = []
+
+    for test_case in test_cases:
+        print(f'Test case: {test_case}')
+        max_num, num_color = test_case
+        
+        # running naive ...
+        t_naive_1 = timeit.default_timer()
+        result_naive = generate_partition(num_colors=num_color, max_num=max_num)
+        t_naive_2 = timeit.default_timer()
+        print(f'Naive: {t_naive_2 - t_naive_1}')
+
+        t_iter_1 = timeit.default_timer()
+        result_iterative = generate_partition_iterative(num_colors=num_color, max_num=max_num)
+        t_iter_2 = timeit.default_timer()
+        print(f'Iterative: {t_iter_2 - t_iter_1}')
+        print('--------------------------------------------')
+
+        # Assert we're doing things correctly.
+        assert result_naive[1] == result_iterative.score
+
+        naive_results.append((test_case, t_naive_2 - t_naive_1))
+        iterative_results.append((test_case, t_iter_2 - t_iter_1))
+
+    # Now writing it to a file for later use 
+    with open("results/test_compare_generate_partition.txt", "a") as fd:
+        fd.write("Naive:\n")
+        fd.write(json.dumps(naive_results))
+        fd.write('\n')
+        fd.write("Iterative:\n")
+        fd.write(json.dumps(iterative_results))
+        fd.write("\n-----------------------------------------------\n")
+
+    return {"Naive": naive_results, "Iterative": iterative_results}
 
 
 if __name__ == "__main__":

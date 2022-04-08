@@ -15,10 +15,24 @@ class Partition:
     each call to add_element.
     """
 
-    def __init__(self, partition=[[1, 2], [3]]) -> None:
-        self.partition = deepcopy(partition)
-        self.score = fitness(self.partition)
+    def __init__(self, num_colors: int, partition: list[list[int]] = None) -> None: 
+        """Initialiser function for the Partition class.
 
+        Args:
+            num_colors (int): number of colors to create the partition for 
+            partition (list[list[int]]): the actual partition current instance will use
+        """
+        if partition: 
+            # If there's a given partition to copy,
+            # Prefer to use this
+            self.partition = deepcopy(partition)
+            self.score = fitness(self.partition)
+        elif num_colors > 0 and isinstance(num_colors, int):
+            # But if num_colors is defined instead, use it
+            # to define an empty partition of the right size.
+            self.partition = [[] for _ in range(num_colors)]
+            self.score = 0
+    
     def count_difference(self, elem: int, color: int) -> int:
         """Function to count the number of pairs of the form
                 a+ elem = b, where a,b in self.partition[color]
@@ -220,6 +234,67 @@ def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> tuple
     print(f"Fitness: {fitness_solutions[best_idx]}")
     return best_solution, fitness_solutions[best_idx]
 
+def generate_partition_iterative(num_colors: int, max_num: int, choice=np.argmin) -> Partition:
+    """Greedy Function to generate weakly sum-free partitions
+    of the first `max_num` numbers into `num_colors` colors
+
+    The function does not guarantee a true partition, but it
+    does guarantee to choose the one that minimises fitness.
+
+    In addition, this uses the Partition class.
+
+    Parameters
+    ----------
+    num_colors : int
+        the number of colors to partition our numbers into
+    max_num    : int
+        The maximum number of ints to add to the partition,
+        starting from 1
+    choice     : function
+        The choice function to use when taking the best
+        solution from each iteration. It must have the
+        signature:
+            choice: list(int) -> int
+        If no option is specified, this defaults to
+        `numpy.argmin`
+
+
+    Returns
+    -------
+    best_solution, fitness_solutions[best_idx] : list
+        the partition of `n` numbers into `num_colors` colors
+        that minimizes the given fitness function, along with
+        its associated fitness score.
+    """
+    num = 0
+    best_solution = Partition(partition=None, num_colors=num_colors)
+    solutions = [Partition(num_colors=num_colors) for _ in range(num_colors)]
+    fitness_solutions = np.zeros(shape=(num_colors, 1), dtype=int)
+
+    while num < max_num:
+        # Add integers to partitions as long
+        # as there are numbers to add.
+        num = num + 1
+        for idx in range(num_colors):
+            # create the new candidate solution
+            # for this iteration, and add num to it.
+            # single_add updates the score internally.
+            temp = deepcopy(best_solution)
+            temp.single_add(elem=num, color=idx)
+
+            # add it to the list,
+            solutions[idx] = temp
+            fitness_solutions[idx] = temp.score
+
+        # Now, we choose the best one
+        # from the iteration that just finished.
+        best_idx = choice(fitness_solutions)
+        best_solution = solutions[best_idx]
+
+    print(f"Partition: {best_solution.partition}")
+    print(f"Fitness: {best_solution.score}")
+    return best_solution
+
 
 if __name__ == "__main__":
 
@@ -233,4 +308,12 @@ if __name__ == "__main__":
     num_elems, num_color = [
         int(x) for x in input("Enter max. numbers and number of colors: ").split()
     ]
-    result = generate_partition(num_colors=num_color, max_num=num_elems)
+    
+    # Allowing the user to choose which algorithm to use.
+    choice = int(input("Choose (1) Naive fitness or (2) Iterative Fitness: "))
+    if choice == 1:
+        result = generate_partition(num_colors=num_color, max_num=num_elems)
+    elif choice == 2:  
+        result = generate_partition_iterative(num_colors=num_color, max_num=num_elems)
+    else:
+        print(f"Wrong choice ({choice}) was entered. Please try again.")
