@@ -205,6 +205,7 @@ def test_compare_generate_partition():
         t_naive_2 = timeit.default_timer()
         print(f'Naive: {t_naive_2 - t_naive_1}')
 
+        # and iterative ...
         t_iter_1 = timeit.default_timer()
         result_iterative = generate_partition_iterative(num_colors=num_color, max_num=max_num)
         t_iter_2 = timeit.default_timer()
@@ -213,9 +214,20 @@ def test_compare_generate_partition():
 
         # Assert we're doing things correctly.
         assert result_naive[1] == result_iterative.score
-
+        
+        # Storing the results ... 
         naive_results.append((test_case, t_naive_2 - t_naive_1))
         iterative_results.append((test_case, t_iter_2 - t_iter_1))
+
+    # and plotting them for good measure
+    _, ax = plt.subplots(1,1) 
+    plt.plot([record[1] for record in naive_results], 'bo')
+    plt.plot([record[1] for record in iterative_results], 'r*')
+    plt.title('Comparision of Naive and Iterative algorithms')
+    plt.legend(['Naive', 'Iterative'])
+    ax.set_xticklabels([str(test_case) for test_case in [(0,0)]+test_cases], rotation = 45)
+    plt.grid()
+    plt.show()
 
     # Now writing it to a file for later use 
     with open("results/test_compare_generate_partition.txt", "a") as fd:
