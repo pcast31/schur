@@ -2,19 +2,17 @@
 
 This is a description of all the files in weak_schur.py, most notably, the `Partition` class. 
 
-- [weak_schur.py](#weak-schurpy)
-  * [1. Structure of each partition](#1-structure-of-each-partition)
-  * [2. Fitness and verify_partition](#2-fitness-and-verify-partition)
-  * [3. class Partition](#3-class-partition)
-  * [4. generate_partition](#4-generate-partition)
-  * [5. Running the code](#5-running-the-code)
-
+* [1. Structure of each partition](#1-structure-of-each-partition)
+* [2. Fitness and verify-partition](#2-fitness-and-verify-partition)
+* [3. class Partition](#3-class-partition)
+* [4. generate-partition](#4-generate-partition)
+* [5. Running the code](#5-running-the-code)
 
 ## 1. Structure of each partition
 
 All partitions, even the instances of the `Partition` class have the same internal structure: `list[list[int]]`. `Partition` instances essentially combine a partition, its fitness and a method to calculate it.
 
-## 2. Fitness and verify_partition
+## 2. Fitness and verify-partition
 
 Fitness is the function that counts how many triples `(a,b,c)` exist in the given partition (read: `list[list[int]]`) such that `a+b = c`. `verify_fitness` only tells us if there is at least one such pair i.e. if the partition is weakly sum-free or not.
 
@@ -51,9 +49,11 @@ This iterative addition is based on the observation that when we add `elem` to `
 
 These are both linear operations, as currently implemented using hashmaps. Both of these functions return the counts, BUT DO NOT UPDATE THE INTERNAL SCORE! This is left for any calling function to integrate on its own, making these methods fairly general and easy to use elsewhere. Currently, `single_add` does this, as it should.
 
-## 4. generate_partition
+## 4. generate-partition
 
-This currently implements the greedy, naive algorithm without any parallelisation. It works, and is reasonably fast, but still depends on the classical `fitness`. Future updates will address this, and add a testbench to measure its speed.
+This currently implements the greedy, naive algorithm without any parallelisation. It works, and is reasonably fast, but still depends on the classical `fitness`. 
+
+`generate_fitness_iterative` uses the iterative method and is considerably faster, since it represents an linear vs. quadratic buildup. Primitive results can be seen from the logfile [results/test_compare_generate_partition.txt](../results/test_compare_generate_partition.txt)
 
 ## 5. Running the code 
 
@@ -63,4 +63,6 @@ $ pytest src/test.py
 ```
 from the parent directory.
 
-Running [`weak_schur.py`](src/weak_schur.py) will currently call `generate_partition`, which will prompt you for the number upto which we partition, and the number of colors to use.
+Running [`weak_schur.py`](src/weak_schur.py) will currently prompt you for the number upto which we partition, and the number of colors to use. Then, the user can choose to use the naive or the iterative algorithms.
+
+**Note** The iterative algorithm is quite a bit faster :)
