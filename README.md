@@ -2,6 +2,10 @@
 
 This repo aims to provide code using simulated annealing (and potentially other genetic algorithms) to compute weakly sum-free partitions, over multiple processes and in parallel. The upshot is that there are also reasonably fast functions which verify partitions and compute the fitness score of a given potential partition, which are completely implemented in `numpy` for speed.
 
+The proposal for the algorithm, and its motivations, have been detailed in [Algorithm Proposal](WeakSchurAlgorithmProposal.pdf). 
+
+[WeakSchur](src/README.md) contains the explanation for the main code in greater detail.
+
 ## `verify_partition` and `fitness `
 
 Both algorithms are based on the same method of generating all unique pairs of numbers in a given color partition; the idea is to generate a `meshgrid` of all possible pairs, and then get the (strictly) upper triangular part of the returned matrices of `meshgrid`: say `xx` and `yy`. The performance of this implementation of `verify_partition` is as follows.
@@ -28,6 +32,4 @@ The idea of this algorithm is to be simple, and parallellizable. The steps are a
 - **Step 1** Get the number to add for the current iteration
 - **Step 2** Sequentially add it to each subset in the partition, and evaluate the fitness 
 - **Step 3** Choose the solution that has the minimum fitness, or according to a choice algorithm like SimulatedAnnealing.
-
-The proposal for the algorithm, and its motivations, have been detailed in [Algorithm Proposal](WeakSchurAlgorithmProposal.pdf)
 
