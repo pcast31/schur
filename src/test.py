@@ -187,53 +187,55 @@ def test_compare_generate_partition():
         dict: Dictionary containing the naive and the iterative runtimes.
     """
     test_cases = [
-        (max_num, num_color)
-        for max_num in [200, 500, 1000]
-        for num_color in [4, 5, 6]
+        (max_num, num_color) for max_num in [200, 500, 1000] for num_color in [4, 5, 6]
     ]
     print(test_cases)
     iterative_results = []
     naive_results = []
 
     for test_case in test_cases:
-        print(f'Test case: {test_case}')
+        print(f"Test case: {test_case}")
         max_num, num_color = test_case
-        
+
         # running naive ...
         t_naive_1 = timeit.default_timer()
         result_naive = generate_partition(num_colors=num_color, max_num=max_num)
         t_naive_2 = timeit.default_timer()
-        print(f'Naive: {t_naive_2 - t_naive_1}')
+        print(f"Naive: {t_naive_2 - t_naive_1}")
 
         # and iterative ...
         t_iter_1 = timeit.default_timer()
-        result_iterative = generate_partition_iterative(num_colors=num_color, max_num=max_num)
+        result_iterative = generate_partition_iterative(
+            num_colors=num_color, max_num=max_num
+        )
         t_iter_2 = timeit.default_timer()
-        print(f'Iterative: {t_iter_2 - t_iter_1}')
-        print('--------------------------------------------')
+        print(f"Iterative: {t_iter_2 - t_iter_1}")
+        print("--------------------------------------------")
 
         # Assert we're doing things correctly.
         assert result_naive[1] == result_iterative.score
-        
-        # Storing the results ... 
+
+        # Storing the results ...
         naive_results.append((test_case, t_naive_2 - t_naive_1))
         iterative_results.append((test_case, t_iter_2 - t_iter_1))
 
     # and plotting them for good measure
-    _, ax = plt.subplots(1,1) 
-    plt.plot([record[1] for record in naive_results], 'bo')
-    plt.plot([record[1] for record in iterative_results], 'r*')
-    plt.title('Comparision of Naive and Iterative algorithms')
-    plt.legend(['Naive', 'Iterative'])
-    ax.set_xticklabels([str(test_case) for test_case in [(0,0)]+test_cases], rotation = 45)
+    _, ax = plt.subplots(1, 1)
+    plt.plot([record[1] for record in naive_results], "bo")
+    plt.plot([record[1] for record in iterative_results], "r*")
+    plt.title("Comparision of Naive and Iterative algorithms")
+    plt.legend(["Naive", "Iterative"])
+    ax.set_xticklabels(
+        [str(test_case) for test_case in [(0, 0)] + test_cases], rotation=45
+    )
     plt.grid()
     plt.show()
 
-    # Now writing it to a file for later use 
+    # Now writing it to a file for later use
     with open("results/test_compare_generate_partition.txt", "a") as fd:
         fd.write("Naive:\n")
         fd.write(json.dumps(naive_results))
-        fd.write('\n')
+        fd.write("\n")
         fd.write("Iterative:\n")
         fd.write(json.dumps(iterative_results))
         fd.write("\n-----------------------------------------------\n")

@@ -3,10 +3,12 @@
 This code is to compute the weak schur numbers,
 with a view to parallelize it someday.
 """
+import choice
 import json
 from copy import deepcopy
 import bisect
 import numpy as np
+
 
 class Partition:
     """
@@ -15,14 +17,14 @@ class Partition:
     each call to add_element.
     """
 
-    def __init__(self, num_colors: int, partition: list[list[int]] = None) -> None: 
+    def __init__(self, num_colors: int, partition: list[list[int]] = None) -> None:
         """Initialiser function for the Partition class.
 
         Args:
-            num_colors (int): number of colors to create the partition for 
+            num_colors (int): number of colors to create the partition for
             partition (list[list[int]]): the actual partition current instance will use
         """
-        if partition: 
+        if partition:
             # If there's a given partition to copy,
             # Prefer to use this
             self.partition = deepcopy(partition)
@@ -32,7 +34,7 @@ class Partition:
             # to define an empty partition of the right size.
             self.partition = [[] for _ in range(num_colors)]
             self.score = 0
-    
+
     def count_difference(self, elem: int, color: int) -> int:
         """Function to count the number of pairs of the form
                 a+ elem = b, where a,b in self.partition[color]
@@ -109,8 +111,9 @@ class Partition:
         # then for pairs of the type a + b = elem \in partition_i
         # Note: We need to count each such pair only once!
         #       So we use the or to do that job.
-        self.score += self.count_difference(elem=elem, color=color) \
-            + self.count_sum( elem=elem, color=color)
+        self.score += self.count_difference(elem=elem, color=color) + self.count_sum(
+            elem=elem, color=color
+        )
 
         return True
 
@@ -175,7 +178,10 @@ def fitness(partition: list) -> int:
         fitness_sum = fitness_sum + np.sum(np.isin(np.sum(check_upper, axis=1), subp))
     return fitness_sum
 
-def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> tuple:
+
+def generate_partition(
+    num_colors: int, max_num: int, fitness_choice=np.argmin
+) -> tuple:
     """Greedy Function to generate weakly sum-free partitions
     of the first `max_num` numbers into `num_colors` colors
 
@@ -189,11 +195,11 @@ def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> tuple
     max_num    : int
         The maximum number of ints to add to the partition,
         starting from 1
-    choice     : function
-        The choice function to use when taking the best
+    fitness_choice     : function
+        The fitness_choice function to use when taking the best
         solution from each iteration. It must have the
         signature:
-            choice: list(int) -> int
+            fitness_choice: list(int) -> int
         If no option is specified, this defaults to
         `numpy.argmin`
 
@@ -227,14 +233,17 @@ def generate_partition(num_colors: int, max_num: int, choice=np.argmin) -> tuple
 
         # Now, we choose the best one
         # from the iteration that just finished.
-        best_idx = choice(fitness_solutions)
+        best_idx = fitness_choice(fitness_solutions)
         best_solution = solutions[best_idx]
 
     print(f"Partition: {best_solution}")
     print(f"Fitness: {fitness_solutions[best_idx]}")
     return best_solution, fitness_solutions[best_idx]
 
-def generate_partition_iterative(num_colors: int, max_num: int, choice=np.argmin) -> Partition:
+
+def generate_partition_iterative(
+    num_colors: int, max_num: int, fitness_choice=np.argmin
+) -> Partition:
     """Greedy Function to generate weakly sum-free partitions
     of the first `max_num` numbers into `num_colors` colors
 
@@ -250,11 +259,11 @@ def generate_partition_iterative(num_colors: int, max_num: int, choice=np.argmin
     max_num    : int
         The maximum number of ints to add to the partition,
         starting from 1
-    choice     : function
-        The choice function to use when taking the best
+    fitness_choice     : function
+        The fitness_choice function to use when taking the best
         solution from each iteration. It must have the
         signature:
-            choice: list(int) -> int
+            fitness_choice: list(int) -> int
         If no option is specified, this defaults to
         `numpy.argmin`
 
@@ -288,7 +297,7 @@ def generate_partition_iterative(num_colors: int, max_num: int, choice=np.argmin
 
         # Now, we choose the best one
         # from the iteration that just finished.
-        best_idx = choice(fitness_solutions)
+        best_idx = fitness_choice(fitness_solutions)
         best_solution = solutions[best_idx]
 
     print(f"Partition: {best_solution.partition}")
@@ -308,12 +317,22 @@ if __name__ == "__main__":
     num_elems, num_color = [
         int(x) for x in input("Enter max. numbers and number of colors: ").split()
     ]
-    
+
     # Allowing the user to choose which algorithm to use.
-    choice = int(input("Choose (1) Naive fitness or (2) Iterative Fitness: "))
-    if choice == 1:
-        result = generate_partition(num_colors=num_color, max_num=num_elems)
-    elif choice == 2:  
-        result = generate_partition_iterative(num_colors=num_color, max_num=num_elems)
+    fitness_choice = int(input("Choose (1) Naive fitness or (2) Iterative Fitness: "))
+
+    # and which choice function to use.
+    choice_fn_choice = int(input("Choose (1) Min choice or (2) MinRandom: "))
+    choice_fn = np.argmin if choice_fn_choice == 1 else choice.min_random
+
+    # Now calling the chosen functions based on user input
+    if fitness_choice == 1:
+        result = generate_partition(
+            num_colors=num_color, max_num=num_elems, fitness_choice=choice_fn
+        )
+    elif fitness_choice == 2:
+        result = generate_partition_iterative(
+            num_colors=num_color, max_num=num_elems, fitness_choice=choice_fn
+        )
     else:
-        print(f"Wrong choice ({choice}) was entered. Please try again.")
+        print(f"Wrong fitness_choice ({fitness_choice}) was entered. Please try again.")
