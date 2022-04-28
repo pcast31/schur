@@ -26,6 +26,25 @@ from contextlib import redirect_stdout
 import cProfile
 import pstats
 import io
+from itertools import islice
+
+
+def chunk(it: iter, size: int) -> list[list]:
+    """
+    Splits a list into a list of lists, each
+    of size `size` or lower - this happens when
+    enough elements are not available.
+
+    Args:
+        it (_type_): the iterator which has the
+                     elements to split
+        size (_type_): the size of each new sub-list
+
+    Returns:
+        _type_: _description_
+    """
+    it = iter(it)
+    return list(iter(lambda: tuple(islice(it, size)), ()))
 
 
 def timer(func):

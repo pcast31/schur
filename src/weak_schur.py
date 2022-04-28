@@ -7,7 +7,9 @@ import json
 import bisect
 from copy import deepcopy
 import numpy as np
-from src import choice
+import choice
+from utils import chunk
+
 
 class Partition:
     """
@@ -354,35 +356,77 @@ def generate_partition_iterative(
     print(f"Fitness: {best_solution.score}")
     return best_solution
 
+def generate_partition_multiproc(
+    num_colors: int, max_num: int, fitness_choice=np.argmin
+) -> Partition:
+    """Parallelisable Function to generate weakly sum-free partitions
+    of the first `max_num` numbers into `num_colors` colors
+
+    The function does not guarantee a true partition, but it
+    does guarantee to choose the one that minimises fitness.
+
+    In addition, this uses the Partition class.
+
+    This will split the numbers [1,...,max_num ] into chunks of 
+    size `num_colors`. Then, it will try adding the rotations of
+    each chunk, and hope to find a minima in these combinations.
+
+    Parameters
+    ----------
+    num_colors : int
+        the number of colors to partition our numbers into
+    max_num    : int
+        The maximum number of ints to add to the partition,
+        starting from 1
+    fitness_choice     : function
+        The fitness_choice function to use when taking the best
+        solution from each iteration. It must have the
+        signature:
+            fitness_choice: list(int) -> int
+        If no option is specified, this defaults to
+        `numpy.argmin`
+
+
+    Returns
+    -------
+    best_solution, fitness_solutions[best_idx] : list
+        the partition of `n` numbers into `num_colors` colors
+        that minimizes the given fitness function, along with
+        its associated fitness score.
+    """
+    best_solution = Partition(partition=None, num_colors=num_colors)
+    solutions = [Partition(num_colors=num_colors) for _ in range(num_colors)]
+    fitness_solutions = np.zeros(shape=(num_colors, 1), dtype=int)
+
+    ### TODO
+    # Here, we iterate by chunks of numbers: 
+    for sub_chunk in chunk(range(1, max_num+1), num_colors):
+        # For each iteration, we rotate the
+        # sub_chunk, and get the one that 
+        # gives the minimum fitness. 
+        for idx in range(num_colors): 
+            # As before, create a candidate 
+            # solution but perform a spread_add 
+            temp = deepcopy(best_solution)
+            temp.spread_add(sub_chunk)
+
+            # Get its information
+            solutions[idx] = temp
+            fitness_solutions[idx] = temp.score
+
+            # Now, rotate the chunk to prepare 
+            # for the next iteration 
+            sub_chunk = sub_chunk[1:] + sub_chunk[:1]
+
+        # Now, we choose again the best one
+        # from the iteration that just finished.
+        best_idx = fitness_choice(fitness_solutions)
+        best_solution = solutions[best_idx]
+    
+    print(f"Partition: {best_solution.partition}")
+    print(f"Fitness: {best_solution.score}")
+    return best_solution
 
 if __name__ == "__main__":
-
-    # Loading the 6-color partition, and testing it.
-    with open("data/partition6.json", "r", encoding="utf-8") as fp:
-        partition6 = json.loads(fp.read())
-    print(f"Fitness of the 6-color partition = {fitness(partition6)}")
-
-    # Now test-driving the generate_partition function using
-    # user inputs.
-    num_elems, num_color = [
-        int(x) for x in input("Enter max. numbers and number of colors: ").split()
-    ]
-
-    # Allowing the user to choose which algorithm to use.
-    choice_fitness = int(input("Choose (1) Naive fitness or (2) Iterative Fitness: "))
-
-    # and which choice function to use.
-    choice_fn_choice = int(input("Choose (1) Min choice or (2) MinRandom: "))
-    choice_fn = np.argmin if choice_fn_choice == 1 else choice.min_random
-
-    # Now calling the chosen functions based on user input
-    if choice_fitness == 1:
-        result = generate_partition(
-            num_colors=num_color, max_num=num_elems, fitness_choice=choice_fn
-        )
-    elif choice_fitness == 2:
-        result = generate_partition_iterative(
-            num_colors=num_color, max_num=num_elems, fitness_choice=choice_fn
-        )
-    else:
-        print(f"Wrong fitness_choice ({choice_fitness}) was entered. Please try again.")
+    # This is where we test-drive code that has already been verified.
+    pass 
