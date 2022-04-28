@@ -3,12 +3,11 @@
 This code is to compute the weak schur numbers,
 with a view to parallelize it someday.
 """
-import choice
 import json
-from copy import deepcopy
 import bisect
+from copy import deepcopy
 import numpy as np
-
+from src import choice
 
 class Partition:
     """
@@ -109,13 +108,64 @@ class Partition:
 
         # First for pairs of the type a + elem = b \in partition_i
         # then for pairs of the type a + b = elem \in partition_i
-        # Note: We need to count each such pair only once!
-        #       So we use the or to do that job.
         self.score += self.count_difference(elem=elem, color=color) + self.count_sum(
             elem=elem, color=color
         )
 
         return True
+
+    def group_add(self, list_elem: list[int], color: int) -> bool:
+        """Repeatedly calls self.single_add to add a list of elements
+           to a single color in the partition. Inherits the failure
+           conditions from single_add indirectly.
+
+        Args:
+            list_elem (list[int]): list of elements to add
+            color (int): color to which the elements are to be added.
+
+        Returns:
+            bool: True if all elements were successfully added,
+                  False if even one fails.
+        """
+        # Using this to check at each go.
+        check_bit = True
+        for elem in list_elem:
+            # Capturing the success of the operation
+            check_bit = self.single_add(elem, color=color)
+            if not check_bit:
+                # and terminating if not successful.
+                return check_bit
+        # Only make it here if all successful.
+        return check_bit
+
+    def spread_add(self, list_elem: list[int]) -> bool:
+        """Adds an element to each color in the partition.
+        Requires that the number of elements to add is equal to
+        the number of colors.
+
+        Args:
+            list_elem (list[int]): _description_
+
+        Returns:
+            bool: _description_
+        """
+        # Break if the spread operation cannot be carried out.
+        num_colors = len(self.partition)
+        if num_colors != len(list_elem):
+            print("NotEnoughColorsError: Spread_Add terminates.")
+            return False
+
+        # Using check_bit again
+        check_bit = True
+
+        # Adding one element to each color.
+        for color in range(num_colors):
+            check_bit = self.single_add(elem=list_elem[color], color=color)
+            if not check_bit:
+                # and terminating if not successful.
+                return check_bit
+        # Only make it here if all successful.
+        return check_bit
 
 
 def verify_partition(partition: list) -> bool:
@@ -319,20 +369,20 @@ if __name__ == "__main__":
     ]
 
     # Allowing the user to choose which algorithm to use.
-    fitness_choice = int(input("Choose (1) Naive fitness or (2) Iterative Fitness: "))
+    choice_fitness = int(input("Choose (1) Naive fitness or (2) Iterative Fitness: "))
 
     # and which choice function to use.
     choice_fn_choice = int(input("Choose (1) Min choice or (2) MinRandom: "))
     choice_fn = np.argmin if choice_fn_choice == 1 else choice.min_random
 
     # Now calling the chosen functions based on user input
-    if fitness_choice == 1:
+    if choice_fitness == 1:
         result = generate_partition(
             num_colors=num_color, max_num=num_elems, fitness_choice=choice_fn
         )
-    elif fitness_choice == 2:
+    elif choice_fitness == 2:
         result = generate_partition_iterative(
             num_colors=num_color, max_num=num_elems, fitness_choice=choice_fn
         )
     else:
-        print(f"Wrong fitness_choice ({fitness_choice}) was entered. Please try again.")
+        print(f"Wrong fitness_choice ({choice_fitness}) was entered. Please try again.")
