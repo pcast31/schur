@@ -1,0 +1,7 @@
+data/partition6.py
+data/__init__.py
+src/__pycache__
+.pytest_cache/*
+images/*
+*.log
+*.pfl
