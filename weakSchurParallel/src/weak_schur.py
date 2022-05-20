@@ -404,6 +404,7 @@ def generate_partition_multiproc(
         # For each iteration, we rotate the
         # sub_chunk, and get the one that 
         # gives the minimum fitness. 
+        # sub_chunk = np.array(sub_chunk)
         for idx in range(num_colors): 
             # As before, create a candidate 
             # solution but perform a spread_add 
@@ -417,6 +418,7 @@ def generate_partition_multiproc(
             # Now, rotate the chunk to prepare 
             # for the next iteration 
             sub_chunk = sub_chunk[1:] + sub_chunk[:1]
+            # np.random.shuffle(sub_chunk)
 
         # Now, we choose again the best one
         # from the iteration that just finished.
