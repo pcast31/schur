@@ -5,6 +5,7 @@ article/*
 !article/*.sty
 !article/article_push.pdf
 !article/soumission_SIAM
+!article/soumission_arxiv
 
 rapport/*
 !rapport/*.cls
