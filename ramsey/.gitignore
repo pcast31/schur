@@ -1,0 +1,5 @@
+solvers/*
+
+!*/.gitkeep
+
+__pycache__
