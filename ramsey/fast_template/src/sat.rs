@@ -18,15 +18,18 @@ pub struct ColorCNF {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CNF {
-    clauses: Vec<ColorCNF>,
+    assigned: Vec<Vec<usize>>,
+    cnfs: Vec<ColorCNF>,
+    possibilities: Vec<Vec<usize>>,
 }
 
 impl Clause {
+    pub const MAX_SIZE: usize = 3 * u128::BITS as usize;
     pub const EMPTY: Self = Self(0, 0, 0);
 
     #[inline]
     pub fn add_literal(&mut self, x: usize) {
-        let (bit_set, x) = self.corresponding_mut(x - 1);
+        let (bit_set, x) = self.corresponding_mut(x);
         *bit_set |= 1 << x;
     }
 
@@ -189,13 +192,18 @@ impl ColorCNF {
             .collect()
     }
 
+    pub fn len(&self) -> usize {
+        self.cnf.len()
+    }
+
     pub fn new() -> Self {
         Self {
             cnf: AHashSet::new(),
         }
     }
 
-    pub fn pure_literals(&self, assigned: Clause) -> Vec<usize> {
+    pub fn pure_literals(&self, assigned: &[usize]) -> Vec<usize> {
+        let assigned = Clause::from(assigned);
         self.cnf
             .iter()
             .fold(assigned, |acc, clause| acc.union(clause))
@@ -236,22 +244,16 @@ impl ColorCNF {
             .collect()
     }
 
-    pub fn unit_propagation(&mut self) -> Vec<usize> {
+    pub fn unit_propagation(&self) -> Vec<usize> {
         let mut single_literals = Vec::new();
         for clause in &self.cnf {
             match clause.size() {
                 0 => panic!("unsatisfiable formula"),
-                1 => single_literals.push(clause.clone()),
+                1 => single_literals.push(clause.min_literal().unwrap()),
                 _ => (),
             }
         }
         single_literals
-            .iter()
-            .map(|clause| {
-                self.cnf.remove(clause);
-                clause.min_literal().unwrap()
-            })
-            .collect()
     }
 
     fn clauses_with_id(&mut self) -> (Vec<Clause>, AHashMap<usize, AHashSet<usize>>) {
@@ -259,8 +261,7 @@ impl ColorCNF {
         mem::swap(&mut self.cnf, &mut temp);
         let mut clauses: Vec<Clause> = temp.into_iter().collect();
         clauses.sort_by_cached_key(|clause| clause.size());
-        let mut map: AHashMap<usize, AHashSet<usize>> =
-            AHashMap::with_capacity(3 * u128::BITS as usize);
+        let mut map: AHashMap<usize, AHashSet<usize>> = AHashMap::with_capacity(Clause::MAX_SIZE);
         for (i, clause) in clauses.iter().enumerate() {
             for x in clause.literals() {
                 if let Some(s) = map.get_mut(&x) {
@@ -289,13 +290,89 @@ impl FromIterator<Clause> for ColorCNF {
 }
 
 impl CNF {
-    pub fn assignments(&mut self) {}
+    pub fn assignments(&mut self) {
+        for (i, (cnf, to_self)) in self.cnfs.iter_mut().zip(self.assigned.iter()).enumerate() {
+            let mut to_others = Vec::with_capacity(Clause::MAX_SIZE);
+            self.assigned
+                .iter()
+                .enumerate()
+                .filter_map(|(j, assigned)| if j != i { Some(assigned) } else { None })
+                .for_each(|assigned| to_others.extend_from_slice(assigned));
+            cnf.assignments(&to_others, to_self)
+        }
+    }
 
-    pub fn pure_literals(&self) {}
+    pub fn pure_literals(&mut self) -> bool {
+        let mut assigned: Vec<usize> = (self.possibilities.len()..Clause::MAX_SIZE).collect();
+        assigned.reserve_exact(Clause::MAX_SIZE - assigned.len());
+        for color in self.assigned.iter() {
+            assigned.extend_from_slice(color);
+        }
+        let mut literals_assigned = false;
+        for (c, (cnf, color)) in self.cnfs.iter().zip(self.assigned.iter_mut()).enumerate() {
+            let mut assigned = assigned.clone();
+            assigned.reserve_exact(Clause::MAX_SIZE - assigned.len());
+            assigned.extend(
+                self.possibilities
+                    .iter()
+                    .enumerate()
+                    .filter_map(|(i, pos)| {
+                        if pos.len() > 0 && !pos.contains(&c) {
+                            Some(i)
+                        } else {
+                            None
+                        }
+                    }),
+            );
+            let pure_literals = cnf.pure_literals(&assigned);
+            literals_assigned |= pure_literals.len() > 0;
+            for x in pure_literals.into_iter() {
+                color.push(x);
+                self.possibilities[x].clear();
+                assigned.push(x);
+            }
+        }
+        literals_assigned
+    }
 
-    pub fn remove_non_minimal(&mut self) {}
+    pub fn remove_non_minimal(&mut self) {
+        for cnf in self.cnfs.iter_mut() {
+            cnf.remove_non_minimal();
+        }
+    }
 
-    pub fn simplify(&mut self) {}
+    pub fn simplify(&mut self) {
+        loop {
+            self.assignments();
+            if self.pure_literals() {
+                continue;
+            }
+            if self.unit_propagation() {
+                continue;
+            }
+            break;
+        }
+        self.remove_non_minimal();
+    }
 
-    pub fn unit_propagation(&mut self) {}
+    pub fn unit_propagation(&mut self) -> bool {
+        let mut unit_clauses = false;
+        for (c, cnf) in self.cnfs.iter().enumerate() {
+            let single_literals = cnf.unit_propagation();
+            unit_clauses |= single_literals.len() > 0;
+            for x in single_literals {
+                let index = self.possibilities[x].iter().position(|&d| d == c).unwrap();
+                self.possibilities[x].swap_remove(index);
+            }
+        }
+        for (x, pos) in self.possibilities.iter_mut().enumerate() {
+            if pos.len() != 1 {
+                continue;
+            }
+            unit_clauses = true;
+            let c = pos.pop().unwrap();
+            self.assigned[c].push(x);
+        }
+        unit_clauses
+    }
 }
