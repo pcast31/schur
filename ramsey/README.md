@@ -8,7 +8,8 @@
 | Couleurs ajoutées | Nos (a, b, c)  | Anciens (a, b) |
 | ----------------- | -------------- | -------------- |
 | 3 , 3             | 10 , 2 , 0 \*  | 9  , 4         |
-| 3 , 4             | 31 , 2 , 1 \** | 30 , 12        |
+| 3 , 4             | 19 , 2 , 0 \*  | 18 , 7         |
+| 3 , 5             | 31 , 2 , 1 \** | 30 , 12        |
 | 5 , 4             | 55 , 23 , 0    | 51 , 21        |
 
 \* utilise un b-sf-template non exprimable en tant que sf-template  
