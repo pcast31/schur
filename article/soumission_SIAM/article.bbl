@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{AbbottHanson}
+{\sc H.~L. Abbott and D.~Hanson}, {\em A problem of {S}chur and its
+  generalizations}, Acta Arithmetica,  (1972),
+  \url{http://matwbn.icm.edu.pl/ksiazki/aa/aa20/aa2028.pdf}.
+
+\bibitem{Lingeling2017}
+{\sc A.~Biere}, {\em Ca{D}i{C}al, {L}ingeling, {P}lingeling, {T}reengeling and
+  {Y}al{SAT} entering the {SAT} competition 2017}, 2017,
+  \url{http://fmv.jku.at/papers/Biere-SAT-Competition-2017-solvers.pdf}.
+
+\bibitem{Bouzy2015AnAP}
+{\sc B.~Bouzy}, {\em An {A}bstract {P}rocedure to {C}ompute {W}eak {S}chur
+  {N}umber {L}ower {B}ounds}, 2015,
+  \url{https://www.semanticscholar.org/paper/An-Abstract-Procedure-to-Compute-Weak-Schur-Number-Bouzy/b667460d1ecf75d5be69d2ad1f975bb3c2ff24cb}.
+
+\bibitem{EliahouBook}
+{\sc S.~Eliahou, C.~Fonlupt, J.~Fromentin, V.~Marion-Poty, D.~Robilliard, and
+  F.~Teytaud}, {\em Investigating {M}onte-{C}arlo {M}ethods on the {W}eak
+  {S}chur {P}roblem}, in Evolutionary Computation in Combinatorial
+  Optimization, Springer, Berlin, Heidelberg, 2013,
+  \url{https://doi.org/10.1007/978-3-642-37198-1_17}.
+
+\bibitem{ELIAHOU2012175}
+{\sc S.~Eliahou, J.~Marín, M.~Revuelta, and M.~Sanz}, {\em Weak {S}chur
+  numbers and the search for {G}.{W}. {W}alker’s lost partitions}, Computers
+  \& Mathematics with Applications, 63 (2012), pp.~175--182,
+  \url{https://doi.org/https://doi.org/10.1016/j.camwa.2011.11.006},
+  \url{https://www.sciencedirect.com/science/article/pii/S0898122111009722}.
+
+\bibitem{Fredricksen}
+{\sc H.~Fredricksen and M.~Sweet}, {\em Symmetric sum-free partitions and lower
+  bounds for {S}chur numbers}, Electr. J. Comb., 7 (2000),
+  \url{https://doi.org/10.37236/1510}, \url{https://doi.org/10.37236/1510}.
+
+\bibitem{Heule2017}
+{\sc M.~Heule}, {\em Schur number five}, Proceedings of the AAAI Conference on
+  Artificial Intelligence, 32 (2018),
+  \url{https://ojs.aaai.org/index.php/AAAI/article/view/12209}.
+
+\bibitem{Irving1973}
+{\sc R.~Irving}, {\em An extension of {S}chur's theorem on sum-free
+  partitions}, Acta Arithmetica, 25 (1973), pp.~55--64,
+  \url{http://eudml.org/doc/205254}.
+
+\bibitem{Rafilipojaona}
+{\sc F.~A. Rafilipojaona}, {\em {Nombres de Schur classiques et faibles}},
+  theses, {Universit{\'e} du Littoral C{\^o}te d'Opale}, July 2015,
+  \url{https://tel.archives-ouvertes.fr/tel-01344633}.
+
+\bibitem{RowleyRamsey}
+{\sc F.~Rowley}, {\em A generalised linear {R}amsey graph construction}, {T}he
+  {A}ustralasian {J}ournal of {C}ombinatorics, 81 (2021), pp.~245--256,
+  \url{https://ajc.maths.uq.edu.au/pdf/81/ajc_v81_p245.pdf}.
+
+\bibitem{rowley2021improved}
+{\sc F.~Rowley}, {\em An improved lower bound for $s(7)$ and some interesting
+  templates}, 2021, \url{https://arxiv.org/abs/2107.03560}.
+
+\bibitem{RowleyWS}
+{\sc F.~Rowley}, {\em {N}ew lower bounds for weak {S}chur partitions},
+  Integers, 21 (2021), p.~\#A59,
+  \url{http://math.colgate.edu/~integers/v59/v59.pdf}.
+
+\bibitem{Schur1917}
+{\sc I.~Schur}, {\em Über {K}ongruenz x ... (mod. p.).}, Jahresbericht der
+  Deutschen Mathematiker-Vereinigung, 25 (1917), pp.~114--116,
+  \url{http://eudml.org/doc/145475}.
+
+\end{thebibliography}

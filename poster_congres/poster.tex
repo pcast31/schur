@@ -1,0 +1,282 @@
+\documentclass[roundedcorners=true, titleposition=left]{beamerthemeruhuisstijlposter}
+
+\usepackage{grffile}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{nicematrix}
+\boldmath
+
+\usepackage{array,booktabs,tabularx}
+\listfiles
+
+\newcommand{\WS}{\mathit{WS}}
+
+\institute[CLS]{CentraleSupélec, Pôle Projet \og{}Formation à la recherche \fg{}}
+\title{Les nombres de Schur et de Schur faibles}
+\date{\today}
+\author{\underline{Romain Ageron}, \underline{Paul Castéras}, \underline{Thibaut Pellerin}, Yann Portella,\\ Arpad Rimmel, Joanna Tomasik (encadrants)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+\begin{frame}
+\begin{columns}
+\begin{column}{0.49\textwidth}
+\begin{beamercolorbox}[center, wd=\textwidth]{postercolumn}
+\begin{minipage}[T]{0.95\textwidth}
+\parbox[t][\columnheight]{\textwidth}{%
+    \begin{block}{Un peu d'histoire}
+    	\begin{itemize}
+    	    \item 1917 : Introduction par Schur des partitions sans somme lors d'une étude du \textbf{grand théorème de Fermat}
+    	    \item 1930 : Introduction de la \textbf{théorie de Ramsey}
+    	    \item 1972 : \textbf{Inégalités récursives} obtenues par Abbott et Hanson 
+    	    \item 1990-2020 : Approche \textbf{numérique} (MCTS, SAT, ...)
+    	    \item 2020 : Introduction des \textbf{templates} par Rowley, nouvelles inégalités
+    	    \item Notre contribution : \textbf{généralisation} des templates, \textbf{nouvelles bornes inférieures}
+    	\end{itemize}
+    \end{block}
+  \begin{block}{Définitions et propriétés}
+	\textbf{Issai Schur} a posé le problème suivant :
+
+	\begin{itemize}
+		\item Pour \(n \geqslant 1\) un entier ( = taille du problème)
+		\item \(k \geqslant 1\) un autre entier ( = nombre de \textbf{couleurs})
+	
+	\vspace{1ex}
+	\textbf{Peut-on colorier les entiers de \(1\) à \(n\) de sorte que si deux 
+	nombres ont la même couleur, leur somme n'est pas de cette couleur ?}
+	
+    \vspace{1ex}
+    Si oui, un tel coloriage est dit \textbf{sans somme}.
+			\vspace{1ex}
+
+		\item On note \(S(k)\) le plus grand entier \(n\) vérifiant cette propriété.
+\vspace{2ex}
+
+Les nombres de Schur faibles sont une variante des nombres de Schur. On se demande : Peut-on colorier les entiers de \(1\) à \(n\) de sorte que si deux 
+	nombres \textbf{distincts} ont la même couleur, leur somme n'est pas de cette couleur ?
+
+    \vspace{1ex}
+	\item On note \(\WS(k)\) le plus grand entier \(n\) vérifiant cette propriété.
+	
+	\vspace{2ex}
+	Le comportement asymptotique de ces suites est mal connu.
+	\vspace{1ex}	
+	\item \(c \, \sqrt[5]{380}^k \leqslant S(k) \leqslant \WS(k)\)
+	\item Lien avec les nombres de Ramsey \(S(k) \leqslant R_k(3) - 2 \leqslant \left\lfloor k! \left(e - \frac{1}{6}\right) \right\rfloor - 1\)
+    \end{itemize}
+  \end{block}
+  
+  
+  
+ 	\vspace{-0.5ex}
+    \begin{block}{Exemples}
+    \centering
+    On a \(S(3) = 13\) et \(WS(2) = 8\)
+    \setlength{\arraycolsep}{0.8ex}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{figure}
+    
+    \caption{\large Partition sans-somme à 3 couleurs}
+    \vspace{1ex}
+   	\(\begin{NiceArray}{|*{13}{c|}}[standard-cline,hlines]
+		\CodeBefore
+			\cellcolor{red}{1-1}
+			\cellcolor{cyan}{1-2}
+			\cellcolor{cyan}{1-3}
+			\cellcolor{red}{1-4}
+			\cellcolor{green}{1-5}
+			\cellcolor{green}{1-6}
+			\cellcolor{cyan}{1-7}
+			\cellcolor{green}{1-8}
+			\cellcolor{green}{1-9}
+			\cellcolor{red}{1-10}
+			\cellcolor{cyan}{1-11}
+			\cellcolor{cyan}{1-12}
+			\cellcolor{red}{1-13}
+		\Body
+			\,\,1\,\,\, & \,\,2\,\,\, & \,\,3\,\,\, & \,\,4\,\,\, & \,\,5\,\,\, & \,\,6\,\,\, & \,\,7\,\,\, & \,\,8\,\,\, & \,\,9\,\,\, & 10 & 11 & 12 & 13\\
+	\end{NiceArray}\)
+	
+	\end{figure}
+	\bigskip
+	
+	\setlength{\arraycolsep}{1.5ex}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{figure}
+    \caption{\large Partition \textit{faiblement} sans-somme à 2 couleurs}
+    \vspace{1ex}
+	\(\begin{NiceArray}{|*{8}{c|}}[standard-cline,hlines]
+		\CodeBefore
+			\cellcolor{red}{1-1}
+			\cellcolor{red}{1-2}
+			\cellcolor{cyan}{1-3}
+			\cellcolor{red}{1-4}
+			\cellcolor{cyan}{1-5}
+			\cellcolor{cyan}{1-6}
+			\cellcolor{cyan}{1-7}
+			\cellcolor{red}{1-8}
+		\Body
+			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+	\end{NiceArray}\)
+    
+	\end{figure}
+    	
+    \end{block}
+    
+    \vfill
+    
+}
+\end{minipage}
+\end{beamercolorbox}
+\end{column}
+
+\begin{column}{0.49\textwidth}
+\begin{beamercolorbox}[center, wd=\textwidth]{postercolumn}
+\begin{minipage}[T]{0.95\textwidth}
+\parbox[t][\columnheight]{\textwidth}{%
+  \begin{block}{Templates}
+    \vspace{-1ex}
+    \setlength{\arraycolsep}{0.8ex}\renewcommand{\arraystretch}{1.5}
+    \begin{figure}
+    \caption{\large Partition sans somme construite à l'aide d'un template}
+    \vspace{1ex}
+    \(\begin{NiceArray}{*{10}{c}}[corners={NW},hvlines]
+    \CodeBefore
+    	\cellcolor{red}{1-9}
+    	\cellcolor{green}{1-10}
+    	\cellcolor{cyan}{2-1}
+    	\cellcolor{cyan}{2-2}
+	\cellcolor{red}{2-3}
+	\cellcolor{green}{2-4}
+	\cellcolor{green}{2-5}
+	\cellcolor{red}{2-6}
+    	\cellcolor{cyan}{2-7}
+    	\cellcolor{cyan}{2-8}
+    	\cellcolor{cyan}{2-9}
+	\cellcolor{red}{2-10}
+	\cellcolor{yellow}{3-1}
+    	\cellcolor{yellow}{3-2}
+	\cellcolor{red}{3-3}
+	\cellcolor{green}{3-4}
+	\cellcolor{green}{3-5}
+	\cellcolor{red}{3-6}
+    	\cellcolor{yellow}{3-7}
+    	\cellcolor{yellow}{3-8}
+    	\cellcolor{yellow}{3-9}
+	\cellcolor{red}{3-10}
+	\cellcolor{yellow}{4-1}
+    	\cellcolor{yellow}{4-2}
+	\cellcolor{red}{4-3}
+	\cellcolor{green}{4-4}
+	\cellcolor{green}{4-5}
+	\cellcolor{red}{4-6}
+    	\cellcolor{yellow}{4-7}
+    	\cellcolor{yellow}{4-8}
+    	\cellcolor{yellow}{4-9}
+	\cellcolor{red}{4-10}
+	\cellcolor{cyan}{5-1}
+    	\cellcolor{cyan}{5-2}
+	\cellcolor{red}{5-3}
+	\cellcolor{green}{5-4}
+	\cellcolor{green}{5-5}
+	\cellcolor{red}{5-6}
+    	\cellcolor{cyan}{5-7}
+    	\cellcolor{cyan}{5-8}
+    	\cellcolor{cyan}{5-9}
+	\cellcolor{red}{5-10}
+    \Body
+    	   &    &    &    &    &    &    &    &  1 &  2 \\
+    	 3 &  4 &  5 &  6 &  7 &  8 &  9 & 10 & 11 & 12 \\
+    	13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 \\
+    	23 & 24 & 25 & 26 & 27 & 28 & 29 & 30 & 31 & 32 \\
+    	33 & 34 & 35 & 36 & 37 & 38 & 39 & 40 & 41 & 42 \\
+    \end{NiceArray}\)
+    \end{figure}
+\end{block}
+  
+  
+    \begin{block}{Forme des inégalités obtenues}
+    	\begin{itemize}
+    	
+   \item Forme des inégalités pour les nombres de Schur :
+   \[S(k+l) \geqslant aS(k) + b.\]
+   
+   Une approche précédente avait obtenu $a=2S(l)+1$ et $b=S(l)$.
+   \vspace{1ex}
+   \item Forme des inégalités pour les nombres de Schur faibles :
+   \[ \WS(k+l) \geqslant cS(k) + d.\]
+   
+   Nous avons obtenu : $c \geqslant \WS (l) + \left \lceil \WS(l)/2 \right \rceil +1$.
+
+     	
+  \end{itemize}
+  \end{block}
+
+  \medskip
+  \begin{block}{Reformulation en formule booléenne (CNF)}
+  \begin{itemize}
+      \item \(x_i^{(c)} = 1\) si le nombre \(i\) est dans la couleur \(c\), \(0\) sinon.
+      \item \(\mathit{Col}_i = \bigvee\limits_{c} x_i^{(c)} \) : \(i\) est dans au moins une couleur.
+      \item \(\mathit{Disj}_i = \bigwedge\limits_{c_1 \neq c_2} \neg x_i^{(c_1)} \vee \neg x_i^{(c_2)}\) : \(i\) a au plus une couleur.
+      \item \(\mathit{Som}_c = \bigwedge\limits_{i + j \leqslant n} \neg x_i^{(c)} \vee \neg x_j^{(c)} \vee \neg x_{i+j}^{(c)}\) : \(c\) est sans somme.
+  \end{itemize}
+  \end{block}
+  \medskip
+  \vspace{-1ex}
+\begin{block}{Résultats}
+\vspace{-1ex}
+\begin{center}
+    \begin{table}
+		\caption{\large Bornes inférieures pour les nombres de Schur}
+        
+		 \begin{normalsize}
+		  
+		\begin{tabular}{|*{11}{c|}}
+		    \hline
+		    \(k\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+		    \hline
+		    Etat de l'art & 1* & 4* & 13* & 44* & 160* & 536 & 1\,696 &5\,286 & 17\,694 & 60\,320 \\
+		    \hline
+		    \textbf{Nos résultats} & & & & & & & & \textbf{5\,362} & \textbf{17\,803} & \textbf{60\,948} \\
+		    \hline
+		\end{tabular}
+						  
+		\end{normalsize}
+	\end{table}
+	
+	\vspace{1ex}
+
+    \begin{table}
+		\caption{\large Bornes inférieures pour les nombres de Schur faibles}
+        \begin{normalsize}
+    		\begin{tabular}{|*{11}{c|}}
+    		    \hline
+    		    \(k\) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    		    \hline
+    		    Etat de l'art & 2* & 8* & 23* & 66* & 196 & 642 & 2\,146 & 6\,976 & 22\,056 & 70\,778 \\
+    		    \hline
+    		    \textbf{Nos résultats} & & & & & &\textbf{646} & & & \textbf{22\,536} & \textbf{71\,256} \\
+    		    \hline
+    		\end{tabular}
+    	\end{normalsize}
+    \end{table}
+    \vspace{1ex}
+	* désigne une valeur exacte
+\end{center}
+Nous avons aussi obtenu de nouvelles bornes inférieures pour tout \(k \geqslant 11\).
+\end{block}
+\medskip
+
+}
+\end{minipage}
+\end{beamercolorbox}
+\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}
