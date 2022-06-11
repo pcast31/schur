@@ -77,7 +77,7 @@ def save_partition(cliques, coloring):
     partition = [[] for _ in cliques]
     for x, c in enumerate(coloring, 1):
         partition[c - 1].append(x)
-    filename = f"../results/partitions/U({','.join(cliques)};{len(coloring)}).txt"
+    filename = f"../results/partitions/L({','.join(cliques)};{len(coloring)}).txt"
     with open(filename, 'w') as file:
         for col in partition:
             content = " ".join(map(str, col)) + '\n'
