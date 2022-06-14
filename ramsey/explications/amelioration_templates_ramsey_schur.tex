@@ -211,7 +211,7 @@ Pour un ensemble \(B \subset \mathbb{N}\) et \(k \in \mathbb{N}\), on note \(\ma
 Lorsque l'on cherche à construire un \(L(k_1, ..., k_r ; n)\) à l'aide de la construction, le coloriage \(F\) est moins contraint que le coloriage \(H\) puisque les nombres coloriés par \(F\) intéragissent seulement avec des nombres plus petits qu'eux, ce qui n'est pas le cas pour les nombres coloriés par \(H\). C'est ce que caractérise la définition suivante.
 
 \begin{definition}[Compatibilité avec un template]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\). Soit \(T \in \mathcal{T}(k_1, ..., k_r, t; n)\) un template et soit \(A_1, ..., A_{r+1}\) la partition associée. Soit \(d \in [\![1, n]\!]\). Soit \(F\) un coloriage de \([\![1, d]\!]\) et soit \(B_1, ..., B_{r+1}\) la partition associée. Le coloriage \(F\) est dit compatible avec le template \(T\) si il vérifie :
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\). Soit \(T \in \mathcal{T}(k_1, ..., k_r, t; n)\) un template et soit \(A_1, ..., A_{r+1}\) la partition associée. Soit \(d \in [\![1, n]\!]\). Soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r +1\) couleurs et soit \(B_1, ..., B_{r+1}\) la partition associée. Le coloriage \(F\) est dit compatible avec le template \(T\) si il vérifie :
 \begin{enumerate}[(i)]
 \item \(\forall (x,y) \in A_{r+1}^2, \pi(x + y) \leqslant d \implies \pi(x + y)  \notin B_{r+1}\)
 \item \(\forall (x,y) \in A_{r+1} \times B_{r+1}, x + y \leqslant d \implies x + y  \notin B_{r+1}\)
@@ -496,30 +496,47 @@ On construit alors un coloriage \(\gamma\) de \([\![1, a \times p + b + d]\!]\) 
 \end{figure}
 
 \begin{definition}[Compatibilité avec un \(b\)-template]
-TODO
+Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Soit \(T \in \mathcal{T}_b(k_1, ..., k_r; a)\) un \(b\)-template et soit \(A_1, ..., A_{r+1}\) la partition associée. Soit \(d \in [\![1, a]\!]\). Soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r +1\) couleurs et soit \(B_1, ..., B_{r + 1}\) la partition associée. Le coloriage \(F\)  est dit compatible avec le coloriage \(T\) si il vérifie :
+\begin{enumerate}[(i)]
+\item \(\forall (x,y) \in A_{r+1}^2, (x + y > b ~\text{et}~ \pi(x + y) \leqslant d) \implies \pi(x + y)  \notin B_{r+1}\)
+\item \(\forall (x,y) \in A_{r+1} \times B_{r+1}, x + y \leqslant d \implies x + y  \notin B_{r+1}\)
+\item \(\forall c \in [\![1, r]\!], \forall k \in [\![1, k_c-1]\!], \\
+	\left\{ \text{ou} 
+	\begin{array}{l}
+		\exists (i, j) \in {[\![1, k]\!]}^2, |x_i - x_j| \notin A_c, \\
+		TODO \\
+		\exists (i, j) \in {[\![1, k_c - k - 1]\!]}^2, i < j ~\text{et}~ \pi(y_j - y_i) \notin A_c.
+	\end{array}
+	\right.\)
+\end{enumerate}
 \end{definition}
 
 \subsection{Propriétés}
 
 \begin{proposition}[Compatibilité de la valeur par défaut]
-TODO
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Soit \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) un \(b\)-template. Alors \(T\) et \(\coldef_b(T)\) sont compatibles.
 \end{proposition}
 
 \begin{theorem}[Construction de coloriages linéaires]
+\label{thm:b-temp}
 TODO
 \end{theorem}
 
 \begin{corollary}[Inégalités pour les nombres de Ramsey linéaires]
-TODO
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soient \(a \in \mathbb{N}^*\) et \(b \in \mathbb{N}\) tels que \(\mathcal{T}_b(l_1, ..., l_s, t; a) \neq \varnothing\), et on fixe \(T\) un tel \(b\)-template. Soit \(d \in [\![1, a]\!]\) tel qu'il existe un coloriage de \([\![1, d]\!]\) à \(s + 1\) couleurs compatible avec \(T\).
+Alors \(L(k_1, ..., k_r, l_1, ..., l_s) - 2 \geqslant a (L(k_1, ..., k_r) - 2) + b + d\).
 \end{corollary}
 
 \begin{proposition}[Construction de \(b\)-templates]
-TODO
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soit \((a_H, a_V) \in {\mathbb{N}^*}^2\) et soit \((b_H, b_V) \in \mathbb{N}^2\). Soit \(H \in \mathcal{T}_{b_H}(k_1, ..., k_r, t; a_H)\) et soit \(V \in \mathcal{T}_{b_V}(l_1, ..., l_s, t; a_V)\). Alors on a \(\cons_{b_H}(H, V, \varnothing) \in \mathcal{T}_{b_H + a_H b_V}(k_1, ..., k_r, l_1, ..., l_s, t; a_H \times a_V)\).
 \end{proposition}
 
 \begin{proposition}[Compatibilité et construction de \(b\)-templates]
-TODO
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soit \((a_H, a_V) \in {\mathbb{N}^*}^2\) et soit \((b_H, b_V) \in \mathbb{N}^2\). Soit \(H \in \mathcal{T}_{b_H}(k_1, ..., k_r, t; a_H)\) et soit \(V \in \mathcal{T}_{b_V}(l_1, ..., l_s, t; a_V)\). Soit \(F_H\) un coloriage compatible avec \(H\) et  soit \(F_V\) un coloriage compatible avec \(V\).
+Alors \(\cons_{b_H}(H, F_V, F_H)\) est compatible avec \(\cons_{b_H}(H, V, \varnothing)\).
 \end{proposition}
+
+Les deux propositions précédentes ainsi que leur réciproques forment un équivalent du théoèreme \ref{thm:b-temp} pour les \(b\)-templates.
 
 \section{Nouvelles inégalités et bornes inférieures}
 \label{sec:results}
