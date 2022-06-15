@@ -26,7 +26,9 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}[definition]{Théorème}
 \newtheorem{corollary}[definition]{Corollaire}
+\newtheorem{lemma}[definition]{Lemme}
 \newtheorem{proposition}[definition]{Proposition}
+\newtheorem{example}{Exemple}[section]
 
 \DeclareMathOperator{\cons}{Cons}
 \DeclareMathOperator{\coldef}{Default}
@@ -71,13 +73,13 @@ Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\math
 Contrairement aux nombres de Schur, les nombres de Ramsey désignent le plus petit entier tel qu'il n'existe pas de coloriage, et non pas la taille maximale d'un coloriage.
 
 \begin{definition}[Coloriage de Ramsey linéaire]
-Soit \(n \in \mathbb{N}\), et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On indexe les sommets de \(K_n\) avec les entiers de \([\![0, n - 1]\!]\). On appelle coloriage de Ramsey linéaire tout \(R(k_1, ..., k_r ; n)\) pour lequel la couleur de l'arête \((u, v)\) dépend uniquement de \(|u - v|\). Un \(L(k_1, ..., k_r ; n)\) désigne l'un (quelconque) de ces coloriages et l'ensemble de ces coloriages est noté \(\mathcal{L}(k_1, ..., k_r ; n)\). Si tous les \(k_c\) sont égaux à un \(k\), on utilise également les notations \(L_r(k; n)\) et \(\mathcal{L}_r(k; n)\).
+Soit \(n \in \mathbb{N}\), et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On indexe les sommets de \(K_n\) avec les entiers de \([\![0, n - 1]\!]\). On appelle coloriage de Ramsey linéaire tout \(R(k_1, ..., k_r ; n)\) pour lequel la couleur de l'arête \((u, v)\) dépend uniquement de \(|u - v|\). Un \(L(k_1, ..., k_r ; n - 1)\) désigne l'un (quelconque) de ces coloriages et l'ensemble de ces coloriages est noté \(\mathcal{L}(k_1, ..., k_r ; n - 1)\). Si tous les \(k_c\) sont égaux à un \(k\), on utilise également les notations \(L_r(k; n - 1)\) et \(\mathcal{L}_r(k; n - 1)\).
 \end{definition}
 
 Le théorème \ref{thm:ram} justifie la définition suivante.
 
 \begin{definition}[Nombre de Ramsey linéaire]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On définit le nombre de Ramsey linéaire \(L(k_1, ..., k_r)\) comme le plus petit entier \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r ; n) = \varnothing\). Si tous les \(k_c\) sont égaux à un \(k\), ce nombre est également noté \(L_r(k)\).
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On définit le nombre de Ramsey linéaire \(L(k_1, ..., k_r)\) comme le plus petit entier \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r ; n - 1) = \varnothing\). Si tous les \(k_c\) sont égaux à un \(k\), ce nombre est également noté \(L_r(k)\).
 \end{definition}
 
 \begin{proposition}
@@ -233,7 +235,7 @@ Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![
 
 \begin{theorem}[Construction de coloriages linéaires]
 \label{thm:temp}
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}^*\). Soit \(H\) un coloriage de \([\![1,n]\!]\) à \(r + 1\) couleurs. Soit \(d \in \mathbb{N}\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Les deux conditions suivantes sont équivalentes.
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}^*\). Soit \(H\) un coloriage de \([\![1,n]\!]\) à \(r + 1\) couleurs. Soit \(d \in [\![0, n - 1]\!]\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Les deux conditions suivantes sont équivalentes.
 
 \begin{enumerate}[(i)]
 \item \(H \in \mathcal{T}(k_1, ..., k_r, t; n)\) et \(F\) est compatible  avec \(H\).
@@ -253,7 +255,7 @@ Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3
 Le théorème \ref{thm:temp} consistue une généralisation de l'inégalité \(S(n + p) \geqslant S(n)  (2 \, S(p) + 1) + S(p)\) montrée dans \cite{AbbottHanson} et étendue aux nombres de Ramsey linéaires dans \cite{rowleyramseyabott}. Cette construction fournit des exemples de templates.
 
 \begin{proposition}
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r; n) \neq \varnothing\). Alors \(\mathcal{T}(k_1, ..., k_r, t; 2 \, n - 1) \neq \varnothing\).
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r; n) \neq \varnothing\). Alors \(\mathcal{T}(k_1, ..., k_r, t; 2 \, n + 1) \neq \varnothing\).
 \end{proposition}
 
 La construction s'applique aussi aux templates (non évoqué par Rowley).
@@ -266,6 +268,8 @@ Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3
 Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soit \((n, p) \in {\mathbb{N}^*}^2\). Soit \(H \in \mathcal{T}(k_1, ..., k_r, t; n)\) et soit \(V \in \mathcal{T}(l_1, ..., l_s, t; p)\). Soit \(F_H\) un coloriage compatible avec \(H\) et  soit \(F_V\) un coloriage compatible avec \(V\).
 Alors  \(\cons(H, F_V, F_H)\) est compatible avec \(\cons(H, V, \varnothing)\).
 \end{proposition}
+
+Les deux propositions précédentes ainsi que leur réciproques forment un équivalent du théoèreme \ref{thm:temp} pour les templates.
 
 \section{\(b\)-Templates}
 \label{sec:b-temp}
@@ -329,9 +333,17 @@ La couleur \(r + 1\)  n'est pas nécessairement la dernière par ordre d'apparit
 
 Dans le cas où tous les \(k_c\) sont égaux à 3, ces \(b\)-templates constituent des \(b\)-S-templates applicables pour les nombres de Schur similaires au \(b\)-WS-templates pour les nombres de Schur faibles définis dans \cite{schurboyz}.
 
+\begin{example}
+TODO - type Abott pour ramsey (cf  Rowley 2017)
+\end{example}
+
 \begin{proposition}[Lien avec les templates]
 Soit \(r \in \mathbb{N}\), soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\) et soit \(a \in \mathbb{N}^*\). Alors :
 \[ \mathcal{T}(k_1, ..., k_r, t; a) = \mathcal{T}_0(k_1, ..., k_r, t; a). \]
+\end{proposition}
+
+\begin{proposition}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Alors  \(T_b(k_1, ..., k_r, t; a) \subset L(k_1, ..., k_r, 3; a + b)\).
 \end{proposition}
 
 \begin{definition}[Coloriage par défaut]
@@ -513,13 +525,22 @@ Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N
 
 \subsection{Propriétés}
 
+\begin{proposition}[Condition suffisante pour les templates]
+TODO
+\end{proposition}
+
 \begin{proposition}[Compatibilité de la valeur par défaut]
 Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Soit \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) un \(b\)-template. Alors \(T\) et \(\coldef_b(T)\) sont compatibles.
 \end{proposition}
 
 \begin{theorem}[Construction de coloriages linéaires]
 \label{thm:b-temp}
-TODO
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Soit \(H\) un coloriage de \([\![1, a + b]\!]\) à \(r + 1\) couleurs. Soit \(d \in [\![0, a - 1]\!]\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Les deux conditions suivantes sont équivalentes.
+
+\begin{enumerate}[(i)]
+\item \(H \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) et \(F\) est compatible  avec \(H\).
+\item \(\forall s \in \mathbb{N}^*, \forall l \in {[\![3, +\infty[\![}^s, \forall V \in \mathcal{L}(l_1, ..., l_s ; p), \cons_b(H, V, F) \in  \mathcal{L}(k_1, ..., k_r, l_1, ..., l_s ; a \times p + b + d)\)
+\end{enumerate}
 \end{theorem}
 
 \begin{corollary}[Inégalités pour les nombres de Ramsey linéaires]
@@ -527,16 +548,13 @@ Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3
 Alors \(L(k_1, ..., k_r, l_1, ..., l_s) - 2 \geqslant a (L(k_1, ..., k_r) - 2) + b + d\).
 \end{corollary}
 
-\begin{proposition}[Construction de \(b\)-templates]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soit \((a_H, a_V) \in {\mathbb{N}^*}^2\) et soit \((b_H, b_V) \in \mathbb{N}^2\). Soit \(H \in \mathcal{T}_{b_H}(k_1, ..., k_r, t; a_H)\) et soit \(V \in \mathcal{T}_{b_V}(l_1, ..., l_s, t; a_V)\). Alors on a \(\cons_{b_H}(H, V, \varnothing) \in \mathcal{T}_{b_H + a_H b_V}(k_1, ..., k_r, l_1, ..., l_s, t; a_H \times a_V)\).
-\end{proposition}
+\begin{lemma}[associativité de la construction]
+TODO
+\end{lemma}
 
-\begin{proposition}[Compatibilité et construction de \(b\)-templates]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soit \((a_H, a_V) \in {\mathbb{N}^*}^2\) et soit \((b_H, b_V) \in \mathbb{N}^2\). Soit \(H \in \mathcal{T}_{b_H}(k_1, ..., k_r, t; a_H)\) et soit \(V \in \mathcal{T}_{b_V}(l_1, ..., l_s, t; a_V)\). Soit \(F_H\) un coloriage compatible avec \(H\) et  soit \(F_V\) un coloriage compatible avec \(V\).
-Alors \(\cons_{b_H}(H, F_V, F_H)\) est compatible avec \(\cons_{b_H}(H, V, \varnothing)\).
-\end{proposition}
-
-Les deux propositions précédentes ainsi que leur réciproques forment un équivalent du théoèreme \ref{thm:b-temp} pour les \(b\)-templates.
+\begin{theorem}[Construction de \(b\)-templates]
+TODO
+\end{theorem}
 
 \section{Nouvelles inégalités et bornes inférieures}
 \label{sec:results}
