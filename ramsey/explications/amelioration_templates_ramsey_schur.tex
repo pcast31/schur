@@ -333,9 +333,20 @@ La couleur \(r + 1\)  n'est pas nécessairement la dernière par ordre d'apparit
 
 Dans le cas où tous les \(k_c\) sont égaux à 3, ces \(b\)-templates constituent des \(b\)-S-templates applicables pour les nombres de Schur similaires au \(b\)-WS-templates pour les nombres de Schur faibles définis dans \cite{schurboyz}.
 
-\begin{example}
-TODO - type Abott pour ramsey (cf  Rowley 2017)
-\end{example}
+La construction présentée dans \cite{rowleyramseyabott} utilise des coloriages linéaires afin de construire des \(0\)-templates. La proposition suivante présente cette construction sous l'angle des \(b\)-templates.
+\begin{proposition}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r; n) \neq \varnothing\) et on se donne \(\gamma\) un tel coloriage. On définit un nouveau coloriage T de la manière suivante.
+\[\begin{array}{c c c l}
+	T : & [\![1, 2 n + 1]\!] & \longrightarrow & [\![1, r + 1]\!] \\
+	 & x & \longmapsto & \left\{
+		\begin{array}{l l}
+			\gamma(x) & ~\text{si}~ x \leqslant n \\
+			r + 1 & ~\text{si}~ x > n \\
+		\end{array}
+		\right.
+\end{array}\]
+Alors \(T \in \mathcal{T}_0(k_1, ..., k_r, t; 2 \, n + 1)\).
+\end{proposition}
 
 \begin{proposition}[Lien avec les templates]
 Soit \(r \in \mathbb{N}\), soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\) et soit \(a \in \mathbb{N}^*\). Alors :
@@ -525,8 +536,9 @@ Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N
 
 \subsection{Propriétés}
 
+On a une cractérisation similaire à celle donnée dans \cite{RowleyRamsey} pour les sf-templates.
 \begin{proposition}[Condition suffisante pour les templates]
-TODO
+Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Soit \(T\) un coloriage de \([\![1,  a + b]\!]\) à \(r + 1\) couleurs. Soit \(d \in [\![1, a - 1 ]\!]\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Soit \(n \in [\![3, + \infty [\![\) tel que \(n \geqslant \max_{1 \leqslant c \leqslant r} k_c - 1\). Soit \(s \in \mathbb{N}^*\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, + \infty [\![}^s\). Soit enfin \(\gamma \in \mathcal{L}(l_1, ..., l_s; n)\) tel qu'il existe une couleur \(c \in [\![1, s]\!]\) et un sous-ensemble \(S\) de \([\![1, n]\!]\) monochromatique de couleur \(c\) et de cardinal \(k_c - 2\) vérifiant pour tous \(x, y \in S\) distincts, \(\gamma(|x - y|) = c\). Supposons que \(\cons_b(T, \gamma, F) \in \mathcal{L}(k_1, ..., k_r, l_1, ..., l_s; a n + b + d)\). Alors \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) et \(F\) est compatible avec \(T\).
 \end{proposition}
 
 \begin{proposition}[Compatibilité de la valeur par défaut]
@@ -550,6 +562,9 @@ Alors \(L(k_1, ..., k_r, l_1, ..., l_s) - 2 \geqslant a (L(k_1, ..., k_r) - 2) +
 
 \begin{lemma}[associativité de la construction]
 TODO
+\[
+\cons_{b_{H_1}}(H_1, , )
+\]
 \end{lemma}
 
 \begin{theorem}[Construction de \(b\)-templates]
