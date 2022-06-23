@@ -1,0 +1,453 @@
+\documentclass{article}
+\title{Improving the templates for multicolor Ramsey numbers and Schur numbers}
+\author{Romain Ageron}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage{MyMnSymbol}
+
+\usepackage{enumerate}
+
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{float}
+
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{nicematrix}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\DeclareMathOperator{\cons}{Cons}
+\DeclareMathOperator{\coldef}{Default}
+\DeclareMathOperator{\tree}{Tree}
+\DeclareMathOperator{\treeset}{TreeSet}
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\TS}{\mathit{TS}}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Lower bounds for several multicolor Ramsey numbers as well as Schur numbers have recently been improved using a 
+construction based on a particular type of colorings nammed "sf-templates". This article describes a generalization of 
+the sf-templates: the \(b\)-templates.
+\end{abstract}
+
+\section{Introduction}
+This article addresses the edge-coloring of complete graphs in an arbitrary number of colors while limiting the clique 
+number in each color. In \cite{RowleyRamsey}, a construction using as a repeating pattern a particular type of 
+colorings nammed sf-templates is described and used to improve lower bounds on several Ramsey numbers as well as Schur 
+numbers. 
+
+Ramsey numbers and Schur numbers are defined in Section \ref{sec:def}. Section \ref{sec:temp} defines the 
+\(b\)-templates and describes the corrresponding construction. Section \ref{sec:results} states and proves the main 
+results on \(b\)-templates and the construction. Section \ref{sec:bounds} records the new inequalities and some new 
+lower bounds.
+
+\section{Definitions}
+\label{sec:def}
+
+Pour \(n \in \mathbb{N}\), on note \(K_n\) le graphe complet d'ordre \(n\).
+
+\begin{definition}[Coloriage de Ramsey]
+Soit \(n \in \mathbb{N}\), la taille du graphe, et soit \(r \in \mathbb{N}\), le nombre de couleurs. Soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On appelle coloriage de Ramsey tout coloriage des arêtes de \(K_n\) avec \(r\) couleurs tel que pour toute couleur \(c \in [\![1, r]\!]\), le coloriage ne contient pas de sous-graphe complet \(K_{k_c}\) monochromatique en la couleur \(c\). \(R(k_1, ..., k_r ; n)\) désigne l'un (quelconque) de ces coloriages et l'ensemble de ces coloriages est noté \(\mathcal{R}(k_1, ..., k_r ; n)\). Si tous les \(k_c\) sont égaux à un \(k\), on utilise également les notations \(R_r(k; n)\) et \(\mathcal{R}_r(k; n)\).
+\end{definition}
+
+\begin{theorem}[Théorème de Ramsey fini \cite{Ramsey}]
+\label{thm:ram}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). Alors il existe un entier \(n \in \mathbb{N}\) tel que \(\mathcal{R}(k_1, ..., k_r ; n) = \varnothing\).
+\end{theorem}
+
+Le théorème \ref{thm:ram} justifie la définition suivante.
+
+\begin{definition}[Nombre de Ramsey]
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On définit le nombre de Ramsey \(R(k_1, ..., k_r)\) comme le plus petit entier \(n \in \mathbb{N}\) tel que \(\mathcal{R}(k_1, ..., k_r ; n) = \varnothing\). Si tous les \(k_c\) sont égaux à un \(k\), ce nombre est également noté \(R_r(k)\).
+\end{definition}
+
+Contrairement aux nombres de Schur, les nombres de Ramsey désignent le plus petit entier tel qu'il n'existe pas de coloriage, et non pas la taille maximale d'un coloriage.
+
+\begin{definition}[Coloriage de Ramsey linéaire]
+Soit \(n \in \mathbb{N}\), et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On indexe les sommets de \(K_n\) avec les entiers de \([\![0, n - 1]\!]\). On appelle coloriage de Ramsey linéaire tout \(R(k_1, ..., k_r ; n)\) pour lequel la couleur de l'arête \((u, v)\) dépend uniquement de \(|u - v|\). Un \(L(k_1, ..., k_r ; n - 1)\) désigne l'un (quelconque) de ces coloriages et l'ensemble de ces coloriages est noté \(\mathcal{L}(k_1, ..., k_r ; n - 1)\). Si tous les \(k_c\) sont égaux à un \(k\), on utilise également les notations \(L_r(k; n - 1)\) et \(\mathcal{L}_r(k; n - 1)\).
+\end{definition}
+
+Le théorème \ref{thm:ram} justifie la définition suivante.
+
+\begin{definition}[Nombre de Ramsey linéaire]
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On définit le nombre de Ramsey linéaire \(L(k_1, ..., k_r)\) comme le plus petit entier \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r ; n - 1) = \varnothing\). Si tous les \(k_c\) sont égaux à un \(k\), ce nombre est également noté \(L_r(k)\).
+\end{definition}
+
+\begin{proposition}
+\(\forall r \in \mathbb{N}, (k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r, L(k_1, ..., k_r) \leqslant R(k_1, ..., k_r)\)
+\end{proposition}
+
+Un \(L(k_1, ..., k_r ; n)\) induit un coloriage de \([\![1, n - 1]\!]\). Réciproquement, tout coloriage de \([\![1, n - 1]\!]\) correspond à un coloriage linéraire de \(K_n\). Le théorème suivant porte sur le lien entre un coloriage sur \([\![1, n]\!]\) et les nombres de cliques du coloriage linéaire de \(K_{n+1}\) associé.
+
+\begin{theorem}[Lien avec les coloriages sans-sommes \cite{AbbottHanson}]
+\label{thm:lien-partitions}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). Soit \(n \in \mathbb{N}^*\) et soit \(\gamma\) un coloriage de \([\![1, n]\!]\) avec \(r\) couleurs. Alors les deux conditions suivantes sont équivalentes :
+\begin{enumerate}[(i)]
+\item dans le coloriage linéaire de \(K_{n+1}\) associé à \(\gamma\), la couleur \(c\) contient un sous-graphe complet de taille \(k_c\)
+\item il existe un sous-ensemble \(S\) de \([\![1, n]\!]\) monochromatique de couleur \(c\) et de cardinal \(k_c - 1\) vérifiant : pour tous \(x, y \in S\) distincts, \(\gamma(|x - y|) = c\) 
+\end{enumerate}
+\end{theorem}
+
+Dans la suite, on utilise également \(L(k_1, ..., k_r ; n)\) pour désigner un coloriage de \([\![1, n - 1]\!]\)  associé à un \(L(k_1, ..., k_r ; n)\).
+
+Le théorème \ref{thm:lien-partitions} donne le corollaire suivant.
+
+\begin{corollary}[Lien avec les nombres de Schur]
+\[\forall n \in \mathbb{N}^*, S(n) = L_n(3) - 2 \leqslant R_n(3) - 2\] 
+\end{corollary}
+
+\section{\(b\)-Templates}
+\label{sec:temp}
+Dans cette section, on introduit les \(b\)-templates. Les templates présentés dans la section \ref{sec:b-temp} vont apparaître comme un cas particulier des \(b\)-templates puisqu'ils correspondent au cas \(b = 0\).
+
+On commence par décrire \(\TS_{b,k}\), un ensemble particulier de \(k\)-tuples qui sera utilisé dans la définition des \(b\)-templates.
+
+\begin{definition}[Arbre associé à un tuple]
+Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\). A chaque tuple d'entiers, on associe un arbre de manière récurssive :
+\[ \left\{
+\begin{array}{l}
+	\forall x \in \mathbb{R}, \tree(x) = x, \\
+	\forall k \in [\![2, +\infty[\![, \forall x \in \mathbb{R}^k,
+		\left\{
+		\begin{array}{l l}
+			\tree(x) = (x_1, \tree(x_2, ..., x_k)) &  ~\text{si}~ x_2 - x_1 > b, \\
+			\tree(x) = (x_1, \tree(x_2, ..., x_k), \tree(x_2 + a, ..., x_k)) &  ~\text{si}~ 0 \leqslant x_2 - x_1 \leqslant b, \\
+			\tree(x) = \tree\left(x_1, x_2 + a \left\lceil \dfrac{x_1 - x_2}{a}\right\rceil, x_3, ..., x_k\right) & ~\text{si}~ x_2 < x_1.
+		\end{array}
+		\right.
+\end{array}
+\right. \]
+Pour un arbre \(\tree(x)\), on note \(\treeset(x)\) l'ensemble des tuples d'entiers que l'on peut construire en collectant les labels au cours d'une descente de cet arbre.
+\end{definition}
+
+\begin{definition}[Ensembles \(S_{b,k}(A)\) et \(\TS_{b,k}(A)\)]
+Soit \(A \subset \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(k \in [\![2, +\infty[\![\). On note \(S_{b,k}(A)\) l'ensemble de \(k\)-tuples  à valeurs distinctes dans \(A\) et dont les éléments de \([\![1, b]\!]\) sont situés au début et apparaissent dans l'ordre croissant :\\
+\(S_{b,k}(A) = \left\{ x \in \mathfrak{S}_k(A) ~:~ \forall i \in  [\![2, k]\!], x_i \leqslant b \implies x_i \geqslant x_{i -1} \right\}\). On définit alors un ensemble \(\TS_{b,k}(A)\) de \(k\)-tuples : \(\TS_{b,k}(A) = \displaystyle\bigcup\limits_{x \in S_{b,k}(A)} \treeset(x)\).
+\end{definition}
+
+On définit aussi un opérateur de projection de \(\mathbb{Z}\) vers \([\![1, a + b]\!]\).
+
+\begin{definition}[Projection \(\pi_{a, b}\)]
+Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). On définit une projection, noté \(\pi_{a, b}\) ou plus simplement \(\pi\) si il n'y a pas d'ambiguïté, sur \([\![1, a + b]\!]\) de la manière suivante.
+\[ \begin{array}{c c c l}
+	\pi_{a, b} : & \mathbb{Z} & \longrightarrow & [\![1, a + b]\!] \\
+	 & x & \longmapsto & 
+		\left\{
+		\begin{array}{l l}
+			x & ~\text{si}~ 1 \leqslant x \leqslant b \\
+			(x \mod a) + \mathds{1}_{[\![0, b]\!]}(x \mod a) & ~\text{si}~ x > b
+		\end{array}
+		\right.
+\end{array} \]
+\end{definition}
+
+On peut maintenant définir les \(b\)-templates.
+
+\begin{definition}[\(b\)-Templates]
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\).  Un \(b\)-template de largeur \(a\) à \(r + 1\) couleurs, est défini comme une partition de \([\![1, a + b]\!]\) en \(r+1\) sous-ensembles \(A_1, ..., A_{r+1}\) vérifiant :
+\begin{enumerate}[(i)]
+\item \(a \in A_{r+1}\),
+\item \(\forall (x, y) \in A_{r + 1}^2, x + y \notin [\![a + b + 1, 2 a + b]\!] \implies \pi(x + y) \notin A_{r + 1}\),
+\item \(\forall c \in [\![1, c]\!], \forall x \in \TS_{b, k_c - 1}(A_c), \exists (i, j) \in {[\![1, k_c - 1]\!]}^2, i < j ~\text{et}~ \pi(x_j - x_i) \notin A_c\).
+\end{enumerate}
+ \(T_b(k_1, ..., k_r, t; a)\) désigne l'un (quelconque) de ces \(b\)-templates et l'ensemble de ces \(b\)-templates est noté \(\mathcal{T}_b(k_1, ..., k_r, t; a)\).  La couleur \(r + 1\) joue un rôle particulier et elle est appelée "couleur template".
+\end{definition}
+
+La couleur \(r + 1\)  n'est pas nécessairement la dernière par ordre d'apparition, la désignation de \(r+1\) comme couleur template signalée par \(t\) est une convention qui allège les notations en évitant de devoir écrire \(\mathcal{T}_b(k_1, ..., k_{i - 1}, t,  k_{i + 1}, ..., k_r; n)\) par exemple.
+
+Dans le cas où tous les \(k_c\) sont égaux à 3, ces \(b\)-templates constituent des \(b\)-S-templates applicables pour les nombres de Schur similaires au \(b\)-WS-templates pour les nombres de Schur faibles définis dans \cite{schurboyz}.
+
+La construction présentée dans \cite{rowleyramseyabott} utilise des coloriages linéaires afin de construire des \(0\)-templates. La proposition suivante présente cette construction sous l'angle des \(b\)-templates.
+\begin{proposition}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r; n) \neq \varnothing\) et on se donne \(\gamma\) un tel coloriage. On définit un nouveau coloriage T de la manière suivante.
+\[\begin{array}{c c c l}
+	T : & [\![1, 2 n + 1]\!] & \longrightarrow & [\![1, r + 1]\!] \\
+	 & x & \longmapsto & \left\{
+		\begin{array}{l l}
+			\gamma(x) & ~\text{si}~ x \leqslant n \\
+			r + 1 & ~\text{si}~ x > n \\
+		\end{array}
+		\right.
+\end{array}\]
+Alors \(T \in \mathcal{T}_0(k_1, ..., k_r, t; 2 \, n + 1)\).
+\end{proposition}
+
+\begin{proposition}[Lien avec les templates]
+Soit \(r \in \mathbb{N}\), soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\) et soit \(a \in \mathbb{N}^*\). Alors :
+\[ \mathcal{T}(k_1, ..., k_r, t; a) = \mathcal{T}_0(k_1, ..., k_r, t; a). \]
+\end{proposition}
+
+\begin{proposition}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Alors  \(T_b(k_1, ..., k_r, t; a) \subset L(k_1, ..., k_r, 3; a + b)\).
+\end{proposition}
+
+\begin{definition}[Coloriage par défaut]
+Soit \(n \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \(H\) un coloriage de \([\![1, n]\!]\) à \(r +1\) couleurs. On pose \(d = \min \left(H^{-1}(\{r + 1\}) \backslash [\![1, b]\!] \right) - b  - 1\). On définit alors un coloriage \(\coldef_b(H)\), dit par défaut, associé au coloriage \(H\) :
+\[\begin{array}{c c c c}
+	\coldef_b(H) : & [\![1, d]\!] & \longrightarrow & [\![1, r + 1]\!] \\
+	 & x & \longmapsto & H(x + b)
+\end{array}\]
+\end{definition}
+
+\begin{definition}[Méthode de construction]
+Soit \((a, p) \in {\mathbb{N}^*}^2\) et soit \(b \in \mathbb{N}\). Soit \((r, s) \in {\mathbb{N}^*}^2\). On se donne un coloriage de \([\![1, a + b]\!]\) à \(r + 1\) couleurs (appelée \(H\), pour horizontal), et un coloriage de \([\![1, p]\!]\) à \(s\) couleurs (appelée \(V\), pour vertical).
+
+Pour un \(d \in \mathbb{N}\), on se donne aussi un coloriage dit final \(F\) de \([\![1, d]\!]\) à \(r + 1\) couleurs. Il est parfois utile de définir \(F\) au cas par cas, mais on peut aussi lui attribuer une valeur par défaut \(F = \coldef_b(H)\). Dans le cas où \(F\) n'est pas utilisé, on note \(F = \varnothing\) l'application vide. 
+
+On construit alors un coloriage \(\gamma\) de \([\![1, a \times p + b + d]\!]\) à \(r + s\) couleurs comme suit. De manière informelle, on commence par utiliser le coloriage initial \(I \defeq H_{| \, [\![1, b]\!]}\), puis on répéte \(p\) fois le pattern \(P \defeq H_{| \, [\![b + 1, a + b]\!]}\) en remplaçant pour la \(i\)-ème itération la couleur spéciale par \(r + \mathcal{V}(i)\), et finalement on ajoute le motif formé l'enchaînement des couleurs dans \(\mathcal{F}\). Formellement :
+\[\begin{array}{c c c l}
+	\gamma: & [\![1, a \times p + b + d]\!]  & \longrightarrow &  [\![1, r + s]\!] \\
+ 	& x & \longmapsto & 
+		\left\{\begin{array}{l l}
+			H(x) & ~\text{si}~ x \leqslant b \\
+			H(\pi(x)) & ~\text{si}~  b + 1 \leqslant x \leqslant a \times p + b ~\text{et}~ H(\pi(x)) \neq r + 1 \\
+			r + V \left(\left\lceil \dfrac{x - b}{a} \right\rceil\right) & ~\text{si}~ b + 1 \leqslant x \leqslant a \times p + b ~\text{et}~ H(\pi(x)) = r + 1 \\
+			F(x - a \times p - b) & ~\text{si}~ x \geqslant a \times p + b + 1
+		\end{array}\right.
+\end{array}\]
+\end{definition}
+
+\begin{figure}[H]
+\caption{Exemple de construction avec \(b = 5\)}
+\renewcommand{\arraystretch}{1.7}
+\begin{center}
+
+\begin{tabular}{c}
+	\begin{NiceTabular}{c}[hvlines]
+		\CodeBefore
+			\cellcolor{cyan}{1-1}
+		\Body
+			couleur template
+	\end{NiceTabular} \\
+	coloriage \(H\) \\
+	\(
+		\begin{NiceArray}{*{17}{c}}[hvlines,last-row]
+		\CodeBefore
+			\cellcolor{red}{1-1}
+			\cellcolor{red}{1-2}
+			\cellcolor{cyan}{1-3}
+			\cellcolor{red}{1-4}
+			\cellcolor{green}{1-5}
+			\cellcolor{green}{1-6}
+			\cellcolor{red}{1-7}
+			\cellcolor{green}{1-8}
+			\cellcolor{cyan}{1-9}
+			\cellcolor{cyan}{1-10}
+			\cellcolor{cyan}{1-11}
+			\cellcolor{cyan}{1-12}
+			\cellcolor{cyan}{1-13}
+			\cellcolor{red}{1-14}
+			\cellcolor{green}{1-15}
+			\cellcolor{cyan}{1-16}
+			\cellcolor{red}{1-17}
+		\Body
+			\,\,1\,\, & \,\,2\,\, & \,\,3\,\, & \,\,4\,\, & \,\,5\,\, & \,\,6\,\, & \,\,7\,\, & \,\,8\,\, & \,\,9\,\, & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 \\
+			\Block{1-5}{\underbrace{\hphantom{................................}}_{\textstyle I}} & & & & & \Block{1-12}{\underbrace{\hphantom{..................................................................................}}_{\textstyle P}}
+		\end{NiceArray}\) \\
+	\begin{tabular}{c c}
+		coloriage \(V\) & coloriage \(F\) \\
+		\(
+			\begin{NiceArray}{c}[hvlines]
+			\CodeBefore
+				\cellcolor{cyan}{1-1}
+				\cellcolor{yellow}{2-1}
+				\cellcolor{yellow}{3-1}
+				\cellcolor{cyan}{4-1}
+			\Body
+				\,\,1\,\, \\
+				\,\,2\,\, \\
+				\,\,3\,\, \\
+				\,\,4\,\, \\
+			\end{NiceArray}\) &
+			\( \begin{NiceArray}{*{4}{c}}[hvlines]
+			\CodeBefore
+				\cellcolor{red}{1-1}
+				\cellcolor{cyan}{1-2}
+				\cellcolor{green}{1-3}
+				\cellcolor{green}{1-4}
+			\Body
+				\,\,1\,\, & \,\,2\,\, & \,\,3\,\, & \,\,4\,\,
+			\end{NiceArray}\) \\	
+	\end{tabular} \\
+	\(\cons_5(H, V, F)\) \\
+	\(
+		\begin{NiceArray}{*{12}{c}}[corners={NW,SE},hvlines]
+		\CodeBefore
+		    	\cellcolor{red}{1-8}
+			\cellcolor{red}{1-9}
+			\cellcolor{cyan}{1-10}
+			\cellcolor{red}{1-11}
+			\cellcolor{green}{1-12}
+			\cellcolor{green}{2-1}
+			\cellcolor{red}{2-2}
+			\cellcolor{green}{2-3}
+			\cellcolor{cyan}{2-4}
+			\cellcolor{cyan}{2-5}
+			\cellcolor{cyan}{2-6}
+			\cellcolor{cyan}{2-7}
+			\cellcolor{cyan}{2-8}
+			\cellcolor{red}{2-9}
+			\cellcolor{green}{2-10}
+			\cellcolor{cyan}{2-11}
+			\cellcolor{red}{2-12}
+			\cellcolor{green}{3-1}
+			\cellcolor{red}{3-2}
+			\cellcolor{green}{3-3}
+			\cellcolor{yellow}{3-4}
+			\cellcolor{yellow}{3-5}
+			\cellcolor{yellow}{3-6}
+			\cellcolor{yellow}{3-7}
+			\cellcolor{yellow}{3-8}
+			\cellcolor{red}{3-9}
+			\cellcolor{green}{3-10}
+			\cellcolor{yellow}{3-11}
+			\cellcolor{red}{3-12}
+			\cellcolor{green}{4-1}
+			\cellcolor{red}{4-2}
+			\cellcolor{green}{4-3}
+			\cellcolor{yellow}{4-4}
+			\cellcolor{yellow}{4-5}
+			\cellcolor{yellow}{4-6}
+			\cellcolor{yellow}{4-7}
+			\cellcolor{yellow}{4-8}
+			\cellcolor{red}{4-9}
+			\cellcolor{green}{4-10}
+			\cellcolor{yellow}{4-11}
+			\cellcolor{red}{4-12}
+			\cellcolor{green}{5-1}
+			\cellcolor{red}{5-2}
+			\cellcolor{green}{5-3}
+			\cellcolor{cyan}{5-4}
+			\cellcolor{cyan}{5-5}
+			\cellcolor{cyan}{5-6}
+			\cellcolor{cyan}{5-7}
+			\cellcolor{cyan}{5-8}
+			\cellcolor{red}{5-9}
+			\cellcolor{green}{5-10}
+			\cellcolor{cyan}{5-11}
+			\cellcolor{red}{5-12}
+			\cellcolor{red}{6-1}
+			\cellcolor{cyan}{6-2}
+			\cellcolor{green}{6-3}
+			\cellcolor{green}{6-4}
+		 \Body
+		    	   & & & & & & & 1 &  2 & 3 &  4 &  5 \\
+		    	 6 &  7 &  8 &  9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 \\
+		    	18 & 19 & 20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 \\
+		    	30 & 31 & 32 & 33 & 34 & 35 & 36 & 37 & 38 & 39 & 40 & 41 \\
+			42 & 43 & 44 & 45 & 46 & 47 & 48 & 49 & 50 & 51 & 51 & 53 \\
+			54 & 55 & 56 & 57 \\
+		\end{NiceArray}\)
+\end{tabular}
+\end{center}
+\end{figure}
+
+\begin{definition}[Compatibilité avec un \(b\)-template]
+Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Soit \(T \in \mathcal{T}_b(k_1, ..., k_r; a)\) un \(b\)-template et soit \(A_1, ..., A_{r+1}\) la partition associée. Soit \(d \in [\![1, a]\!]\). Soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r +1\) couleurs et soit \(B_1, ..., B_{r + 1}\) la partition associée. Le coloriage \(F\)  est dit compatible avec le coloriage \(T\) si il vérifie :
+\begin{enumerate}[(i)]
+\item \(\forall (x,y) \in A_{r+1}^2, (x + y > b ~\text{et}~ \pi(x + y) \leqslant d) \implies \pi(x + y)  \notin B_{r+1}\)
+\item \(\forall (x,y) \in A_{r+1} \times B_{r+1}, x + y \leqslant d \implies x + y  \notin B_{r+1}\)
+\item \(\forall c \in [\![1, r]\!], \forall k \in [\![1, k_c-1]\!], \\
+	\left\{ \text{ou} 
+	\begin{array}{l}
+		\exists (i, j) \in {[\![1, k]\!]}^2, |x_i - x_j| \notin A_c, \\
+		TODO \\
+		\exists (i, j) \in {[\![1, k_c - k - 1]\!]}^2, i < j ~\text{et}~ \pi(y_j - y_i) \notin A_c.
+	\end{array}
+	\right.\)
+\end{enumerate}
+\end{definition}
+
+\section{Properties of the \(b\)-templates}
+\label{sec:results}
+
+On a une cractérisation similaire à celle donnée dans \cite{RowleyRamsey} pour les sf-templates.
+\begin{proposition}[Condition suffisante pour les templates]
+Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Soit \(T\) un coloriage de \([\![1,  a + b]\!]\) à \(r + 1\) couleurs. Soit \(d \in [\![1, a - 1 ]\!]\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Soit \(n \in [\![3, + \infty [\![\) tel que \(n \geqslant \max_{1 \leqslant c \leqslant r} k_c - 1\). Soit \(s \in \mathbb{N}^*\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, + \infty [\![}^s\). Soit enfin \(\gamma \in \mathcal{L}(l_1, ..., l_s; n)\) tel qu'il existe une couleur \(c \in [\![1, s]\!]\) et un sous-ensemble \(S\) de \([\![1, n]\!]\) monochromatique de couleur \(c\) et de cardinal \(k_c - 2\) vérifiant pour tous \(x, y \in S\) distincts, \(\gamma(|x - y|) = c\). Supposons que \(\cons_b(T, \gamma, F) \in \mathcal{L}(k_1, ..., k_r, l_1, ..., l_s; a n + b + d)\). Alors \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) et \(F\) est compatible avec \(T\).
+\end{proposition}
+
+\begin{proposition}[Compatibilité de la valeur par défaut]
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Soit \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) un \(b\)-template. Alors \(T\) et \(\coldef_b(T)\) sont compatibles.
+\end{proposition}
+
+\begin{theorem}[Construction de coloriages linéaires]
+\label{thm:b-temp}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Soit \(H\) un coloriage de \([\![1, a + b]\!]\) à \(r + 1\) couleurs. Soit \(d \in [\![0, a - 1]\!]\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Les deux conditions suivantes sont équivalentes.
+
+\begin{enumerate}[(i)]
+\item \(H \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) et \(F\) est compatible  avec \(H\).
+\item \(\forall s \in \mathbb{N}^*, \forall l \in {[\![3, +\infty[\![}^s, \forall V \in \mathcal{L}(l_1, ..., l_s ; p), \cons_b(H, V, F) \in  \mathcal{L}(k_1, ..., k_r, l_1, ..., l_s ; a \times p + b + d)\)
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Inégalités pour les nombres de Ramsey linéaires]
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soient \(a \in \mathbb{N}^*\) et \(b \in \mathbb{N}\) tels que \(\mathcal{T}_b(l_1, ..., l_s, t; a) \neq \varnothing\), et on fixe \(T\) un tel \(b\)-template. Soit \(d \in [\![1, a]\!]\) tel qu'il existe un coloriage de \([\![1, d]\!]\) à \(s + 1\) couleurs compatible avec \(T\).
+Alors \(L(k_1, ..., k_r, l_1, ..., l_s) - 2 \geqslant a (L(k_1, ..., k_r) - 2) + b + d\).
+\end{corollary}
+
+\begin{lemma}[associativité de la construction]
+TODO
+\[
+\cons_{b_{H_1}}(H_1, , )
+\]
+\end{lemma}
+
+\begin{theorem}[Construction de \(b\)-templates]
+TODO
+\end{theorem}
+
+\section{Nouvelles inégalités et bornes inférieures}
+\label{sec:bounds}
+
+\subsection{Nombres de Schur}
+
+L'existence d'un 2-S-template de largeur 10 à 3 couleurs non exprimable en tant que S-template fournit une nouvelle inégalité. L'ancienne inégalité était \(S(n + 2) \geqslant 9 \, S(n) + 4\).
+
+\begin{proposition}
+	\[\forall n \in \mathbb{N}^*, S(n + 2) \geqslant 10 \, S(n) + 2\]
+\end{proposition}
+
+Cette inégalité fournit les nouvelles bornes inférieures suivantes : \(S(8) \geqslant 5\,362\) et \(S(13) \geqslant 2\,038\,282\) (contre respectivement \(5\,286\) dans \cite{RowleyRamsey} et \(2\,011\,290\) dans \cite{schurboyz}). Plus généralement, cette inégalité améliore les bornes inférieures des \(S(5 k + 3), \forall k \in \mathbb{N}^*\).
+
+\subsection{Nombres de Ramsey}
+
+On obtient des ingégalités de la forme \(L(k_1, ..., k_r, k_{r+1}, ..., k_{r+s}) - 2 \geqslant a \, (L(k_1, ..., k_r) - 2) + d\). Les "\(k_i\) ajoutés" désignent \( k_{r+1}, ..., k_{r+s}\). Dans le tableau ci-dessous, \(b\)-template désigne un \(b\)-template non exprimable en tant que template. Les anciennes valeurs viennent de \cite{rowleyramseysat}.
+\begin{table}[H]\begin{center}
+\begin{tabular}{| c | c | c | c | c |}
+	\hline
+	\(k_i\) ajoutés & ancien (a, d) & nouveau (a, d) & type de template & coloriage final \\
+	\hline
+	3, 3 & 9, 4 & 10, 2 & \(b\)-template & défaut \\
+	\hline
+	3, 4 & 18, 7 & 19, 2 & \(b\)-template & défaut \\
+	\hline
+	3, 5 & 30, 12 & 31, 3 & \(b\)-template & spécifique \\
+	\hline
+	4, 5 & 51, 21 & 55, 23 & template & défaut \\
+	\hline
+\end{tabular}
+\end{center}\end{table}
+
+En ce qui concerne les bornes inférieures, on a  \(R_8(3) \geqslant 5\,364\) et \(R_{13}(3)\geqslant 2\,038\,284\) (contre respectivement \(5\,288\) dans \cite{RowleyRamsey} et \(2\,011\,292\) dans \cite{schurboyz}), et plus généralement une amélioration pour les \(R_{5 k + 3}(3), \forall k \in \mathbb{N}^*\). On a aussi \(R(3 , 4 , 5 , 5) \geqslant 764\) (contre 729 dans \cite{rowleyramseysat}). Il existe de nombreuses inégalités récursives et constructions pour les nombres de Ramsey. Afin de savoir quelles bornes précisément ont été améliorées, il faudrait recenser chacunes des bornes inférieures et des méthodes existantes puis calculer toutes les bornes et voir si cetaines sont améliorées. Il est probable que les inégalités de cette section permettent d'améliorer les bornes inférieures pour d'autres nombres de Ramsey mais je n'ai pas effectué cette vérification.
+
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
+
+\end{document}
