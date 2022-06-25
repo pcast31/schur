@@ -43,75 +43,114 @@
 
 \begin{abstract}
 Lower bounds for several multicolor Ramsey numbers as well as Schur numbers have recently been improved using a 
-construction based on a particular type of colorings nammed "sf-templates". This article describes a generalization of 
-the sf-templates: the \(b\)-templates.
+pattern based construction with a particular type of coloring nammed "sf-template". This article describes a 
+generalization of the sf-templates: the \(b\)-templates.
 \end{abstract}
 
 \section{Introduction}
 This article addresses the edge-coloring of complete graphs in an arbitrary number of colors while limiting the clique 
-number in each color. In \cite{RowleyRamsey}, a construction using as a repeating pattern a particular type of 
-colorings nammed sf-templates is described and used to improve lower bounds on several Ramsey numbers as well as Schur 
-numbers. 
+number in each color, as well as sum-free colorings of positive integers. A pattern based construction which uses a 
+particular type of coloring nammed sf-template was described in \cite{RowleyRamsey}. This construction was used to 
+improve lower bounds on several Ramsey numbers as well as Schur numbers. Lower bounds were then improved by describing 
+larger templates in \cite{schurboyz} for Schur numbers and in \cite{rowleyramseysat} for multicolor Ramsey numbers.
 
 Ramsey numbers and Schur numbers are defined in Section \ref{sec:def}. Section \ref{sec:temp} defines the 
 \(b\)-templates and describes the corrresponding construction. Section \ref{sec:results} states and proves the main 
-results on \(b\)-templates and the construction. Section \ref{sec:bounds} records the new inequalities and some new 
+results on \(b\)-templates and on the construction. Section \ref{sec:bounds} records the new inequalities and some new 
 lower bounds.
 
 \section{Definitions}
 \label{sec:def}
 
-Pour \(n \in \mathbb{N}\), on note \(K_n\) le graphe complet d'ordre \(n\).
-
-\begin{definition}[Coloriage de Ramsey]
-Soit \(n \in \mathbb{N}\), la taille du graphe, et soit \(r \in \mathbb{N}\), le nombre de couleurs. Soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On appelle coloriage de Ramsey tout coloriage des arêtes de \(K_n\) avec \(r\) couleurs tel que pour toute couleur \(c \in [\![1, r]\!]\), le coloriage ne contient pas de sous-graphe complet \(K_{k_c}\) monochromatique en la couleur \(c\). \(R(k_1, ..., k_r ; n)\) désigne l'un (quelconque) de ces coloriages et l'ensemble de ces coloriages est noté \(\mathcal{R}(k_1, ..., k_r ; n)\). Si tous les \(k_c\) sont égaux à un \(k\), on utilise également les notations \(R_r(k; n)\) et \(\mathcal{R}_r(k; n)\).
+\begin{definition}[Coloring and partition]
+Let \(S\) and \(T\) be two sets. A coloring of \(S\) with colors in \(T\) is an application 
+\(\gamma: S \rightarrow T\). The partition associated to the coloring \(\gamma\) is the partition 
+\((\gamma^{-1}(t))_{t \in T ~\text{and}~ \gamma^{-1}(\{t\}) \neq \varnothing}\). Conversely, the coloring associated to 
+a partition \((A_i)_{i \in I}\) for some \(I \subset T\) is the application \(\gamma: S \rightarrow T\) such that 
+\(\forall s \in S, \forall t \in T, \gamma(s) = t \iff s \in A_t\).
 \end{definition}
 
-\begin{theorem}[Théorème de Ramsey fini \cite{Ramsey}]
+The set of positive natural numbers is denoted by \(\mathbb{N}^* = \mathbb{N} \backslash \{0\}\). Given two integers 
+\(a, b \in \mathbb{Z}\), the set of integers \(\{a, a + 1, ..., b - 1, b\}\) is denoted by \([\![a, b]\!]\). For 
+\(n \in \mathbb{N}\),  the complete graph of order \(n\) is denoted by \(K_n\).
+
+\begin{definition}[Ramsey coloring]
+Let  \(n \in \mathbb{N}\), the order of the graph, and let \(r \in \mathbb{N}\), the number of colors. Let 
+\((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). A Ramsey coloring is an edge coloring of \(K_n\) with 
+\(r\) colors such that for any color \(c \in [\![1, r]\!]\), the coloring does not contain any monochramatic complete 
+sub-graph of order \(k_c\) with color \(c\). The set of these colorings is denoted by 
+\(\mathcal{R}(k_1, ..., k_r ; n)\).
+\end{definition}
+
+\begin{theorem}[Ramsey's theorem \cite{Ramsey}]
 \label{thm:ram}
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). Alors il existe un entier \(n \in \mathbb{N}\) tel que \(\mathcal{R}(k_1, ..., k_r ; n) = \varnothing\).
+Let \(r \in \mathbb{N}\) and let \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). Then there is 
+\(n \in \mathbb{N}\) such that \(\mathcal{R}(k_1, ..., k_r ; n) = \varnothing\).
 \end{theorem}
 
-Le théorème \ref{thm:ram} justifie la définition suivante.
+Theorem \ref{thm:ram} leads to the following definition.
 
-\begin{definition}[Nombre de Ramsey]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On définit le nombre de Ramsey \(R(k_1, ..., k_r)\) comme le plus petit entier \(n \in \mathbb{N}\) tel que \(\mathcal{R}(k_1, ..., k_r ; n) = \varnothing\). Si tous les \(k_c\) sont égaux à un \(k\), ce nombre est également noté \(R_r(k)\).
+\begin{definition}[Multicolor Ramsey number]
+Let \(r \in \mathbb{N}\) and let \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). The multicolor Ramsey  
+number \(R(k_1, ..., k_r)\) is defined as the smallest integer \(n \in \mathbb{N}\) such 
+\(\mathcal{R}(k_1, ..., k_r ; n) = \varnothing\). If all the \(k_c\)'s are equal to some \(k\), this Ramsey number is 
+also denoted by \(R_r(k)\).
 \end{definition}
 
-Contrairement aux nombres de Schur, les nombres de Ramsey désignent le plus petit entier tel qu'il n'existe pas de coloriage, et non pas la taille maximale d'un coloriage.
+The construction described in \cite{RowleyRamsey} as well as the one described in this article use a subset of Ramsey 
+colorings, the linear Ramsey colorings.
 
-\begin{definition}[Coloriage de Ramsey linéaire]
-Soit \(n \in \mathbb{N}\), et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On indexe les sommets de \(K_n\) avec les entiers de \([\![0, n - 1]\!]\). On appelle coloriage de Ramsey linéaire tout \(R(k_1, ..., k_r ; n)\) pour lequel la couleur de l'arête \((u, v)\) dépend uniquement de \(|u - v|\). Un \(L(k_1, ..., k_r ; n - 1)\) désigne l'un (quelconque) de ces coloriages et l'ensemble de ces coloriages est noté \(\mathcal{L}(k_1, ..., k_r ; n - 1)\). Si tous les \(k_c\) sont égaux à un \(k\), on utilise également les notations \(L_r(k; n - 1)\) et \(\mathcal{L}_r(k; n - 1)\).
+\begin{definition}[Linear Ramsey coloring]
+Let \(n \in \mathbb{N}\), and let \(r \in \mathbb{N}\). Let \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). 
+We assume that the vertices of \(K_{n + 1}\) are the integers from \([\![0, n]\!]\). A linear Ramsey coloring is any 
+Ramsey coloring such that the color of the edge \((u, v)\) only depends on the value of \(|u - v|\). The set of these 
+colorings is denoted by \(\mathcal{L}(k_1, ..., k_r ; n)\). The integer coloring associated to a linear Ramsey coloring 
+is the coloring of \([\![1, n]\!]\) such that every \(x \in [\![1, n]\!]\) is colored with the color of the edges \((u, v)\) 
+such that \(|u - v| = x\).
 \end{definition}
 
-Le théorème \ref{thm:ram} justifie la définition suivante.
+Unlike Ramsey colorings, the set \(\mathcal{L}(k_1, ..., k_r ; n)\) corresponds to graph colorings of order \(n + 1\). 
+This definition is chosen in this article because linear Ramsey colorings are studied using their associated integer 
+coloring. Also, in this article the linear Ramsey numbers are defined as the largest size of a coloring (contrary to 
+Ramsey numbers) because it is more convenient in inequalities.
 
-\begin{definition}[Nombre de Ramsey linéaire]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). On définit le nombre de Ramsey linéaire \(L(k_1, ..., k_r)\) comme le plus petit entier \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r ; n - 1) = \varnothing\). Si tous les \(k_c\) sont égaux à un \(k\), ce nombre est également noté \(L_r(k)\).
+\begin{definition}[Linear Ramsey number]
+Let \(r \in \mathbb{N}\) and let \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). The linear Ramsey number 
+\(L(k_1, ..., k_r)\) is defined as the largest integer \(n \in \mathbb{N}\) such that 
+\(\mathcal{L}(k_1, ..., k_r ; n) \neq \varnothing\). If all the \(k_c\)'s are equal to some \(k\), this linear Ramsey 
+number is also denoted by \(L_r(k)\).
 \end{definition}
 
-\begin{proposition}
-\(\forall r \in \mathbb{N}, (k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r, L(k_1, ..., k_r) \leqslant R(k_1, ..., k_r)\)
-\end{proposition}
+Linear Ramsey numbers can be used to construct lower bounds for Ramsey numbers because a linear Ramsey coloring is 
+also a Ramsey coloring. Therefore for all \(r \in \mathbb{N}\) and for all 
+\((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\), \(R(k_1, ..., k_r) \geqslant L(k_1, ..., k_r) + 2\).
 
-Un \(L(k_1, ..., k_r ; n)\) induit un coloriage de \([\![1, n - 1]\!]\). Réciproquement, tout coloriage de \([\![1, n - 1]\!]\) correspond à un coloriage linéraire de \(K_n\). Le théorème suivant porte sur le lien entre un coloriage sur \([\![1, n]\!]\) et les nombres de cliques du coloriage linéaire de \(K_{n+1}\) associé.
+Let \(n \in \mathbb{N}\). Any linear coloring of \(K_{n + 1}\) induces a coloring of \([\![1, n]\!]\). Conversely, any 
+coloring of \([\![1, n]\!]\) corresponds to a linear coloring of \(K_{n + 1}\). Theorem \ref{thm:linkintegers} gives a 
+link between some sum-free properties of the coloring of \([\![1, n]\!]\) and the clique numbers of the associated 
+coloring of \(K_{n+1}\).
 
-\begin{theorem}[Lien avec les coloriages sans-sommes \cite{AbbottHanson}]
-\label{thm:lien-partitions}
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). Soit \(n \in \mathbb{N}^*\) et soit \(\gamma\) un coloriage de \([\![1, n]\!]\) avec \(r\) couleurs. Alors les deux conditions suivantes sont équivalentes :
+\begin{theorem}[Link to sum-free colorings \cite{AbbottHanson}]
+\label{thm:linkintegers}
+Let \(r \in \mathbb{N}\) and let \((k_c)_{1 \leqslant c \leqslant r} \in {\mathbb{N}^*}^r\). Let \(n \in \mathbb{N}^*\) 
+and let \(\gamma\) be a coloring of \([\![1, n]\!]\) with \(r\) colors. Then the two following conditions are equivalent.
 \begin{enumerate}[(i)]
-\item dans le coloriage linéaire de \(K_{n+1}\) associé à \(\gamma\), la couleur \(c\) contient un sous-graphe complet de taille \(k_c\)
-\item il existe un sous-ensemble \(S\) de \([\![1, n]\!]\) monochromatique de couleur \(c\) et de cardinal \(k_c - 1\) vérifiant : pour tous \(x, y \in S\) distincts, \(\gamma(|x - y|) = c\) 
+\item There is a monochromatic subgraph of order \(k_c\) with color \(c\) in the linear coloring of \(K_{n+1}\) 
+	associated  to \(\gamma\).
+\item There is a monochromatic subset \(S\) of \([\![1, n]\!]\) with color \(c\) and cardinality \(k_c - 1\) such that 
+	for all distinct \(x, y \in S\), \(\gamma(|x - y|) = c\).
 \end{enumerate}
 \end{theorem}
 
-Dans la suite, on utilise également \(L(k_1, ..., k_r ; n)\) pour désigner un coloriage de \([\![1, n - 1]\!]\)  associé à un \(L(k_1, ..., k_r ; n)\).
+\begin{definition}[Schur number]
+A subset \(A\) of \(\mathbb{N}\) is said to be sum-free if \(\forall (a, b) \in A^2, a + b \notin A\). Let 
+\(n \in \mathbb{N}\). Schur proved in \cite{Schur1917} that there is a largest integer denoted by \(S(n)\) such that 
+\([\![1, S(n)]\!]\) can be partioned into \(n\) sum-free subsets. \(S(n)\) is called the \(n\)\textsuperscript{th} 
+Schur number.
+\end{definition}
 
-Le théorème \ref{thm:lien-partitions} donne le corollaire suivant.
-
-\begin{corollary}[Lien avec les nombres de Schur]
-\[\forall n \in \mathbb{N}^*, S(n) = L_n(3) - 2 \leqslant R_n(3) - 2\] 
-\end{corollary}
+Theorem \ref{thm:linkintegers} shows a link between Schur numbers and Ramsey numbers:
+\[\forall n \in \mathbb{N}^*, S(n) = L_n(3) \leqslant R_n(3) - 2\].
 
 \section{\(b\)-Templates}
 \label{sec:temp}
