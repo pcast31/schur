@@ -48,6 +48,7 @@ generalization of the sf-templates: the \(b\)-templates.
 \end{abstract}
 
 \section{Introduction}
+
 This article addresses the edge-coloring of complete graphs in an arbitrary number of colors while limiting the clique 
 number in each color, as well as sum-free colorings of positive integers. A pattern based construction which uses a 
 particular type of coloring nammed sf-template was described in \cite{RowleyRamsey}. This construction was used to 
@@ -150,122 +151,38 @@ Schur number.
 \end{definition}
 
 Theorem \ref{thm:linkintegers} shows a link between Schur numbers and Ramsey numbers:
-\[\forall n \in \mathbb{N}^*, S(n) = L_n(3) \leqslant R_n(3) - 2\].
+\[\forall n \in \mathbb{N}^*, S(n) = L_n(3) \leqslant R_n(3) - 2.\]
 
 \section{\(b\)-Templates}
 \label{sec:temp}
-Dans cette section, on introduit les \(b\)-templates. Les templates présentés dans la section \ref{sec:b-temp} vont apparaître comme un cas particulier des \(b\)-templates puisqu'ils correspondent au cas \(b = 0\).
 
-On commence par décrire \(\TS_{b,k}\), un ensemble particulier de \(k\)-tuples qui sera utilisé dans la définition des \(b\)-templates.
+\begin{definition}[Construction method]
+Let \((a, p) \in {\mathbb{N}^*}^2\) and let \(b \in \mathbb{N}\). Let \((r, s) \in {\mathbb{N}^*}^2\). Let \(H\) 
+(standing for "horizontal") be a coloring of \([\![1, a + b]\!]\) with \(r + 1\) colors, and let \(V\)  (standing for 
+"vertical") be a coloring of \([\![1, p]\!]\) with \(s\) colors. Let \(d \in \mathbb{N}\) and let \(F\) (standing for 
+"final") be a coloring of \([\![1, d]\!]\) with \(r + 1\) colors. The empty coloring (i.e. \(d = 0\)) is denoted by 
+\(F = \varnothing\). The construction produces a coloring \(\cons_b(H, V, F)\) of \([\![1, a p + b + d]\!]\) with 
+\(r + s\) colors.
 
-\begin{definition}[Arbre associé à un tuple]
-Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\). A chaque tuple d'entiers, on associe un arbre de manière récurssive :
-\[ \left\{
-\begin{array}{l}
-	\forall x \in \mathbb{R}, \tree(x) = x, \\
-	\forall k \in [\![2, +\infty[\![, \forall x \in \mathbb{R}^k,
-		\left\{
-		\begin{array}{l l}
-			\tree(x) = (x_1, \tree(x_2, ..., x_k)) &  ~\text{si}~ x_2 - x_1 > b, \\
-			\tree(x) = (x_1, \tree(x_2, ..., x_k), \tree(x_2 + a, ..., x_k)) &  ~\text{si}~ 0 \leqslant x_2 - x_1 \leqslant b, \\
-			\tree(x) = \tree\left(x_1, x_2 + a \left\lceil \dfrac{x_1 - x_2}{a}\right\rceil, x_3, ..., x_k\right) & ~\text{si}~ x_2 < x_1.
-		\end{array}
-		\right.
-\end{array}
-\right. \]
-Pour un arbre \(\tree(x)\), on note \(\treeset(x)\) l'ensemble des tuples d'entiers que l'on peut construire en collectant les labels au cours d'une descente de cet arbre.
-\end{definition}
-
-\begin{definition}[Ensembles \(S_{b,k}(A)\) et \(\TS_{b,k}(A)\)]
-Soit \(A \subset \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(k \in [\![2, +\infty[\![\). On note \(S_{b,k}(A)\) l'ensemble de \(k\)-tuples  à valeurs distinctes dans \(A\) et dont les éléments de \([\![1, b]\!]\) sont situés au début et apparaissent dans l'ordre croissant :\\
-\(S_{b,k}(A) = \left\{ x \in \mathfrak{S}_k(A) ~:~ \forall i \in  [\![2, k]\!], x_i \leqslant b \implies x_i \geqslant x_{i -1} \right\}\). On définit alors un ensemble \(\TS_{b,k}(A)\) de \(k\)-tuples : \(\TS_{b,k}(A) = \displaystyle\bigcup\limits_{x \in S_{b,k}(A)} \treeset(x)\).
-\end{definition}
-
-On définit aussi un opérateur de projection de \(\mathbb{Z}\) vers \([\![1, a + b]\!]\).
-
-\begin{definition}[Projection \(\pi_{a, b}\)]
-Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). On définit une projection, noté \(\pi_{a, b}\) ou plus simplement \(\pi\) si il n'y a pas d'ambiguïté, sur \([\![1, a + b]\!]\) de la manière suivante.
-\[ \begin{array}{c c c l}
-	\pi_{a, b} : & \mathbb{Z} & \longrightarrow & [\![1, a + b]\!] \\
-	 & x & \longmapsto & 
-		\left\{
-		\begin{array}{l l}
-			x & ~\text{si}~ 1 \leqslant x \leqslant b \\
-			(x \mod a) + \mathds{1}_{[\![0, b]\!]}(x \mod a) & ~\text{si}~ x > b
-		\end{array}
-		\right.
-\end{array} \]
-\end{definition}
-
-On peut maintenant définir les \(b\)-templates.
-
-\begin{definition}[\(b\)-Templates]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\).  Un \(b\)-template de largeur \(a\) à \(r + 1\) couleurs, est défini comme une partition de \([\![1, a + b]\!]\) en \(r+1\) sous-ensembles \(A_1, ..., A_{r+1}\) vérifiant :
-\begin{enumerate}[(i)]
-\item \(a \in A_{r+1}\),
-\item \(\forall (x, y) \in A_{r + 1}^2, x + y \notin [\![a + b + 1, 2 a + b]\!] \implies \pi(x + y) \notin A_{r + 1}\),
-\item \(\forall c \in [\![1, c]\!], \forall x \in \TS_{b, k_c - 1}(A_c), \exists (i, j) \in {[\![1, k_c - 1]\!]}^2, i < j ~\text{et}~ \pi(x_j - x_i) \notin A_c\).
-\end{enumerate}
- \(T_b(k_1, ..., k_r, t; a)\) désigne l'un (quelconque) de ces \(b\)-templates et l'ensemble de ces \(b\)-templates est noté \(\mathcal{T}_b(k_1, ..., k_r, t; a)\).  La couleur \(r + 1\) joue un rôle particulier et elle est appelée "couleur template".
-\end{definition}
-
-La couleur \(r + 1\)  n'est pas nécessairement la dernière par ordre d'apparition, la désignation de \(r+1\) comme couleur template signalée par \(t\) est une convention qui allège les notations en évitant de devoir écrire \(\mathcal{T}_b(k_1, ..., k_{i - 1}, t,  k_{i + 1}, ..., k_r; n)\) par exemple.
-
-Dans le cas où tous les \(k_c\) sont égaux à 3, ces \(b\)-templates constituent des \(b\)-S-templates applicables pour les nombres de Schur similaires au \(b\)-WS-templates pour les nombres de Schur faibles définis dans \cite{schurboyz}.
-
-La construction présentée dans \cite{rowleyramseyabott} utilise des coloriages linéaires afin de construire des \(0\)-templates. La proposition suivante présente cette construction sous l'angle des \(b\)-templates.
-\begin{proposition}
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r; n) \neq \varnothing\) et on se donne \(\gamma\) un tel coloriage. On définit un nouveau coloriage T de la manière suivante.
-\[\begin{array}{c c c l}
-	T : & [\![1, 2 n + 1]\!] & \longrightarrow & [\![1, r + 1]\!] \\
-	 & x & \longmapsto & \left\{
-		\begin{array}{l l}
-			\gamma(x) & ~\text{si}~ x \leqslant n \\
-			r + 1 & ~\text{si}~ x > n \\
-		\end{array}
-		\right.
-\end{array}\]
-Alors \(T \in \mathcal{T}_0(k_1, ..., k_r, t; 2 \, n + 1)\).
-\end{proposition}
-
-\begin{proposition}[Lien avec les templates]
-Soit \(r \in \mathbb{N}\), soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\) et soit \(a \in \mathbb{N}^*\). Alors :
-\[ \mathcal{T}(k_1, ..., k_r, t; a) = \mathcal{T}_0(k_1, ..., k_r, t; a). \]
-\end{proposition}
-
-\begin{proposition}
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Alors  \(T_b(k_1, ..., k_r, t; a) \subset L(k_1, ..., k_r, 3; a + b)\).
-\end{proposition}
-
-\begin{definition}[Coloriage par défaut]
-Soit \(n \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \(H\) un coloriage de \([\![1, n]\!]\) à \(r +1\) couleurs. On pose \(d = \min \left(H^{-1}(\{r + 1\}) \backslash [\![1, b]\!] \right) - b  - 1\). On définit alors un coloriage \(\coldef_b(H)\), dit par défaut, associé au coloriage \(H\) :
-\[\begin{array}{c c c c}
-	\coldef_b(H) : & [\![1, d]\!] & \longrightarrow & [\![1, r + 1]\!] \\
-	 & x & \longmapsto & H(x + b)
-\end{array}\]
-\end{definition}
-
-\begin{definition}[Méthode de construction]
-Soit \((a, p) \in {\mathbb{N}^*}^2\) et soit \(b \in \mathbb{N}\). Soit \((r, s) \in {\mathbb{N}^*}^2\). On se donne un coloriage de \([\![1, a + b]\!]\) à \(r + 1\) couleurs (appelée \(H\), pour horizontal), et un coloriage de \([\![1, p]\!]\) à \(s\) couleurs (appelée \(V\), pour vertical).
-
-Pour un \(d \in \mathbb{N}\), on se donne aussi un coloriage dit final \(F\) de \([\![1, d]\!]\) à \(r + 1\) couleurs. Il est parfois utile de définir \(F\) au cas par cas, mais on peut aussi lui attribuer une valeur par défaut \(F = \coldef_b(H)\). Dans le cas où \(F\) n'est pas utilisé, on note \(F = \varnothing\) l'application vide. 
-
-On construit alors un coloriage \(\gamma\) de \([\![1, a \times p + b + d]\!]\) à \(r + s\) couleurs comme suit. De manière informelle, on commence par utiliser le coloriage initial \(I \defeq H_{| \, [\![1, b]\!]}\), puis on répéte \(p\) fois le pattern \(P \defeq H_{| \, [\![b + 1, a + b]\!]}\) en remplaçant pour la \(i\)-ème itération la couleur spéciale par \(r + \mathcal{V}(i)\), et finalement on ajoute le motif formé l'enchaînement des couleurs dans \(\mathcal{F}\). Formellement :
-\[\begin{array}{c c c l}
-	\gamma: & [\![1, a \times p + b + d]\!]  & \longrightarrow &  [\![1, r + s]\!] \\
- 	& x & \longmapsto & 
+Informally, one starts by using the initial coloring \(I \defeq H_{| \, [\![1, b]\!]}\), then repeats \(p\) times the 
+pattern \(P \defeq H_{| \, [\![b + 1, a + b]\!]}\) while replacing at the \(i\)\textsuperscript{th} iteration the color 
+\(r + 1\) by \(r + \mathcal{V}(i)\), and eventually appends the coloring \(\mathcal{F}\). Formally:
+\[\begin{array}{ccl}
+	[\![1, a p + b + d]\!]  & \longrightarrow &  [\![1, r + s]\!] \\
+ 	x & \longmapsto & 
 		\left\{\begin{array}{l l}
-			H(x) & ~\text{si}~ x \leqslant b \\
-			H(\pi(x)) & ~\text{si}~  b + 1 \leqslant x \leqslant a \times p + b ~\text{et}~ H(\pi(x)) \neq r + 1 \\
-			r + V \left(\left\lceil \dfrac{x - b}{a} \right\rceil\right) & ~\text{si}~ b + 1 \leqslant x \leqslant a \times p + b ~\text{et}~ H(\pi(x)) = r + 1 \\
-			F(x - a \times p - b) & ~\text{si}~ x \geqslant a \times p + b + 1
+			H(x) & ~\text{if}~ x \leqslant b \\
+			H(\pi(x)) & ~\text{if}~  b + 1 \leqslant x \leqslant a p + b ~\text{and}~ H(\pi(x)) \neq r + 1 \\
+			r + V \left(\left\lceil \dfrac{x - b}{a} \right\rceil\right) & ~\text{if}~ b + 1 \leqslant x \leqslant a p + b 
+				~\text{and}~ H(\pi(x)) = r + 1 \\
+			F(x - a p - b) & ~\text{if}~ x \geqslant a p + b + 1
 		\end{array}\right.
 \end{array}\]
 \end{definition}
 
 \begin{figure}[H]
-\caption{Exemple de construction avec \(b = 5\)}
-\renewcommand{\arraystretch}{1.7}
+\caption{Example of construction with \(b = 5\)}
+\renewcommand{\arraystretch}{1.6}
 \begin{center}
 
 \begin{tabular}{c}
@@ -273,9 +190,9 @@ On construit alors un coloriage \(\gamma\) de \([\![1, a \times p + b + d]\!]\) 
 		\CodeBefore
 			\cellcolor{cyan}{1-1}
 		\Body
-			couleur template
+			template color
 	\end{NiceTabular} \\
-	coloriage \(H\) \\
+	\(H\) coloring \\
 	\(
 		\begin{NiceArray}{*{17}{c}}[hvlines,last-row]
 		\CodeBefore
@@ -297,33 +214,40 @@ On construit alors un coloriage \(\gamma\) de \([\![1, a \times p + b + d]\!]\) 
 			\cellcolor{cyan}{1-16}
 			\cellcolor{red}{1-17}
 		\Body
-			\,\,1\,\, & \,\,2\,\, & \,\,3\,\, & \,\,4\,\, & \,\,5\,\, & \,\,6\,\, & \,\,7\,\, & \,\,8\,\, & \,\,9\,\, & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 \\
+			\,\,1\,\, & \,\,2\,\, & \,\,3\,\, & \,\,4\,\, & \,\,5\,\, & \,\,6\,\, & \,\,7\,\, & \,\,8\,\, & \,\,9\,\, & 10 & 
+				11 & 12 & 13 & 14 & 15 & 16 & 17 \\
 			\Block{1-5}{\underbrace{\hphantom{................................}}_{\textstyle I}} & & & & & \Block{1-12}{\underbrace{\hphantom{..................................................................................}}_{\textstyle P}}
 		\end{NiceArray}\) \\
 	\begin{tabular}{c c}
-		coloriage \(V\) & coloriage \(F\) \\
-		\(
-			\begin{NiceArray}{c}[hvlines]
-			\CodeBefore
-				\cellcolor{cyan}{1-1}
-				\cellcolor{yellow}{2-1}
-				\cellcolor{yellow}{3-1}
-				\cellcolor{cyan}{4-1}
-			\Body
-				\,\,1\,\, \\
-				\,\,2\,\, \\
-				\,\,3\,\, \\
-				\,\,4\,\, \\
-			\end{NiceArray}\) &
-			\( \begin{NiceArray}{*{4}{c}}[hvlines]
-			\CodeBefore
-				\cellcolor{red}{1-1}
-				\cellcolor{cyan}{1-2}
-				\cellcolor{green}{1-3}
-				\cellcolor{green}{1-4}
-			\Body
-				\,\,1\,\, & \,\,2\,\, & \,\,3\,\, & \,\,4\,\,
-			\end{NiceArray}\) \\	
+		\begin{tabular}{c}
+			\(V\) coloring \\
+			\(
+				\begin{NiceArray}{c}[hvlines]
+				\CodeBefore
+					\cellcolor{cyan}{1-1}
+					\cellcolor{yellow}{2-1}
+					\cellcolor{yellow}{3-1}
+					\cellcolor{cyan}{4-1}
+				\Body
+					\,\,1\,\, \\
+					\,\,2\,\, \\
+					\,\,3\,\, \\
+					\,\,4\,\, \\
+				\end{NiceArray}\)
+		\end{tabular} &
+		\begin{tabular}{c}
+			\(F\) coloring \\
+			\(
+				\begin{NiceArray}{*{4}{c}}[hvlines]
+				\CodeBefore
+					\cellcolor{red}{1-1}
+					\cellcolor{cyan}{1-2}
+					\cellcolor{green}{1-3}
+					\cellcolor{green}{1-4}
+				\Body
+					\,\,1\,\, & \,\,2\,\, & \,\,3\,\, & \,\,4\,\,
+				\end{NiceArray}\)
+		\end{tabular}
 	\end{tabular} \\
 	\(\cons_5(H, V, F)\) \\
 	\(
@@ -398,19 +322,150 @@ On construit alors un coloriage \(\gamma\) de \([\![1, a \times p + b + d]\!]\) 
 \end{center}
 \end{figure}
 
-\begin{definition}[Compatibilité avec un \(b\)-template]
-Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Soit \(T \in \mathcal{T}_b(k_1, ..., k_r; a)\) un \(b\)-template et soit \(A_1, ..., A_{r+1}\) la partition associée. Soit \(d \in [\![1, a]\!]\). Soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r +1\) couleurs et soit \(B_1, ..., B_{r + 1}\) la partition associée. Le coloriage \(F\)  est dit compatible avec le coloriage \(T\) si il vérifie :
+In some cases, it may be useful to use a specific coloring for the final coloring. However, a default coloring 
+associated to the horizontal coloring can be used instead.
+
+\begin{definition}[Default coloring]
+Let \(n \in \mathbb{N}^*\), \(b \in \mathbb{N}\) and \(r \in \mathbb{N}\). Let \(H\) be a coloring of \([\![1, n]\!]\) 
+with \(r +1\) colors. Set \(d = \min \left(H^{-1}(\{r + 1\}) \backslash [\![1, b]\!] \right) - b  - 1\). The default 
+coloring \(\coldef_b(H)\)  associated to \(H\) is defined as follows.
+\[\begin{array}{c c c c}
+	\coldef_b(H) : & [\![1, d]\!] & \longrightarrow & [\![1, r + 1]\!] \\
+	 & x & \longmapsto & H(x + b)
+\end{array}\]
+\end{definition}
+
+The construction described in \cite{RowleyRamsey} for sf-templates corresponds to the case \(b = 0\) and it uses the 
+default coloring. Contrary to sf-templates, \(b\)-templates are directly defined as particular colorings for which the 
+clique numbers remain unchanged in the construction. The rest of this section defines the \(b\)-templates as well as 
+the notion of compatibility for the final coloring.
+
+In order to describe the configurations in which a given tuple can induce a monochromatic clique when using the 
+construction, a tree is associated to every tuple.
+
+\begin{definition}
+A tree node has two components: the first one is the label and the second one is the set of descendants of this node. A 
+branch of a tree \(T\) is a tuple \((x_i)_{1 \leqslant i \leqslant k}\) such that there is a sequence of trees 
+\((t_i)_{1 \leqslant i \leqslant k}\) satisfying: \(t_1 = T\) and for all \(i \in [\![1, k]\!]\) \(x_i\) is the label 
+of \(t_i\) and for all \(i \in [\![1, k - 1]\!]\) \(t_{i + 1}\) is a descendant of \(t_i\).
+
+Let \(a \in \mathbb{N}^*\) and \(b \in \mathbb{N}\). The \(\tree_{a, b}\) application is recurssively defined as 
+follows.
+\[ \left\{
+\begin{array}{l}
+	\forall x \in \mathbb{Z}, \tree_{a, b}(x) = (x, \varnothing), \\
+	\forall k \in [\![2, +\infty[\![, \forall x \in \mathbb{Z}^k, \\
+	\mspace{30mu}
+		\left\{
+		\begin{array}{l l}
+			\tree_{a, b}(x) = (x_1, \{\tree_{a, b}(x_2, ..., x_k)\}) &  ~\text{if}~ x_2 - x_1 > b \\
+			\tree_{a, b}(x) = (x_1, \{\tree_{a, b}(x_2, ..., x_k), \tree_{a, b}(x_2 + a, ..., x_k)\}) &  ~\text{if}~ 0 \leqslant 
+				x_2 - x_1 \leqslant b \\
+			\tree_{a, b}(x) = \tree_{a, b} \left(x_1, x_2 + a \left \lceil \dfrac{x_1 - x_2}{a} \right \rceil, x_3, ..., x_k 
+				\right) & ~\text{if}~ x_2 < x_1
+		\end{array}
+		\right.
+\end{array}
+\right. \]
+Let \(x\) be a non-empty tuple of integers. The set of all the branches of the tree \(\tree_{a, b}(x)\) is denoted by 
+\(\treeset_{a, b}(x)\).
+\end{definition}
+
+Let \(A \subset \mathbb{N}^*\) and let \(k \in [\![2, +\infty]\!]\). When using the construction, not every tuple in 
+\(A^k\) have a tree which describes cliques that appear in the construction.
+
+\begin{definition}
+Let \(A \subset \mathbb{N}^*\), \(b \in \mathbb{N}\) and \(k \in [\![2, +\infty[\![\). The set of \(k\)-tuples of 
+\(A^k\) whose values are pariwise distinct is denoted by \(\mathfrak{S}_k(A)\). The set of \(k\)-tuples of 
+\(\mathfrak{S}_k(A)\) such that the elements of a tuple that are in \([\![1, b]\!]\) appear in increasing order at 
+begining of this tuple is denoted by \(S_{b,k}(A)\). That is 
+\(S_{b,k}(A) = \left\{ x \in \mathfrak{S}_k(A) ~:~ \forall i \in  [\![2, k]\!], x_i \leqslant b \implies x_i \geqslant 
+x_{i -1} \right\}\). The set of branches of trees of tuples in \(S_{b, k}(A)\) is denoted by \(\TS_{b,k}(A)\): 
+\(\TS_{b,k}(A) = \displaystyle \bigcup \limits_{x \in S_{b,k}(A)} \treeset(x)\).
+\end{definition}
+
+Most of the integers which appear in the tuples of \(\TS_{b,k}(A)\) (as well as the differences of these integers) are 
+not in \([\![1, a + b]\!]\). The role of the projection \(\pi_{a, b}\) is to project these integers onto 
+\([\![1, a + b]\!]\) in order to describe the constraints defning the \(b\)-templates.
+
+\begin{definition}
+Let \(a \in \mathbb{N}^*\) and \(b \in \mathbb{N}\).The projection \(\pi_{a, b}\) is defined as follows.
+\[ \begin{array}{c c c l}
+	\pi_{a, b} : & \mathbb{Z} & \longrightarrow & [\![1, a + b]\!] \\
+	 & x & \longmapsto & 
+		\left\{
+		\begin{array}{l l}
+			x & ~\text{if}~ 1 \leqslant x \leqslant b \\
+			(x \mod a) + a \mathds{1}_{[\![0, b]\!]}(x \mod a) & ~\text{if}~ x > b
+		\end{array}
+		\right.
+\end{array} \]
+\end{definition}
+
+The \(b\)-templates are designed to be used as the horizontal coloring in the construction.
+
+\begin{definition}[\(b\)-Templates]
+Let \(r \in \mathbb{N}\) and \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Let 
+\(a \in \mathbb{N}^*\) and \(b \in [\![0, a - 1]\!]\).  A \(b\)-template with width \(a\) and \(r + 1\) colors is 
+defined as a partition of \([\![1, a + b]\!]\) into \(r+1\) subsets \(A_1, ..., A_{r+1}\) such that:
 \begin{enumerate}[(i)]
-\item \(\forall (x,y) \in A_{r+1}^2, (x + y > b ~\text{et}~ \pi(x + y) \leqslant d) \implies \pi(x + y)  \notin B_{r+1}\)
+\item \(a \in A_{r+1}\),
+\item \(\forall (x, y) \in A_{r + 1}^2, x + y \notin [\![a + b + 1, 2 a + b]\!] \implies \pi_{a, b}(x + y) \notin 
+	A_{r + 1}\),
+\item \(\forall c \in [\![1, c]\!], \forall x \in \TS_{b, k_c - 1}(A_c), \exists (i, j) \in {[\![1, k_c - 1]\!]}^2, i < 
+	j ~\text{et}~ \pi_{a, b}(x_j - x_i) \notin A_c\).
+\end{enumerate}
+The set of these \(b\)-templates is denoted by \(\mathcal{T}_b(k_1, ..., k_r, t; a)\).  Color \(r + 1\) plays a special 
+role and is nammed "template color".
+\end{definition}
+
+Color \(r + 1\)  is not necessarily the last color by order of appearance, the designation of \(r+1\) as template color 
+symbolized by "\(t\)" is a convention that lightens notations and avoids writting 
+\(\mathcal{T}_b(k_1, ..., k_{i - 1}, t,  k_{i + 1}, ..., k_{r + 1}; n)\) for instance.
+
+If all the \(k_c\)'s are equal to 3, these \(b\)-templates can be used to produce sum-free partitions for Schur numbers.
+
+\(b\)-Templates are a particular case of linear colorings. In the template color, the corresponding clique number is 
+equal to 3. That is \(T_b(k_1, ..., k_r, t; a) \subset L(k_1, ..., k_r, 3; a + b)\).
+
+The notion of compatibility with a \(b\)-template illustrates the fact that the final coloring in the construction is 
+less constrained than the horizontal coloring, and that the constraints on this final coloring depends only on the 
+horizontal coloring.
+
+\begin{definition}[Compatibility with a \(b\)-template]
+For \(A \subset \mathbb{N}\) and \(k \in \mathbb{N}\), the set of increasing sequences of length \(k\) with values in 
+\(A\) is denoted by \(\mathfrak{I}_k(A)\).
+
+Let \(a \in \mathbb{N}^*\), \(b \in [\![0, a - 1]\!]\) and \(r \in \mathbb{N}\). Let 
+\((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Let \(T \in \mathcal{T}_b(k_1, ..., k_r; a)\) and 
+denote by \(A_1, ..., A_{r+1}\) the associated partition. Let \(d \in [\![0, a]\!]\). Let \(F\) be a coloring of 
+\([\![1, d]\!]\) with \(r +1\) colors and denote by \(B_1, ..., B_{r + 1}\) the associated partition. The coloring 
+\(F\) is said to be compatible with the \(b\)-template \(T\) if it satisfies:
+\begin{enumerate}[(i)]
+\item \(a - b \notin B_{r + 1}\)
+\item \(\forall (x,y) \in A_{r+1}^2, (x + y > a + b ~\text{and}~ \pi_{a, b}(x + y) \leqslant d) \implies \pi_{a, b}
+	(x + y)  \notin B_{r+1}\)
 \item \(\forall (x,y) \in A_{r+1} \times B_{r+1}, x + y \leqslant d \implies x + y  \notin B_{r+1}\)
-\item \(\forall c \in [\![1, r]\!], \forall k \in [\![1, k_c-1]\!], \\
-	\left\{ \text{ou} 
+\item \(\forall c \in [\![1, r]\!], \forall k \in [\![1, k_c-1]\!], \forall x \in \TS_{b, k}(A_c), \forall y \in 
+	\mathfrak{I}_{k_c - k - 1}(B_c), \\
 	\begin{array}{l}
-		\exists (i, j) \in {[\![1, k]\!]}^2, |x_i - x_j| \notin A_c, \\
-		TODO \\
-		\exists (i, j) \in {[\![1, k_c - k - 1]\!]}^2, i < j ~\text{et}~ \pi(y_j - y_i) \notin A_c.
-	\end{array}
-	\right.\)
+		\mspace{30mu} 
+		\left\{ \text{or} 
+		\begin{array}{l}
+			\exists (i, j) \in {[\![1, k]\!]}^2, \pi_{a, b}(x_j - x_i) \notin A_c, \\
+			\exists (i, j) \in [\![1, k]\!] \times [\![1, k_c - k - 1]\!], \\
+			\mspace{30mu}
+				\left \{
+				\begin{array}{l l}
+					(y_j - x_i) \mod a \notin A_c & ~\text{if}~ (y_j - x_i) \mod a > b \\
+					(y_j - x_i) \mod a \notin A_c ~\text{and}~ \pi_{a, b}(y_j - x_i) \notin A_c & ~\text{if}~ (y_j - x_i) \mod a 
+						\leqslant b \\
+				\end{array}
+				\right. \\
+			\exists (i, j) \in {[\![1, k_c - k - 1]\!]}^2, i < j ~\text{and}~ \pi_{a, b}(y_j - y_i) \notin A_c.
+		\end{array}
+		\right.
+	\end{array}\)
 \end{enumerate}
 \end{definition}
 
@@ -440,6 +495,21 @@ Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3
 Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soient \(a \in \mathbb{N}^*\) et \(b \in \mathbb{N}\) tels que \(\mathcal{T}_b(l_1, ..., l_s, t; a) \neq \varnothing\), et on fixe \(T\) un tel \(b\)-template. Soit \(d \in [\![1, a]\!]\) tel qu'il existe un coloriage de \([\![1, d]\!]\) à \(s + 1\) couleurs compatible avec \(T\).
 Alors \(L(k_1, ..., k_r, l_1, ..., l_s) - 2 \geqslant a (L(k_1, ..., k_r) - 2) + b + d\).
 \end{corollary}
+
+La construction présentée dans \cite{rowleyramseyabott} utilise des coloriages linéaires afin de construire des \(0\)-templates. La proposition suivante présente cette construction sous l'angle des \(b\)-templates.
+\begin{proposition}
+Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(n \in \mathbb{N}\) tel que \(\mathcal{L}(k_1, ..., k_r; n) \neq \varnothing\) et on se donne \(\gamma\) un tel coloriage. On définit un nouveau coloriage T de la manière suivante.
+\[\begin{array}{c c c l}
+	T : & [\![1, 2 n + 1]\!] & \longrightarrow & [\![1, r + 1]\!] \\
+	 & x & \longmapsto & \left\{
+		\begin{array}{l l}
+			\gamma(x) & ~\text{si}~ x \leqslant n \\
+			r + 1 & ~\text{si}~ x > n \\
+		\end{array}
+		\right.
+\end{array}\]
+Alors \(T \in \mathcal{T}_0(k_1, ..., k_r, t; 2 \, n + 1)\).
+\end{proposition}
 
 \begin{lemma}[associativité de la construction]
 TODO
