@@ -58,7 +58,7 @@ larger templates in \cite{schurboyz} for Schur numbers and in \cite{rowleyramsey
 Ramsey numbers and Schur numbers are defined in Section \ref{sec:def}. Section \ref{sec:temp} defines the 
 \(b\)-templates and describes the corrresponding construction. Section \ref{sec:results} states and proves the main 
 results on \(b\)-templates and on the construction. Section \ref{sec:bounds} records the new inequalities and some new 
-lower bounds.
+lower bounds. The improved templates can be found in Appendix \ref{appendix}.
 
 \section{Definitions}
 \label{sec:def}
@@ -437,8 +437,8 @@ For \(A \subset \mathbb{N}\) and \(k \in \mathbb{N}\), the set of increasing seq
 \(A\) is denoted by \(\mathfrak{I}_k(A)\).
 
 Let \(a \in \mathbb{N}^*\), \(b \in [\![0, a - 1]\!]\) and \(r \in \mathbb{N}\). Let 
-\((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Let \(T \in \mathcal{T}_b(k_1, ..., k_r; a)\) and 
-denote by \(A_1, ..., A_{r+1}\) the associated partition. Let \(d \in [\![0, a]\!]\). Let \(F\) be a coloring of 
+\((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Let \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) 
+and denote by \(A_1, ..., A_{r+1}\) the associated partition. Let \(d \in [\![0, a]\!]\). Let \(F\) be a coloring of 
 \([\![1, d]\!]\) with \(r +1\) colors and denote by \(B_1, ..., B_{r + 1}\) the associated partition. The coloring 
 \(F\) is said to be compatible with the \(b\)-template \(T\) if it satisfies:
 \begin{enumerate}[(i)]
@@ -492,6 +492,7 @@ Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3
 \end{theorem}
 
 \begin{corollary}[Inégalités pour les nombres de Ramsey linéaires]
+\label{thm:ineq}
 Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(s \in \mathbb{N}\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, +\infty[\![}^s\). Soient \(a \in \mathbb{N}^*\) et \(b \in \mathbb{N}\) tels que \(\mathcal{T}_b(l_1, ..., l_s, t; a) \neq \varnothing\), et on fixe \(T\) un tel \(b\)-template. Soit \(d \in [\![1, a]\!]\) tel qu'il existe un coloriage de \([\![1, d]\!]\) à \(s + 1\) couleurs compatible avec \(T\).
 Alors \(L(k_1, ..., k_r, l_1, ..., l_s) - 2 \geqslant a (L(k_1, ..., k_r) - 2) + b + d\).
 \end{corollary}
@@ -522,41 +523,159 @@ TODO
 TODO
 \end{theorem}
 
-\section{Nouvelles inégalités et bornes inférieures}
+\section{New inequalites and lower bounds}
 \label{sec:bounds}
 
-\subsection{Nombres de Schur}
+As in \cite{schurboyz} and \cite{rowleyramseysat}, the \(b\)-templates described in this article were found by encoding 
+the existence of the templates into a boolean formula and then using a SAT solver (here, the parallel version of the 
+Lingeling SAT solver \cite{Lingeling2017}).
 
-L'existence d'un 2-S-template de largeur 10 à 3 couleurs non exprimable en tant que S-template fournit une nouvelle inégalité. L'ancienne inégalité était \(S(n + 2) \geqslant 9 \, S(n) + 4\).
+\subsection{Multicolor Ramsey numbers}
 
-\begin{proposition}
-	\[\forall n \in \mathbb{N}^*, S(n + 2) \geqslant 10 \, S(n) + 2\]
-\end{proposition}
+The templates in Appendix \ref{appendix} provide inequalities of the form 
+\(L(k_1, ..., k_r, k_{r+1}, ..., k_{r+s}) \geqslant a \, L(k_1, ..., k_r) - 2 + d\). In table \ref{tab:ineq},"added 
+\(k_i\)'s" denotes the \( k_{r+1}, ..., k_{r+s}\) in the previous inequality and "\(b\)-template" indicates a 
+\(b\)-template which cannot be expressed as a sf-template.
 
-Cette inégalité fournit les nouvelles bornes inférieures suivantes : \(S(8) \geqslant 5\,362\) et \(S(13) \geqslant 2\,038\,282\) (contre respectivement \(5\,286\) dans \cite{RowleyRamsey} et \(2\,011\,290\) dans \cite{schurboyz}). Plus généralement, cette inégalité améliore les bornes inférieures des \(S(5 k + 3), \forall k \in \mathbb{N}^*\).
-
-\subsection{Nombres de Ramsey}
-
-On obtient des ingégalités de la forme \(L(k_1, ..., k_r, k_{r+1}, ..., k_{r+s}) - 2 \geqslant a \, (L(k_1, ..., k_r) - 2) + d\). Les "\(k_i\) ajoutés" désignent \( k_{r+1}, ..., k_{r+s}\). Dans le tableau ci-dessous, \(b\)-template désigne un \(b\)-template non exprimable en tant que template. Les anciennes valeurs viennent de \cite{rowleyramseysat}.
-\begin{table}[H]\begin{center}
+\begin{table}[H]
+\begin{center}
+\caption{Summarizing table of the new inequalities}
 \begin{tabular}{| c | c | c | c | c |}
 	\hline
-	\(k_i\) ajoutés & ancien (a, d) & nouveau (a, d) & type de template & coloriage final \\
+	added \(k_i\)'s & former (a, d) & new (a, d) & template type & final coloring \\
 	\hline
-	3, 3 & 9, 4 & 10, 2 & \(b\)-template & défaut \\
+	3, 3 & 9, 4 \cite{AbbottHanson} & 10, 2 & \(b\)-template & default \\
 	\hline
-	3, 4 & 18, 7 & 19, 2 & \(b\)-template & défaut \\
+	3, 4 & 18, 7 \cite{rowleyramseysat} & 19, 2 & \(b\)-template & default \\
 	\hline
-	3, 5 & 30, 12 & 31, 3 & \(b\)-template & spécifique \\
+	3, 5 & 30, 12 \cite{rowleyramseysat} & 31, 3 & \(b\)-template & specific \\
 	\hline
-	4, 5 & 51, 21 & 55, 23 & template & défaut \\
+	4, 5 & 51, 21 \cite{rowleyramseysat} & 55, 23 & sf-template & default \\
 	\hline
 \end{tabular}
-\end{center}\end{table}
+\end{center}
+\label{tab:ineq}
+\end{table}
 
-En ce qui concerne les bornes inférieures, on a  \(R_8(3) \geqslant 5\,364\) et \(R_{13}(3)\geqslant 2\,038\,284\) (contre respectivement \(5\,288\) dans \cite{RowleyRamsey} et \(2\,011\,292\) dans \cite{schurboyz}), et plus généralement une amélioration pour les \(R_{5 k + 3}(3), \forall k \in \mathbb{N}^*\). On a aussi \(R(3 , 4 , 5 , 5) \geqslant 764\) (contre 729 dans \cite{rowleyramseysat}). Il existe de nombreuses inégalités récursives et constructions pour les nombres de Ramsey. Afin de savoir quelles bornes précisément ont été améliorées, il faudrait recenser chacunes des bornes inférieures et des méthodes existantes puis calculer toutes les bornes et voir si cetaines sont améliorées. Il est probable que les inégalités de cette section permettent d'améliorer les bornes inférieures pour d'autres nombres de Ramsey mais je n'ai pas effectué cette vérification.
+\begin{table}[H]
+\begin{center}
+\caption{Summarizing table of the new lower bounds for small Ramsey numbers}
+\begin{tabular}{| c | c | c |}
+	\hline
+	Ramsey number & former lower bound & new lower bound \\
+	\hline
+	\(R_8(3)\) & \(5\,288\) \cite{RowleyRamsey} & \(5\,364\)  \\
+	\hline
+	\(R_{13}(3)\) & \(2\,011\,292\) \cite{schurboyz} & \(2\,038\,284\) \\
+	\hline
+	\(R(3 , 4 , 5 , 5)\) & 729 \cite{rowleyramseysat} & 764 \\
+	\hline
+\end{tabular}
+\end{center}
+\label{tab:bounds}
+\end{table}
+The template in \(\mathcal{L}_2(3, 3, t; 10)\) induces an inequality which improves the lower bounds for 
+\(R_{5 n + 3}(3)\) for all \(n \in \mathbb{N}^*\).
+
+\subsection{Schur numbers}
+
+The existence of a 2-template with width 10 and 3 colors which cannot be expressed as a sf-template provides an improved 
+inequality. The former corresponding inequality is \(S(n + 2) \geqslant 9 \, S(n) + 4\) \cite{AbbottHanson}.
+
+\begin{proposition}
+	\[\forall n \in \mathbb{N}, S(n + 2) \geqslant 10 \, S(n) + 2\]
+\end{proposition}
+
+This inequality provides the following improved lower bounds: \(S(8) \geqslant 5\,362\) and 
+\(S(13) \geqslant 2\,038\,282\) (the former lower bounds were respectively \(5\,286\) \cite{RowleyRamsey} and 
+\(2\,011\,290\) \cite{schurboyz}). More generally, this inequality improves the lower bounds for \(S(5 n + 3)\) for all 
+\(n \in \mathbb{N}^*\).
+
+\section{Acknowledgements}
+
+This study results from a long-term project performed within the framework of the Project Cluster "Training for 
+Research" of CentraleSupélec. I also would like to address warm thanks to Paul Casteras, Thibaut Pellerin and Yann 
+Portella with whom I started working on Schur and weak Schur numbers.
 
 \bibliographystyle{IEEEtran}
 \bibliography{biblio}
+
+\appendix
+
+\section{\(b\)-Templates}
+\label{appendix}
+
+\begin{table}[H]
+\caption{\(T \in \mathcal{T}_2(3, 3, t; 10)\)}
+\begin{center}
+\begin{tabular}{c}
+	\begin{tabular}{| c | c |}
+		\hline
+		1 & 1, 5, 8, 12 \\
+		\hline
+		2 & 2, 6, 7 \\
+		\hline
+		3 & 3, 4, 9, 10, 11 \\
+		\hline
+	\end{tabular} \\ \\
+	 Final coloring: \(\varnothing\)
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{\(T \in \mathcal{T}_2(3, 4, t; 19)\)}
+\begin{center}
+\begin{tabular}{c}
+	\begin{tabular}{| c | c |}
+		\hline
+		1 & 1, 6, 9, 13, 17, 21 \\
+		\hline
+		2 & 2, 7, 8, 10, 14, 15, 16 \\
+		\hline
+		3 & 3, 4, 5, 11, 12, 18, 19, 20 \\
+		\hline
+	\end{tabular} \\ \\
+	 Final coloring: \(\varnothing\)
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{\(T \in \mathcal{T}_2(3, 5, t; 31)\)}
+\begin{center}
+\begin{tabular}{c}
+	\begin{tabular}{| c | c |}
+		\hline
+		1 & 1, 5, 9, 12, 16, 19, 23, 26, 30 \\
+		\hline
+		2 & 2, 6, 7, 8, 10, 11, 17, 18, 24, 25, 27, 28, 29, 33 \\
+		\hline
+		3 & 3, 4, 13, 14, 15, 20, 21, 22, 31, 32 \\
+		\hline
+	\end{tabular} \\ \\
+	 Final coloring: \(F(1) = 1\)
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{\(T \in \mathcal{T}_0(5, 4, t; 55)\)}
+\begin{center}
+\begin{tabular}{c}
+	\begin{tabular}{| c | c |}
+		\hline
+		1 & 1, 5, 6, 7, 9, 10, 12, 14, 15, 17, 18, 19, 23, 25, 31, 48, 54 \\
+		\hline
+		2 & 2, 3, 4, 8, 11, 13, 16, 20, 21, 22, 26, 28, 51, 52, 53 \\
+		\hline
+		3 & 24, 27, 29, 30, 32, 33, 34, 35, 36, 37, 38, 39 \\
+		 & 40, 41, 42, 43, 44, 45, 46, 47, 49, 50, 55 \\
+		\hline
+	\end{tabular} \\ \\
+	 Final coloring: \(\coldef_0(T)\)
+\end{tabular}
+\end{center}
+\end{table}
 
 \end{document}
