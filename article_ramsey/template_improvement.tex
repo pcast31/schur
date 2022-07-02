@@ -13,6 +13,9 @@
 
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
+
+\hypersetup{hidelinks}
+
 \usepackage[utf8]{inputenc}
 \usepackage{siunitx}
 \usepackage{float}
@@ -161,12 +164,14 @@ Let \((a, p) \in {\mathbb{N}^*}^2\) and let \(b \in \mathbb{N}\). Let \((r, s) \
 (standing for "horizontal") be a coloring of \([\![1, a + b]\!]\) with \(r + 1\) colors, and let \(V\)  (standing for 
 "vertical") be a coloring of \([\![1, p]\!]\) with \(s\) colors. Let \(d \in \mathbb{N}\) and let \(F\) (standing for 
 "final") be a coloring of \([\![1, d]\!]\) with \(r + 1\) colors. The empty coloring (i.e. \(d = 0\)) is denoted by 
-\(F = \varnothing\). The construction produces a coloring \(\cons_b(H, V, F)\) of \([\![1, a p + b + d]\!]\) with 
-\(r + s\) colors.
+\(F = \varnothing\). If \(s \geqslant 3\) or \(s = 2\) and \(V(p) \neq 2\), set \(c = \max ([\![2, s]\!] \backslash 
+\{V(p)\})\). Otherwise, set \(c = s\). The construction produces a coloring \(\cons_b(H, V, F)\) of 
+\([\![1, a p + b + d]\!]\) with \(r + s\) colors.
 
 Informally, one starts by using the initial coloring \(I \defeq H_{| \, [\![1, b]\!]}\), then repeats \(p\) times the 
 pattern \(P \defeq H_{| \, [\![b + 1, a + b]\!]}\) while replacing at the \(i\)\textsuperscript{th} iteration the color 
-\(r + 1\) by \(r + \mathcal{V}(i)\), and eventually appends the coloring \(\mathcal{F}\). Formally:
+\(r + 1\) by \(r + \mathcal{V}(i)\), and eventually appends the coloring \(\mathcal{F}\) in which color \(r + 1\) is 
+replaced by \(r + c\). Formally:
 \[\begin{array}{ccl}
 	[\![1, a p + b + d]\!]  & \longrightarrow &  [\![1, r + s]\!] \\
  	x & \longmapsto & 
@@ -175,7 +180,8 @@ pattern \(P \defeq H_{| \, [\![b + 1, a + b]\!]}\) while replacing at the \(i\)\
 			H(\pi(x)) & ~\text{if}~  b + 1 \leqslant x \leqslant a p + b ~\text{and}~ H(\pi(x)) \neq r + 1 \\
 			r + V \left(\left\lceil \dfrac{x - b}{a} \right\rceil\right) & ~\text{if}~ b + 1 \leqslant x \leqslant a p + b 
 				~\text{and}~ H(\pi(x)) = r + 1 \\
-			F(x - a p - b) & ~\text{if}~ x \geqslant a p + b + 1
+			F(x - a p - b) & ~\text{if}~ x \geqslant a p + b + 1 ~\text{and}~ F(x - a p - b) \neq r + 1 \\
+			r + c & ~\text{if}~ x \geqslant a p + b + 1 ~\text{and}~ F(x - a p - b) = r + 1 \\
 		\end{array}\right.
 \end{array}\]
 \end{definition}
@@ -183,6 +189,7 @@ pattern \(P \defeq H_{| \, [\![b + 1, a + b]\!]}\) while replacing at the \(i\)\
 \begin{figure}[H]
 \caption{Example of construction with \(b = 5\)}
 \renewcommand{\arraystretch}{1.6}
+\small
 \begin{center}
 
 \begin{tabular}{c}
@@ -307,7 +314,7 @@ pattern \(P \defeq H_{| \, [\![b + 1, a + b]\!]}\) while replacing at the \(i\)\
 			\cellcolor{cyan}{5-11}
 			\cellcolor{red}{5-12}
 			\cellcolor{red}{6-1}
-			\cellcolor{cyan}{6-2}
+			\cellcolor{yellow}{6-2}
 			\cellcolor{green}{6-3}
 			\cellcolor{green}{6-4}
 		 \Body
@@ -440,26 +447,25 @@ Let \(a \in \mathbb{N}^*\), \(b \in [\![0, a - 1]\!]\) and \(r \in \mathbb{N}\).
 \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Let \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) 
 and denote by \(A_1, ..., A_{r+1}\) the associated partition. Let \(d \in [\![0, a]\!]\). Let \(F\) be a coloring of 
 \([\![1, d]\!]\) with \(r +1\) colors and denote by \(B_1, ..., B_{r + 1}\) the associated partition. The coloring 
-\(F\) is said to be compatible with the \(b\)-template \(T\) if it satisfies:
+\(F\) is said to be strongly compatible with the \(b\)-template \(T\) if it satisfies:
 \begin{enumerate}[(i)]
-\item \(a - b \notin B_{r + 1}\)
-\item \(\forall (x,y) \in A_{r+1}^2, (x + y > a + b ~\text{and}~ \pi_{a, b}(x + y) \leqslant d) \implies \pi_{a, b}
-	(x + y)  \notin B_{r+1}\)
-\item \(\forall (x,y) \in A_{r+1} \times B_{r+1}, x + y \leqslant d \implies x + y  \notin B_{r+1}\)
-\item \(\forall c \in [\![1, r]\!], \forall k \in [\![1, k_c-1]\!], \forall x \in \TS_{b, k}(A_c), \forall y \in 
-	\mathfrak{I}_{k_c - k - 1}(B_c), \\
+\item \label{cond:nocol} \(a - b \notin B_{r + 1}\)
+\item \label{cond:noover} \(\forall (x,y) \in A_{r+1}^2, (x + y > a + b ~\text{and}~ \pi_{a, b}(x + y) - b \leqslant d) 
+	\implies \pi_{a, b}(x + y) - b \notin B_{r+1}\)
+\item \label{cond:nolin} \(\forall (x,y) \in A_{r+1} \times B_{r+1}, x + y \leqslant d \implies x + y  \notin B_{r+1}\)
+\item \label{cond:notree} \(\forall c \in [\![1, r]\!], \forall k \in [\![1, k_c-1]\!], \forall x \in \TS_{b, k}(A_c), 
+	\forall y \in \mathfrak{I}_{k_c - k - 1}(B_c), \\
 	\begin{array}{l}
-		\mspace{30mu} 
 		\left\{ \text{or} 
 		\begin{array}{l}
 			\exists (i, j) \in {[\![1, k]\!]}^2, \pi_{a, b}(x_j - x_i) \notin A_c, \\
 			\exists (i, j) \in [\![1, k]\!] \times [\![1, k_c - k - 1]\!], \\
-			\mspace{30mu}
+			\mspace{15mu}
 				\left \{
 				\begin{array}{l l}
-					(y_j - x_i) \mod a \notin A_c & ~\text{if}~ (y_j - x_i) \mod a > b \\
-					(y_j - x_i) \mod a \notin A_c ~\text{and}~ \pi_{a, b}(y_j - x_i) \notin A_c & ~\text{if}~ (y_j - x_i) \mod a 
-						\leqslant b \\
+					(y_j + b - x_i) \mod a \notin A_c & ~\text{if}~ (y_j + b - x_i) \mod a > b \\
+					(y_j + b - x_i) \mod a \notin A_c ~\text{and}~ \pi_{a, b}(y_j + b - x_i) \notin A_c & ~\text{if}~ (y_j + b - x_i) 
+						\mod a \leqslant b \\
 				\end{array}
 				\right. \\
 			\exists (i, j) \in {[\![1, k_c - k - 1]\!]}^2, i < j ~\text{and}~ \pi_{a, b}(y_j - y_i) \notin A_c.
@@ -467,6 +473,14 @@ and denote by \(A_1, ..., A_{r+1}\) the associated partition. Let \(d \in [\![0,
 		\right.
 	\end{array}\)
 \end{enumerate}
+
+In practice, conditions (\ref{cond:noover}) and (\ref{cond:nolin}) can be weakened by replacing \(A_{r + 1}\) by 
+\(A_{r + 1} \backslash [\![1, b]\!]\); those modified conditions are respectively denoted by 
+(\(\widetilde{\ref{cond:noover}}\)) and (\(\widetilde{\ref{cond:nolin}}\)). The coloring \(F\) is said to be compatible 
+with the \(b\)-template \(T\) if it satisfies conditions (\ref{cond:nocol}), (\(\widetilde{\ref{cond:noover}}\)), 
+(\(\widetilde{\ref{cond:nolin}}\)) and (\ref{cond:notree}). The coloring \(F\) is said to be weakly compatible with the
+ \(b\)-template \(T\) if it satisfies conditions (\ref{cond:nocol}), (\(\widetilde{\ref{cond:noover}}\)) and 
+(\ref{cond:notree}). 
 \end{definition}
 
 \section{Properties of the \(b\)-templates}
