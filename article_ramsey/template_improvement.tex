@@ -486,16 +486,36 @@ with the \(b\)-template \(T\) if it satisfies conditions (\ref{cond:nocol}), (\(
 \section{Properties of the \(b\)-templates}
 \label{sec:results}
 
-On a une cractérisation similaire à celle donnée dans \cite{RowleyRamsey} pour les sf-templates.
-\begin{proposition}[Condition suffisante pour les templates]
-Soit \(a \in \mathbb{N}^*\), soit \(b \in \mathbb{N}\) et soit \(r \in \mathbb{N}\). Soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Soit \(T\) un coloriage de \([\![1,  a + b]\!]\) à \(r + 1\) couleurs. Soit \(d \in [\![1, a - 1 ]\!]\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Soit \(n \in [\![3, + \infty [\![\) tel que \(n \geqslant \max_{1 \leqslant c \leqslant r} k_c - 1\). Soit \(s \in \mathbb{N}^*\) et soit \((l_c)_{1 \leqslant c \leqslant s} \in {[\![3, + \infty [\![}^s\). Soit enfin \(\gamma \in \mathcal{L}(l_1, ..., l_s; n)\) tel qu'il existe une couleur \(c \in [\![1, s]\!]\) et un sous-ensemble \(S\) de \([\![1, n]\!]\) monochromatique de couleur \(c\) et de cardinal \(k_c - 2\) vérifiant pour tous \(x, y \in S\) distincts, \(\gamma(|x - y|) = c\). Supposons que \(\cons_b(T, \gamma, F) \in \mathcal{L}(k_1, ..., k_r, l_1, ..., l_s; a n + b + d)\). Alors \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) et \(F\) est compatible avec \(T\).
+\begin{proposition}
+Let \(r \in \mathbb{N}\) and let \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![3, +\infty[\![}^r\). Let 
+\(a \in \mathbb{N}^*\) and let \(b \in [\![0, a - 1]\!]\). Let \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\). Then 
+\(\coldef_b(T)\) is strongly compatible with \(T\).
 \end{proposition}
 
-\begin{proposition}[Compatibilité de la valeur par défaut]
-Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r}  \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Soit \(T \in \mathcal{T}_b(k_1, ..., k_r, t; a)\) un \(b\)-template. Alors \(T\) et \(\coldef_b(T)\) sont compatibles.
-\end{proposition}
+\begin{proof}
+TODO
+\end{proof}
 
-\begin{theorem}[Construction de coloriages linéaires]
+\begin{lemma}
+Let \(a \in \mathbb{N}^*\), \(b \in [\![0, a - 1 ]\!]\) and \(r \in \mathbb{N}^*\). Let 
+\((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, + \infty [\![}^r\). Let \(T\) be a coloring of \([\![1,  a + b]\!]\) 
+with \(r + 1\) colors. Let \(d \in [\![0, a]\!]\) and let \(F\) be a coloring of \([\![1, d]\!]\) with \(r + 1\) 
+colors. Set \(k = \max_{1 \leqslant c \leqslant r} k_c - 1\).
+
+Define the following three colorings.
+\[\begin{array}{l c c c l}
+	V_\mathit{strong} : & [\![1, k - 2]\!] & \longrightarrow & \{1\} & \\
+	 & x & \longmapsto & 1 & \\
+	 & & & & \\
+	V_\mathit{reg} : & [\![1, k - 2]\!] & \longrightarrow & \{1\} & \\
+	 & x & \longmapsto & 1 & \\
+	 & & & & \\
+	V_\mathit{weak} : & [\![1, k - 2]\!] & \longrightarrow & \{1\} & \\
+	 & x & \longmapsto & 1 & \\
+\end{array}\]
+\end{lemma}
+
+\begin{theorem}[Construction of linear colorings]
 \label{thm:b-temp}
 Soit \(r \in \mathbb{N}\) et soit \((k_c)_{1 \leqslant c \leqslant r} \in {[\![3, +\infty[\![}^r\). Soit \(a \in \mathbb{N}^*\) et soit \(b \in \mathbb{N}\). Soit \(H\) un coloriage de \([\![1, a + b]\!]\) à \(r + 1\) couleurs. Soit \(d \in [\![0, a - 1]\!]\) et soit \(F\) un coloriage de \([\![1, d]\!]\) à \(r + 1\) couleurs. Les deux conditions suivantes sont équivalentes.
 
